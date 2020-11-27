@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E0052570F65D00A56E7E /* SearchPageViewController.swift */; };
 		7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E0062570F65D00A56E7E /* SearchPageViewController.xib */; };
+		7120E00D2571116400A56E7E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E00B2571116400A56E7E /* CategoryViewController.swift */; };
+		7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E00C2571116400A56E7E /* CategoryViewController.xib */; };
 		717569232570CFD300417B9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569222570CFD300417B9C /* AppDelegate.swift */; };
 		717569252570CFD300417B9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569242570CFD300417B9C /* SceneDelegate.swift */; };
 		7175692C2570CFD600417B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7175692B2570CFD600417B9C /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		7120E0052570F65D00A56E7E /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
 		7120E0062570F65D00A56E7E /* SearchPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPageViewController.xib; sourceTree = "<group>"; };
+		7120E00B2571116400A56E7E /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		7120E00C2571116400A56E7E /* CategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
 		7175691F2570CFD300417B9C /* MandarinUrbanDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MandarinUrbanDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717569222570CFD300417B9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		717569242570CFD300417B9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 			children = (
 				71E7F3302570D67900F15098 /* HomePageViewController.xib */,
 				7120E0062570F65D00A56E7E /* SearchPageViewController.xib */,
+				7120E00C2571116400A56E7E /* CategoryViewController.xib */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			children = (
 				71E7F33B2570D6FD00F15098 /* HomePageViewController.swift */,
 				7120E0052570F65D00A56E7E /* SearchPageViewController.swift */,
+				7120E00B2571116400A56E7E /* CategoryViewController.swift */,
 			);
 			name = Controller;
 			path = MandarinUrbanDictionary/Controller;
@@ -281,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */,
 				71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */,
 				71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */,
 				7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */,
@@ -359,6 +366,7 @@
 			files = (
 				71E7F3462570D73700F15098 /* UICollectionView+Extension.swift in Sources */,
 				71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */,
+				7120E00D2571116400A56E7E /* CategoryViewController.swift in Sources */,
 				71E7F34C2570D75B00F15098 /* Definition.swift in Sources */,
 				71E7F3432570D73700F15098 /* UIImageView+Extension.swift in Sources */,
 				71E7F3452570D73700F15098 /* UIView+Extension.swift in Sources */,

@@ -21,13 +21,18 @@ class SearchPageViewController: UIViewController {
     }
     
     @objc func showList() {
-        print("Show Matrix")
+        let categoryViewController = CategoryViewController()
+        
+        present(categoryViewController, animated: true)
     }
 }
 
 private extension SearchPageViewController {
     func setup() {
         searchBarContainerView.backgroundColor = .searchBarGreen
+        
+        searchBarContainerView.setCorner(radius: 10.0)
+        
         cancelButton.setTitleColor(.white, for: .normal)
     }
     
@@ -47,5 +52,9 @@ private extension SearchPageViewController {
         navigationItem.title = "全部"
             
         navigationController.navigationBar.tintColor = .white
+    }
+    
+    func showCategoryView() {
+//        let blackView
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E0052570F65D00A56E7E /* SearchPageViewController.swift */; };
+		7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E0062570F65D00A56E7E /* SearchPageViewController.xib */; };
 		717569232570CFD300417B9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569222570CFD300417B9C /* AppDelegate.swift */; };
 		717569252570CFD300417B9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569242570CFD300417B9C /* SceneDelegate.swift */; };
 		7175692C2570CFD600417B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7175692B2570CFD600417B9C /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7120E0052570F65D00A56E7E /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
+		7120E0062570F65D00A56E7E /* SearchPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPageViewController.xib; sourceTree = "<group>"; };
 		7175691F2570CFD300417B9C /* MandarinUrbanDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MandarinUrbanDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717569222570CFD300417B9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		717569242570CFD300417B9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				71E7F3302570D67900F15098 /* HomePageViewController.xib */,
+				7120E0062570F65D00A56E7E /* SearchPageViewController.xib */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				71E7F33B2570D6FD00F15098 /* HomePageViewController.swift */,
+				7120E0052570F65D00A56E7E /* SearchPageViewController.swift */,
 			);
 			name = Controller;
 			path = MandarinUrbanDictionary/Controller;
@@ -280,6 +286,7 @@
 				7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */,
 				7175694C2570D0FE00417B9C /* GoogleService-Info.plist in Resources */,
 				7175692C2570CFD600417B9C /* Assets.xcassets in Resources */,
+				7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +365,7 @@
 				71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */,
 				71E7F34D2570D75B00F15098 /* Word.swift in Sources */,
 				71E7F3382570D67900F15098 /* NewPostButtonView.swift in Sources */,
+				7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */,
 				71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */,
 				717569232570CFD300417B9C /* AppDelegate.swift in Sources */,
 				71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */,

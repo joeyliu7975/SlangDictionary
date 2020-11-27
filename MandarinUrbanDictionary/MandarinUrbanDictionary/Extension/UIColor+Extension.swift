@@ -11,9 +11,13 @@ private enum Color: String {
     
     case lightGreen = "#FEFFF2"
     
+    case darkGreen = "6D9B2C"
+    
     case barButtonRed = "#FC573A"
     
     case popularWordCollection = "DFBDA9"
+    
+    case searchBarGreen = "90C14A"
 }
 
 extension UIColor {
@@ -21,6 +25,10 @@ extension UIColor {
     static let lightGreen = renderColor(.lightGreen)
     /// RedColor for barButtonItem
     static let barButtonRed = renderColor(.barButtonRed)
+    /// GreenColor for searchBar containerView
+    static let searchBarGreen = renderColor(.searchBarGreen)
+    /// Dark Green for NavigationBar 
+    static let darkGreen = renderColor(.darkGreen)
     
     static let popularWordCollectionBrown = renderColor(.popularWordCollection)
     

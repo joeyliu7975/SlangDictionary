@@ -13,7 +13,5 @@ class NewPostButtonView: UIView {
     
     @IBAction func writeNewPost(_ sender: UIButton) {
         print("123")
-    }
-
-    
+    }    
 }

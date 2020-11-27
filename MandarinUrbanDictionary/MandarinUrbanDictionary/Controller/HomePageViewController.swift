@@ -12,8 +12,8 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var searchbar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var writeNewWordButtonView: NewPostButtonView!
     
     var viewModel = HomePageViewModel()
@@ -27,7 +27,23 @@ class HomePageViewController: UIViewController {
         setupCollectionView()
     }
     
-    private func setup() {
+    @IBAction func clickSearch(_ sender: UIButton) {
+        let searchViewController = SearchPageViewController()
+        
+        let navController = UINavigationController(rootViewController: searchViewController)
+        
+        navController.modalPresentationStyle = .fullScreen
+        
+        present(navController, animated: true)
+    }
+    
+    @objc func showSideMenu() {
+        print("show")
+    }
+}
+
+private extension HomePageViewController {
+    func setup() {
         view.backgroundColor = UIColor.lightGreen
         
         logoImageView.image = UIImage.homeLogo
@@ -47,7 +63,7 @@ class HomePageViewController: UIViewController {
         )
     }
     
-    private func setupNavigationController() {
+    func setupNavigationController() {
         guard let navigationController = self.navigationController else { return }
         
         navigationController.navigationBar.backgroundColor = UIColor.lightGreen
@@ -62,14 +78,10 @@ class HomePageViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = sideMenuButton
     }
     
-    private func setupCollectionView() {
+    func setupCollectionView() {
         collectionView.registerCell(String(describing: MostViewedWordCollectionViewCell.self))
         collectionView.delegate = self
         collectionView.dataSource = self
-    }
-    
-    @objc func showSideMenu() {
-        print("show")
     }
 }
 

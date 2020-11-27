@@ -12,7 +12,7 @@
             <connections>
                 <outlet property="collectionView" destination="eMd-zo-Hxv" id="KJm-Lu-dTY"/>
                 <outlet property="logoImageView" destination="M9m-Ri-aZX" id="8Rj-NV-DW8"/>
-                <outlet property="searchbar" destination="0Da-bt-pik" id="AcV-iW-m3e"/>
+                <outlet property="searchButton" destination="iYM-Ld-E9z" id="wHX-h1-H8I"/>
                 <outlet property="subtitleLabel" destination="zoQ-0t-V6e" id="P0x-iT-R31"/>
                 <outlet property="titleLabel" destination="xvF-lb-r4e" id="alS-5a-aTn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -37,23 +37,19 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MUDictionary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvF-lb-r4e">
                             <rect key="frame" x="0.0" y="0.0" width="120" height="24"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" red="0.29019607843137252" green="0.21568627450980393" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="since 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoQ-0t-V6e">
                             <rect key="frame" x="0.0" y="29" width="85" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" red="0.29019607843137252" green="0.21568627450980393" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                 </stackView>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0Da-bt-pik">
-                    <rect key="frame" x="10" y="234" width="394" height="56"/>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eMd-zo-Hxv">
-                    <rect key="frame" x="0.0" y="340" width="414" height="422"/>
+                    <rect key="frame" x="0.0" y="314" width="414" height="448"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nhn-Nd-VJU">
                         <size key="itemSize" width="128" height="128"/>
@@ -105,6 +101,19 @@
                         <outlet property="writeButton" destination="f9a-mE-MmA" id="J3T-mx-ezK"/>
                     </connections>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYM-Ld-E9z">
+                    <rect key="frame" x="20" y="234" width="374" height="60"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="jvX-BM-Nz9"/>
+                    </constraints>
+                    <state key="normal" title="Search" image="search">
+                        <color key="titleColor" systemColor="labelColor"/>
+                    </state>
+                    <connections>
+                        <action selector="clickSearch:" destination="-1" eventType="touchUpInside" id="tsr-zK-bsl"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -112,12 +121,12 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eMd-zo-Hxv" secondAttribute="trailing" id="0rd-sk-M2a"/>
                 <constraint firstItem="XAu-g2-XRf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-10" id="3z3-WB-VnP"/>
                 <constraint firstItem="M9m-Ri-aZX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="4l3-Ct-gaw"/>
+                <constraint firstItem="eMd-zo-Hxv" firstAttribute="top" secondItem="iYM-Ld-E9z" secondAttribute="bottom" constant="20" id="8HO-6A-H60"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iYM-Ld-E9z" secondAttribute="trailing" constant="20" id="8Hp-Fi-Ayp"/>
                 <constraint firstItem="Aud-NL-tKd" firstAttribute="centerY" secondItem="M9m-Ri-aZX" secondAttribute="centerY" id="8R0-mf-EyY"/>
-                <constraint firstItem="eMd-zo-Hxv" firstAttribute="top" secondItem="0Da-bt-pik" secondAttribute="bottom" constant="50" id="BTt-vu-Rm5"/>
-                <constraint firstItem="0Da-bt-pik" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="Dvk-dR-pPz"/>
-                <constraint firstItem="0Da-bt-pik" firstAttribute="top" secondItem="M9m-Ri-aZX" secondAttribute="bottom" constant="20" id="IlO-gM-HNW"/>
+                <constraint firstItem="iYM-Ld-E9z" firstAttribute="top" secondItem="M9m-Ri-aZX" secondAttribute="bottom" constant="20" id="GEe-Tm-J6e"/>
                 <constraint firstItem="eMd-zo-Hxv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bT7-xy-oc8"/>
-                <constraint firstItem="0Da-bt-pik" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-10" id="g2S-VA-iQa"/>
+                <constraint firstItem="iYM-Ld-E9z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="hiF-sS-BES"/>
                 <constraint firstItem="XAu-g2-XRf" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-10" id="mZe-Ow-emK"/>
                 <constraint firstItem="XAu-g2-XRf" firstAttribute="top" secondItem="eMd-zo-Hxv" secondAttribute="bottom" constant="30" id="siw-6u-rob"/>
                 <constraint firstItem="Aud-NL-tKd" firstAttribute="leading" secondItem="M9m-Ri-aZX" secondAttribute="trailing" constant="15" id="thU-0G-faM"/>
@@ -128,6 +137,10 @@
     </objects>
     <resources>
         <image name="featherPen" width="64" height="64"/>
+        <image name="search" width="24" height="24"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

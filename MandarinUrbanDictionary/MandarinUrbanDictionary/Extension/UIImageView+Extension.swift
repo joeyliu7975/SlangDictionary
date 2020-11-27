@@ -13,7 +13,11 @@ private enum Image: String {
     
     case featherPen = "featherPen"
     
-    case homeLogo = "Logo"
+    case homeLogo = "homeLogo"
+    
+    case search = "search"
+    
+    case matrix = "matrix"
 }
 
 extension UIImage {
@@ -23,6 +27,10 @@ extension UIImage {
     static let list = setImage(.list)
     
     static let homeLogo = setImage(.homeLogo)
+    
+    static let search = setImage(.search)
+    
+    static let matrix = setImage(.matrix)
     
     private static func setImage(_ image: Image) -> UIImage {
         guard let customImage = UIImage(named: image.rawValue) else {

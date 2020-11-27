@@ -3,27 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		717569232570CFD300417B9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569222570CFD300417B9C /* AppDelegate.swift */; };
 		717569252570CFD300417B9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569242570CFD300417B9C /* SceneDelegate.swift */; };
-		717569272570CFD300417B9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569262570CFD300417B9C /* ViewController.swift */; };
-		7175692A2570CFD300417B9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717569282570CFD300417B9C /* Main.storyboard */; };
 		7175692C2570CFD600417B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7175692B2570CFD600417B9C /* Assets.xcassets */; };
 		7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7175692D2570CFD600417B9C /* LaunchScreen.storyboard */; };
+		7175694C2570D0FE00417B9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7175694B2570D0FE00417B9C /* GoogleService-Info.plist */; };
+		E19594E26AB12FCE94225D78 /* Pods_MandarinUrbanDictionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD79464FBEA10AB0680FA634 /* Pods_MandarinUrbanDictionary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7175691F2570CFD300417B9C /* MandarinUrbanDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MandarinUrbanDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717569222570CFD300417B9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		717569242570CFD300417B9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		717569262570CFD300417B9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		717569292570CFD300417B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7175692B2570CFD600417B9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7175692E2570CFD600417B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		717569302570CFD600417B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7175694B2570D0FE00417B9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BD79464FBEA10AB0680FA634 /* Pods_MandarinUrbanDictionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MandarinUrbanDictionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9ED06464B995D3E2CBF6928 /* Pods-MandarinUrbanDictionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MandarinUrbanDictionary.release.xcconfig"; path = "Target Support Files/Pods-MandarinUrbanDictionary/Pods-MandarinUrbanDictionary.release.xcconfig"; sourceTree = "<group>"; };
+		F18C21768667612211CB775E /* Pods-MandarinUrbanDictionary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MandarinUrbanDictionary.debug.xcconfig"; path = "Target Support Files/Pods-MandarinUrbanDictionary/Pods-MandarinUrbanDictionary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E19594E26AB12FCE94225D78 /* Pods_MandarinUrbanDictionary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +45,8 @@
 			children = (
 				717569212570CFD300417B9C /* MandarinUrbanDictionary */,
 				717569202570CFD300417B9C /* Products */,
+				BD46FC664045AE34D3F9C256 /* Pods */,
+				E6EC90ACA63C2F6AD7C57BF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +61,47 @@
 		717569212570CFD300417B9C /* MandarinUrbanDictionary */ = {
 			isa = PBXGroup;
 			children = (
-				717569222570CFD300417B9C /* AppDelegate.swift */,
-				717569242570CFD300417B9C /* SceneDelegate.swift */,
-				717569262570CFD300417B9C /* ViewController.swift */,
-				717569282570CFD300417B9C /* Main.storyboard */,
+				717569782570D35100417B9C /* Fundmental */,
 				7175692B2570CFD600417B9C /* Assets.xcassets */,
-				7175692D2570CFD600417B9C /* LaunchScreen.storyboard */,
-				717569302570CFD600417B9C /* Info.plist */,
+				7175694A2570D0F000417B9C /* Supporting Files */,
 			);
 			path = MandarinUrbanDictionary;
+			sourceTree = "<group>";
+		};
+		7175694A2570D0F000417B9C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7175692D2570CFD600417B9C /* LaunchScreen.storyboard */,
+				7175694B2570D0FE00417B9C /* GoogleService-Info.plist */,
+				717569302570CFD600417B9C /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		717569782570D35100417B9C /* Fundmental */ = {
+			isa = PBXGroup;
+			children = (
+				717569222570CFD300417B9C /* AppDelegate.swift */,
+				717569242570CFD300417B9C /* SceneDelegate.swift */,
+			);
+			path = Fundmental;
+			sourceTree = "<group>";
+		};
+		BD46FC664045AE34D3F9C256 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F18C21768667612211CB775E /* Pods-MandarinUrbanDictionary.debug.xcconfig */,
+				D9ED06464B995D3E2CBF6928 /* Pods-MandarinUrbanDictionary.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E6EC90ACA63C2F6AD7C57BF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD79464FBEA10AB0680FA634 /* Pods_MandarinUrbanDictionary.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +111,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 717569332570CFD600417B9C /* Build configuration list for PBXNativeTarget "MandarinUrbanDictionary" */;
 			buildPhases = (
+				412638A3035C4D813576EE70 /* [CP] Check Pods Manifest.lock */,
 				7175691B2570CFD300417B9C /* Sources */,
 				7175691C2570CFD300417B9C /* Frameworks */,
 				7175691D2570CFD300417B9C /* Resources */,
+				14A3E35124F544F9D1735DD3 /* [CP] Embed Pods Frameworks */,
+				717569502570D1CD00417B9C /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -125,19 +165,78 @@
 			buildActionMask = 2147483647;
 			files = (
 				7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */,
+				7175694C2570D0FE00417B9C /* GoogleService-Info.plist in Resources */,
 				7175692C2570CFD600417B9C /* Assets.xcassets in Resources */,
-				7175692A2570CFD300417B9C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14A3E35124F544F9D1735DD3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MandarinUrbanDictionary/Pods-MandarinUrbanDictionary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MandarinUrbanDictionary/Pods-MandarinUrbanDictionary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MandarinUrbanDictionary/Pods-MandarinUrbanDictionary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		412638A3035C4D813576EE70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MandarinUrbanDictionary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		717569502570D1CD00417B9C /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7175691B2570CFD300417B9C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				717569272570CFD300417B9C /* ViewController.swift in Sources */,
 				717569232570CFD300417B9C /* AppDelegate.swift in Sources */,
 				717569252570CFD300417B9C /* SceneDelegate.swift in Sources */,
 			);
@@ -146,14 +245,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		717569282570CFD300417B9C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				717569292570CFD300417B9C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7175692D2570CFD600417B9C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,11 +374,12 @@
 		};
 		717569342570CFD600417B9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F18C21768667612211CB775E /* Pods-MandarinUrbanDictionary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MandarinUrbanDictionary/Info.plist;
+				INFOPLIST_FILE = "MandarinUrbanDictionary/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,11 +393,12 @@
 		};
 		717569352570CFD600417B9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9ED06464B995D3E2CBF6928 /* Pods-MandarinUrbanDictionary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MandarinUrbanDictionary/Info.plist;
+				INFOPLIST_FILE = "MandarinUrbanDictionary/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

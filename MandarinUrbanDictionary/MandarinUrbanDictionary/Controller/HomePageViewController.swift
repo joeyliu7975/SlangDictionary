@@ -61,9 +61,6 @@ private extension HomePageViewController {
             radius: writeNewWordButtonView.frame.width / 2,
             maskToBounds: true
         )
-        
-        searchButton.imageView?.contentMode = .scaleAspectFit
-        searchButton.imageView?.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
     }
     
     func setupNavigationController() {

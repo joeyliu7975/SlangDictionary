@@ -18,6 +18,10 @@ private enum Color: String {
     case popularWordCollection = "DFBDA9"
     
     case searchBarGreen = "90C14A"
+    
+    case logoCircleGreen = "CCD8BB"
+    
+    case searchButtonTitleGray = "909090"
 }
 
 extension UIColor {
@@ -31,6 +35,10 @@ extension UIColor {
     static let darkGreen = renderColor(.darkGreen)
     
     static let popularWordCollectionBrown = renderColor(.popularWordCollection)
+    
+    static let logoCircleGreen = renderColor(.logoCircleGreen)
+    
+    static let searchButtonTitleGray = renderColor(.searchButtonTitleGray)
     
     private static func renderColor(_ color: Color) -> UIColor {
         

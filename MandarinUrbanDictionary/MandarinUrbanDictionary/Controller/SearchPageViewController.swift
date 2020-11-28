@@ -32,6 +32,8 @@ private extension SearchPageViewController {
         searchBarContainerView.backgroundColor = .searchBarGreen
             
         cancelButton.setTitleColor(.white, for: .normal)
+        
+        searchBar.setTextColor(.white)
     }
     
     func setupNav() {

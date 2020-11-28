@@ -24,8 +24,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6d-Vg-4rh">
                     <rect key="frame" x="0.0" y="44" width="414" height="64"/>
                     <subviews>
-                        <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="e8m-oX-o5W">
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="e8m-oX-o5W">
                             <rect key="frame" x="0.0" y="10" width="352" height="44"/>
+                            <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9a-rl-Q2M">

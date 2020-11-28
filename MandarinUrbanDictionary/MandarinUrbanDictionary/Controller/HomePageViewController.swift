@@ -34,6 +34,8 @@ class HomePageViewController: UIViewController {
         
         navController.modalPresentationStyle = .fullScreen
         
+        navController.modalTransitionStyle = .crossDissolve
+        
         present(navController, animated: true)
     }
     

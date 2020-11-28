@@ -20,6 +20,10 @@ class SearchPageViewController: UIViewController {
         setupNav()
     }
     
+    @IBAction func cancelSearch(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    
     @objc func showList() {
         let categoryViewController = CategoryViewController()
         

@@ -35,6 +35,9 @@
                                 <color key="titleColor" systemColor="systemBlueColor"/>
                                 <color key="titleShadowColor" systemColor="systemBlueColor"/>
                             </state>
+                            <connections>
+                                <action selector="cancelSearch:" destination="-1" eventType="touchUpInside" id="pjO-3u-hxW"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

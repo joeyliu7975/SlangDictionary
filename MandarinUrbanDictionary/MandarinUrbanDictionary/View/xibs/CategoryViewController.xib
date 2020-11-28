@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryViewController" customModule="MandarinUrbanDictionary" customModuleProvider="target">
             <connections>
-                <outlet property="categoryView" destination="FHu-k0-OKO" id="Yo3-Qe-rY5"/>
+                <outlet property="categoryCollectionView" destination="FHu-k0-OKO" id="Yo3-Qe-rY5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

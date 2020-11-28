@@ -13,7 +13,7 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchButton: SearchButton!
     @IBOutlet weak var writeNewWordButtonView: NewPostButtonView!
     
     var viewModel = HomePageViewModel()
@@ -61,6 +61,9 @@ private extension HomePageViewController {
             radius: writeNewWordButtonView.frame.width / 2,
             maskToBounds: true
         )
+        
+        searchButton.imageView?.contentMode = .scaleAspectFit
+        searchButton.imageView?.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
     }
     
     func setupNavigationController() {

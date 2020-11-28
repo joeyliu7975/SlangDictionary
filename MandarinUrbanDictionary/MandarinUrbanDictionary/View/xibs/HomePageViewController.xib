@@ -101,14 +101,16 @@
                         <outlet property="writeButton" destination="f9a-mE-MmA" id="J3T-mx-ezK"/>
                     </connections>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYM-Ld-E9z">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYM-Ld-E9z" customClass="SearchButton" customModule="MandarinUrbanDictionary" customModuleProvider="target">
                     <rect key="frame" x="20" y="234" width="374" height="60"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="jvX-BM-Nz9"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Search" image="search">
-                        <color key="titleColor" systemColor="labelColor"/>
+                        <color key="titleColor" red="0.74901753660000003" green="0.74900567529999995" blue="0.74902039769999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </state>
                     <connections>
                         <action selector="clickSearch:" destination="-1" eventType="touchUpInside" id="tsr-zK-bsl"/>
@@ -137,10 +139,7 @@
     </objects>
     <resources>
         <image name="featherPen" width="64" height="64"/>
-        <image name="search" width="24" height="24"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="search" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

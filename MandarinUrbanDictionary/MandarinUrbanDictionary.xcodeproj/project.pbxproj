@@ -128,6 +128,7 @@
 				71E7F3482570D75100F15098 /* Utility */,
 				71E7F33E2570D73700F15098 /* Extension */,
 				71E7F32E2570D67900F15098 /* View */,
+				71E7F3342570D67900F15098 /* NewPostButtonView.swift */,
 				71E7F33A2570D6FD00F15098 /* Controller */,
 				717569782570D35100417B9C /* Fundmental */,
 				7175692B2570CFD600417B9C /* Assets.xcassets */,
@@ -160,7 +161,6 @@
 			children = (
 				71E7F32F2570D67900F15098 /* xibs */,
 				71E7F3312570D67900F15098 /* CollectionViewCell */,
-				71E7F3342570D67900F15098 /* NewPostButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

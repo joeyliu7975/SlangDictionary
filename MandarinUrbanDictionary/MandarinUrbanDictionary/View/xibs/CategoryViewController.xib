@@ -10,7 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryViewController" customModule="MandarinUrbanDictionary" customModuleProvider="target">
             <connections>
-                <outlet property="categoryCollectionView" destination="FHu-k0-OKO" id="Yo3-Qe-rY5"/>
+                <outlet property="categoryCollectionView" destination="DON-Cv-ZyY" id="OFC-uA-xmt"/>
+                <outlet property="containerView" destination="c5I-tT-3md" id="o4E-3s-4DR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,30 +20,61 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="FHu-k0-OKO">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5I-tT-3md">
                     <rect key="frame" x="20" y="94" width="374" height="668"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DON-Cv-ZyY">
+                            <rect key="frame" x="0.0" y="10" width="374" height="598"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bst-SH-hic">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gik-Af-2H6">
+                            <rect key="frame" x="137" y="618" width="100" height="40"/>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="HmF-er-VUW"/>
+                                <constraint firstAttribute="width" constant="100" id="ol8-8M-CeO"/>
+                            </constraints>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oho-Pl-yP6">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Gik-Af-2H6" secondAttribute="bottom" constant="10" id="bmv-Kx-2lS"/>
+                        <constraint firstItem="DON-Cv-ZyY" firstAttribute="top" secondItem="c5I-tT-3md" secondAttribute="top" constant="10" id="dMa-5a-hcw"/>
+                        <constraint firstItem="Gik-Af-2H6" firstAttribute="top" secondItem="DON-Cv-ZyY" secondAttribute="bottom" constant="10" id="lGa-nq-bcH"/>
+                        <constraint firstItem="DON-Cv-ZyY" firstAttribute="leading" secondItem="c5I-tT-3md" secondAttribute="leading" id="lwh-vH-tH1"/>
+                        <constraint firstAttribute="trailing" secondItem="DON-Cv-ZyY" secondAttribute="trailing" id="uKq-DK-lEA"/>
+                        <constraint firstItem="Gik-Af-2H6" firstAttribute="centerX" secondItem="c5I-tT-3md" secondAttribute="centerX" id="vYp-XT-F32"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FHu-k0-OKO" secondAttribute="bottom" constant="100" id="8z2-ie-yXS"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FHu-k0-OKO" secondAttribute="trailing" constant="20" id="CdG-yQ-92I"/>
-                <constraint firstItem="FHu-k0-OKO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="LCf-fX-c9L"/>
-                <constraint firstItem="FHu-k0-OKO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="QAp-DW-2n4"/>
+                <constraint firstItem="c5I-tT-3md" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="IXh-Bf-q1H"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="c5I-tT-3md" secondAttribute="trailing" constant="20" id="ZHM-Se-pC9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="c5I-tT-3md" secondAttribute="bottom" constant="100" id="vHZ-3m-0Tp"/>
+                <constraint firstItem="c5I-tT-3md" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="vWc-7c-CEN"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="119"/>
+            <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="atj-Z4-VhE">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+            <point key="canvasLocation" x="709" y="146"/>
+        </button>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

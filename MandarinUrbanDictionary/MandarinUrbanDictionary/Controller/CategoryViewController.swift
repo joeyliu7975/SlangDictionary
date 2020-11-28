@@ -19,11 +19,10 @@ enum Category: CaseIterable {
     case relationship
 }
 
-
-
 class CategoryViewController: UIViewController {
 
     @IBOutlet weak var categoryCollectionView: UICollectionView!
+    @IBOutlet weak var containerView: UIView!
     
     let categoryList = Category.allCases
     
@@ -36,7 +35,7 @@ class CategoryViewController: UIViewController {
     }
 
     func setup() {
-        categoryCollectionView.setCorner(radius: 20.0)
+        containerView.setCorner(radius: 20.0)
         
         categoryCollectionView.registerCell(String(describing: CategoryCollectionViewCell.self))
     }

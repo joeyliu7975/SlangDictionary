@@ -6,15 +6,16 @@
 //
 
 import UIKit
+import FSPagerView
 
 class HomePageViewController: UIViewController {
 
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchButton: SearchButton!
     @IBOutlet weak var writeNewWordButtonView: NewPostButtonView!
+    @IBOutlet weak var pagerView: FSPagerView!
     
     var viewModel = HomePageViewModel()
     
@@ -24,7 +25,7 @@ class HomePageViewController: UIViewController {
         // Do any additional setup after loading the view.
         setup()
         setupNavigationController()
-        setupCollectionView()
+        setupPagerView()
     }
     
     @IBAction func clickSearch(_ sender: UIButton) {
@@ -66,28 +67,31 @@ private extension HomePageViewController {
         self.navigationItem.leftBarButtonItem = sideMenuButton
     }
     
-    func setupCollectionView() {
-        collectionView.registerCell(MostViewedWordCollectionViewCell.identifierName)
-        collectionView.delegate = self
-        collectionView.dataSource = self
+    func setupPagerView() {
+        pagerView.registerCell(MostViewedWordCollectionViewCell.identifierName)
+        
+        pagerView.transformer = FSPagerViewTransformer(type: .coverFlow)
+        
+        pagerView.delegate = self
+        pagerView.dataSource = self
     }
 }
 
-extension HomePageViewController: UICollectionViewDelegate {
+extension HomePageViewController: FSPagerViewDelegate {
     
 }
 
-extension HomePageViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.cellCount
+extension HomePageViewController: FSPagerViewDataSource {
+    func numberOfItems(in pagerView: FSPagerView) -> Int {
+        return viewModel.cellCount
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = UICollectionViewCell()
+    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        var cell = FSPagerViewCell()
         
-        let collectionViewContent = viewModel.collectionViewContents[indexPath.row]
+        let collectionViewContent = viewModel.collectionViewContents[index]
         
-       cell = collectionView.dequeueReusableCell(withReuseIdentifier: MostViewedWordCollectionViewCell.identifierName, for: indexPath)
+        cell = pagerView.dequeueReusableCell(withReuseIdentifier: MostViewedWordCollectionViewCell.identifierName, at: index)
         
         if let mostViewedCell = cell as? MostViewedWordCollectionViewCell {
             mostViewedCell.renderImage(name: collectionViewContent)
@@ -96,13 +100,36 @@ extension HomePageViewController: UICollectionViewDataSource {
         
         return cell
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        viewModel.cellCount
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        var cell = UICollectionViewCell()
+//
+//        let collectionViewContent = viewModel.collectionViewContents[indexPath.row]
+//
+//       cell = collectionView.dequeueReusableCell(withReuseIdentifier: MostViewedWordCollectionViewCell.identifierName, for: indexPath)
+//
+//        if let mostViewedCell = cell as? MostViewedWordCollectionViewCell {
+//            mostViewedCell.renderImage(name: collectionViewContent)
+//            cell = mostViewedCell
+//        }
+//
+//        return cell
+//    }
 }
 
 extension HomePageViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = UIScreen.main.bounds.width
+        let width = collectionView.frame.width
         let height = collectionView.frame.height
         
         return CGSize(width: width, height: height)
+    }
+  
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
     }
 }

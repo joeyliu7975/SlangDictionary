@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import FSPagerView
 
-class MostViewedWordCollectionViewCell: UICollectionViewCell {
+class MostViewedWordCollectionViewCell:  FSPagerViewCell{
     
     static let identifierName = String(describing: MostViewedWordCollectionViewCell.self)
 

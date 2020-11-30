@@ -26,6 +26,8 @@ private enum Color: String {
     case rankLabelBackgroundBlue = "8EDAFF"
     
     case separatorlineBlue = "0E8ECB"
+    
+    case sidePanelBlue = "8FDEFF"
 }
 
 extension UIColor {
@@ -48,6 +50,9 @@ extension UIColor {
     /// darkBlue for separatorline
     static let separatorlineBlue = renderColor(.separatorlineBlue)
     
+    static let sidePanelBlue = renderColor(.sidePanelBlue)
+    
+    static let transparentBlack = UIColor.black.withAlphaComponent(0.5)
     
     private static func renderColor(_ color: Color) -> UIColor {
         

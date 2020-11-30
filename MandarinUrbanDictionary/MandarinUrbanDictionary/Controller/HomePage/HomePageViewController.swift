@@ -9,19 +9,21 @@ import UIKit
 import FSPagerView
 
 class HomePageViewController: UIViewController {
-
+    
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var searchButton: SearchButton!
     @IBOutlet weak var writeNewWordButtonView: NewPostButtonView!
     @IBOutlet weak var pagerView: FSPagerView!
-    
+        
     var viewModel = HomePageViewModel()
+    
+    weak var delegate: CenterViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setup()
         setupNavigationController()
@@ -40,8 +42,10 @@ class HomePageViewController: UIViewController {
         present(navController, animated: true)
     }
     
-    @objc func showSideMenu() {
-        print("show")
+    @objc func toggleSideMenu() {
+        //Remove leftBarButtonItem when SidePanel show
+        self.navigationItem.leftBarButtonItem = nil
+        delegate?.toggleLeftPanel()
     }
 }
 
@@ -62,7 +66,7 @@ private extension HomePageViewController {
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController.navigationBar.shadowImage = UIImage()
         
-        let sideMenuButton = UIBarButtonItem(image: UIImage.list, style: .plain, target: self, action: #selector(showSideMenu))
+        let sideMenuButton = UIBarButtonItem(image: UIImage.list, style: .plain, target: self, action: #selector(toggleSideMenu))
         
         self.navigationItem.leftBarButtonItem = sideMenuButton
     }
@@ -77,9 +81,7 @@ private extension HomePageViewController {
     }
 }
 
-extension HomePageViewController: FSPagerViewDelegate {
-    
-}
+extension HomePageViewController: FSPagerViewDelegate { }
 
 extension HomePageViewController: FSPagerViewDataSource {
     func numberOfItems(in pagerView: FSPagerView) -> Int {
@@ -100,25 +102,6 @@ extension HomePageViewController: FSPagerViewDataSource {
         
         return cell
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        viewModel.cellCount
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        var cell = UICollectionViewCell()
-//
-//        let collectionViewContent = viewModel.collectionViewContents[indexPath.row]
-//
-//       cell = collectionView.dequeueReusableCell(withReuseIdentifier: MostViewedWordCollectionViewCell.identifierName, for: indexPath)
-//
-//        if let mostViewedCell = cell as? MostViewedWordCollectionViewCell {
-//            mostViewedCell.renderImage(name: collectionViewContent)
-//            cell = mostViewedCell
-//        }
-//
-//        return cell
-//    }
 }
 
 extension HomePageViewController: UICollectionViewDelegateFlowLayout {
@@ -128,8 +111,13 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: width, height: height)
     }
-  
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
+}
+
+protocol CenterViewControllerDelegate: class {
+  func toggleLeftPanel()
+  func navigateToPage()
 }

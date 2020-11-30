@@ -29,6 +29,7 @@
 		716CD3122574F80500695A91 /* SidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716CD3102574F80500695A91 /* SidePanelViewController.xib */; };
 		716CD31D2575130400695A91 /* SidePanelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD31B2575130400695A91 /* SidePanelTableViewCell.swift */; };
 		716CD31E2575130400695A91 /* SidePanelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716CD31C2575130400695A91 /* SidePanelTableViewCell.xib */; };
+		716CD3212575183D00695A91 /* SidePanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD3202575183D00695A91 /* SidePanelViewModel.swift */; };
 		717569232570CFD300417B9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569222570CFD300417B9C /* AppDelegate.swift */; };
 		717569252570CFD300417B9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569242570CFD300417B9C /* SceneDelegate.swift */; };
 		7175692C2570CFD600417B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7175692B2570CFD600417B9C /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		716CD3102574F80500695A91 /* SidePanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidePanelViewController.xib; sourceTree = "<group>"; };
 		716CD31B2575130400695A91 /* SidePanelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelTableViewCell.swift; sourceTree = "<group>"; };
 		716CD31C2575130400695A91 /* SidePanelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidePanelTableViewCell.xib; sourceTree = "<group>"; };
+		716CD3202575183D00695A91 /* SidePanelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelViewModel.swift; sourceTree = "<group>"; };
 		7175691F2570CFD300417B9C /* MandarinUrbanDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MandarinUrbanDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717569222570CFD300417B9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		717569242570CFD300417B9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,11 +206,11 @@
 		717569212570CFD300417B9C /* MandarinUrbanDictionary */ = {
 			isa = PBXGroup;
 			children = (
-				71E7F3502570D76600F15098 /* ViewModel */,
 				71E7F34F2570D76100F15098 /* Helper */,
-				71E7F3492570D75B00F15098 /* Model */,
 				71E7F3482570D75100F15098 /* Utility */,
 				71E7F33E2570D73700F15098 /* Extension */,
+				71E7F3492570D75B00F15098 /* Model */,
+				71E7F3502570D76600F15098 /* ViewModel */,
 				71E7F32E2570D67900F15098 /* View */,
 				71E7F33A2570D6FD00F15098 /* Controller */,
 				717569782570D35100417B9C /* Fundmental */,
@@ -327,6 +329,7 @@
 			children = (
 				71E7F3512570D76600F15098 /* HomePageViewModel.swift */,
 				7134888925749D05007ADED3 /* DefinitionViewModel.swift */,
+				716CD3202575183D00695A91 /* SidePanelViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				716CD3212575183D00695A91 /* SidePanelViewModel.swift in Sources */,
 				71E7F3462570D73700F15098 /* UICollectionView+Extension.swift in Sources */,
 				7120E0132571167700A56E7E /* CategoryCollectionViewCell.swift in Sources */,
 				7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */,

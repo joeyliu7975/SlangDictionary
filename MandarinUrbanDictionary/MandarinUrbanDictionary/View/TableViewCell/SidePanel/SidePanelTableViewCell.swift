@@ -9,18 +9,29 @@ import UIKit
 
 class SidePanelTableViewCell: UITableViewCell {
     
+    static let identifierName = String(describing: SidePanelTableViewCell.self)
+    
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        defaultConfiguration()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    private func defaultConfiguration() {
+        let clearBackgroundview = UIView()
+        
+        clearBackgroundview.backgroundColor = .sidePanelBlue
+        
+        self.backgroundView = clearBackgroundview
     }
     
     func renderUI(title: String, imageName: String) {

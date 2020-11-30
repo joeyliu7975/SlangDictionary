@@ -13,5 +13,6 @@ target 'MandarinUrbanDictionary' do
 	pod 'SwiftLint'
 	pod 'Firebase/Firestore'
 	pod 'FirebaseFirestoreSwift'
+	pod 'FSPagerView'
 
 end

@@ -8,10 +8,11 @@
 import UIKit
 
 extension UINavigationItem {
-    func setBarAppearance(with color: UIColor, titleTextAttrs: [NSAttributedString.Key : NSObject]? = nil, title: String? = nil) {
+    func setBarAppearance(with color: UIColor, titleTextAttrs: [NSAttributedString.Key: NSObject]? = nil, title: String? = nil) {
         let barAppearance = UINavigationBarAppearance()
     
-        if let textAttrs = titleTextAttrs,let title = title {
+        if let textAttrs = titleTextAttrs,
+           let title = title {
             barAppearance.titleTextAttributes = textAttrs
             self.title = title
         }

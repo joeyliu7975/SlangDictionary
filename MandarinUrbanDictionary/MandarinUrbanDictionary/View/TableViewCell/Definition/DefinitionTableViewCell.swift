@@ -8,6 +8,8 @@
 import UIKit
 
 class DefinitionTableViewCell: UITableViewCell {
+    
+    static let identifierName = String(describing: DefinitionTableViewCell.self)
 
     @IBOutlet weak var rankLabelView: UIView!
     @IBOutlet weak var rankLabel: UILabel!
@@ -21,15 +23,26 @@ class DefinitionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        defaultConfiguration()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        self.selectedBackgroundView = UIView()
     }
     
-    func renderUI(isLiked:Bool, amountOfLike: Int, amountOfDislike: Int, isReported: Bool) {
-        
+    private func defaultConfiguration() {
+        rankLabelView.setCorner(radius: 10.0)
+        rankLabelView.backgroundColor = .rankLabelBackgroundBlue
+    }
+    
+    func renderUI(rank: String, isLiked:Bool, amountOfLike: Int, amountOfDislike: Int, isReported: Bool, content: String) {
+        rankLabel.text = rank
+        amountOfLikesLabel.text = String(describing: amountOfLike)
+        amountOfDislikesLabel.text = String(describing: amountOfDislike)
+        definitionTextView.text = content
     }
 }

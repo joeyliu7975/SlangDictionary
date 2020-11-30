@@ -90,7 +90,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="62" id="ELd-KP-8Oh"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="28"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="28"/>
                     <color key="tintColor" red="0.19215686274509802" green="0.75686274509803919" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Search" image="search">
                         <color key="titleColor" red="0.19215686274509802" green="0.75686274509803919" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

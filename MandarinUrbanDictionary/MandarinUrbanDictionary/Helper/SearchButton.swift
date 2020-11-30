@@ -17,6 +17,6 @@ class SearchButton: UIButton {
         
         self.backgroundColor = .homepageLightBlue
         self.imageView?.contentMode = .scaleAspectFit
-        self.setTitleColor(.searchButtonTitleGray, for: .normal)
+        self.setTitleColor(.homepageDarkBlue, for: .normal)
     }
 }

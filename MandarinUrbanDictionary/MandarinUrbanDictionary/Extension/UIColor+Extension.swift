@@ -22,6 +22,10 @@ private enum Color: String {
     case homepageLightBlue = "D0EFFF"
     
     case searchButtonTitleGray = "909090"
+    
+    case rankLabelBackgroundBlue = "8EDAFF"
+    
+    case separatorlineBlue = "0E8ECB"
 }
 
 extension UIColor {
@@ -39,6 +43,11 @@ extension UIColor {
     static let homepageLightBlue = renderColor(.homepageLightBlue)
     
     static let searchButtonTitleGray = renderColor(.searchButtonTitleGray)
+    /// lightBlue for rankLabel backgroundView
+    static let rankLabelBackgroundBlue = renderColor(.rankLabelBackgroundBlue)
+    /// darkBlue for separatorline
+    static let separatorlineBlue = renderColor(.separatorlineBlue)
+    
     
     private static func renderColor(_ color: Color) -> UIColor {
         

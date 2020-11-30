@@ -21,6 +21,6 @@ class SidePanelViewController: UIViewController {
     private func setup() {
         view.backgroundColor = .sidePanelBlue
         
-//        tableView.regist`erCell(<#T##cellName: String##String#>)
+//        tableView.registerCell(<#T##cellName: String##String#>)
     }
 }

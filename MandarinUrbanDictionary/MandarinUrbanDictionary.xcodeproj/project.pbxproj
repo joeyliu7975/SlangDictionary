@@ -27,6 +27,8 @@
 		716CD30D2574F7A200695A91 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD30C2574F7A200695A91 /* ContainerViewController.swift */; };
 		716CD3112574F80500695A91 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD30F2574F80500695A91 /* SidePanelViewController.swift */; };
 		716CD3122574F80500695A91 /* SidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716CD3102574F80500695A91 /* SidePanelViewController.xib */; };
+		716CD31D2575130400695A91 /* SidePanelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD31B2575130400695A91 /* SidePanelTableViewCell.swift */; };
+		716CD31E2575130400695A91 /* SidePanelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716CD31C2575130400695A91 /* SidePanelTableViewCell.xib */; };
 		717569232570CFD300417B9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569222570CFD300417B9C /* AppDelegate.swift */; };
 		717569252570CFD300417B9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569242570CFD300417B9C /* SceneDelegate.swift */; };
 		7175692C2570CFD600417B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7175692B2570CFD600417B9C /* Assets.xcassets */; };
@@ -69,6 +71,8 @@
 		716CD30C2574F7A200695A91 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		716CD30F2574F80500695A91 /* SidePanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		716CD3102574F80500695A91 /* SidePanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidePanelViewController.xib; sourceTree = "<group>"; };
+		716CD31B2575130400695A91 /* SidePanelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelTableViewCell.swift; sourceTree = "<group>"; };
+		716CD31C2575130400695A91 /* SidePanelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidePanelTableViewCell.xib; sourceTree = "<group>"; };
 		7175691F2570CFD300417B9C /* MandarinUrbanDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MandarinUrbanDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717569222570CFD300417B9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		717569242570CFD300417B9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 		716CD319257503A700695A91 /* SidePanel */ = {
 			isa = PBXGroup;
 			children = (
+				716CD31B2575130400695A91 /* SidePanelTableViewCell.swift */,
+				716CD31C2575130400695A91 /* SidePanelTableViewCell.xib */,
 			);
 			path = SidePanel;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 				7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */,
 				71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */,
 				71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */,
+				716CD31E2575130400695A91 /* SidePanelTableViewCell.xib in Resources */,
 				7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */,
 				7120E0142571167700A56E7E /* CategoryCollectionViewCell.xib in Resources */,
 				7175694C2570D0FE00417B9C /* GoogleService-Info.plist in Resources */,
@@ -504,6 +511,7 @@
 				71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */,
 				7134888A25749D05007ADED3 /* DefinitionViewModel.swift in Sources */,
 				7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */,
+				716CD31D2575130400695A91 /* SidePanelTableViewCell.swift in Sources */,
 				7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */,
 				717569232570CFD300417B9C /* AppDelegate.swift in Sources */,
 				71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */,

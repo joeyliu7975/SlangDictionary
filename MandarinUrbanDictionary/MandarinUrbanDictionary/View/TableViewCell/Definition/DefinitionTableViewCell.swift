@@ -10,7 +10,7 @@ import UIKit
 class DefinitionTableViewCell: UITableViewCell {
     
     static let identifierName = String(describing: DefinitionTableViewCell.self)
-
+    
     @IBOutlet weak var rankLabelView: UIView!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var definitionTextView: UITextView!
@@ -26,10 +26,10 @@ class DefinitionTableViewCell: UITableViewCell {
         
         defaultConfiguration()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
         self.selectedBackgroundView = UIView()
     }
@@ -39,7 +39,14 @@ class DefinitionTableViewCell: UITableViewCell {
         rankLabelView.backgroundColor = .rankLabelBackgroundBlue
     }
     
-    func renderUI(rank: String, isLiked:Bool, amountOfLike: Int, amountOfDislike: Int, isReported: Bool, content: String) {
+    func renderUI(
+        rank: String,
+        isLiked:Bool,
+        amountOfLike: Int,
+        amountOfDislike: Int,
+        isReported: Bool,
+        content: String
+    ) {
         rankLabel.text = rank
         amountOfLikesLabel.text = String(describing: amountOfLike)
         amountOfDislikesLabel.text = String(describing: amountOfDislike)

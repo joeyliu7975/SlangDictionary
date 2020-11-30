@@ -85,10 +85,16 @@ extension HomePageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
         
-       cell = collectionView.dequeueReusableCell(withReuseIdentifier: MostViewedWordCollectionViewCell.identifierName, for: indexPath)
-        guard let mostViewedCell = cell as? MostViewedWordCollectionViewCell else { return cell }
+        let collectionViewContent = viewModel.collectionViewContents[indexPath.row]
         
-        return mostViewedCell
+       cell = collectionView.dequeueReusableCell(withReuseIdentifier: MostViewedWordCollectionViewCell.identifierName, for: indexPath)
+        
+        if let mostViewedCell = cell as? MostViewedWordCollectionViewCell {
+            mostViewedCell.renderImage(name: collectionViewContent)
+            cell = mostViewedCell
+        }
+        
+        return cell
     }
 }
 
@@ -97,6 +103,6 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
         let width = UIScreen.main.bounds.width
         let height = collectionView.frame.height
         
-        return CGSize(width: width - 60, height: height)
+        return CGSize(width: width, height: height)
     }
 }

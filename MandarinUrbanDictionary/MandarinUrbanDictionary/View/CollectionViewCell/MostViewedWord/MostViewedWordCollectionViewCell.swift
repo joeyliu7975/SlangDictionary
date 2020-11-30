@@ -15,9 +15,19 @@ class MostViewedWordCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var topViewWordLabel: UILabel!
     @IBOutlet weak var bottomViewDefinitionLabel: UILabel!
+    @IBOutlet weak var contentImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        defaultConfiguration()
+    }
+    
+    func defaultConfiguration() {
+        topView.backgroundColor = .homepageDarkBlue
+    }
+    
+    func renderImage(name: String) {
+        contentImageView.image = UIImage(named: name)
     }
 }

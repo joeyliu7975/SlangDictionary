@@ -20,8 +20,10 @@ class HomePageViewModel {
         
         return carouselList.count
     }
+    
+    var collectionViewContents = ["whats_new", "top5"]
         
-    var updateHot5: (() -> Void)?
+    var updateHot5: ( () -> Void )?
     
      func renderCell(at carousel: Carousel) -> IndexPath{
 

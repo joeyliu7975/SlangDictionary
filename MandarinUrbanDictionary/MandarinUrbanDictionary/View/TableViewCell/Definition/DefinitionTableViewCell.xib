@@ -102,6 +102,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="amountOfDislikesLabel" destination="1G7-ro-szA" id="e6F-9c-9Sc"/>
+                <outlet property="amountOfLikesLabel" destination="gBI-n8-Rbz" id="JrS-C5-Pv0"/>
+                <outlet property="definitionTextView" destination="Ss8-DB-8fy" id="zNU-4y-EN4"/>
+                <outlet property="dislikeButton" destination="sZZ-wg-xSR" id="UXo-7Z-um9"/>
+                <outlet property="likeButton" destination="Rew-fZ-gZy" id="amw-sV-jA9"/>
+                <outlet property="rankLabel" destination="Ylg-Qm-2LF" id="zXa-I1-tGE"/>
+                <outlet property="reportButton" destination="x6z-st-RAK" id="4aF-KY-3a3"/>
+            </connections>
             <point key="canvasLocation" x="292.75362318840581" y="208.25892857142856"/>
         </tableViewCell>
     </objects>

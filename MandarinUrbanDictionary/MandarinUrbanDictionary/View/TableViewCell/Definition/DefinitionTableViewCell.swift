@@ -9,6 +9,15 @@ import UIKit
 
 class DefinitionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var rankLabelView: UIView!
+    @IBOutlet weak var rankLabel: UILabel!
+    @IBOutlet weak var definitionTextView: UITextView!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var dislikeButton: UIButton!
+    @IBOutlet weak var reportButton: UIButton!
+    @IBOutlet weak var amountOfLikesLabel: UILabel!
+    @IBOutlet weak var amountOfDislikesLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +29,7 @@ class DefinitionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func renderUI(isLiked:Bool, amountOfLike: Int, amountOfDislike: Int, isReported: Bool) {
+        
+    }
 }

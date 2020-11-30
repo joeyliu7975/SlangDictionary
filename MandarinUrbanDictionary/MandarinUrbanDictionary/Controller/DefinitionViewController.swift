@@ -44,7 +44,7 @@ extension DefinitionViewController: UITableViewDataSource {
         
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: DefinitionHeaderView.identifierName) as? DefinitionHeaderView {
             let headerBackgroundView = UIView()
-            headerBackgroundView.backgroundColor = .homepageDarkBlue
+            headerBackgroundView.backgroundColor = .searchBarBlue
     
             headerView.backgroundView = headerBackgroundView
             

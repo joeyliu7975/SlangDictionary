@@ -18,6 +18,8 @@
 		7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E01D257231CC00A56E7E /* DefinitionViewController.swift */; };
 		7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E01E257231CC00A56E7E /* DefinitionViewController.xib */; };
 		71348880257285F5007ADED3 /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134887F257285F5007ADED3 /* UINavigationItem+Extension.swift */; };
+		7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134888425749582007ADED3 /* DefinitionTableViewCell.swift */; };
+		7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7134888525749582007ADED3 /* DefinitionTableViewCell.xib */; };
 		7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71025725359007F7C90 /* UITableView+Extension.swift */; };
 		7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71425725532007F7C90 /* DefinitionHeaderView.swift */; };
 		7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7160B71925725572007F7C90 /* DefinitionHeaderView.xib */; };
@@ -53,6 +55,8 @@
 		7120E01D257231CC00A56E7E /* DefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionViewController.swift; sourceTree = "<group>"; };
 		7120E01E257231CC00A56E7E /* DefinitionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionViewController.xib; sourceTree = "<group>"; };
 		7134887F257285F5007ADED3 /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
+		7134888425749582007ADED3 /* DefinitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionTableViewCell.swift; sourceTree = "<group>"; };
+		7134888525749582007ADED3 /* DefinitionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionTableViewCell.xib; sourceTree = "<group>"; };
 		7160B71025725359007F7C90 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		7160B71425725532007F7C90 /* DefinitionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionHeaderView.swift; sourceTree = "<group>"; };
 		7160B71925725572007F7C90 /* DefinitionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionHeaderView.xib; sourceTree = "<group>"; };
@@ -109,10 +113,20 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		713488832574954F007ADED3 /* Definition */ = {
+			isa = PBXGroup;
+			children = (
+				7134888425749582007ADED3 /* DefinitionTableViewCell.swift */,
+				7134888525749582007ADED3 /* DefinitionTableViewCell.xib */,
+			);
+			path = Definition;
+			sourceTree = "<group>";
+		};
 		7160B713257254D8007F7C90 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				7160B71825725558007F7C90 /* Definition Header */,
+				713488832574954F007ADED3 /* Definition */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -350,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */,
+				7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */,
 				7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */,
 				7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */,
 				71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */,
@@ -445,6 +460,7 @@
 				7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */,
 				71348880257285F5007ADED3 /* UINavigationItem+Extension.swift in Sources */,
 				71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */,
+				7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */,
 				7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */,
 				717569232570CFD300417B9C /* AppDelegate.swift in Sources */,
 				71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */,

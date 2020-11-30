@@ -13,6 +13,7 @@
                 <outlet property="cancelButton" destination="p9a-rl-Q2M" id="geN-Eo-M1b"/>
                 <outlet property="searchBar" destination="e8m-oX-o5W" id="sjg-TV-0Co"/>
                 <outlet property="searchBarContainerView" destination="j6d-Vg-4rh" id="lEO-XC-KPy"/>
+                <outlet property="tableView" destination="8yc-Nj-dbj" id="RGl-YA-MjU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

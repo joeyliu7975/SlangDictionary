@@ -15,9 +15,8 @@ class SearchButton: UIButton {
             imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
         }
         
-        self.backgroundColor = .logoCircleGreen
+        self.backgroundColor = .homepageLightBlue
         self.imageView?.contentMode = .scaleAspectFit
         self.setTitleColor(.searchButtonTitleGray, for: .normal)
-        self.setCorner(radius: 10.0)
     }
 }

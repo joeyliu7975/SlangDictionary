@@ -13,8 +13,6 @@
                 <outlet property="collectionView" destination="eMd-zo-Hxv" id="KJm-Lu-dTY"/>
                 <outlet property="logoImageView" destination="M9m-Ri-aZX" id="8Rj-NV-DW8"/>
                 <outlet property="searchButton" destination="iYM-Ld-E9z" id="wHX-h1-H8I"/>
-                <outlet property="subtitleLabel" destination="zoQ-0t-V6e" id="P0x-iT-R31"/>
-                <outlet property="titleLabel" destination="xvF-lb-r4e" id="alS-5a-aTn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="writeNewWordButtonView" destination="XAu-g2-XRf" id="dxX-J9-qN6"/>
             </connections>
@@ -24,33 +22,19 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M9m-Ri-aZX">
-                    <rect key="frame" x="50" y="94" width="120" height="120"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slang_dictionary_logo" translatesAutoresizingMaskIntoConstraints="NO" id="M9m-Ri-aZX">
+                    <rect key="frame" x="107" y="64" width="200" height="200"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="120" id="iWL-UK-ORL"/>
-                        <constraint firstAttribute="height" constant="120" id="lxE-tC-i2u"/>
+                        <constraint firstAttribute="height" constant="200" id="9Y1-Cd-KYY"/>
+                        <constraint firstAttribute="width" constant="200" id="Q1V-UP-yfG"/>
                     </constraints>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Aud-NL-tKd">
-                    <rect key="frame" x="185" y="129.5" width="120" height="49.5"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MUDictionary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvF-lb-r4e">
-                            <rect key="frame" x="0.0" y="0.0" width="120" height="24"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <color key="textColor" red="0.29019607843137252" green="0.21568627450980393" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="since 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoQ-0t-V6e">
-                            <rect key="frame" x="0.0" y="29" width="85" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.29019607843137252" green="0.21568627450980393" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eMd-zo-Hxv">
-                    <rect key="frame" x="0.0" y="314" width="414" height="448"/>
+                    <rect key="frame" x="30" y="356" width="354" height="354"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="eMd-zo-Hxv" secondAttribute="height" multiplier="1:1" id="JYb-k1-VET"/>
+                    </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nhn-Nd-VJU">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -59,11 +43,11 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAu-g2-XRf" customClass="NewPostButtonView" customModule="MandarinUrbanDictionary" customModuleProvider="target">
-                    <rect key="frame" x="344" y="792" width="60" height="60"/>
+                    <rect key="frame" x="341.5" y="793.5" width="50.5" height="50.5"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9a-mE-MmA">
-                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                            <state key="normal" title="Button" image="featherPen"/>
+                            <rect key="frame" x="0.0" y="0.0" width="50.5" height="50.5"/>
+                            <state key="normal" title="Button" image="write_new_word_home"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                     <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -90,26 +74,26 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="3jg-7t-4fT"/>
-                        <constraint firstAttribute="width" constant="60" id="4C8-3R-ufg"/>
-                        <constraint firstItem="f9a-mE-MmA" firstAttribute="leading" secondItem="XAu-g2-XRf" secondAttribute="leading" id="KNM-Lb-e76"/>
-                        <constraint firstAttribute="bottom" secondItem="f9a-mE-MmA" secondAttribute="bottom" id="VLc-UZ-DVx"/>
-                        <constraint firstAttribute="trailing" secondItem="f9a-mE-MmA" secondAttribute="trailing" id="o3S-1s-NfO"/>
-                        <constraint firstItem="f9a-mE-MmA" firstAttribute="top" secondItem="XAu-g2-XRf" secondAttribute="top" id="wRG-cH-FzU"/>
+                        <constraint firstItem="f9a-mE-MmA" firstAttribute="leading" secondItem="XAu-g2-XRf" secondAttribute="leading" id="6lP-o1-F0c"/>
+                        <constraint firstItem="f9a-mE-MmA" firstAttribute="top" secondItem="XAu-g2-XRf" secondAttribute="top" id="Qdp-aM-z7u"/>
+                        <constraint firstAttribute="trailing" secondItem="f9a-mE-MmA" secondAttribute="trailing" id="WQH-DE-dmD"/>
+                        <constraint firstAttribute="bottom" secondItem="f9a-mE-MmA" secondAttribute="bottom" id="cIC-cP-1a8"/>
+                        <constraint firstAttribute="width" secondItem="f9a-mE-MmA" secondAttribute="height" multiplier="1:1" id="qHs-OA-0nE"/>
                     </constraints>
                     <connections>
                         <outlet property="writeButton" destination="f9a-mE-MmA" id="J3T-mx-ezK"/>
                     </connections>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYM-Ld-E9z" customClass="SearchButton" customModule="MandarinUrbanDictionary" customModuleProvider="target">
-                    <rect key="frame" x="20" y="234" width="374" height="60"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="32" y="274" width="350" height="62"/>
+                    <color key="backgroundColor" red="0.81568627450980391" green="0.93725490196078431" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="jvX-BM-Nz9"/>
+                        <constraint firstAttribute="height" constant="62" id="ELd-KP-8Oh"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="28"/>
+                    <color key="tintColor" red="0.19215686274509802" green="0.75686274509803919" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Search" image="search">
-                        <color key="titleColor" red="0.74901753660000003" green="0.74900567529999995" blue="0.74902039769999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="titleColor" red="0.19215686274509802" green="0.75686274509803919" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </state>
                     <connections>
                         <action selector="clickSearch:" destination="-1" eventType="touchUpInside" id="tsr-zK-bsl"/>
@@ -119,26 +103,25 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eMd-zo-Hxv" secondAttribute="trailing" id="0rd-sk-M2a"/>
-                <constraint firstItem="XAu-g2-XRf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-10" id="3z3-WB-VnP"/>
-                <constraint firstItem="M9m-Ri-aZX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="4l3-Ct-gaw"/>
-                <constraint firstItem="eMd-zo-Hxv" firstAttribute="top" secondItem="iYM-Ld-E9z" secondAttribute="bottom" constant="20" id="8HO-6A-H60"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iYM-Ld-E9z" secondAttribute="trailing" constant="20" id="8Hp-Fi-Ayp"/>
-                <constraint firstItem="Aud-NL-tKd" firstAttribute="centerY" secondItem="M9m-Ri-aZX" secondAttribute="centerY" id="8R0-mf-EyY"/>
-                <constraint firstItem="iYM-Ld-E9z" firstAttribute="top" secondItem="M9m-Ri-aZX" secondAttribute="bottom" constant="20" id="GEe-Tm-J6e"/>
-                <constraint firstItem="eMd-zo-Hxv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bT7-xy-oc8"/>
-                <constraint firstItem="iYM-Ld-E9z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="hiF-sS-BES"/>
-                <constraint firstItem="XAu-g2-XRf" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-10" id="mZe-Ow-emK"/>
-                <constraint firstItem="XAu-g2-XRf" firstAttribute="top" secondItem="eMd-zo-Hxv" secondAttribute="bottom" constant="30" id="siw-6u-rob"/>
-                <constraint firstItem="Aud-NL-tKd" firstAttribute="leading" secondItem="M9m-Ri-aZX" secondAttribute="trailing" constant="15" id="thU-0G-faM"/>
-                <constraint firstItem="M9m-Ri-aZX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="umg-9y-6hm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XAu-g2-XRf" secondAttribute="bottom" constant="18" id="6SW-Aw-kRs"/>
+                <constraint firstItem="iYM-Ld-E9z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="Al9-Zt-AmY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iYM-Ld-E9z" secondAttribute="trailing" constant="32" id="Dtk-NQ-4ZC"/>
+                <constraint firstItem="eMd-zo-Hxv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Kuk-6D-1Sn"/>
+                <constraint firstItem="M9m-Ri-aZX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Pge-11-toF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eMd-zo-Hxv" secondAttribute="trailing" constant="30" id="hmg-8F-2HR"/>
+                <constraint firstItem="M9m-Ri-aZX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ldN-eV-Jjz"/>
+                <constraint firstItem="iYM-Ld-E9z" firstAttribute="top" secondItem="M9m-Ri-aZX" secondAttribute="bottom" constant="10" id="m1q-Zp-Qhc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XAu-g2-XRf" secondAttribute="trailing" constant="22" id="mvg-Tc-nlD"/>
+                <constraint firstItem="XAu-g2-XRf" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="46:376" id="p52-c3-dmT"/>
+                <constraint firstItem="eMd-zo-Hxv" firstAttribute="top" secondItem="iYM-Ld-E9z" secondAttribute="bottom" constant="20" id="tDp-f0-DRE"/>
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="118.52678571428571"/>
         </view>
     </objects>
     <resources>
-        <image name="featherPen" width="64" height="64"/>
-        <image name="search" width="16" height="16"/>
+        <image name="search" width="32" height="32"/>
+        <image name="slang_dictionary_logo" width="500" height="500"/>
+        <image name="write_new_word_home" width="281" height="281"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

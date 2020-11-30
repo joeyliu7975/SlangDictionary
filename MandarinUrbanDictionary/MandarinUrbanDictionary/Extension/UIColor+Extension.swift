@@ -9,7 +9,7 @@ import UIKit
 
 private enum Color: String {
     
-    case lightGreen = "#FEFFF2"
+    case homepageDarkBlue = "#31C1FF"
     
     case darkGreen = "6D9B2C"
     
@@ -17,26 +17,26 @@ private enum Color: String {
     
     case popularWordCollection = "DFBDA9"
     
-    case searchBarGreen = "90C14A"
+    case searchBarBlue = "018ECB"
     
-    case logoCircleGreen = "CCD8BB"
+    case homepageLightBlue = "D0EFFF"
     
     case searchButtonTitleGray = "909090"
 }
 
 extension UIColor {
     /// HomePage backgroundColor
-    static let lightGreen = renderColor(.lightGreen)
+    static let homepageDarkBlue = renderColor(.homepageDarkBlue)
     /// RedColor for barButtonItem
     static let barButtonRed = renderColor(.barButtonRed)
     /// GreenColor for searchBar containerView
-    static let searchBarGreen = renderColor(.searchBarGreen)
+    static let searchBarBlue = renderColor(.searchBarBlue)
     /// Dark Green for NavigationBar 
     static let darkGreen = renderColor(.darkGreen)
     
     static let popularWordCollectionBrown = renderColor(.popularWordCollection)
     
-    static let logoCircleGreen = renderColor(.logoCircleGreen)
+    static let homepageLightBlue = renderColor(.homepageLightBlue)
     
     static let searchButtonTitleGray = renderColor(.searchButtonTitleGray)
     

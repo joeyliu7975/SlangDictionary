@@ -36,12 +36,10 @@ class CategoryViewController: UIViewController {
 
     func setup() {
         containerView.setCorner(radius: 20.0)
-        
-        categoryCollectionView.registerCell(String(describing: CategoryCollectionViewCell.self))
     }
     
     func setupCollectionView() {
-        categoryCollectionView.registerCell(String(describing: CategoryCollectionViewCell.self))
+        categoryCollectionView.registerCell(CategoryCollectionViewCell.identifierName)
         
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
@@ -58,9 +56,10 @@ extension CategoryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CategoryCollectionViewCell.self), for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  CategoryCollectionViewCell.identifierName, for: indexPath)
         
-        guard let categoryCell = cell as? CategoryCollectionViewCell else { return cell }
+        guard let categoryCell = cell as? CategoryCollectionViewCell
+        else { return cell }
         
         categoryCell.renderUI(title: "Hello", image: "featherPen")
         
@@ -70,8 +69,9 @@ extension CategoryViewController: UICollectionViewDataSource {
 
 extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width:CGFloat = categoryCollectionView.bounds.width
-        let height:CGFloat = categoryCollectionView.bounds.height
+        let width: CGFloat = categoryCollectionView.bounds.width
+    
+        let height: CGFloat = categoryCollectionView.bounds.height
         
         return CGSize(width: width / 3, height: height / 3)
     }
@@ -80,4 +80,3 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
         return 0.0
     }
 }
-

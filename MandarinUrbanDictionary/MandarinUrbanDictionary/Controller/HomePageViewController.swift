@@ -46,31 +46,17 @@ class HomePageViewController: UIViewController {
 
 private extension HomePageViewController {
     func setup() {
-        view.backgroundColor = UIColor.lightGreen
+        view.backgroundColor = UIColor.homepageDarkBlue
         
         logoImageView.image = UIImage.homeLogo
-        
-        writeNewWordButtonView.setShadow(
-            color: .black,
-            offset: CGSize(width: 3, height: 3),
-            opacity: 0.7,
-            radius: 4.0
-        )
-        
-        writeNewWordButtonView
-            .writeButton
-            .setCorner(
-            radius: writeNewWordButtonView.frame.width / 2,
-            maskToBounds: true
-        )
     }
     
     func setupNavigationController() {
         guard let navigationController = self.navigationController else { return }
         
-        navigationController.navigationBar.backgroundColor = UIColor.lightGreen
+        navigationController.navigationBar.backgroundColor = UIColor.homepageDarkBlue
         
-        navigationController.navigationBar.tintColor = UIColor.barButtonRed
+        navigationController.navigationBar.tintColor = UIColor.homepageLightBlue
         
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController.navigationBar.shadowImage = UIImage()
@@ -81,7 +67,7 @@ private extension HomePageViewController {
     }
     
     func setupCollectionView() {
-        collectionView.registerCell(String(describing: MostViewedWordCollectionViewCell.self))
+        collectionView.registerCell(MostViewedWordCollectionViewCell.identifierName)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -99,8 +85,7 @@ extension HomePageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
         
-       cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MostViewedWordCollectionViewCell.self), for: indexPath)
-        // set cellViewModel for CollectionViewCell
+       cell = collectionView.dequeueReusableCell(withReuseIdentifier: MostViewedWordCollectionViewCell.identifierName, for: indexPath)
         guard let mostViewedCell = cell as? MostViewedWordCollectionViewCell else { return cell }
         
         return mostViewedCell

@@ -8,6 +8,8 @@
 import UIKit
 
 class MostViewedWordCollectionViewCell: UICollectionViewCell {
+    
+    static let identifierName = String(describing: MostViewedWordCollectionViewCell.self)
 
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
@@ -18,7 +20,4 @@ class MostViewedWordCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    
-    
 }

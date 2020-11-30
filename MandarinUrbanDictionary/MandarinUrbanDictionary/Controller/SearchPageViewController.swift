@@ -12,11 +12,13 @@ class SearchPageViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var searchBarContainerView: UIView!
+    @IBOutlet weak var tableView: UITableView!
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
+        setupTableView()
         setupNav()
     }
     
@@ -33,28 +35,60 @@ class SearchPageViewController: UIViewController {
 
 private extension SearchPageViewController {
     func setup() {
-        searchBarContainerView.backgroundColor = .searchBarGreen
+        searchBarContainerView.backgroundColor = .searchBarBlue
             
         cancelButton.setTitleColor(.white, for: .normal)
         
-        searchBar.setTextColor(.white)
+        searchBar.setTextColor(.white, cursorColor: .white)
+        
+        searchBar.setClearButton(color: .white)
+        
+        searchBar.setSearchIcon(color: .white)
+    }
+    
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     func setupNav() {
         guard let navigationController = self.navigationController else { return }
-        
-        let barAppearance = UINavigationBarAppearance()
-        
-        barAppearance.backgroundColor = .darkGreen
-        
-        navigationItem.standardAppearance = barAppearance
             
+        navigationController.navigationBar.tintColor = .white
+        
         let rightButtonItem = UIBarButtonItem(image: UIImage.matrix, style: .plain, target: self, action: #selector(showList))
         
         navigationItem.rightBarButtonItem = rightButtonItem
-        
-        navigationItem.title = "全部"
             
-        navigationController.navigationBar.tintColor = .white
+        navigationItem.backBarButtonItem = UIBarButtonItem()
+        
+        let attrs = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 28)!
+        ]
+        
+        navigationItem.setBarAppearance(with: .homepageDarkBlue, titleTextAttrs: attrs, title: "All")
+    }
+}
+
+extension SearchPageViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let definitionViewController = DefinitionViewController()
+        
+        guard let navigationController = self.navigationController else { return }
+        
+        navigationController.pushViewController(definitionViewController, animated: true)
+    }
+}
+
+extension SearchPageViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        return cell
     }
 }

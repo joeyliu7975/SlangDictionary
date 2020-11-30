@@ -13,7 +13,7 @@ private enum Image: String {
     
     case featherPen = "featherPen"
     
-    case homeLogo = "homeLogo"
+    case homeLogo = "slang_dictionary_logo"
     
     case search = "search"
     

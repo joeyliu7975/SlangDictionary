@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let homePageVC = ContainerViewController()
         
-//        let navVC = UINavigationController(rootViewController: homePageVC)
+        // MARK: Test ViewController
+//        let testVC = FavoriteViewController()
         
         window?.rootViewController = homePageVC
     }

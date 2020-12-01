@@ -28,6 +28,8 @@ private enum Color: String {
     case separatorlineBlue = "0E8ECB"
     
     case sidePanelBlue = "8FDEFF"
+    
+    case cardViewBlue = "4BC2FD"
 }
 
 extension UIColor {
@@ -51,6 +53,8 @@ extension UIColor {
     static let separatorlineBlue = renderColor(.separatorlineBlue)
     
     static let sidePanelBlue = renderColor(.sidePanelBlue)
+    
+    static let cardViewBlue = renderColor(.cardViewBlue)
     
     static let transparentBlack = UIColor.black.withAlphaComponent(0.5)
     

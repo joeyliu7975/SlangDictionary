@@ -10,7 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryViewController" customModule="MandarinUrbanDictionary" customModuleProvider="target">
             <connections>
+                <outlet property="buttonContainerView" destination="Gik-Af-2H6" id="coK-rD-KLH"/>
                 <outlet property="categoryCollectionView" destination="DON-Cv-ZyY" id="OFC-uA-xmt"/>
+                <outlet property="confirmButton" destination="PPW-MR-scQ" id="rUe-yG-Uzt"/>
                 <outlet property="containerView" destination="c5I-tT-3md" id="o4E-3s-4DR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,10 +37,23 @@
                         </collectionView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gik-Af-2H6">
                             <rect key="frame" x="137" y="618" width="100" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPW-MR-scQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="18"/>
+                                    <state key="normal" title="Confirm">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="HmF-er-VUW"/>
+                                <constraint firstItem="PPW-MR-scQ" firstAttribute="leading" secondItem="Gik-Af-2H6" secondAttribute="leading" id="Udi-58-LRc"/>
+                                <constraint firstAttribute="trailing" secondItem="PPW-MR-scQ" secondAttribute="trailing" id="jK8-3u-s3L"/>
+                                <constraint firstItem="PPW-MR-scQ" firstAttribute="top" secondItem="Gik-Af-2H6" secondAttribute="top" id="mJT-sh-vsL"/>
                                 <constraint firstAttribute="width" constant="100" id="ol8-8M-CeO"/>
+                                <constraint firstAttribute="bottom" secondItem="PPW-MR-scQ" secondAttribute="bottom" id="q4L-MM-YGx"/>
                             </constraints>
                         </view>
                     </subviews>

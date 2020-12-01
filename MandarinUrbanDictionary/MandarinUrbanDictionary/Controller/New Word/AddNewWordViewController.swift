@@ -23,6 +23,7 @@ class AddNewWordViewController: UIViewController {
     }
     
     @IBAction func clickSend(_ sender: UIButton) {
+        
     }
 }
 

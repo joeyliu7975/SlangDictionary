@@ -17,14 +17,49 @@ enum Category: CaseIterable {
     case game
     case gym
     case relationship
+    
+    var title: String {
+        switch self {
+        case .all:
+            return "All"
+        case .engineer:
+            return "Engineer"
+        case .job:
+            return "Workplace"
+        case .school:
+            return "School"
+        case .pickUpLine:
+            return "Pickup Line"
+        case .restaurant:
+            return "Restaurant"
+        case .game:
+            return "Game"
+        case .gym:
+            return "Gym"
+        case .relationship:
+            return "Relationship"
+        }
+    }
 }
 
 class CategoryViewController: UIViewController {
 
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var buttonContainerView: UIView!
+    @IBOutlet weak var confirmButton: UIButton!
     
     let categoryList = Category.allCases
+    
+    var selectCategory: Category? {
+        didSet {
+            if selectCategory != nil {
+                enableButton()
+            } else {
+                disableButton()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +67,14 @@ class CategoryViewController: UIViewController {
         // Do any additional setup after loading the view.
         setup()
         setupCollectionView()
+        disableButton()
     }
+}
 
+private extension CategoryViewController {
     func setup() {
         containerView.setCorner(radius: 20.0)
+        buttonContainerView.setCorner(radius: 10.0)
     }
     
     func setupCollectionView() {
@@ -44,10 +83,23 @@ class CategoryViewController: UIViewController {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
     }
+    
+    func disableButton() {
+        buttonContainerView.backgroundColor = .lightGray
+        confirmButton.isEnabled = false
+    }
+    
+    func enableButton() {
+        buttonContainerView.backgroundColor = .homepageDarkBlue
+        confirmButton.isEnabled = true
+    }
 }
 
 extension CategoryViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Select Category
+        selectCategory = categoryList[indexPath.row]
+    }
 }
 
 extension CategoryViewController: UICollectionViewDataSource {
@@ -56,12 +108,14 @@ extension CategoryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  CategoryCollectionViewCell.identifierName, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifierName, for: indexPath)
+        
+        let category = categoryList[indexPath.row]
         
         guard let categoryCell = cell as? CategoryCollectionViewCell
         else { return cell }
         
-        categoryCell.renderUI(title: "Hello", image: "puzzle")
+        categoryCell.renderUI(title: category.title, image: "puzzle")
         
         return categoryCell
     }

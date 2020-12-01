@@ -7,49 +7,15 @@
 
 import UIKit
 
-enum Category: CaseIterable {
-    case all
-    case engineer
-    case job
-    case school
-    case pickUpLine
-    case restaurant
-    case game
-    case gym
-    case relationship
-    
-    var title: String {
-        switch self {
-        case .all:
-            return "All"
-        case .engineer:
-            return "Engineer"
-        case .job:
-            return "Workplace"
-        case .school:
-            return "School"
-        case .pickUpLine:
-            return "Pickup Line"
-        case .restaurant:
-            return "Restaurant"
-        case .game:
-            return "Game"
-        case .gym:
-            return "Gym"
-        case .relationship:
-            return "Relationship"
-        }
-    }
-}
-
 class CategoryViewController: UIViewController {
-
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var buttonContainerView: UIView!
     @IBOutlet weak var confirmButton: UIButton!
     
-    var selectionBorderView = UIView()
+    weak var delegate: CategoryDelegate?
+    
+    private var selectionBorderView = UIView()
     
     let categoryList = Category.allCases
     
@@ -57,9 +23,14 @@ class CategoryViewController: UIViewController {
         willSet {
             if let previousCategory = selectCategory,
                let index = categoryList.firstIndex(of: previousCategory) {
-                guard let selectedCell = categoryCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? CategoryCollectionViewCell else { return }
                 
-                selectedCell.removeBorderView(&selectionBorderView)
+                let indexPath = IndexPath(row: index, section: 0)
+                
+                let selectedCell = categoryCollectionView.cellForItem(at: indexPath)
+                
+                guard let cell = selectedCell as? CategoryCollectionViewCell else { return }
+                
+                cell.removeBorderView(&selectionBorderView)
             }
         }
         
@@ -79,6 +50,14 @@ class CategoryViewController: UIViewController {
         setup()
         setupCollectionView()
         disableButton()
+    }
+    
+    @IBAction func confirmSelection(_ sender: UIButton) {
+        guard let selectedCategory = self.selectCategory else { return }
+        
+        delegate?.confirmSelection(selectedCategory)
+        
+        self.dismiss(animated: true)
     }
 }
 
@@ -150,5 +129,44 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
+    }
+}
+
+protocol CategoryDelegate: class {
+    func confirmSelection(_ selectedCategory: Category)
+}
+
+enum Category: CaseIterable {
+    case all
+    case engineer
+    case job
+    case school
+    case pickUpLine
+    case restaurant
+    case game
+    case gym
+    case relationship
+    
+    var title: String {
+        switch self {
+        case .all:
+            return "All"
+        case .engineer:
+            return "Engineer"
+        case .job:
+            return "Workplace"
+        case .school:
+            return "School"
+        case .pickUpLine:
+            return "Pickup Line"
+        case .restaurant:
+            return "Restaurant"
+        case .game:
+            return "Game"
+        case .gym:
+            return "Gym"
+        case .relationship:
+            return "Relationship"
+        }
     }
 }

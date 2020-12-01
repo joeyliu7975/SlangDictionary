@@ -13,7 +13,13 @@ class SearchPageViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var searchBarContainerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-        
+    
+    private var selectCategory: Category = .all {
+        didSet {
+            navigationItem.title = selectCategory.title
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +34,8 @@ class SearchPageViewController: UIViewController {
     
     @objc func showList() {
         let categoryViewController = CategoryViewController()
+        
+        categoryViewController.delegate = self
         
         present(categoryViewController, animated: true)
     }
@@ -69,7 +77,13 @@ private extension SearchPageViewController {
             NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 28)!
         ]
         
-        navigationItem.setBarAppearance(with: .homepageDarkBlue, titleTextAttrs: attrs, title: "All")
+        navigationItem.setBarAppearance(with: .homepageDarkBlue, titleTextAttrs: attrs, title: selectCategory.title)
+    }
+}
+
+extension SearchPageViewController: CategoryDelegate {
+    func confirmSelection(_ selectedCategory: Category) {
+        selectCategory = selectedCategory
     }
 }
 

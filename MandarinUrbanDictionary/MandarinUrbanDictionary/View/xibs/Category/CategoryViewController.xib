@@ -44,6 +44,9 @@
                                     <state key="normal" title="Confirm">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="confirmSelection:" destination="-1" eventType="touchUpInside" id="22F-DG-dv7"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemIndigoColor"/>

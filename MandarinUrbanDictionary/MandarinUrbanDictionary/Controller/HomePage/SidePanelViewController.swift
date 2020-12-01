@@ -22,6 +22,8 @@ class SidePanelViewController: UIViewController {
 
     private func setupTableView() {
         tableView.registerCell(SidePanelTableViewCell.identifierName)
+        tableView.registerHeaderFooterCell(SidePanelHeaderFooterView.identifierName)
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -33,6 +35,29 @@ class SidePanelViewController: UIViewController {
 extension SidePanelViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 240.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SidePanelHeaderFooterView.identifierName) as? SidePanelHeaderFooterView {
+            let headerBackgroundView = UIView()
+            
+            let width = headerView.logoImageView.frame.width
+            
+            headerBackgroundView.backgroundColor = .sidePanelBlue
+    
+            headerView.backgroundView = headerBackgroundView
+            
+            headerView.logoImageView.setCorner(radius: width / 2)
+            
+          return headerView
+        }
+        
+        return nil
     }
 }
 
@@ -57,4 +82,3 @@ extension SidePanelViewController: UITableViewDataSource {
         return cell
     }
 }
-

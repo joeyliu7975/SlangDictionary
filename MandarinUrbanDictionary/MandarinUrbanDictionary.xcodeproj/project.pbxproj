@@ -21,6 +21,8 @@
 		7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134888425749582007ADED3 /* DefinitionTableViewCell.swift */; };
 		7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7134888525749582007ADED3 /* DefinitionTableViewCell.xib */; };
 		7134888A25749D05007ADED3 /* DefinitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134888925749D05007ADED3 /* DefinitionViewModel.swift */; };
+		7152EADC2575E94A00F1C5FB /* AddNewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7152EADA2575E94A00F1C5FB /* AddNewWordViewController.swift */; };
+		7152EADD2575E94A00F1C5FB /* AddNewWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7152EADB2575E94A00F1C5FB /* AddNewWordViewController.xib */; };
 		7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71025725359007F7C90 /* UITableView+Extension.swift */; };
 		7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71425725532007F7C90 /* DefinitionHeaderView.swift */; };
 		7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7160B71925725572007F7C90 /* DefinitionHeaderView.xib */; };
@@ -30,6 +32,8 @@
 		716CD31D2575130400695A91 /* SidePanelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD31B2575130400695A91 /* SidePanelTableViewCell.swift */; };
 		716CD31E2575130400695A91 /* SidePanelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716CD31C2575130400695A91 /* SidePanelTableViewCell.xib */; };
 		716CD3212575183D00695A91 /* SidePanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD3202575183D00695A91 /* SidePanelViewModel.swift */; };
+		716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD3252575232700695A91 /* SidePanelHeaderFooterView.swift */; };
+		716CD3292575234100695A91 /* SidePanelHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716CD3282575234100695A91 /* SidePanelHeaderFooterView.xib */; };
 		717569232570CFD300417B9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569222570CFD300417B9C /* AppDelegate.swift */; };
 		717569252570CFD300417B9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569242570CFD300417B9C /* SceneDelegate.swift */; };
 		7175692C2570CFD600417B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7175692B2570CFD600417B9C /* Assets.xcassets */; };
@@ -66,6 +70,8 @@
 		7134888425749582007ADED3 /* DefinitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionTableViewCell.swift; sourceTree = "<group>"; };
 		7134888525749582007ADED3 /* DefinitionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionTableViewCell.xib; sourceTree = "<group>"; };
 		7134888925749D05007ADED3 /* DefinitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionViewModel.swift; sourceTree = "<group>"; };
+		7152EADA2575E94A00F1C5FB /* AddNewWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordViewController.swift; sourceTree = "<group>"; };
+		7152EADB2575E94A00F1C5FB /* AddNewWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewWordViewController.xib; sourceTree = "<group>"; };
 		7160B71025725359007F7C90 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		7160B71425725532007F7C90 /* DefinitionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionHeaderView.swift; sourceTree = "<group>"; };
 		7160B71925725572007F7C90 /* DefinitionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionHeaderView.xib; sourceTree = "<group>"; };
@@ -75,6 +81,8 @@
 		716CD31B2575130400695A91 /* SidePanelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelTableViewCell.swift; sourceTree = "<group>"; };
 		716CD31C2575130400695A91 /* SidePanelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidePanelTableViewCell.xib; sourceTree = "<group>"; };
 		716CD3202575183D00695A91 /* SidePanelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelViewModel.swift; sourceTree = "<group>"; };
+		716CD3252575232700695A91 /* SidePanelHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelHeaderFooterView.swift; sourceTree = "<group>"; };
+		716CD3282575234100695A91 /* SidePanelHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidePanelHeaderFooterView.xib; sourceTree = "<group>"; };
 		7175691F2570CFD300417B9C /* MandarinUrbanDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MandarinUrbanDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717569222570CFD300417B9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		717569242570CFD300417B9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +120,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7105AF872575E9CD000C71B4 /* Definition */ = {
+			isa = PBXGroup;
+			children = (
+				7120E01E257231CC00A56E7E /* DefinitionViewController.xib */,
+			);
+			path = Definition;
+			sourceTree = "<group>";
+		};
+		7105AF892575E9E3000C71B4 /* New Word */ = {
+			isa = PBXGroup;
+			children = (
+				7152EADB2575E94A00F1C5FB /* AddNewWordViewController.xib */,
+			);
+			path = "New Word";
+			sourceTree = "<group>";
+		};
 		7120E0232572333B00A56E7E /* MostViewedWord */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				7120E0112571167700A56E7E /* CategoryCollectionViewCell.swift */,
+				7120E0122571167700A56E7E /* CategoryCollectionViewCell.xib */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -138,12 +163,61 @@
 			path = Definition;
 			sourceTree = "<group>";
 		};
+		7152EACD2575E8BE00F1C5FB /* New Word */ = {
+			isa = PBXGroup;
+			children = (
+				7152EADA2575E94A00F1C5FB /* AddNewWordViewController.swift */,
+			);
+			path = "New Word";
+			sourceTree = "<group>";
+		};
+		7152EACE2575E8C800F1C5FB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7120E0052570F65D00A56E7E /* SearchPageViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		7152EAD02575E8D900F1C5FB /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7120E00B2571116400A56E7E /* CategoryViewController.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		7152EAD32575E8E000F1C5FB /* Definition */ = {
+			isa = PBXGroup;
+			children = (
+				7120E01D257231CC00A56E7E /* DefinitionViewController.swift */,
+			);
+			path = Definition;
+			sourceTree = "<group>";
+		};
+		7152EADF2575E96400F1C5FB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7120E0062570F65D00A56E7E /* SearchPageViewController.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		7152EAE02575E96900F1C5FB /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7120E00C2571116400A56E7E /* CategoryViewController.xib */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		7160B713257254D8007F7C90 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				7160B71825725558007F7C90 /* Definition Header */,
 				713488832574954F007ADED3 /* Definition */,
 				716CD319257503A700695A91 /* SidePanel */,
+				716CD324257522EF00695A91 /* SidePanel Header */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -183,6 +257,15 @@
 				716CD31C2575130400695A91 /* SidePanelTableViewCell.xib */,
 			);
 			path = SidePanel;
+			sourceTree = "<group>";
+		};
+		716CD324257522EF00695A91 /* SidePanel Header */ = {
+			isa = PBXGroup;
+			children = (
+				716CD3252575232700695A91 /* SidePanelHeaderFooterView.swift */,
+				716CD3282575234100695A91 /* SidePanelHeaderFooterView.xib */,
+			);
+			path = "SidePanel Header";
 			sourceTree = "<group>";
 		};
 		717569162570CFD300417B9C = {
@@ -254,9 +337,10 @@
 			isa = PBXGroup;
 			children = (
 				716CD3152574F81000695A91 /* HomePage */,
-				7120E0062570F65D00A56E7E /* SearchPageViewController.xib */,
-				7120E00C2571116400A56E7E /* CategoryViewController.xib */,
-				7120E01E257231CC00A56E7E /* DefinitionViewController.xib */,
+				7105AF892575E9E3000C71B4 /* New Word */,
+				7152EADF2575E96400F1C5FB /* Search */,
+				7152EAE02575E96900F1C5FB /* Category */,
+				7105AF872575E9CD000C71B4 /* Definition */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -266,7 +350,6 @@
 			children = (
 				7120E0232572333B00A56E7E /* MostViewedWord */,
 				7120E0242572334300A56E7E /* Category */,
-				7120E0122571167700A56E7E /* CategoryCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -275,9 +358,10 @@
 			isa = PBXGroup;
 			children = (
 				716CD30A2574F79100695A91 /* HomePage */,
-				7120E0052570F65D00A56E7E /* SearchPageViewController.swift */,
-				7120E00B2571116400A56E7E /* CategoryViewController.swift */,
-				7120E01D257231CC00A56E7E /* DefinitionViewController.swift */,
+				7152EACD2575E8BE00F1C5FB /* New Word */,
+				7152EACE2575E8C800F1C5FB /* Search */,
+				7152EAD02575E8D900F1C5FB /* Category */,
+				7152EAD32575E8E000F1C5FB /* Definition */,
 			);
 			name = Controller;
 			path = MandarinUrbanDictionary/Controller;
@@ -413,8 +497,10 @@
 			files = (
 				716CD3122574F80500695A91 /* SidePanelViewController.xib in Resources */,
 				7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */,
+				7152EADD2575E94A00F1C5FB /* AddNewWordViewController.xib in Resources */,
 				7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */,
 				7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */,
+				716CD3292575234100695A91 /* SidePanelHeaderFooterView.xib in Resources */,
 				7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */,
 				71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */,
 				71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */,
@@ -501,6 +587,7 @@
 				71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */,
 				7120E00D2571116400A56E7E /* CategoryViewController.swift in Sources */,
 				7120E01B257225CF00A56E7E /* UISearchBar+Extension.swift in Sources */,
+				716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */,
 				7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */,
 				71E7F34C2570D75B00F15098 /* Definition.swift in Sources */,
 				716CD3112574F80500695A91 /* SidePanelViewController.swift in Sources */,
@@ -512,6 +599,7 @@
 				71E7F3382570D67900F15098 /* NewPostButtonView.swift in Sources */,
 				7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */,
 				71348880257285F5007ADED3 /* UINavigationItem+Extension.swift in Sources */,
+				7152EADC2575E94A00F1C5FB /* AddNewWordViewController.swift in Sources */,
 				71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */,
 				7134888A25749D05007ADED3 /* DefinitionViewModel.swift in Sources */,
 				7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */,
@@ -662,6 +750,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XN57F4FPDT;
 				INFOPLIST_FILE = "MandarinUrbanDictionary/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -681,6 +770,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XN57F4FPDT;
 				INFOPLIST_FILE = "MandarinUrbanDictionary/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -59,9 +59,6 @@ extension DefinitionViewController: UITabBarDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-}
-
-extension DefinitionViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -78,7 +75,9 @@ extension DefinitionViewController: UITableViewDataSource {
         
         return nil
     }
-    
+}
+
+extension DefinitionViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

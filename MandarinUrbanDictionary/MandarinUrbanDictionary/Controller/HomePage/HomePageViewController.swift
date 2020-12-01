@@ -44,7 +44,6 @@ class HomePageViewController: UIViewController {
     
     @objc func toggleSideMenu() {
         //Remove leftBarButtonItem when SidePanel show
-        self.navigationItem.leftBarButtonItem = nil
         delegate?.toggleLeftPanel()
     }
 }
@@ -54,12 +53,14 @@ private extension HomePageViewController {
         view.backgroundColor = UIColor.homepageDarkBlue
         
         logoImageView.image = UIImage.homeLogo
+        
+        writeNewWordButtonView.delegate = self
     }
     
     func setupNavigationController() {
         guard let navigationController = self.navigationController else { return }
         
-        navigationController.navigationBar.backgroundColor = UIColor.homepageDarkBlue
+        navigationController.navigationBar.backgroundColor = UIColor.clear
         
         navigationController.navigationBar.tintColor = UIColor.homepageLightBlue
         
@@ -69,6 +70,8 @@ private extension HomePageViewController {
         let sideMenuButton = UIBarButtonItem(image: UIImage.list, style: .plain, target: self, action: #selector(toggleSideMenu))
         
         self.navigationItem.leftBarButtonItem = sideMenuButton
+        
+        self.navigationItem.backButtonTitle = ""
     }
     
     func setupPagerView() {
@@ -78,6 +81,14 @@ private extension HomePageViewController {
         
         pagerView.delegate = self
         pagerView.dataSource = self
+    }
+}
+
+extension HomePageViewController: PostButtonDelegate {
+    func clickButton(_ sender: UIButton) {
+        let addNewWordVC = AddNewWordViewController()
+    
+        self.navigationController?.pushViewController(addNewWordVC, animated: true)
     }
 }
 

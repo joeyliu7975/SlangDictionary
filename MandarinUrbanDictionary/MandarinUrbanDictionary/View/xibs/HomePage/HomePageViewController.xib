@@ -79,7 +79,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="28"/>
                     <color key="tintColor" red="0.19215686274509802" green="0.75686274509803919" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <state key="normal" title="Search" image="search">
+                    <state key="normal" title="Slang Yet?" image="search">
                         <color key="titleColor" red="0.19215686274509802" green="0.75686274509803919" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </state>
                     <connections>

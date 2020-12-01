@@ -46,14 +46,14 @@ class DefinitionViewModel {
         definitions = mockData
     }
     
-    func convertRank(with rank: Int) -> String{
+    func convertRank(with rank: Int) -> String {
         var rankString: String
-    
+        
         switch rank {
-            case 0:
-                rankString = "Top Definition"
+        case 0:
+            rankString = "Top Definition"
         default:
-            rankString = String(describing: rank)
+            rankString = String(describing: rank + 1)
         }
         
         return rankString

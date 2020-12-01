@@ -25,8 +25,7 @@ class HomePageViewModel {
         
     var updateHot5: ( () -> Void )?
     
-     func renderCell(at carousel: Carousel) -> IndexPath{
-
+     func renderCell(at carousel: Carousel) -> IndexPath {
         switch carousel {
         case .mostViewedWord:
             return IndexPath(row: 0, section: 0)

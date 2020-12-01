@@ -61,7 +61,7 @@ extension CategoryViewController: UICollectionViewDataSource {
         guard let categoryCell = cell as? CategoryCollectionViewCell
         else { return cell }
         
-        categoryCell.renderUI(title: "Hello", image: "featherPen")
+        categoryCell.renderUI(title: "Hello", image: "puzzle")
         
         return categoryCell
     }

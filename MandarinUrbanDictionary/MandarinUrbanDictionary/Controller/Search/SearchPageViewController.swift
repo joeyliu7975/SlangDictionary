@@ -44,6 +44,8 @@ private extension SearchPageViewController {
         searchBar.setClearButton(color: .white)
         
         searchBar.setSearchIcon(color: .white)
+        
+        searchBar.becomeFirstResponder()
     }
     
     func setupTableView() {

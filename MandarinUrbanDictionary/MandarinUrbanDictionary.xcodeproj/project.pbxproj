@@ -40,6 +40,11 @@
 		7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7175692D2570CFD600417B9C /* LaunchScreen.storyboard */; };
 		7175694C2570D0FE00417B9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7175694B2570D0FE00417B9C /* GoogleService-Info.plist */; };
 		71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */; };
+		71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A832576368900E0C14D /* FavoriteViewController.swift */; };
+		71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A84A842576368900E0C14D /* FavoriteViewController.xib */; };
+		71A84A8C257637B600E0C14D /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A8A257637B600E0C14D /* FavoriteTableViewCell.swift */; };
+		71A84A8D257637B600E0C14D /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A84A8B257637B600E0C14D /* FavoriteTableViewCell.xib */; };
+		71A84A912576802900E0C14D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A902576802900E0C14D /* Category.swift */; };
 		71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3302570D67900F15098 /* HomePageViewController.xib */; };
 		71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3322570D67900F15098 /* MostViewedWordCollectionViewCell.swift */; };
 		71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */; };
@@ -91,6 +96,11 @@
 		717569302570CFD600417B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7175694B2570D0FE00417B9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FSPagerView+Extension.swift"; sourceTree = "<group>"; };
+		71A84A832576368900E0C14D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		71A84A842576368900E0C14D /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
+		71A84A8A257637B600E0C14D /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		71A84A8B257637B600E0C14D /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
+		71A84A902576802900E0C14D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		71E7F3302570D67900F15098 /* HomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
 		71E7F3322570D67900F15098 /* MostViewedWordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MostViewedWordCollectionViewCell.swift; sourceTree = "<group>"; };
 		71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MostViewedWordCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -218,6 +228,7 @@
 				713488832574954F007ADED3 /* Definition */,
 				716CD319257503A700695A91 /* SidePanel */,
 				716CD324257522EF00695A91 /* SidePanel Header */,
+				71A84A892576379400E0C14D /* Favorite */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -322,6 +333,31 @@
 			path = Fundmental;
 			sourceTree = "<group>";
 		};
+		71A84A822576365000E0C14D /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				71A84A832576368900E0C14D /* FavoriteViewController.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		71A84A882576369600E0C14D /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				71A84A842576368900E0C14D /* FavoriteViewController.xib */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		71A84A892576379400E0C14D /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				71A84A8A257637B600E0C14D /* FavoriteTableViewCell.swift */,
+				71A84A8B257637B600E0C14D /* FavoriteTableViewCell.xib */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
 		71E7F32E2570D67900F15098 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +377,7 @@
 				7152EADF2575E96400F1C5FB /* Search */,
 				7152EAE02575E96900F1C5FB /* Category */,
 				7105AF872575E9CD000C71B4 /* Definition */,
+				71A84A882576369600E0C14D /* Favorite */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -362,6 +399,7 @@
 				7152EACE2575E8C800F1C5FB /* Search */,
 				7152EAD02575E8D900F1C5FB /* Category */,
 				7152EAD32575E8E000F1C5FB /* Definition */,
+				71A84A822576365000E0C14D /* Favorite */,
 			);
 			name = Controller;
 			path = MandarinUrbanDictionary/Controller;
@@ -396,6 +434,7 @@
 			children = (
 				71E7F34A2570D75B00F15098 /* Definition.swift */,
 				71E7F34B2570D75B00F15098 /* Word.swift */,
+				71A84A902576802900E0C14D /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -505,7 +544,9 @@
 				71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */,
 				71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */,
 				716CD31E2575130400695A91 /* SidePanelTableViewCell.xib in Resources */,
+				71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */,
 				7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */,
+				71A84A8D257637B600E0C14D /* FavoriteTableViewCell.xib in Resources */,
 				7120E0142571167700A56E7E /* CategoryCollectionViewCell.xib in Resources */,
 				7175694C2570D0FE00417B9C /* GoogleService-Info.plist in Resources */,
 				7175692C2570CFD600417B9C /* Assets.xcassets in Resources */,
@@ -603,13 +644,16 @@
 				71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */,
 				7134888A25749D05007ADED3 /* DefinitionViewModel.swift in Sources */,
 				7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */,
+				71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */,
 				716CD31D2575130400695A91 /* SidePanelTableViewCell.swift in Sources */,
+				71A84A8C257637B600E0C14D /* FavoriteTableViewCell.swift in Sources */,
 				7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */,
 				717569232570CFD300417B9C /* AppDelegate.swift in Sources */,
 				71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */,
 				716CD30D2574F7A200695A91 /* ContainerViewController.swift in Sources */,
 				717569252570CFD300417B9C /* SceneDelegate.swift in Sources */,
 				7120E0182572024A00A56E7E /* SearchButton.swift in Sources */,
+				71A84A912576802900E0C14D /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

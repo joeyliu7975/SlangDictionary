@@ -112,7 +112,7 @@ extension CategoryViewController: UICollectionViewDataSource {
         guard let categoryCell = cell as? CategoryCollectionViewCell
         else { return cell }
         
-        categoryCell.renderUI(title: category.title, image: "puzzle")
+        categoryCell.renderUI(title: category.title, image: category.image)
         
         return categoryCell
     }
@@ -134,39 +134,4 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
 
 protocol CategoryDelegate: class {
     func confirmSelection(_ selectedCategory: Category)
-}
-
-enum Category: CaseIterable {
-    case all
-    case engineer
-    case job
-    case school
-    case pickUpLine
-    case restaurant
-    case game
-    case gym
-    case relationship
-    
-    var title: String {
-        switch self {
-        case .all:
-            return "All"
-        case .engineer:
-            return "Engineer"
-        case .job:
-            return "Workplace"
-        case .school:
-            return "School"
-        case .pickUpLine:
-            return "Pickup Line"
-        case .restaurant:
-            return "Restaurant"
-        case .game:
-            return "Game"
-        case .gym:
-            return "Gym"
-        case .relationship:
-            return "Relationship"
-        }
-    }
 }

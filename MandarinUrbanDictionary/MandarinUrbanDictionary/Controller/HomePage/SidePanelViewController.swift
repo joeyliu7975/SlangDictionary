@@ -43,18 +43,21 @@ extension SidePanelViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SidePanelHeaderFooterView.identifierName) as? SidePanelHeaderFooterView {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SidePanelHeaderFooterView.identifierName)
+        
+        if let sidePanelView = headerView as? SidePanelHeaderFooterView {
+            
             let headerBackgroundView = UIView()
             
-            let width = headerView.logoImageView.frame.width
+            let width = sidePanelView.logoImageView.frame.width
             
             headerBackgroundView.backgroundColor = .sidePanelBlue
     
-            headerView.backgroundView = headerBackgroundView
+            sidePanelView.backgroundView = headerBackgroundView
             
-            headerView.logoImageView.setCorner(radius: width / 2)
+            sidePanelView.logoImageView.setCorner(radius: width / 2)
             
-          return headerView
+          return sidePanelView
         }
         
         return nil

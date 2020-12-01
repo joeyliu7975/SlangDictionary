@@ -34,11 +34,21 @@ class DefinitionTableViewCell: UITableViewCell {
         self.selectedBackgroundView = UIView()
     }
     
-    private func defaultConfiguration() {
-        rankLabelView.setCorner(radius: 10.0)
-        rankLabelView.backgroundColor = .rankLabelBackgroundBlue
+    @IBAction func clickButton(_ sender: UIButton) {
+        switch sender {
+        case likeButton:
+            likeButton.tintColor = .blue
+        case dislikeButton:
+            dislikeButton.tintColor = .blue
+        case reportButton:
+            reportButton.tintColor = .blue
+        default:
+            break
+        }
     }
-    
+}
+
+extension DefinitionTableViewCell {
     func renderUI(
         rank: String,
         isLiked:Bool,
@@ -51,5 +61,14 @@ class DefinitionTableViewCell: UITableViewCell {
         amountOfLikesLabel.text = String(describing: amountOfLike)
         amountOfDislikesLabel.text = String(describing: amountOfDislike)
         definitionTextView.text = content
+    }
+}
+
+private extension DefinitionTableViewCell {
+    private func defaultConfiguration() {
+        rankLabelView.setCorner(radius: 10.0)
+        rankLabelView.backgroundColor = .rankLabelBackgroundBlue
+        
+        likeButton.tintColor = .red
     }
 }

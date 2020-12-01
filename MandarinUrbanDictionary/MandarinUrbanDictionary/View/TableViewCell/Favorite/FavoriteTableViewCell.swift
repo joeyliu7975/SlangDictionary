@@ -13,6 +13,8 @@ class FavoriteTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cardView: CardView!
     @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var categoryTagView: UIView!
+    @IBOutlet weak var categoryTagLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,11 +29,13 @@ class FavoriteTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func renderUI(word: String) {
+    func renderUI(word: String, tag: String) {
         wordLabel.text = word
+        categoryTagLabel.text = tag
     }
     
     private func setup() {
         cardView.backgroundColor = .cardViewBlue
+        categoryTagView.setCorner(radius: 15.0)
     }
 }

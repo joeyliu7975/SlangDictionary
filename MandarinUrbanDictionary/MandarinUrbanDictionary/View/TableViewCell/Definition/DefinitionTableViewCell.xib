@@ -54,6 +54,9 @@
                                     <constraint firstAttribute="width" constant="24" id="POK-R9-plg"/>
                                 </constraints>
                                 <state key="normal" image="like_button_image_25x25"/>
+                                <connections>
+                                    <action selector="clickButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="i5Q-5r-Anj"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBI-n8-Rbz">
                                 <rect key="frame" x="44" y="0.0" width="40.5" height="24"/>

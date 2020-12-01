@@ -27,6 +27,10 @@ class FavoriteViewController: UIViewController {
     @objc func toggleSideMenu() {
         clickSideMenu?()
     }
+    
+    @objc func toggleEditMode() {
+        print("Toggle")
+    }
 }
 
 private extension FavoriteViewController {
@@ -44,19 +48,25 @@ private extension FavoriteViewController {
     }
     
     func setupNavigationController() {
-        self.navigationItem.leftBarButtonItem = nil
-        self.navigationItem.hidesBackButton = true
+        removeBackButtonItem()
         
         let attrs = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 28)!
         ]
         
-        self.navigationItem.setBarAppearance(with: .cardViewBlue, titleTextAttrs: attrs, title: "Favorite")
-        
         let sideMenuButton = UIBarButtonItem(image: UIImage.list, style: .plain, target: self, action: #selector(toggleSideMenu))
         
-        self.navigationItem.leftBarButtonItem = sideMenuButton
+        let editButton = UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(toggleEditMode))
+        
+        navigationItem.leftBarButtonItem = sideMenuButton
+        navigationItem.rightBarButtonItem = editButton
+        navigationItem.setBarAppearance(with: .cardViewBlue, titleTextAttrs: attrs, title: "Favorite")
+    }
+    
+    func removeBackButtonItem() {
+        navigationItem.leftBarButtonItem = nil
+        navigationItem.hidesBackButton = true
     }
 }
 
@@ -77,7 +87,7 @@ extension FavoriteViewController: UITableViewDataSource {
         let data = mockData[indexPath.row].makeIcon()
         
         if let favoriteCell = cell as? FavoriteTableViewCell {
-            favoriteCell.renderUI(word: data.name)
+            favoriteCell.renderUI(word: data.name, tag: data.image)
             
             cell = favoriteCell
         }

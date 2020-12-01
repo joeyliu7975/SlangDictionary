@@ -49,9 +49,20 @@ class CategoryViewController: UIViewController {
     @IBOutlet weak var buttonContainerView: UIView!
     @IBOutlet weak var confirmButton: UIButton!
     
+    var selectionBorderView = UIView()
+    
     let categoryList = Category.allCases
     
     var selectCategory: Category? {
+        willSet {
+            if let previousCategory = selectCategory,
+               let index = categoryList.firstIndex(of: previousCategory) {
+                guard let selectedCell = categoryCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? CategoryCollectionViewCell else { return }
+                
+                selectedCell.removeBorderView(&selectionBorderView)
+            }
+        }
+        
         didSet {
             if selectCategory != nil {
                 enableButton()
@@ -82,6 +93,8 @@ private extension CategoryViewController {
         
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
+        
+        categoryCollectionView.allowsMultipleSelection = false
     }
     
     func disableButton() {
@@ -99,6 +112,11 @@ extension CategoryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Select Category
         selectCategory = categoryList[indexPath.row]
+        
+        if let selectedCell = collectionView.cellForItem(at: IndexPath(row: indexPath.row, section: indexPath.section)) as?
+            CategoryCollectionViewCell {
+            selectedCell.addBorderView(&selectionBorderView)
+        }
     }
 }
 

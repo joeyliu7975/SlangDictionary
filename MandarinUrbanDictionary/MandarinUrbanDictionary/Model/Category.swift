@@ -21,7 +21,7 @@ enum Category: String, CaseIterable {
 
 extension Category {
     
-    struct CategoryItem {
+    struct Item {
         let name: String
         let image: String
     }
@@ -34,26 +34,26 @@ extension Category {
         return self.makeIcon().image
     }
     
-    private func makeIcon() -> CategoryItem {
+    private func makeIcon() -> Item {
         switch self {
         case .all:
-            return CategoryItem(name: self.rawValue, image: "puzzle")
+            return Item(name: self.rawValue, image: "puzzle")
         case .engineer:
-            return CategoryItem(name: self.rawValue, image: "puzzle")
+            return Item(name: self.rawValue, image: "puzzle")
         case .job:
-            return CategoryItem(name: self.rawValue, image: "puzzle")
+            return Item(name: self.rawValue, image: "puzzle")
         case .school:
-            return CategoryItem(name: self.rawValue, image: "puzzle")
+            return Item(name: self.rawValue, image: "puzzle")
         case .pickUpLine:
-            return CategoryItem(name: self.rawValue, image: "puzzle")
+            return Item(name: self.rawValue, image: "puzzle")
         case .restaurant:
-            return CategoryItem(name: self.rawValue, image: "puzzle")
+            return Item(name: self.rawValue, image: "puzzle")
         case .game:
-            return CategoryItem(name: self.rawValue, image: "puzzle")
+            return Item(name: self.rawValue, image: "puzzle")
         case .gym:
-            return CategoryItem(name: self.rawValue, image: "puzzle")
+            return Item(name: self.rawValue, image: "puzzle")
         case .relationship:
-            return CategoryItem(name: self.rawValue, image: "puzzle")
+            return Item(name: self.rawValue, image: "puzzle")
         }
     }
 }

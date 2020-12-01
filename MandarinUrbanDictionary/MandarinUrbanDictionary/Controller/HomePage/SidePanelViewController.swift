@@ -13,6 +13,8 @@ class SidePanelViewController: UIViewController {
     
     let viewModel = SidePanelViewModel()
     
+    weak var delegate: LeftViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,6 +35,12 @@ class SidePanelViewController: UIViewController {
 }
 
 extension SidePanelViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectIcon = viewModel.selectItem(index: indexPath.row)
+        
+        delegate?.navigate(to: selectIcon)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
     }
@@ -77,11 +85,15 @@ extension SidePanelViewController: UITableViewDataSource {
         cell = tableView.dequeueReusableCell(withIdentifier: SidePanelTableViewCell.identifierName, for: indexPath)
         
         if let sidePanelTableViewCell = cell as? SidePanelTableViewCell {
-            sidePanelTableViewCell.renderUI(title: item.title, imageName: item.imageName)
+            sidePanelTableViewCell.renderUI(title: item.name, imageName: item.image)
             
             cell = sidePanelTableViewCell
         }
         
         return cell
     }
+}
+
+protocol LeftViewControllerDelegate: class {
+    func navigate(to page: SidePanel)
 }

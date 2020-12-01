@@ -58,11 +58,15 @@ extension AddNewWordViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        return categoryTF.text = categoryList[row].title
+        let icon = categoryList[row].makeIcon()
+        
+        return categoryTF.text = icon.name
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoryList[row].title
+        let icon = categoryList[row].makeIcon()
+        
+        return icon.name
     }
 }
 

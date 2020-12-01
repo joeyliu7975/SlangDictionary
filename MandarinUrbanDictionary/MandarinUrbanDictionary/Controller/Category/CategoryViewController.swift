@@ -109,10 +109,12 @@ extension CategoryViewController: UICollectionViewDataSource {
         
         let category = categoryList[indexPath.row]
         
+        let icon = category.makeIcon()
+        
         guard let categoryCell = cell as? CategoryCollectionViewCell
         else { return cell }
         
-        categoryCell.renderUI(title: category.title, image: category.image)
+        categoryCell.renderUI(title: icon.name, image: icon.image)
         
         return categoryCell
     }

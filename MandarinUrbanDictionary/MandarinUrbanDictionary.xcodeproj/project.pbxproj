@@ -39,6 +39,7 @@
 		7175692C2570CFD600417B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7175692B2570CFD600417B9C /* Assets.xcassets */; };
 		7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7175692D2570CFD600417B9C /* LaunchScreen.storyboard */; };
 		7175694C2570D0FE00417B9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7175694B2570D0FE00417B9C /* GoogleService-Info.plist */; };
+		71811DEC2576DC66005319DA /* SidePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71811DEB2576DC66005319DA /* SidePanel.swift */; };
 		71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */; };
 		71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A832576368900E0C14D /* FavoriteViewController.swift */; };
 		71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A84A842576368900E0C14D /* FavoriteViewController.xib */; };
@@ -96,6 +97,7 @@
 		7175692E2570CFD600417B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		717569302570CFD600417B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7175694B2570D0FE00417B9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		71811DEB2576DC66005319DA /* SidePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanel.swift; sourceTree = "<group>"; };
 		71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FSPagerView+Extension.swift"; sourceTree = "<group>"; };
 		71A84A832576368900E0C14D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		71A84A842576368900E0C14D /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				71E7F34A2570D75B00F15098 /* Definition.swift */,
 				71E7F34B2570D75B00F15098 /* Word.swift */,
 				71A84A902576802900E0C14D /* Category.swift */,
+				71811DEB2576DC66005319DA /* SidePanel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				716CD3212575183D00695A91 /* SidePanelViewModel.swift in Sources */,
+				71811DEC2576DC66005319DA /* SidePanel.swift in Sources */,
 				71E7F3462570D73700F15098 /* UICollectionView+Extension.swift in Sources */,
 				7120E0132571167700A56E7E /* CategoryCollectionViewCell.swift in Sources */,
 				7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */,

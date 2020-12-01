@@ -130,5 +130,4 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 
 protocol CenterViewControllerDelegate: class {
   func toggleLeftPanel()
-  func navigateToPage()
 }

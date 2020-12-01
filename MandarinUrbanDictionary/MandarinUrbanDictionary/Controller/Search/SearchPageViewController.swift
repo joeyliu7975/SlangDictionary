@@ -16,7 +16,9 @@ class SearchPageViewController: UIViewController {
     
     private var selectCategory: Category = .all {
         didSet {
-            navigationItem.title = selectCategory.title
+            let icon = selectCategory.makeIcon()
+            
+            navigationItem.title = icon.name
         }
     }
     
@@ -77,7 +79,9 @@ private extension SearchPageViewController {
             NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 28)!
         ]
         
-        navigationItem.setBarAppearance(with: .homepageDarkBlue, titleTextAttrs: attrs, title: selectCategory.title)
+        let icon = selectCategory.makeIcon()
+        
+        navigationItem.setBarAppearance(with: .homepageDarkBlue, titleTextAttrs: attrs, title: icon.name)
     }
 }
 

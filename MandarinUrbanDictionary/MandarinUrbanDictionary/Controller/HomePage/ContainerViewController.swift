@@ -7,14 +7,8 @@
 
 import UIKit
 
-enum SlideOutState {
-    case homePage
-    case dailySlang
-    case top5
-    case favorite
-    case recents
-    case quiz
-    case login
+enum SlideOutState: Equatable {
+    case center
     case leftPanelExpanded
 }
 
@@ -23,7 +17,7 @@ class ContainerViewController: UIViewController {
     var centerNavigationController: UINavigationController!
     var centerViewController: HomePageViewController!
     
-    var currentState: SlideOutState = .homePage
+    var currentState: SlideOutState = .center
     var leftViewController: SidePanelViewController?
     
     let centerPanelExpandedOffset: CGFloat = 90
@@ -31,6 +25,12 @@ class ContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup()
+    }
+}
+
+private extension ContainerViewController {
+    func setup() {
         centerViewController = HomePageViewController()
         centerViewController.delegate = self
         
@@ -43,8 +43,6 @@ class ContainerViewController: UIViewController {
 }
 
 extension ContainerViewController: CenterViewControllerDelegate {
-    func navigateToPage() { }
-    
     func toggleLeftPanel() {
         let notAlreadyExpanded = (currentState != .leftPanelExpanded)
         
@@ -59,6 +57,9 @@ extension ContainerViewController: CenterViewControllerDelegate {
         guard leftViewController == nil else { return }
         
         let sidePanelVC = SidePanelViewController()
+        
+        sidePanelVC.delegate = self
+        
         addChildSidePanelController(sidePanelVC)
         leftViewController = sidePanelVC
     }
@@ -78,7 +79,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
                     - centerPanelExpandedOffset)
         } else {
             animateCenterPanelXPosition(targetPosition: 0) {_ in
-                self.currentState = .homePage
+                self.currentState = .center
                 self.leftViewController?.view.removeFromSuperview()
                 self.leftViewController = nil
             }
@@ -98,5 +99,34 @@ extension ContainerViewController: CenterViewControllerDelegate {
                 self.centerNavigationController.view.frame.origin.x = targetPosition
             },
             completion: completion)
+    }
+}
+
+extension ContainerViewController: LeftViewControllerDelegate {
+    func navigate(to page: SidePanel) {
+        animateLeftPanel(shouldExpand: false)
+        
+        var destinationVC: UIViewController?
+        
+        switch page {
+        case .homePage:
+            break
+        case .dailySlang:
+            break
+        case .top5:
+            break
+        case .favorite:
+            destinationVC = FavoriteViewController()
+        case .recents:
+            break
+        case .quiz:
+            break
+        case .login:
+            break
+        }
+        
+        guard let desVC = destinationVC else { return }
+        
+        centerNavigationController.pushViewController(desVC, animated: true)
     }
 }

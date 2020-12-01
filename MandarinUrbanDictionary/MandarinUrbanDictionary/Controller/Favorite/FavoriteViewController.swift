@@ -44,10 +44,10 @@ extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifierName, for: indexPath)
         
-        let data = mockData[indexPath.row]
+        let data = mockData[indexPath.row].makeIcon()
         
         if let favoriteCell = cell as? FavoriteTableViewCell {
-            favoriteCell.renderUI(word: data.title)
+            favoriteCell.renderUI(word: data.name)
             
             cell = favoriteCell
         }

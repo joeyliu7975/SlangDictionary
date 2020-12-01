@@ -13,20 +13,50 @@ class FavoriteViewController: UIViewController {
     
     let mockData = Category.allCases
     
+    var clickSideMenu: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setup()
         setupTableView()
+        setupNavigationController()
     }
     
-    private func setupTableView() {
+    @objc func toggleSideMenu() {
+        clickSideMenu?()
+    }
+}
+
+private extension FavoriteViewController {
+    func setup() {
+        view.backgroundColor = .cardViewBlue
+    }
+    
+    func setupTableView() {
         tableView.registerCell(FavoriteTableViewCell.identifierName)
         
         tableView.separatorStyle = .none
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func setupNavigationController() {
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.hidesBackButton = true
+        
+        let attrs = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 28)!
+        ]
+        
+        self.navigationItem.setBarAppearance(with: .cardViewBlue, titleTextAttrs: attrs, title: "Favorite")
+        
+        let sideMenuButton = UIBarButtonItem(image: UIImage.list, style: .plain, target: self, action: #selector(toggleSideMenu))
+        
+        self.navigationItem.leftBarButtonItem = sideMenuButton
     }
 }
 

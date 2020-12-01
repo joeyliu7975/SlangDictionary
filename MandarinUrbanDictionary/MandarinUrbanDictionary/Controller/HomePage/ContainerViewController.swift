@@ -32,6 +32,7 @@ class ContainerViewController: UIViewController {
 private extension ContainerViewController {
     func setup() {
         centerViewController = HomePageViewController()
+        
         centerViewController.delegate = self
         
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
@@ -39,6 +40,10 @@ private extension ContainerViewController {
         addChild(centerNavigationController)
         
         centerNavigationController.didMove(toParent: self)
+    }
+    
+    func setupNavigationController() {
+        self.navigationItem.setBarAppearance(with: .white)
     }
 }
 
@@ -110,13 +115,21 @@ extension ContainerViewController: LeftViewControllerDelegate {
         
         switch page {
         case .homePage:
-            break
+            centerNavigationController.popToRootViewController(animated: true)
+            
+            return 
         case .dailySlang:
             break
         case .top5:
             break
         case .favorite:
             destinationVC = FavoriteViewController()
+            
+            if let desVC = destinationVC as? FavoriteViewController {
+                desVC.clickSideMenu = {
+                    self.toggleLeftPanel()
+                }
+            }
         case .recents:
             break
         case .quiz:

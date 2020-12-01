@@ -70,8 +70,6 @@ private extension HomePageViewController {
         let sideMenuButton = UIBarButtonItem(image: UIImage.list, style: .plain, target: self, action: #selector(toggleSideMenu))
         
         self.navigationItem.leftBarButtonItem = sideMenuButton
-        
-        self.navigationItem.backButtonTitle = ""
     }
     
     func setupPagerView() {

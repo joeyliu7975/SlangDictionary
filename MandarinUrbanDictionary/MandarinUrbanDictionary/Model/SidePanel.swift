@@ -8,19 +8,29 @@
 import Foundation
 
 protocol IconFactory {
+    
     associatedtype Icon
     
     func makeIcon() -> Icon
+    
 }
 
 enum SidePanel: String, CaseIterable {
+    
     case homePage = "Dictionary"
+    
     case dailySlang = "Daily Slang"
+    
     case top5 = "Top 5"
+    
     case favorite = "Favorite"
+    
     case recents = "Recents"
+    
     case quiz = "Quiz"
+    
     case login = "Login"
+    
 }
 
 extension SidePanel: IconFactory {
@@ -28,26 +38,66 @@ extension SidePanel: IconFactory {
     typealias Icon = Item
     
     struct Item {
+        
         let name: String
+        
         let image: String
+        
     }
     
     func makeIcon() -> Icon {
+        
         switch self {
+        
         case .homePage:
-            return Icon(name: "Dictionary", image: "dictionary")
+            
+            return Icon(
+                name: rawValue,
+                image: JoeyImage.dictionary
+            )
+            
         case .dailySlang:
-            return Icon(name: "Daily Slang", image: "calendar")
+            
+            return Icon(
+                name: rawValue,
+                image: JoeyImage.calendar
+            )
+            
         case .top5:
-            return Icon(name: "Top 5", image: "winner")
+            
+            return Icon(
+                name: rawValue,
+                image: JoeyImage.rank
+            )
+            
         case .favorite:
-            return Icon(name: "Favorite", image: "heart")
+            
+            return Icon(
+                name: rawValue,
+                image: JoeyImage.favoriteSideMenu
+            )
+            
         case .recents:
-            return Icon(name: "Recents", image: "clock")
+            
+            return Icon(
+                name: rawValue,
+                image: JoeyImage.clock
+            )
+            
         case .quiz:
-            return Icon(name: "Quiz", image: "puzzle")
+            
+            return Icon(
+                name: rawValue,
+                image: JoeyImage.puzzle
+            )
+            
         case .login:
-            return Icon(name: "Login", image: "nest")
+            
+            return Icon(
+                name: rawValue,
+                image: JoeyImage.nest
+            )
+            
         }
     }
 }

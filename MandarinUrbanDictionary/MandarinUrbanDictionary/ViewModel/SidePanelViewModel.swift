@@ -8,6 +8,7 @@
 import Foundation
 
 class SidePanelViewModel {
+    
     typealias Item = SidePanel.Icon
     
     let sidePanelItems = SidePanel.allCases

@@ -18,8 +18,11 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
 
         // Do any additional setup after loading the view.
         setup()
+        
         setupNav()
+        
         setupTableView()
+        
         binding()
     }
 }
@@ -41,13 +44,38 @@ private extension DefinitionViewController {
     }
     
     func setupTableView() {
+        
         tableView.registerHeaderFooterCell(DefinitionHeaderView.identifierName)
+        
         tableView.registerCell(DefinitionTableViewCell.identifierName)
         
         tableView.delegate = self
+        
         tableView.dataSource = self
         
         tableView.separatorColor = .separatorlineBlue
+    }
+}
+
+extension DefinitionViewController: DefinitionHeaderDelegate {
+    
+    func toggleFavorite() { }
+    
+    func writeNewDefinition() { }
+}
+
+extension DefinitionViewController: DefinitionTableViewCellDelegate {
+    
+    func report(_ cell: DefinitionTableViewCell) {
+        
+        if let indexPath = tableView.indexPath(for: cell) {
+            
+            let index = indexPath.row
+            
+//            let reportedDefinition = viewModel.definitions[index]
+            
+            self.popAlert(.actionSheet)
+        }
     }
 }
 
@@ -63,12 +91,16 @@ extension DefinitionViewController: UITabBarDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: DefinitionHeaderView.identifierName) as? DefinitionHeaderView {
+            
             let headerBackgroundView = UIView()
+            
             headerBackgroundView.backgroundColor = .searchBarBlue
     
             headerView.backgroundView = headerBackgroundView
             
             headerView.wordLabel.text = "The Dodo"
+            
+            headerView.delegate = self
             
           return headerView
         }
@@ -87,13 +119,18 @@ extension DefinitionViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         var cell = tableView.dequeueReusableCell(withIdentifier: DefinitionTableViewCell.identifierName, for: indexPath)
         
         let definition = viewModel.definitions[indexPath.row]
         
+        let rankString = viewModel.convertRank(with: indexPath.row)
+        
         if let definitionTableViewCell = cell as? DefinitionTableViewCell {
             
-            let rankString = viewModel.convertRank(with: indexPath.row)
+            cell = definitionTableViewCell
+            
+            definitionTableViewCell.delegate = self
             
             definitionTableViewCell.renderUI(
                 rank: rankString,
@@ -103,8 +140,6 @@ extension DefinitionViewController: UITableViewDataSource {
                 isReported: false,
                 content: definition.content
             )
-            
-            cell = definitionTableViewCell
         }
         
         return cell

@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,17 +13,8 @@
             <rect key="frame" x="0.0" y="0.0" width="376" height="180"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGQ-Yc-bzh">
-                    <rect key="frame" x="15" y="45" width="24" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="24" id="l4q-uP-9jp"/>
-                        <constraint firstAttribute="height" constant="24" id="mXC-l0-zYk"/>
-                    </constraints>
-                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" image="left_arrow"/>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbK-Zd-ED9">
-                    <rect key="frame" x="154.5" y="45" width="67.5" height="33.5"/>
+                    <rect key="frame" x="10" y="59" width="356" height="33.5"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -39,6 +29,9 @@
                                 <constraint firstAttribute="height" constant="32" id="G3q-Jr-hlS"/>
                             </constraints>
                             <state key="normal" image="favorite_normal"/>
+                            <connections>
+                                <action selector="clickButton:" destination="-1" eventType="touchUpInside" id="qhw-di-sNV"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyG-L5-wy1">
                             <rect key="frame" x="72" y="0.0" width="32" height="32"/>
@@ -47,39 +40,35 @@
                                 <constraint firstAttribute="width" constant="32" id="LrK-oj-7LI"/>
                             </constraints>
                             <state key="normal" image="write_new_definition"/>
+                            <connections>
+                                <action selector="clickButton:" destination="-2" eventType="touchUpInside" id="wsS-2w-6QG"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemGreenColor"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="EQi-P1-ncy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1Sg-Ix-UHL"/>
                 <constraint firstItem="fbK-Zd-ED9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3at-TV-pdO"/>
-                <constraint firstItem="fbK-Zd-ED9" firstAttribute="top" secondItem="VGQ-Yc-bzh" secondAttribute="top" id="NO8-QQ-AQd"/>
-                <constraint firstItem="VGQ-Yc-bzh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="45" id="VTr-2t-sGi"/>
-                <constraint firstItem="fbK-Zd-ED9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VGQ-Yc-bzh" secondAttribute="trailing" constant="15" id="ZRj-0t-b16"/>
-                <constraint firstItem="VGQ-Yc-bzh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="bDl-mY-Ih5"/>
+                <constraint firstItem="fbK-Zd-ED9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="VQd-Qn-rip"/>
+                <constraint firstItem="fbK-Zd-ED9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="eva-xz-Ox4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fbK-Zd-ED9" secondAttribute="trailing" constant="10" id="gEw-ez-8xP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="EQi-P1-ncy" secondAttribute="bottom" constant="15" id="iRU-vs-f2P"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fbK-Zd-ED9" secondAttribute="trailing" constant="15" id="pwe-zm-vB0"/>
                 <constraint firstItem="EQi-P1-ncy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fbK-Zd-ED9" secondAttribute="bottom" constant="20" id="vMf-uz-nTF"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="backButton" destination="VGQ-Yc-bzh" id="8cq-uR-cZT"/>
                 <outlet property="favoriteButton" destination="lud-Ak-m43" id="els-sN-A3j"/>
                 <outlet property="wordLabel" destination="fbK-Zd-ED9" id="00q-7F-6oV"/>
                 <outlet property="writeDefinition" destination="xyG-L5-wy1" id="2CJ-vv-bes"/>
             </connections>
-            <point key="canvasLocation" x="139.13043478260872" y="-86.049107142857139"/>
+            <point key="canvasLocation" x="139.13043478260872" y="-86.383928571428569"/>
         </view>
     </objects>
     <resources>
         <image name="favorite_normal" width="32" height="32"/>
-        <image name="left_arrow" width="25" height="25"/>
         <image name="write_new_definition" width="32" height="32"/>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

@@ -19,9 +19,11 @@ class AddNewWordViewController: UIViewController {
     
     private var pickerView: UIPickerView? {
         didSet {
+            
             guard let picker = pickerView else { return }
             
             picker.delegate = self
+            
             picker.dataSource = self
             
             categoryTF.inputView = picker
@@ -58,12 +60,14 @@ extension AddNewWordViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         let icon = categoryList[row].makeIcon()
         
         return categoryTF.text = icon.name
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
         let icon = categoryList[row].makeIcon()
         
         return icon.name
@@ -72,10 +76,13 @@ extension AddNewWordViewController: UIPickerViewDelegate, UIPickerViewDataSource
 
 private extension AddNewWordViewController {
     func setup() {
+        
         definitionTextView.setCorner(radius: 15)
+        
         sendButton.setCorner(radius: 10)
         
         view.backgroundColor = .separatorlineBlue
+        
         containerView.backgroundColor = .separatorlineBlue
         
         pickerView = UIPickerView()

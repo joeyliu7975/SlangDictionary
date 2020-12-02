@@ -8,6 +8,7 @@
 import Foundation
 
 enum Carousel: CaseIterable {
+    
     case mostViewedWord
     
     case newestWord
@@ -16,6 +17,7 @@ enum Carousel: CaseIterable {
 class HomePageViewModel {
     
     var cellCount: Int {
+        
         let carouselList = Carousel.allCases
         
         return carouselList.count
@@ -26,11 +28,17 @@ class HomePageViewModel {
     var updateHot5: ( () -> Void )?
     
      func renderCell(at carousel: Carousel) -> IndexPath {
+        
         switch carousel {
+        
         case .mostViewedWord:
+            
             return IndexPath(row: 0, section: 0)
+            
         case .newestWord:
+            
             return IndexPath(row: 1, section: 0)
+            
         }
     }
 }

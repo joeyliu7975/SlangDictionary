@@ -10,8 +10,11 @@ import UIKit
 class SearchPageViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
+    
     @IBOutlet weak var cancelButton: UIButton!
+    
     @IBOutlet weak var searchBarContainerView: UIView!
+    
     @IBOutlet weak var tableView: UITableView!
     
     private var selectCategory: Category = .all {
@@ -26,7 +29,9 @@ class SearchPageViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        
         setupTableView()
+        
         setupNav()
     }
     
@@ -35,6 +40,7 @@ class SearchPageViewController: UIViewController {
     }
     
     @objc func showList() {
+        
         let categoryViewController = CategoryViewController()
         
         categoryViewController.delegate = self
@@ -45,6 +51,7 @@ class SearchPageViewController: UIViewController {
 
 private extension SearchPageViewController {
     func setup() {
+        
         searchBarContainerView.backgroundColor = .searchBarBlue
             
         cancelButton.setTitleColor(.white, for: .normal)
@@ -59,16 +66,24 @@ private extension SearchPageViewController {
     }
     
     func setupTableView() {
+        
         tableView.delegate = self
+        
         tableView.dataSource = self
     }
     
     func setupNav() {
+        
         guard let navigationController = self.navigationController else { return }
             
         navigationController.navigationBar.tintColor = .white
         
-        let rightButtonItem = UIBarButtonItem(image: UIImage.matrix, style: .plain, target: self, action: #selector(showList))
+        let rightButtonItem = UIBarButtonItem(
+            image: UIImage(named: JoeyImage.matrix)
+            , style: .plain,
+            target: self,
+            action: #selector(showList)
+        )
         
         navigationItem.rightBarButtonItem = rightButtonItem
             

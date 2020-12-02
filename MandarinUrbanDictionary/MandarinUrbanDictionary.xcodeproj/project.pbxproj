@@ -26,6 +26,8 @@
 		7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71025725359007F7C90 /* UITableView+Extension.swift */; };
 		7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71425725532007F7C90 /* DefinitionHeaderView.swift */; };
 		7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7160B71925725572007F7C90 /* DefinitionHeaderView.xib */; };
+		716A8D4725773C11005C5782 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D4625773C11005C5782 /* UIViewController+Extension.swift */; };
+		716A8D5D25777040005C5782 /* JoeyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D5C25777040005C5782 /* JoeyImage.swift */; };
 		716CD30D2574F7A200695A91 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD30C2574F7A200695A91 /* ContainerViewController.swift */; };
 		716CD3112574F80500695A91 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD30F2574F80500695A91 /* SidePanelViewController.swift */; };
 		716CD3122574F80500695A91 /* SidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716CD3102574F80500695A91 /* SidePanelViewController.xib */; };
@@ -52,7 +54,6 @@
 		71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */; };
 		71E7F3382570D67900F15098 /* NewPostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3342570D67900F15098 /* NewPostButtonView.swift */; };
 		71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F33B2570D6FD00F15098 /* HomePageViewController.swift */; };
-		71E7F3432570D73700F15098 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F33F2570D73700F15098 /* UIImageView+Extension.swift */; };
 		71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3402570D73700F15098 /* UIColor+Extension.swift */; };
 		71E7F3452570D73700F15098 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3412570D73700F15098 /* UIView+Extension.swift */; };
 		71E7F3462570D73700F15098 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3422570D73700F15098 /* UICollectionView+Extension.swift */; };
@@ -82,6 +83,8 @@
 		7160B71025725359007F7C90 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		7160B71425725532007F7C90 /* DefinitionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionHeaderView.swift; sourceTree = "<group>"; };
 		7160B71925725572007F7C90 /* DefinitionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionHeaderView.xib; sourceTree = "<group>"; };
+		716A8D4625773C11005C5782 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		716A8D5C25777040005C5782 /* JoeyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoeyImage.swift; path = "Assets Xcassets/JoeyImage.swift"; sourceTree = "<group>"; };
 		716CD30C2574F7A200695A91 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		716CD30F2574F80500695A91 /* SidePanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		716CD3102574F80500695A91 /* SidePanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidePanelViewController.xib; sourceTree = "<group>"; };
@@ -110,7 +113,6 @@
 		71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MostViewedWordCollectionViewCell.xib; sourceTree = "<group>"; };
 		71E7F3342570D67900F15098 /* NewPostButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostButtonView.swift; sourceTree = "<group>"; };
 		71E7F33B2570D6FD00F15098 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
-		71E7F33F2570D73700F15098 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		71E7F3402570D73700F15098 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		71E7F3412570D73700F15098 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		71E7F3422570D73700F15098 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
@@ -305,7 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				71E7F34F2570D76100F15098 /* Helper */,
-				71E7F3482570D75100F15098 /* Utility */,
 				71E7F33E2570D73700F15098 /* Extension */,
 				71E7F3492570D75B00F15098 /* Model */,
 				71E7F3502570D76600F15098 /* ViewModel */,
@@ -412,7 +413,6 @@
 		71E7F33E2570D73700F15098 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				71E7F33F2570D73700F15098 /* UIImageView+Extension.swift */,
 				71E7F3402570D73700F15098 /* UIColor+Extension.swift */,
 				71E7F3412570D73700F15098 /* UIView+Extension.swift */,
 				71E7F3422570D73700F15098 /* UICollectionView+Extension.swift */,
@@ -420,17 +420,10 @@
 				7160B71025725359007F7C90 /* UITableView+Extension.swift */,
 				7134887F257285F5007ADED3 /* UINavigationItem+Extension.swift */,
 				71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */,
+				716A8D4625773C11005C5782 /* UIViewController+Extension.swift */,
 			);
 			name = Extension;
 			path = MandarinUrbanDictionary/Extension;
-			sourceTree = SOURCE_ROOT;
-		};
-		71E7F3482570D75100F15098 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Utility;
-			path = MandarinUrbanDictionary/Utility;
 			sourceTree = SOURCE_ROOT;
 		};
 		71E7F3492570D75B00F15098 /* Model */ = {
@@ -440,6 +433,7 @@
 				71E7F34B2570D75B00F15098 /* Word.swift */,
 				71A84A902576802900E0C14D /* Category.swift */,
 				71811DEB2576DC66005319DA /* SidePanel.swift */,
+				716A8D5C25777040005C5782 /* JoeyImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -627,6 +621,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				716A8D4725773C11005C5782 /* UIViewController+Extension.swift in Sources */,
 				716CD3212575183D00695A91 /* SidePanelViewModel.swift in Sources */,
 				71811DEC2576DC66005319DA /* SidePanel.swift in Sources */,
 				71E7F3462570D73700F15098 /* UICollectionView+Extension.swift in Sources */,
@@ -639,12 +634,12 @@
 				7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */,
 				71E7F34C2570D75B00F15098 /* Definition.swift in Sources */,
 				716CD3112574F80500695A91 /* SidePanelViewController.swift in Sources */,
-				71E7F3432570D73700F15098 /* UIImageView+Extension.swift in Sources */,
 				71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */,
 				71E7F3452570D73700F15098 /* UIView+Extension.swift in Sources */,
 				71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */,
 				71E7F34D2570D75B00F15098 /* Word.swift in Sources */,
 				71E7F3382570D67900F15098 /* NewPostButtonView.swift in Sources */,
+				716A8D5D25777040005C5782 /* JoeyImage.swift in Sources */,
 				7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */,
 				71348880257285F5007ADED3 /* UINavigationItem+Extension.swift in Sources */,
 				7152EADC2575E94A00F1C5FB /* AddNewWordViewController.swift in Sources */,

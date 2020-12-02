@@ -9,8 +9,11 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     @IBOutlet weak var categoryCollectionView: UICollectionView!
+    
     @IBOutlet weak var containerView: UIView!
+    
     @IBOutlet weak var buttonContainerView: UIView!
+    
     @IBOutlet weak var confirmButton: UIButton!
     
     weak var delegate: CategoryDelegate?
@@ -48,11 +51,14 @@ class CategoryViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setup()
+        
         setupCollectionView()
+        
         disableButton()
     }
     
     @IBAction func confirmSelection(_ sender: UIButton) {
+        
         guard let selectedCategory = self.selectCategory else { return }
         
         delegate?.confirmSelection(selectedCategory)
@@ -63,26 +69,34 @@ class CategoryViewController: UIViewController {
 
 private extension CategoryViewController {
     func setup() {
+        
         containerView.setCorner(radius: 20.0)
+        
         buttonContainerView.setCorner(radius: 10.0)
     }
     
     func setupCollectionView() {
+        
         categoryCollectionView.registerCell(CategoryCollectionViewCell.identifierName)
         
         categoryCollectionView.delegate = self
+        
         categoryCollectionView.dataSource = self
         
         categoryCollectionView.allowsMultipleSelection = false
     }
     
     func disableButton() {
+        
         buttonContainerView.backgroundColor = .lightGray
+        
         confirmButton.isEnabled = false
     }
     
     func enableButton() {
+        
         buttonContainerView.backgroundColor = .homepageDarkBlue
+        
         confirmButton.isEnabled = true
     }
 }
@@ -105,6 +119,7 @@ extension CategoryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifierName, for: indexPath)
         
         let category = categoryList[indexPath.row]
@@ -122,6 +137,7 @@ extension CategoryViewController: UICollectionViewDataSource {
 
 extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let width: CGFloat = categoryCollectionView.bounds.width
     
         let height: CGFloat = categoryCollectionView.bounds.height

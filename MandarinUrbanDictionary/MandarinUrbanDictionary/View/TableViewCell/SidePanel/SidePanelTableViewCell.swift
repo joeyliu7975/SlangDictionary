@@ -12,6 +12,7 @@ class SidePanelTableViewCell: UITableViewCell {
     static let identifierName = String(describing: SidePanelTableViewCell.self)
     
     @IBOutlet weak var itemImageView: UIImageView!
+    
     @IBOutlet weak var titleLabel: UILabel!
 
     override func awakeFromNib() {
@@ -27,6 +28,7 @@ class SidePanelTableViewCell: UITableViewCell {
     }
     
     private func defaultConfiguration() {
+        
         let clearBackgroundview = UIView()
         
         clearBackgroundview.backgroundColor = .sidePanelBlue
@@ -35,7 +37,9 @@ class SidePanelTableViewCell: UITableViewCell {
     }
     
     func renderUI(title: String, imageName: String) {
+        
         titleLabel.text = title
+        
         itemImageView.image = UIImage(named: imageName)
     }
 }

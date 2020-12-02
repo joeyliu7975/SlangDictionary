@@ -9,7 +9,10 @@ import UIKit
 
 extension UINavigationItem {
     func setBarAppearance(with color: UIColor, titleTextAttrs: [NSAttributedString.Key: NSObject]? = nil, title: String? = nil) {
+        
         let barAppearance = UINavigationBarAppearance()
+        
+        barAppearance.shadowColor = .clear
     
         if let textAttrs = titleTextAttrs,
            let title = title {

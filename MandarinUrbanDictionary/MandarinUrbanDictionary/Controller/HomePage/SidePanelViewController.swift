@@ -24,18 +24,22 @@ class SidePanelViewController: UIViewController {
 
     private func setupTableView() {
         tableView.registerCell(SidePanelTableViewCell.identifierName)
+        
         tableView.registerHeaderFooterCell(SidePanelHeaderFooterView.identifierName)
         
         tableView.delegate = self
+        
         tableView.dataSource = self
         
         tableView.backgroundColor = .sidePanelBlue
+        
         tableView.separatorStyle = .none
     }
 }
 
 extension SidePanelViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let selectIcon = viewModel.selectItem(index: indexPath.row)
         
         delegate?.navigate(to: selectIcon)
@@ -85,6 +89,7 @@ extension SidePanelViewController: UITableViewDataSource {
         cell = tableView.dequeueReusableCell(withIdentifier: SidePanelTableViewCell.identifierName, for: indexPath)
         
         if let sidePanelTableViewCell = cell as? SidePanelTableViewCell {
+            
             sidePanelTableViewCell.renderUI(title: item.name, imageName: item.image)
             
             cell = sidePanelTableViewCell

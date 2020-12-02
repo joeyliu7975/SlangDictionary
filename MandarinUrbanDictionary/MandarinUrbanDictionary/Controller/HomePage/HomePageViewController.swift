@@ -11,10 +11,15 @@ import FSPagerView
 class HomePageViewController: UIViewController {
     
     @IBOutlet weak var logoImageView: UIImageView!
+    
     @IBOutlet weak var titleLabel: UILabel!
+    
     @IBOutlet weak var subtitleLabel: UILabel!
+    
     @IBOutlet weak var searchButton: SearchButton!
+    
     @IBOutlet weak var writeNewWordButtonView: NewPostButtonView!
+    
     @IBOutlet weak var pagerView: FSPagerView!
         
     var viewModel = HomePageViewModel()
@@ -23,14 +28,16 @@ class HomePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+            
         setup()
+        
         setupNavigationController()
+        
         setupPagerView()
     }
     
     @IBAction func clickSearch(_ sender: UIButton) {
+        
         let searchViewController = SearchPageViewController()
         
         let navController = UINavigationController(rootViewController: searchViewController)
@@ -50,40 +57,51 @@ class HomePageViewController: UIViewController {
 
 private extension HomePageViewController {
     func setup() {
+        
         view.backgroundColor = UIColor.homepageDarkBlue
         
-        logoImageView.image = UIImage.homeLogo
+        logoImageView.image = UIImage(named: JoeyImage.homeLogo)
         
         writeNewWordButtonView.delegate = self
     }
     
     func setupNavigationController() {
+        
         guard let navigationController = self.navigationController else { return }
         
-        navigationController.navigationBar.backgroundColor = UIColor.clear
+        navigationItem.setBarAppearance(with: .homepageDarkBlue)
         
         navigationController.navigationBar.tintColor = UIColor.homepageLightBlue
         
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        
         navigationController.navigationBar.shadowImage = UIImage()
         
-        let sideMenuButton = UIBarButtonItem(image: UIImage.list, style: .plain, target: self, action: #selector(toggleSideMenu))
+        let sideMenuButton = UIBarButtonItem(
+            image: UIImage(named: JoeyImage.list),
+            style: .plain,
+            target: self,
+            action: #selector(toggleSideMenu)
+        )
         
         self.navigationItem.leftBarButtonItem = sideMenuButton
     }
     
     func setupPagerView() {
+        
         pagerView.registerCell(MostViewedWordCollectionViewCell.identifierName)
         
         pagerView.transformer = FSPagerViewTransformer(type: .coverFlow)
         
         pagerView.delegate = self
+        
         pagerView.dataSource = self
     }
 }
 
 extension HomePageViewController: PostButtonDelegate {
     func clickButton(_ sender: UIButton) {
+        
         let addNewWordVC = AddNewWordViewController()
         
         self.navigationItem.backButtonTitle = ""
@@ -117,7 +135,9 @@ extension HomePageViewController: FSPagerViewDataSource {
 
 extension HomePageViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let width = collectionView.frame.width
+        
         let height = collectionView.frame.height
         
         return CGSize(width: width, height: height)

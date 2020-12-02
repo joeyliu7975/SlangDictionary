@@ -15,17 +15,21 @@ enum SlideOutState: Equatable {
 class ContainerViewController: UIViewController {
     
     var centerNavigationController: UINavigationController!
+    
     var centerViewController: HomePageViewController!
     
     var currentState: SlideOutState = .center
+    
     var leftViewController: SidePanelViewController?
     
     let centerPanelExpandedOffset: CGFloat = 90
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         setup()
+        
     }
 }
 
@@ -36,14 +40,18 @@ private extension ContainerViewController {
         centerViewController.delegate = self
         
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
+        
         view.addSubview(centerNavigationController.view)
+        
         addChild(centerNavigationController)
         
         centerNavigationController.didMove(toParent: self)
     }
     
     func setupNavigationController() {
-        self.navigationItem.setBarAppearance(with: .white)
+        
+        self.navigationItem.setBarAppearance(with: .clear)
+        
     }
 }
 
@@ -52,13 +60,16 @@ extension ContainerViewController: CenterViewControllerDelegate {
         let notAlreadyExpanded = (currentState != .leftPanelExpanded)
         
         if notAlreadyExpanded {
+            
             addLeftPanelViewController()
+            
         }
         
         animateLeftPanel(shouldExpand: notAlreadyExpanded)
     }
     
     func addLeftPanelViewController() {
+        
         guard leftViewController == nil else { return }
         
         let sidePanelVC = SidePanelViewController()
@@ -66,26 +77,36 @@ extension ContainerViewController: CenterViewControllerDelegate {
         sidePanelVC.delegate = self
         
         addChildSidePanelController(sidePanelVC)
+        
         leftViewController = sidePanelVC
     }
     
     func addChildSidePanelController(_ sidePanelController: SidePanelViewController) {
+        
         view.insertSubview(sidePanelController.view, at: 0)
         
         addChild(sidePanelController)
+        
         sidePanelController.didMove(toParent: self)
     }
     
     func animateLeftPanel(shouldExpand: Bool) {
         if shouldExpand {
+            
             currentState = .leftPanelExpanded
+            
             animateCenterPanelXPosition(
                 targetPosition: centerNavigationController.view.frame.width
-                    - centerPanelExpandedOffset)
+                    - centerPanelExpandedOffset
+            )
         } else {
+            
             animateCenterPanelXPosition(targetPosition: 0) {_ in
+                
                 self.currentState = .center
+                
                 self.leftViewController?.view.removeFromSuperview()
+                
                 self.leftViewController = nil
             }
         }
@@ -94,6 +115,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
     func animateCenterPanelXPosition(
         targetPosition: CGFloat,
         completion: ((Bool) -> Void)? = nil) {
+        
         UIView.animate(
             withDuration: 0.5,
             delay: 0,
@@ -103,7 +125,8 @@ extension ContainerViewController: CenterViewControllerDelegate {
             animations: {
                 self.centerNavigationController.view.frame.origin.x = targetPosition
             },
-            completion: completion)
+            completion: completion
+        )
     }
 }
 
@@ -115,6 +138,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
         
         switch page {
         case .homePage:
+            
             centerNavigationController.popToRootViewController(animated: true)
             
             return 
@@ -123,6 +147,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
         case .top5:
             break
         case .favorite:
+            
             destinationVC = FavoriteViewController()
             
             if let desVC = destinationVC as? FavoriteViewController {

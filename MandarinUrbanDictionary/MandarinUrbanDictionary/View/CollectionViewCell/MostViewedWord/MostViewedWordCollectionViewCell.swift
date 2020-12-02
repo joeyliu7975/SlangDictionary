@@ -13,9 +13,13 @@ class MostViewedWordCollectionViewCell:  FSPagerViewCell{
     static let identifierName = String(describing: MostViewedWordCollectionViewCell.self)
 
     @IBOutlet weak var topView: UIView!
+    
     @IBOutlet weak var bottomView: UIView!
+    
     @IBOutlet weak var topViewWordLabel: UILabel!
+    
     @IBOutlet weak var bottomViewDefinitionLabel: UILabel!
+    
     @IBOutlet weak var contentImageView: UIImageView!
     
     override func awakeFromNib() {

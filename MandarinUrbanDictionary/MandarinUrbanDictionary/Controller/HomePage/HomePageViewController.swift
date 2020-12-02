@@ -85,6 +85,8 @@ private extension HomePageViewController {
 extension HomePageViewController: PostButtonDelegate {
     func clickButton(_ sender: UIButton) {
         let addNewWordVC = AddNewWordViewController()
+        
+        self.navigationItem.backButtonTitle = ""
     
         self.navigationController?.pushViewController(addNewWordVC, animated: true)
     }

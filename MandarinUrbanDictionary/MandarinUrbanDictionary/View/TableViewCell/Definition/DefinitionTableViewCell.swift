@@ -9,6 +9,12 @@ import UIKit
 
 class DefinitionTableViewCell: UITableViewCell {
     
+    enum Feedback {
+        case like
+        case dislke
+        case none
+    }
+    
     static let identifierName = String(describing: DefinitionTableViewCell.self)
     
     @IBOutlet weak var rankLabelView: UIView!
@@ -37,9 +43,9 @@ class DefinitionTableViewCell: UITableViewCell {
     @IBAction func clickButton(_ sender: UIButton) {
         switch sender {
         case likeButton:
-            likeButton.tintColor = .blue
+            feedback(.like)
         case dislikeButton:
-            dislikeButton.tintColor = .blue
+            feedback(.dislke)
         case reportButton:
             reportButton.tintColor = .blue
         default:
@@ -69,6 +75,29 @@ private extension DefinitionTableViewCell {
         rankLabelView.setCorner(radius: 10.0)
         rankLabelView.backgroundColor = .rankLabelBackgroundBlue
         
-        likeButton.tintColor = .red
+        let originLikeImage = UIImage(named: "like_button_image_25x25")
+        let tintedLikeImage = originLikeImage?.withRenderingMode(.alwaysTemplate)
+        
+        let originDislikeImage = UIImage(named: "dislike_button_image_25x25")
+        let tintedDislikeImage = originDislikeImage?.withRenderingMode(.alwaysTemplate)
+        
+        likeButton.setImage(tintedLikeImage, for: .normal)
+        dislikeButton.setImage(tintedDislikeImage, for: .normal)
+        
+        feedback(.none)
+    }
+    
+    private func feedback(_ feedback: Feedback) {
+        switch feedback {
+        case .like:
+            likeButton.tintColor = .blue
+            dislikeButton.tintColor = .black
+        case .dislke:
+            likeButton.tintColor = .black
+            dislikeButton.tintColor = .blue
+        case .none:
+            likeButton.tintColor = .black
+            dislikeButton.tintColor = .black
+        }
     }
 }

@@ -71,6 +71,9 @@
                                     <constraint firstAttribute="width" constant="24" id="mth-YP-5fo"/>
                                 </constraints>
                                 <state key="normal" image="dislike_button_image_25x25"/>
+                                <connections>
+                                    <action selector="clickButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hAs-pf-bHK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1G7-ro-szA">
                                 <rect key="frame" x="148.5" y="0.0" width="28" height="24"/>
@@ -85,6 +88,9 @@
                                     <constraint firstAttribute="height" constant="24" id="ML9-Uu-ETL"/>
                                 </constraints>
                                 <state key="normal" image="report_image_25x25"/>
+                                <connections>
+                                    <action selector="clickButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jP4-Mt-Uht"/>
+                                </connections>
                             </button>
                         </subviews>
                     </stackView>

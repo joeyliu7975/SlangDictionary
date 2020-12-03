@@ -28,6 +28,11 @@
 		7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7160B71925725572007F7C90 /* DefinitionHeaderView.xib */; };
 		716A8D4725773C11005C5782 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D4625773C11005C5782 /* UIViewController+Extension.swift */; };
 		716A8D5D25777040005C5782 /* JoeyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D5C25777040005C5782 /* JoeyImage.swift */; };
+		716A8D6425778AA3005C5782 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D6225778AA3005C5782 /* ReportViewController.swift */; };
+		716A8D6525778AA4005C5782 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716A8D6325778AA3005C5782 /* ReportViewController.xib */; };
+		716A8D6A2577A880005C5782 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D692577A880005C5782 /* Report.swift */; };
+		716A8D7125787A01005C5782 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D6F25787A01005C5782 /* LoginViewController.swift */; };
+		716A8D7225787A01005C5782 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716A8D7025787A01005C5782 /* LoginViewController.xib */; };
 		716CD30D2574F7A200695A91 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD30C2574F7A200695A91 /* ContainerViewController.swift */; };
 		716CD3112574F80500695A91 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD30F2574F80500695A91 /* SidePanelViewController.swift */; };
 		716CD3122574F80500695A91 /* SidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716CD3102574F80500695A91 /* SidePanelViewController.xib */; };
@@ -60,6 +65,7 @@
 		71E7F34C2570D75B00F15098 /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F34A2570D75B00F15098 /* Definition.swift */; };
 		71E7F34D2570D75B00F15098 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F34B2570D75B00F15098 /* Word.swift */; };
 		71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3512570D76600F15098 /* HomePageViewModel.swift */; };
+		71F9442025789B140014808E /* JoeyTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9441F25789B140014808E /* JoeyTextLayer.swift */; };
 		E19594E26AB12FCE94225D78 /* Pods_MandarinUrbanDictionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD79464FBEA10AB0680FA634 /* Pods_MandarinUrbanDictionary.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +91,11 @@
 		7160B71925725572007F7C90 /* DefinitionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionHeaderView.xib; sourceTree = "<group>"; };
 		716A8D4625773C11005C5782 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		716A8D5C25777040005C5782 /* JoeyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoeyImage.swift; path = "Assets Xcassets/JoeyImage.swift"; sourceTree = "<group>"; };
+		716A8D6225778AA3005C5782 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		716A8D6325778AA3005C5782 /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
+		716A8D692577A880005C5782 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		716A8D6F25787A01005C5782 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		716A8D7025787A01005C5782 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LoginViewController.xib; path = "../New Group/LoginViewController.xib"; sourceTree = "<group>"; };
 		716CD30C2574F7A200695A91 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		716CD30F2574F80500695A91 /* SidePanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		716CD3102574F80500695A91 /* SidePanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidePanelViewController.xib; sourceTree = "<group>"; };
@@ -119,6 +130,7 @@
 		71E7F34A2570D75B00F15098 /* Definition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
 		71E7F34B2570D75B00F15098 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		71E7F3512570D76600F15098 /* HomePageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
+		71F9441F25789B140014808E /* JoeyTextLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoeyTextLayer.swift; sourceTree = "<group>"; };
 		BD79464FBEA10AB0680FA634 /* Pods_MandarinUrbanDictionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MandarinUrbanDictionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9ED06464B995D3E2CBF6928 /* Pods-MandarinUrbanDictionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MandarinUrbanDictionary.release.xcconfig"; path = "Target Support Files/Pods-MandarinUrbanDictionary/Pods-MandarinUrbanDictionary.release.xcconfig"; sourceTree = "<group>"; };
 		F18C21768667612211CB775E /* Pods-MandarinUrbanDictionary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MandarinUrbanDictionary.debug.xcconfig"; path = "Target Support Files/Pods-MandarinUrbanDictionary/Pods-MandarinUrbanDictionary.debug.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +258,38 @@
 				7160B71925725572007F7C90 /* DefinitionHeaderView.xib */,
 			);
 			path = "Definition Header";
+			sourceTree = "<group>";
+		};
+		716A8D6125778A85005C5782 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				716A8D6225778AA3005C5782 /* ReportViewController.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		716A8D6725778AAA005C5782 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				716A8D6325778AA3005C5782 /* ReportViewController.xib */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		716A8D6D2578771D005C5782 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				716A8D6F25787A01005C5782 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		716A8D7425787A29005C5782 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				716A8D7025787A01005C5782 /* LoginViewController.xib */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		716CD30A2574F79100695A91 /* HomePage */ = {
@@ -377,12 +421,14 @@
 		71E7F32F2570D67900F15098 /* xibs */ = {
 			isa = PBXGroup;
 			children = (
+				716A8D7425787A29005C5782 /* Login */,
 				716CD3152574F81000695A91 /* HomePage */,
 				7105AF892575E9E3000C71B4 /* New Word */,
 				7152EADF2575E96400F1C5FB /* Search */,
 				7152EAE02575E96900F1C5FB /* Category */,
 				7105AF872575E9CD000C71B4 /* Definition */,
 				71A84A882576369600E0C14D /* Favorite */,
+				716A8D6725778AAA005C5782 /* Report */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -399,12 +445,14 @@
 		71E7F33A2570D6FD00F15098 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				716A8D6D2578771D005C5782 /* Login */,
 				716CD30A2574F79100695A91 /* HomePage */,
 				7152EACD2575E8BE00F1C5FB /* New Word */,
 				7152EACE2575E8C800F1C5FB /* Search */,
 				7152EAD02575E8D900F1C5FB /* Category */,
 				7152EAD32575E8E000F1C5FB /* Definition */,
 				71A84A822576365000E0C14D /* Favorite */,
+				716A8D6125778A85005C5782 /* Report */,
 			);
 			name = Controller;
 			path = MandarinUrbanDictionary/Controller;
@@ -430,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				71E7F34A2570D75B00F15098 /* Definition.swift */,
+				716A8D692577A880005C5782 /* Report.swift */,
 				71E7F34B2570D75B00F15098 /* Word.swift */,
 				71A84A902576802900E0C14D /* Category.swift */,
 				71811DEB2576DC66005319DA /* SidePanel.swift */,
@@ -443,6 +492,7 @@
 			children = (
 				7120E0172572024A00A56E7E /* SearchButton.swift */,
 				71A84A95257689B000E0C14D /* CardView.swift */,
+				71F9441F25789B140014808E /* JoeyTextLayer.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -537,11 +587,13 @@
 				716CD3122574F80500695A91 /* SidePanelViewController.xib in Resources */,
 				7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */,
 				7152EADD2575E94A00F1C5FB /* AddNewWordViewController.xib in Resources */,
+				716A8D7225787A01005C5782 /* LoginViewController.xib in Resources */,
 				7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */,
 				7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */,
 				716CD3292575234100695A91 /* SidePanelHeaderFooterView.xib in Resources */,
 				7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */,
 				71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */,
+				716A8D6525778AA4005C5782 /* ReportViewController.xib in Resources */,
 				71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */,
 				716CD31E2575130400695A91 /* SidePanelTableViewCell.xib in Resources */,
 				71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */,
@@ -630,6 +682,7 @@
 				71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */,
 				7120E00D2571116400A56E7E /* CategoryViewController.swift in Sources */,
 				7120E01B257225CF00A56E7E /* UISearchBar+Extension.swift in Sources */,
+				716A8D6A2577A880005C5782 /* Report.swift in Sources */,
 				716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */,
 				7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */,
 				71E7F34C2570D75B00F15098 /* Definition.swift in Sources */,
@@ -640,9 +693,12 @@
 				71E7F34D2570D75B00F15098 /* Word.swift in Sources */,
 				71E7F3382570D67900F15098 /* NewPostButtonView.swift in Sources */,
 				716A8D5D25777040005C5782 /* JoeyImage.swift in Sources */,
+				716A8D6425778AA3005C5782 /* ReportViewController.swift in Sources */,
 				7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */,
 				71348880257285F5007ADED3 /* UINavigationItem+Extension.swift in Sources */,
+				71F9442025789B140014808E /* JoeyTextLayer.swift in Sources */,
 				7152EADC2575E94A00F1C5FB /* AddNewWordViewController.swift in Sources */,
+				716A8D7125787A01005C5782 /* LoginViewController.swift in Sources */,
 				71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */,
 				7134888A25749D05007ADED3 /* DefinitionViewModel.swift in Sources */,
 				7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */,

@@ -9,6 +9,12 @@ import Foundation
 
 class DefinitionViewModel {
     
+    var isLike: Bool = false {
+        didSet {
+            updateData?()
+        }
+    }
+        
     var definitions = [Definition]() {
         didSet {
             updateData?()

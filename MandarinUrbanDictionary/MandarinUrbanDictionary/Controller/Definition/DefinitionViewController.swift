@@ -59,7 +59,11 @@ private extension DefinitionViewController {
 
 extension DefinitionViewController: DefinitionHeaderDelegate {
     
-    func toggleFavorite() { }
+    func toggleFavorite() {
+        
+        viewModel.isLike.toggle()
+        
+    }
     
     func writeNewDefinition() { }
 }
@@ -70,12 +74,38 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
         
         if let indexPath = tableView.indexPath(for: cell) {
             
-            let index = indexPath.row
+            _ = indexPath.row
             
 //            let reportedDefinition = viewModel.definitions[index]
             
-            self.popAlert(.actionSheet)
+            self.popAlert(.actionSheet({
+                
+                let reportVC = ReportViewController()
+                
+                reportVC.delegate = self
+                
+                let navVC = UINavigationController(rootViewController: reportVC)
+                
+                self.present(navVC, animated: true)
+            })
+            )
         }
+    }
+}
+
+extension DefinitionViewController: ReportDelegate {
+    func sendReport(_ isReport: Bool) {
+        
+        switch isReport {
+        
+        case true:
+        // Do something
+        break
+        case false:
+        // Do nothing
+        break
+        }
+        
     }
 }
 
@@ -94,13 +124,15 @@ extension DefinitionViewController: UITabBarDelegate {
             
             let headerBackgroundView = UIView()
             
+            headerView.delegate = self
+                        
             headerBackgroundView.backgroundColor = .searchBarBlue
     
             headerView.backgroundView = headerBackgroundView
             
             headerView.wordLabel.text = "The Dodo"
             
-            headerView.delegate = self
+            headerView.setFavorite(viewModel.isLike)
             
           return headerView
         }

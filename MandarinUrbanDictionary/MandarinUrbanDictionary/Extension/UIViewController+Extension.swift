@@ -10,18 +10,18 @@ import UIKit
 extension UIViewController {
     
     enum Alert {
-        case actionSheet, alert
+        case actionSheet((() -> Void)?)
+        case alert
     }
     
     func popAlert(_ style: Alert) {
         
         switch style {
-        case .actionSheet:
+        case .actionSheet(let completion):
             let alert = UIAlertController(title: "Report", message: "Do you want to report this post?", preferredStyle: .actionSheet)
             
             let reportAction = UIAlertAction(title: "Report", style: .destructive) { (_) in
-                // self.dismiss(animated: true, completion: nil)
-                
+                completion?()
             }
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in

@@ -13,6 +13,8 @@ struct Word: Codable {
     
     var definition: [String]
     
+    let category: String
+    
     var view: Int
     
     let id: String
@@ -21,7 +23,7 @@ struct Word: Codable {
     
     enum CodingKeys: String, CodingKey {
         
-        case name, definition, view, id
+        case name, definition, view, id, category
         
         case time = "created_time"
     }

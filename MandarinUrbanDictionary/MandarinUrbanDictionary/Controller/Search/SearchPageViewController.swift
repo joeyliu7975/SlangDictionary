@@ -89,14 +89,9 @@ private extension SearchPageViewController {
             
         navigationItem.backBarButtonItem = UIBarButtonItem()
         
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 28)!
-        ]
-        
         let icon = selectCategory.makeIcon()
         
-        navigationItem.setBarAppearance(with: .homepageDarkBlue, titleTextAttrs: attrs, title: icon.name)
+        navigationItem.setBarAppearance(with: .homepageDarkBlue, titleTextAttrs: UINavigationItem.titleAttributes, title: icon.name)
     }
 }
 

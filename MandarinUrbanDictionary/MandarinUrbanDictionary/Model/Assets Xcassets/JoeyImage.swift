@@ -25,16 +25,16 @@ struct JoeyImage {
     
     static let dislike = "dislike_button_image_25x25"
     
-    static let favorite = "favorite_normal"
+    static let unfavorite = "favorite_normal"
+    
+    static let isFavorite = "favorite_selected"
     
     static let favoriteSideMenu = "heart"
     
     static let leftArrow = "left_arrow"
     
     static let like = "like_button_image_25x25"
-    
-    static let list = "list"
-    
+        
     static let personalSlang = "measuring_tape"
     
     static let nest = "nest"
@@ -47,11 +47,13 @@ struct JoeyImage {
     
     static let top5 = "top5"
     
-    static let newWords = "whats_new"
+    static let newWordsLogo = "whats_new"
     
     static let rank = "winner"
     
     static let newDefinition = "write_new_definition"
     
     static let newWords = "write_new_word_home"
+    
+    static let appleIcon = "apple_icon"
 }

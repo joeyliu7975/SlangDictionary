@@ -8,16 +8,24 @@
 import UIKit
 
 extension UISearchBar {
+    
+    private var searchField: UISearchTextField {
+        return self.searchTextField
+    }
+    
     func setTextColor(_ color: UIColor, cursorColor: UIColor? = .lightGray) {
+        
         if let textfield = self.value(forKey: "searchField") as? UITextField,
            let tintColor = cursorColor {
+            
             textfield.textColor = color
+            
             self.tintColor = tintColor
+            
         }
     }
     
     func setClearButton(color: UIColor) {
-        let searchField = self.searchTextField
         
         guard let clearButton = searchField.value(forKey: "_clearButton") as? UIButton else { return }
         
@@ -29,11 +37,13 @@ extension UISearchBar {
     }
     
     func setSearchIcon(color: UIColor) {
-        let searchField = self.searchTextField
         
         if let searchImage = searchField.leftView as? UIImageView {
+            
             searchImage.image = searchImage.image?.withRenderingMode(.alwaysTemplate)
+            
             searchImage.tintColor = color
+            
         }
     }
 }

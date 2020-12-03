@@ -8,8 +8,11 @@
 import UIKit
 
 protocol DefinitionHeaderDelegate: class {
+    
     func toggleFavorite()
+    
     func writeNewDefinition()
+    
 }
 
 final class DefinitionHeaderView: UITableViewHeaderFooterView {
@@ -39,6 +42,27 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
         default:
             
             break
+            
+        }
+    }
+    
+    func setFavorite(_ isFavorite: Bool) {
+        
+        switch isFavorite {
+        
+        case true:
+            
+            favoriteButton.setImage(
+                UIImage(named: JoeyImage.isFavorite),
+                for: .normal
+            )
+            
+        case false:
+            
+            favoriteButton.setImage(
+                UIImage(named: JoeyImage.unfavorite),
+                for: .normal
+            )
             
         }
     }

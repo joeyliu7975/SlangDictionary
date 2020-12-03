@@ -21,7 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.makeKeyAndVisible()
         
-        let homePageVC = ContainerViewController()
+//        let homePageVC = ContainerViewController()
+        
+        let homePageVC = LoginViewController()
         
         window?.rootViewController = homePageVC
     }

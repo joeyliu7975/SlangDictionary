@@ -55,12 +55,7 @@ private extension FavoriteViewController {
         
         removeBackButtonItem()
         
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 28)!
-        ]
-        
-        let sideMenuButton = UIBarButtonItem(image: UIImage.list, style: .plain, target: self, action: #selector(toggleSideMenu))
+        let sideMenuButton = UIBarButtonItem(image: UIImage(named: JoeyImage.list), style: .plain, target: self, action: #selector(toggleSideMenu))
         
         let editButton = UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(toggleEditMode))
         
@@ -68,7 +63,11 @@ private extension FavoriteViewController {
         
         navigationItem.rightBarButtonItem = editButton
         
-        navigationItem.setBarAppearance(with: .cardViewBlue, titleTextAttrs: attrs, title: "Favorite")
+        navigationItem.setBarAppearance(
+            with: .cardViewBlue,
+            titleTextAttrs: UINavigationItem.titleAttributes,
+            title: "Favorite"
+        )
     }
     
     func removeBackButtonItem() {

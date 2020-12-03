@@ -24,15 +24,11 @@ struct Definition: Codable {
     var idForWord: String
     
     enum CodingKeys: String, CodingKey {
+        
         case content, like, dislike, report, id
+        
         case time = "created_time"
+        
         case idForWord = "word_id"
     }
-}
-
-struct Report: Codable {
-    var content: String
-    
-    var reportTargetID: String
-    
 }

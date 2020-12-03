@@ -8,15 +8,25 @@
 import UIKit
 
 enum Category: String, CaseIterable {
+    
     case all = "All"
+    
     case engineer = "Engineer"
+    
     case job = "Workplace"
+    
     case school = "School"
+    
     case pickUpLine = "Pickup Line"
+    
     case restaurant = "Restaurant"
+    
     case game = "Game"
+    
     case gym = "Gym"
+    
     case relationship = "Relationship"
+    
 }
 
 extension Category: IconFactory {

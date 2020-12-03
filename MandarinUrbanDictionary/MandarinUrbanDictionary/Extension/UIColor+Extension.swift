@@ -37,7 +37,7 @@ extension UIColor {
     static let homepageDarkBlue = renderColor(.homepageDarkBlue)
     /// RedColor for barButtonItem
     static let barButtonRed = renderColor(.barButtonRed)
-    /// GreenColor for searchBar containerView
+    /// BlueColor for searchBar containerView
     static let searchBarBlue = renderColor(.searchBarBlue)
     /// Dark Green for NavigationBar 
     static let darkGreen = renderColor(.darkGreen)

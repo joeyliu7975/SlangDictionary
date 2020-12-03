@@ -13,7 +13,7 @@ class SidePanelViewController: UIViewController {
     
     let viewModel = SidePanelViewModel()
     
-    var centerPanelExpandedOffset: CGFloat {
+    private var centerPanelExpandedOffset: CGFloat {
         return UIScreen.main.bounds.width * 0.217
     }
     
@@ -70,13 +70,15 @@ extension SidePanelViewController: UITableViewDelegate {
             
             let width = sidePanelView.logoImageView.frame.width
             
+            let logoImageLeadingConstant = (UIScreen.main.bounds.width - sidePanelView.logoImageView.frame.width - centerPanelExpandedOffset) / 2
+            
             headerBackgroundView.backgroundColor = .sidePanelBlue
     
             sidePanelView.backgroundView = headerBackgroundView
             
             sidePanelView.logoImageView.setCorner(radius: width / 2)
             
-            sidePanelView.logoImageViewLeadingAnchor.constant = (UIScreen.main.bounds.width - sidePanelView.logoImageView.frame.width - centerPanelExpandedOffset) / 2
+            sidePanelView.logoImageViewLeadingAnchor.constant = logoImageLeadingConstant
             
           return sidePanelView
         }

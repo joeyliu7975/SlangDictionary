@@ -17,8 +17,10 @@ class SidePanelTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         defaultConfiguration()
+        
+        setLabelShadow()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,6 +36,16 @@ class SidePanelTableViewCell: UITableViewCell {
         clearBackgroundview.backgroundColor = .sidePanelBlue
         
         self.backgroundView = clearBackgroundview
+    }
+    
+    private func setLabelShadow() {
+        
+        titleLabel.backgroundColor = .clear
+        
+        titleLabel.textColor = .white
+        
+        titleLabel.setShadow(color: .black, offset: CGSize(width: 1, height: 1), opacity: 1.0, radius: 3)
+        
     }
     
     func renderUI(title: String, imageName: String) {

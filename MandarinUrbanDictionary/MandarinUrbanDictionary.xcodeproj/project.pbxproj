@@ -66,6 +66,8 @@
 		71E7F34D2570D75B00F15098 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F34B2570D75B00F15098 /* Word.swift */; };
 		71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3512570D76600F15098 /* HomePageViewModel.swift */; };
 		71F9442025789B140014808E /* JoeyTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9441F25789B140014808E /* JoeyTextLayer.swift */; };
+		71F9442C2578C15E0014808E /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9442A2578C15E0014808E /* RankViewController.swift */; };
+		71F9442D2578C15E0014808E /* RankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71F9442B2578C15E0014808E /* RankViewController.xib */; };
 		E19594E26AB12FCE94225D78 /* Pods_MandarinUrbanDictionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD79464FBEA10AB0680FA634 /* Pods_MandarinUrbanDictionary.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +133,8 @@
 		71E7F34B2570D75B00F15098 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		71E7F3512570D76600F15098 /* HomePageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 		71F9441F25789B140014808E /* JoeyTextLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoeyTextLayer.swift; sourceTree = "<group>"; };
+		71F9442A2578C15E0014808E /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
+		71F9442B2578C15E0014808E /* RankViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RankViewController.xib; path = "../New Group2/RankViewController.xib"; sourceTree = "<group>"; };
 		BD79464FBEA10AB0680FA634 /* Pods_MandarinUrbanDictionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MandarinUrbanDictionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9ED06464B995D3E2CBF6928 /* Pods-MandarinUrbanDictionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MandarinUrbanDictionary.release.xcconfig"; path = "Target Support Files/Pods-MandarinUrbanDictionary/Pods-MandarinUrbanDictionary.release.xcconfig"; sourceTree = "<group>"; };
 		F18C21768667612211CB775E /* Pods-MandarinUrbanDictionary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MandarinUrbanDictionary.debug.xcconfig"; path = "Target Support Files/Pods-MandarinUrbanDictionary/Pods-MandarinUrbanDictionary.debug.xcconfig"; sourceTree = "<group>"; };
@@ -429,6 +433,7 @@
 				7105AF872575E9CD000C71B4 /* Definition */,
 				71A84A882576369600E0C14D /* Favorite */,
 				716A8D6725778AAA005C5782 /* Report */,
+				71F944432578C3250014808E /* Rank */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -453,6 +458,7 @@
 				7152EAD32575E8E000F1C5FB /* Definition */,
 				71A84A822576365000E0C14D /* Favorite */,
 				716A8D6125778A85005C5782 /* Report */,
+				71F944292578C1380014808E /* Rank */,
 			);
 			name = Controller;
 			path = MandarinUrbanDictionary/Controller;
@@ -505,6 +511,22 @@
 				716CD3202575183D00695A91 /* SidePanelViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		71F944292578C1380014808E /* Rank */ = {
+			isa = PBXGroup;
+			children = (
+				71F9442A2578C15E0014808E /* RankViewController.swift */,
+			);
+			path = Rank;
+			sourceTree = "<group>";
+		};
+		71F944432578C3250014808E /* Rank */ = {
+			isa = PBXGroup;
+			children = (
+				71F9442B2578C15E0014808E /* RankViewController.xib */,
+			);
+			path = Rank;
 			sourceTree = "<group>";
 		};
 		BD46FC664045AE34D3F9C256 /* Pods */ = {
@@ -590,6 +612,7 @@
 				716A8D7225787A01005C5782 /* LoginViewController.xib in Resources */,
 				7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */,
 				7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */,
+				71F9442D2578C15E0014808E /* RankViewController.xib in Resources */,
 				716CD3292575234100695A91 /* SidePanelHeaderFooterView.xib in Resources */,
 				7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */,
 				71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */,
@@ -708,6 +731,7 @@
 				7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */,
 				717569232570CFD300417B9C /* AppDelegate.swift in Sources */,
 				71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */,
+				71F9442C2578C15E0014808E /* RankViewController.swift in Sources */,
 				716CD30D2574F7A200695A91 /* ContainerViewController.swift in Sources */,
 				717569252570CFD300417B9C /* SceneDelegate.swift in Sources */,
 				7120E0182572024A00A56E7E /* SearchButton.swift in Sources */,

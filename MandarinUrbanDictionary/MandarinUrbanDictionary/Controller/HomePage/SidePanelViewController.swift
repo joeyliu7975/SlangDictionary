@@ -57,7 +57,7 @@ extension SidePanelViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UIScreen.main.bounds.height * 0.318
+        return UIScreen.main.bounds.height * 0.28
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -68,15 +68,19 @@ extension SidePanelViewController: UITableViewDelegate {
             
             let headerBackgroundView = UIView()
             
-            let width = sidePanelView.logoImageView.frame.width
+//            let width = sidePanelView.logoImageView.frame.width
             
-            let logoImageLeadingConstant = (UIScreen.main.bounds.width - sidePanelView.logoImageView.frame.width - centerPanelExpandedOffset) / 2
+            let width = sidePanelView.logoImageWidth
+            
+            let logoImageLeadingConstant = (UIScreen.main.bounds.width - width - centerPanelExpandedOffset) / 2
             
             headerBackgroundView.backgroundColor = .sidePanelBlue
     
             sidePanelView.backgroundView = headerBackgroundView
             
-            sidePanelView.logoImageView.setCorner(radius: width / 2)
+            sidePanelView.makeRounded()
+            
+            sidePanelView.adjustLogoImageWidth()
             
             sidePanelView.logoImageViewLeadingAnchor.constant = logoImageLeadingConstant
             

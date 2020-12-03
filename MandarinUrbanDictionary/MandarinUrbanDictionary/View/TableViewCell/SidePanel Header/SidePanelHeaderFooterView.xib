@@ -28,6 +28,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="imageViewWidthConstraint" destination="qXV-iR-Gh6" id="0AH-Dr-0J3"/>
                 <outlet property="logoImageView" destination="yDv-BK-jgW" id="jBu-uq-k7W"/>
                 <outlet property="logoImageViewLeadingAnchor" destination="gpM-7h-sLV" id="alL-m5-Iyc"/>
             </connections>

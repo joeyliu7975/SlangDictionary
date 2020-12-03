@@ -8,7 +8,7 @@
 import UIKit
 import Charts
 
-class RankViewController: UIViewController {
+class RankViewController: JoeyPanelViewController {
     
     private lazy var pieChartView: PieChartView = {
         let chartView = PieChartView()
@@ -27,7 +27,7 @@ class RankViewController: UIViewController {
         .fourth,
         .fifth
     ]
-    //Mock Data
+
     private let nameList = [
         "You're salty",
         "Low Key",
@@ -45,6 +45,8 @@ class RankViewController: UIViewController {
         
         setupTableView()
         
+        setupNavigationController()
+    
     }
 }
 
@@ -72,6 +74,16 @@ private extension RankViewController {
         tableView.delegate = self
         
         tableView.dataSource = self
+        
+    }
+    
+    func setupNavigationController() {
+        
+        removeBackButtonItem()
+        
+        setBarAppearance(title: "Top 5")
+        
+        makeSideMenuButton()
         
     }
     

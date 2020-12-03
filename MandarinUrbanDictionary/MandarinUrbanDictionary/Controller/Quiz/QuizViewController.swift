@@ -7,28 +7,26 @@
 
 import UIKit
 
-class QuizViewController: UIViewController {
+class QuizViewController: JoeyPanelViewController {
 
     @IBOutlet weak var imageViewTopAnchor: NSLayoutConstraint!
-    
-    var clickSideMenu: (() -> Void)?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setup()
         
-        setupNavigationController()
+        setNavigationController()
+        
     }
     
-    @objc func toggleSideMenu() {
-        clickSideMenu?()
-    }
 }
 
 private extension QuizViewController {
+    
     func setup() {
+        
         if let barHeight = navigationController?.navigationBar.frame.height {
             
             let topAnchor = UIScreen.main.bounds.height - barHeight
@@ -37,25 +35,13 @@ private extension QuizViewController {
         }
     }
     
-    func setupNavigationController() {
+    func setNavigationController() {
         
         removeBackButtonItem()
         
-        let sideMenuButton = UIBarButtonItem(image: UIImage(named: JoeyImage.list), style: .plain, target: self, action: #selector(toggleSideMenu))
+        setBarAppearance(title: "Quiz")
         
-        navigationItem.leftBarButtonItem = sideMenuButton
-                
-        navigationItem.setBarAppearance(
-            with: .cardViewBlue,
-            titleTextAttrs: UINavigationItem.titleAttributes,
-            title: "Favorite"
-        )
+        makeSideMenuButton()
     }
     
-    func removeBackButtonItem() {
-        
-        navigationItem.leftBarButtonItem = nil
-        
-        navigationItem.hidesBackButton = true
-    }
 }

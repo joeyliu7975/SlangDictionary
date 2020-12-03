@@ -7,14 +7,22 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController {
+class FavoriteViewController: JoeyPanelViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     let mockData = Category.allCases
     
-    var clickSideMenu: (() -> Void)?
-    
+    var navigationTitle: String? {
+        didSet {
+            
+            guard let title = navigationTitle else { return }
+            
+            setBarAppearance(title: title)
+            
+        }
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,8 +34,10 @@ class FavoriteViewController: UIViewController {
         setupNavigationController()
     }
     
-    @objc func toggleSideMenu() {
-        clickSideMenu?()
+    func setNavigationBarTitle(title: String) {
+        
+        navigationTitle = title
+        
     }
     
     @objc func toggleEditMode() {
@@ -36,6 +46,7 @@ class FavoriteViewController: UIViewController {
 }
 
 private extension FavoriteViewController {
+   
     func setup() {
         view.backgroundColor = .cardViewBlue
     }
@@ -55,26 +66,18 @@ private extension FavoriteViewController {
         
         removeBackButtonItem()
         
-        let sideMenuButton = UIBarButtonItem(image: UIImage(named: JoeyImage.list), style: .plain, target: self, action: #selector(toggleSideMenu))
+        makeSideMenuButton()
+        
+        makeRightButton()
+        
+    }
+    
+    func makeRightButton() {
         
         let editButton = UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(toggleEditMode))
         
-        navigationItem.leftBarButtonItem = sideMenuButton
-        
         navigationItem.rightBarButtonItem = editButton
         
-        navigationItem.setBarAppearance(
-            with: .cardViewBlue,
-            titleTextAttrs: UINavigationItem.titleAttributes,
-            title: "Favorite"
-        )
-    }
-    
-    func removeBackButtonItem() {
-        
-        navigationItem.leftBarButtonItem = nil
-        
-        navigationItem.hidesBackButton = true
     }
 }
 

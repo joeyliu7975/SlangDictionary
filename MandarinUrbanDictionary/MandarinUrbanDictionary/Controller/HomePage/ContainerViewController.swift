@@ -151,6 +151,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
 }
 
 extension ContainerViewController: LeftViewControllerDelegate {
+    
     func navigate(to page: SidePanel) {
         animateLeftPanel(shouldExpand: false)
         
@@ -160,24 +161,46 @@ extension ContainerViewController: LeftViewControllerDelegate {
         case .homePage:
             
             centerNavigationController.popToRootViewController(animated: true)
-            
-            return 
+        
         case .dailySlang:
             break
         case .top5:
-            break
+            
+            destinationVC = RankViewController()
+            
+            if let desVC = destinationVC as? RankViewController {
+                desVC.clickSideMenu = {
+                    self.toggleLeftPanel()
+                }
+            }
+            
         case .favorite:
             
             destinationVC = FavoriteViewController()
             
             if let desVC = destinationVC as? FavoriteViewController {
+                
                 desVC.clickSideMenu = {
                     self.toggleLeftPanel()
                 }
+                
+                desVC.setNavigationBarTitle(title: "Favorites")
             }
+            
         case .recents:
-            break
+            
+            destinationVC = FavoriteViewController()
+            
+            if let desVC = destinationVC as? FavoriteViewController {
+                
+                desVC.clickSideMenu = {
+                    self.toggleLeftPanel()
+                }
+                
+                desVC.setNavigationBarTitle(title: "Recents")
+            }
         case .quiz:
+            
             destinationVC = QuizViewController()
             
             if let desVC = destinationVC as? QuizViewController {
@@ -185,6 +208,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
                     self.toggleLeftPanel()
                 }
             }
+            
         case .login:
             break
         }

@@ -40,6 +40,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="iconLeadingAnchor" destination="QCn-wo-EI4" id="FX6-GT-TD0"/>
                 <outlet property="itemImageView" destination="4L9-dV-aTG" id="YwP-mR-VFU"/>
                 <outlet property="titleLabel" destination="3aE-uX-k49" id="gpO-8R-ehZ"/>
             </connections>

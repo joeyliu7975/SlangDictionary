@@ -16,8 +16,8 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slang_dictionary_logo" translatesAutoresizingMaskIntoConstraints="NO" id="yDv-BK-jgW">
                     <rect key="frame" x="80" y="25" width="150" height="150"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="150" id="0kV-Nt-Efy"/>
-                        <constraint firstAttribute="height" constant="150" id="Axp-JU-KQw"/>
+                        <constraint firstAttribute="width" secondItem="yDv-BK-jgW" secondAttribute="height" multiplier="1:1" id="gN5-wr-cRs"/>
+                        <constraint firstAttribute="width" constant="150" id="qXV-iR-Gh6"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -29,6 +29,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="logoImageView" destination="yDv-BK-jgW" id="jBu-uq-k7W"/>
+                <outlet property="logoImageViewLeadingAnchor" destination="gpM-7h-sLV" id="alL-m5-Iyc"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="153.34821428571428"/>
         </view>

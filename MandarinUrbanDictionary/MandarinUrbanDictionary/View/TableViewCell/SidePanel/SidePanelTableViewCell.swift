@@ -12,9 +12,9 @@ class SidePanelTableViewCell: UITableViewCell {
     static let identifierName = String(describing: SidePanelTableViewCell.self)
     
     @IBOutlet weak var itemImageView: UIImageView!
-    
     @IBOutlet weak var titleLabel: UILabel!
-
+    @IBOutlet weak var iconLeadingAnchor: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -41,5 +41,7 @@ class SidePanelTableViewCell: UITableViewCell {
         titleLabel.text = title
         
         itemImageView.image = UIImage(named: imageName)
+        
+        iconLeadingAnchor.constant = UIScreen.main.bounds.width * 0.141
     }
 }

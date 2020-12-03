@@ -22,7 +22,9 @@ class ContainerViewController: UIViewController {
     
     var leftViewController: SidePanelViewController?
     
-    let centerPanelExpandedOffset: CGFloat = 90
+    var centerPanelExpandedOffset: CGFloat {
+        return UIScreen.main.bounds.width * 0.217
+    }
     
     override func viewDidLoad() {
         
@@ -176,7 +178,13 @@ extension ContainerViewController: LeftViewControllerDelegate {
         case .recents:
             break
         case .quiz:
-            break
+            destinationVC = QuizViewController()
+            
+            if let desVC = destinationVC as? QuizViewController {
+                desVC.clickSideMenu = {
+                    self.toggleLeftPanel()
+                }
+            }
         case .login:
             break
         }

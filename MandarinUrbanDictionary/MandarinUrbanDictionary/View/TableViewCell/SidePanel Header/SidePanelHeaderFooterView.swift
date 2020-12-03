@@ -10,6 +10,6 @@ import UIKit
 class SidePanelHeaderFooterView: UITableViewHeaderFooterView {
     
     static let identifierName = String(describing: SidePanelHeaderFooterView.self)
-
+    @IBOutlet weak var logoImageViewLeadingAnchor: NSLayoutConstraint!
     @IBOutlet weak var logoImageView: UIImageView!
 }

@@ -20,6 +20,22 @@ class RankViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    private let rankList: [RankColor] = [
+        .top,
+        .second,
+        .third,
+        .fourth,
+        .fifth
+    ]
+    //Mock Data
+    private let nameList = [
+        "You're salty",
+        "Low Key",
+        "Sugar Daddy",
+        "Sup",
+        "Rat"
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,10 +43,13 @@ class RankViewController: UIViewController {
         
         loadChartData()
         
+        setupTableView()
+        
     }
 }
 
 private extension RankViewController {
+    
     func setup() {
         view.addSubview(pieChartView)
         
@@ -42,6 +61,17 @@ private extension RankViewController {
             pieChartView.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -10),
             pieChartView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
         ])
+    }
+    
+    func setupTableView() {
+        
+        tableView.registerCell(RankTableViewCell.identifierName)
+        
+        tableView.separatorStyle = .none
+        
+        tableView.delegate = self
+        
+        tableView.dataSource = self
         
     }
     
@@ -101,11 +131,11 @@ private extension RankViewController {
         
         for _ in 0..<dataPoints.count {
             
-            let red = Double(arc4random_uniform(256))
+            let red = Double.random(in: 0 ... 150)
             
-            let green = Double(arc4random_uniform(256))
+            let green = Double.random(in: 0 ... 150)
             
-            let blue = Double(arc4random_uniform(256))
+            let blue = Double.random(in: 0 ... 150)
             
             let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
             
@@ -113,5 +143,58 @@ private extension RankViewController {
         }
         
         pieChartDataSet.colors = colors
+    }
+}
+
+extension RankViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.bounds.height / 5
+    }
+}
+
+extension RankViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        rankList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: RankTableViewCell.identifierName, for: indexPath)
+        
+        let rank = rankList[indexPath.row]
+        
+        let color = rank.makeColor()
+        
+        let word = nameList[indexPath.row]
+        
+        if let rankCell = cell as? RankTableViewCell {
+            
+            rankCell.renderUI(boardColor: color, title: word)
+            
+            if rank == .top {
+                
+                rankCell.layoutSubviews()
+                
+                rankCell.makeCrown()
+                
+            }
+            
+            cell = rankCell
+        }
+        
+        return cell
+    }
+}
+
+private enum RankColor: String {
+    case top = "#6DC0F8"
+    case second = "#8ACCF9"
+    case third = "#98D2FA"
+    case fourth = "#A7D9FB"
+    case fifth = "#B5E0FB"
+    
+    func makeColor() -> UIColor {
+        return UIColor.hexStringToUIColor(hex: self.rawValue)
     }
 }

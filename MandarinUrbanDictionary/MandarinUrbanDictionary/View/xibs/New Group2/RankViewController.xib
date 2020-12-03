@@ -19,15 +19,15 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oex-Mi-baJ">
-                    <rect key="frame" x="0.0" y="368" width="414" height="493"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oex-Mi-baJ">
+                    <rect key="frame" x="0.0" y="414" width="414" height="448"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="oex-Mi-baJ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.55" id="D8f-gw-Lcd"/>
+                <constraint firstItem="oex-Mi-baJ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="D8f-gw-Lcd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="oex-Mi-baJ" secondAttribute="bottom" id="pWI-zX-K4n"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oex-Mi-baJ" secondAttribute="trailing" id="tVN-Gg-G10"/>
                 <constraint firstItem="oex-Mi-baJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="z0F-IG-eZt"/>

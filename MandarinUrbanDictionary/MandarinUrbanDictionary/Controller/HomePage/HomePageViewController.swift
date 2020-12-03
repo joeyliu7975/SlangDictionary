@@ -60,8 +60,6 @@ private extension HomePageViewController {
         
         view.backgroundColor = UIColor.homepageDarkBlue
         
-        logoImageView.image = UIImage(named: JoeyImage.homeLogo)
-        
         writeNewWordButtonView.delegate = self
     }
     

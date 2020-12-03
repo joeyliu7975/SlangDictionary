@@ -56,4 +56,6 @@ struct JoeyImage {
     static let newWords = "write_new_word_home"
     
     static let appleIcon = "apple_icon"
+    
+    static let crown = "crown_filled_50x50"
 }

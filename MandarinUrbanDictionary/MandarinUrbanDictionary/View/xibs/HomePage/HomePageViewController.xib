@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomePageViewController" customModule="MandarinUrbanDictionary" customModuleProvider="target">
             <connections>
-                <outlet property="logoImageView" destination="M9m-Ri-aZX" id="8Rj-NV-DW8"/>
                 <outlet property="pagerView" destination="2Mk-Z6-cwe" id="e0h-ya-8pe"/>
                 <outlet property="searchButton" destination="iYM-Ld-E9z" id="wHX-h1-H8I"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -22,14 +21,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slang_dictionary_logo" translatesAutoresizingMaskIntoConstraints="NO" id="M9m-Ri-aZX">
-                    <rect key="frame" x="157" y="64" width="100" height="100"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="M9m-Ri-aZX" secondAttribute="height" multiplier="1:1" id="48a-2U-r3R"/>
-                        <constraint firstAttribute="width" constant="100" id="JI6-nt-qy7"/>
-                        <constraint firstAttribute="height" constant="100" id="Rrl-EV-LLp"/>
-                    </constraints>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAu-g2-XRf" customClass="NewPostButtonView" customModule="MandarinUrbanDictionary" customModuleProvider="target">
                     <rect key="frame" x="341.5" y="793.5" width="50.5" height="50.5"/>
                     <subviews>
@@ -73,7 +64,7 @@
                     </connections>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYM-Ld-E9z" customClass="SearchButton" customModule="MandarinUrbanDictionary" customModuleProvider="target">
-                    <rect key="frame" x="32" y="174" width="350" height="62"/>
+                    <rect key="frame" x="32" y="84" width="350" height="62"/>
                     <color key="backgroundColor" red="0.81568627450980391" green="0.93725490196078431" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="62" id="ELd-KP-8Oh"/>
@@ -88,34 +79,31 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Mk-Z6-cwe" customClass="FSPagerView" customModule="FSPagerView">
-                    <rect key="frame" x="5.5" y="251" width="403" height="403"/>
+                    <rect key="frame" x="10" y="186" width="394" height="562.5"/>
                     <color key="backgroundColor" red="0.16572067338197971" green="0.16492009041878175" blue="0.16652125634517767" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="2Mk-Z6-cwe" secondAttribute="height" multiplier="1:1" id="jUX-VC-V4J"/>
-                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="2Mk-Z6-cwe" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.45" id="5H9-ZP-AVa"/>
+                <constraint firstItem="XAu-g2-XRf" firstAttribute="top" secondItem="2Mk-Z6-cwe" secondAttribute="bottom" constant="45" id="65U-A6-2LD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XAu-g2-XRf" secondAttribute="bottom" constant="18" id="6SW-Aw-kRs"/>
                 <constraint firstItem="iYM-Ld-E9z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="Al9-Zt-AmY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iYM-Ld-E9z" secondAttribute="trailing" constant="32" id="Dtk-NQ-4ZC"/>
                 <constraint firstItem="2Mk-Z6-cwe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hlp-9a-ID0"/>
-                <constraint firstItem="M9m-Ri-aZX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Pge-11-toF"/>
-                <constraint firstItem="2Mk-Z6-cwe" firstAttribute="top" secondItem="iYM-Ld-E9z" secondAttribute="bottom" constant="15" id="Ykt-kt-p1m"/>
-                <constraint firstItem="M9m-Ri-aZX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ldN-eV-Jjz"/>
-                <constraint firstItem="iYM-Ld-E9z" firstAttribute="top" secondItem="M9m-Ri-aZX" secondAttribute="bottom" constant="10" id="m1q-Zp-Qhc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XAu-g2-XRf" secondAttribute="bottom" constant="18" id="NKN-vn-T1B"/>
+                <constraint firstItem="2Mk-Z6-cwe" firstAttribute="top" secondItem="iYM-Ld-E9z" secondAttribute="bottom" constant="40" id="Ykt-kt-p1m"/>
+                <constraint firstItem="iYM-Ld-E9z" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="bEL-mp-iiH"/>
+                <constraint firstItem="2Mk-Z6-cwe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="djX-Vo-L8Q"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XAu-g2-XRf" secondAttribute="trailing" constant="22" id="mvg-Tc-nlD"/>
                 <constraint firstItem="XAu-g2-XRf" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="46:376" id="p52-c3-dmT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2Mk-Z6-cwe" secondAttribute="trailing" constant="10" id="vpN-e5-8bN"/>
             </constraints>
             <point key="canvasLocation" x="-146.37681159420291" y="118.52678571428571"/>
         </view>
     </objects>
     <resources>
         <image name="search" width="32" height="32"/>
-        <image name="slang_dictionary_logo" width="500" height="500"/>
         <image name="write_new_word_home" width="281" height="281"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

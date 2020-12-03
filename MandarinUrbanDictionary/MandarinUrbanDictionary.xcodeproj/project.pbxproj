@@ -47,6 +47,8 @@
 		7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7175692D2570CFD600417B9C /* LaunchScreen.storyboard */; };
 		7175694C2570D0FE00417B9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7175694B2570D0FE00417B9C /* GoogleService-Info.plist */; };
 		71811DEC2576DC66005319DA /* SidePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71811DEB2576DC66005319DA /* SidePanel.swift */; };
+		71883B7C2578D6F300170AC9 /* RankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71883B7A2578D6F300170AC9 /* RankTableViewCell.swift */; };
+		71883B7D2578D6F300170AC9 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */; };
 		71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */; };
 		71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A832576368900E0C14D /* FavoriteViewController.swift */; };
 		71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A84A842576368900E0C14D /* FavoriteViewController.xib */; };
@@ -114,6 +116,8 @@
 		717569302570CFD600417B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7175694B2570D0FE00417B9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71811DEB2576DC66005319DA /* SidePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanel.swift; sourceTree = "<group>"; };
+		71883B7A2578D6F300170AC9 /* RankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewCell.swift; sourceTree = "<group>"; };
+		71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
 		71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FSPagerView+Extension.swift"; sourceTree = "<group>"; };
 		71A84A832576368900E0C14D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		71A84A842576368900E0C14D /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 				716CD319257503A700695A91 /* SidePanel */,
 				716CD324257522EF00695A91 /* SidePanel Header */,
 				71A84A892576379400E0C14D /* Favorite */,
+				71883B792578D6D200170AC9 /* Rank */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -384,6 +389,15 @@
 				717569242570CFD300417B9C /* SceneDelegate.swift */,
 			);
 			path = Fundmental;
+			sourceTree = "<group>";
+		};
+		71883B792578D6D200170AC9 /* Rank */ = {
+			isa = PBXGroup;
+			children = (
+				71883B7A2578D6F300170AC9 /* RankTableViewCell.swift */,
+				71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */,
+			);
+			path = Rank;
 			sourceTree = "<group>";
 		};
 		71A84A822576365000E0C14D /* Favorite */ = {
@@ -610,6 +624,7 @@
 				7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */,
 				7152EADD2575E94A00F1C5FB /* AddNewWordViewController.xib in Resources */,
 				716A8D7225787A01005C5782 /* LoginViewController.xib in Resources */,
+				71883B7D2578D6F300170AC9 /* RankTableViewCell.xib in Resources */,
 				7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */,
 				7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */,
 				71F9442D2578C15E0014808E /* RankViewController.xib in Resources */,
@@ -727,6 +742,7 @@
 				7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */,
 				71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */,
 				716CD31D2575130400695A91 /* SidePanelTableViewCell.swift in Sources */,
+				71883B7C2578D6F300170AC9 /* RankTableViewCell.swift in Sources */,
 				71A84A8C257637B600E0C14D /* FavoriteTableViewCell.swift in Sources */,
 				7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */,
 				717569232570CFD300417B9C /* AppDelegate.swift in Sources */,

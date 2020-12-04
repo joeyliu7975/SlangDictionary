@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import Firebase
 
 struct Report: Codable {
     
     let userIdentifierNumber: String
     
-    let time: Date
+    let time: Timestamp
     
     let reason: String
         

@@ -7,11 +7,6 @@
 
 import UIKit
 
-enum SlideOutState: Equatable {
-    case center
-    case leftPanelExpanded
-}
-
 class ContainerViewController: UIViewController {
     
     var centerNavigationController: UINavigationController!
@@ -217,4 +212,9 @@ extension ContainerViewController: LeftViewControllerDelegate {
         
         centerNavigationController.pushViewController(desVC, animated: true)
     }
+}
+
+enum SlideOutState: Equatable {
+    case center
+    case leftPanelExpanded
 }

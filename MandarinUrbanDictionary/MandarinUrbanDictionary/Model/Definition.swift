@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct Definition: Codable {
     
@@ -17,15 +18,15 @@ struct Definition: Codable {
     
     var report: String
     
-    var id: String
+    var identifier: String
     
-    var time: TimeInterval
+    var time: Timestamp
     
     var idForWord: String
     
     enum CodingKeys: String, CodingKey {
         
-        case content, like, dislike, report, id
+        case content, like, dislike, report, identifier
         
         case time = "created_time"
         

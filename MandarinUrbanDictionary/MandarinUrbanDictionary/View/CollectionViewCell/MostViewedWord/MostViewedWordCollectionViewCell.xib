@@ -104,8 +104,10 @@
             <size key="customSize" width="475" height="515"/>
             <connections>
                 <outlet property="bottomView" destination="Y6i-ao-nB2" id="Va1-fP-ZPd"/>
+                <outlet property="bottomViewDefinitionLabel" destination="3f3-9E-Hat" id="BZC-gf-bCd"/>
                 <outlet property="contentImageView" destination="6Jv-6k-QhX" id="fEI-Rx-zzM"/>
                 <outlet property="topView" destination="lEk-5C-38P" id="dPd-mm-Brc"/>
+                <outlet property="topViewWordLabel" destination="LWQ-Hm-k0F" id="P8s-29-oyd"/>
             </connections>
             <point key="canvasLocation" x="-160.1449275362319" y="274.21875"/>
         </collectionViewCell>

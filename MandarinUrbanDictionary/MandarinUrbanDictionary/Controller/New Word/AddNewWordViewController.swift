@@ -84,7 +84,7 @@ class AddNewWordViewController: UIViewController {
             definition: [definition],
             category: category,
             view: 0,
-            id: "1234567890",
+            identifier: "1234567890",
             time: Date(timeIntervalSince1970: 12469403928984)
         )
         

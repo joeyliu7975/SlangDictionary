@@ -7,13 +7,6 @@
 
 import Foundation
 
-enum Carousel: CaseIterable {
-    
-    case mostViewedWord
-    
-    case newestWord
-}
-
 class HomePageViewModel {
     
     var cellCount: Int {
@@ -23,11 +16,53 @@ class HomePageViewModel {
         return carouselList.count
     }
     
-    var collectionViewContents = ["whats_new", "top5"]
+    private var networkManager: FirebaseManager = .init()
+    
+    var updateData: (() -> Void)?
+    
+    var userViewModels = Box([User]())
+    
+    var collectionViewImage = ["whats_new", "top5"]
         
     var updateHot5: ( () -> Void )?
     
-     func renderCell(at carousel: Carousel) -> IndexPath {
+    func fetchData(in collection: FirebaseCollection) {
+       
+        switch collection {
+        
+        case .word:
+            
+            break
+
+        case .definition:
+            
+            break
+            
+        case .user:
+            
+            networkManager.listen(collection: collection.name) { (result:Result<[User], Error>) in
+                
+                switch result {
+                
+                case .success(let users):
+                    
+                    self.userViewModels.value = users
+                    
+                case .failure(let error):
+                    
+                    print("fetchData.failure: \(error)")
+                    
+                }
+                
+                self.updateData?()
+            }
+            
+        }
+    }
+}
+
+extension HomePageViewModel {
+    func renderCell(at carousel: Carousel) -> IndexPath {
         
         switch carousel {
         
@@ -41,4 +76,29 @@ class HomePageViewModel {
             
         }
     }
+}
+
+enum FirebaseCollection {
+    
+    case word, definition, user
+
+}
+
+extension FirebaseCollection {
+    var name: String {
+        switch self {
+        case .word:
+            return "Word"
+        case .definition:
+            return "Definition"
+        case .user:
+            return "User"
+        }
+    }
+}
+
+enum Carousel: CaseIterable {
+    
+    case mostViewedWord, newestWord
+    
 }

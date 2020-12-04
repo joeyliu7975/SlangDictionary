@@ -29,27 +29,27 @@ class DefinitionViewModel {
         
         let secondLine = "The Dodo was launched in January 2014 by Izzie Lerer, the daughter of media executive Kenneth Lerer."
         
-        let mockData:[Definition] = [Definition](
-            repeating: Definition(
-                content: firstLine + secondLine,
-                like: [
-                    "1",
-                    "2",
-                    "1",
-                    "1",
-                    "1",
-                    "1",
-                ],
-                dislike: [],
-                report: "None",
-                id: "123456789",
-                time: 12345687654,
-                idForWord: "35678"
-            ),
-            count: 3
-        )
+//        let mockData:[Definition] = [Definition](
+//            repeating: Definition(
+//                content: firstLine + secondLine,
+//                like: [
+//                    "1",
+//                    "2",
+//                    "1",
+//                    "1",
+//                    "1",
+//                    "1",
+//                ],
+//                dislike: [],
+//                report: "None",
+//                id: "123456789",
+//                time: 12345687654,
+//                idForWord: "35678"
+//            ),
+//            count: 3
+//        )
         
-        definitions = mockData
+//        definitions = mockData
     }
     
     func convertRank(with rank: Int) -> String {

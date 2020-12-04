@@ -34,7 +34,9 @@ extension Category: IconFactory {
     typealias Icon = Item
     
     struct Item {
+        
         let name: String
+        
         let image: String
     }
     

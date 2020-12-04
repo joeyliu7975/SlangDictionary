@@ -51,6 +51,9 @@
 		71883B7D2578D6F300170AC9 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */; };
 		71883B822578EFBB00170AC9 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71883B802578EFBB00170AC9 /* QuizViewController.swift */; };
 		71883B832578EFBB00170AC9 /* QuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71883B812578EFBB00170AC9 /* QuizViewController.xib */; };
+		718D6B8A2579D92400663CAD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B892579D92400663CAD /* Box.swift */; };
+		718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */; };
+		718D6B92257A1FF500663CAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B91257A1FF500663CAD /* User.swift */; };
 		71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */; };
 		71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A832576368900E0C14D /* FavoriteViewController.swift */; };
 		71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A84A842576368900E0C14D /* FavoriteViewController.xib */; };
@@ -123,6 +126,9 @@
 		71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
 		71883B802578EFBB00170AC9 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		71883B812578EFBB00170AC9 /* QuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QuizViewController.xib; path = "../New Group3/QuizViewController.xib"; sourceTree = "<group>"; };
+		718D6B892579D92400663CAD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		718D6B91257A1FF500663CAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FSPagerView+Extension.swift"; sourceTree = "<group>"; };
 		71A84A832576368900E0C14D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		71A84A842576368900E0C14D /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
@@ -368,9 +374,10 @@
 				71C5C7D725792E4200EAE24B /* Entity */,
 				71E7F34F2570D76100F15098 /* Helper */,
 				71E7F33E2570D73700F15098 /* Extension */,
+				71E7F32F2570D67900F15098 /* xibs */,
+				718D6B8C2579DA8C00663CAD /* Networking */,
 				71E7F3492570D75B00F15098 /* Model */,
 				71E7F3502570D76600F15098 /* ViewModel */,
-				71E7F32F2570D67900F15098 /* xibs */,
 				71E7F32E2570D67900F15098 /* View */,
 				71E7F33A2570D6FD00F15098 /* Controller */,
 				717569782570D35100417B9C /* Fundmental */,
@@ -416,6 +423,22 @@
 			path = Quiz;
 			sourceTree = "<group>";
 		};
+		718D6B8C2579DA8C00663CAD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				718D6B8D2579DB7A00663CAD /* Manager */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		718D6B8D2579DB7A00663CAD /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		71A84A822576365000E0C14D /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +475,7 @@
 		71C5C7D725792E4200EAE24B /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				718D6B892579D92400663CAD /* Box.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -547,6 +571,7 @@
 		71E7F3492570D75B00F15098 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				718D6B91257A1FF500663CAD /* User.swift */,
 				71E7F34A2570D75B00F15098 /* Definition.swift */,
 				716A8D692577A880005C5782 /* Report.swift */,
 				71E7F34B2570D75B00F15098 /* Word.swift */,
@@ -763,6 +788,7 @@
 			files = (
 				716A8D4725773C11005C5782 /* UIViewController+Extension.swift in Sources */,
 				71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */,
+				718D6B92257A1FF500663CAD /* User.swift in Sources */,
 				716CD3212575183D00695A91 /* SidePanelViewModel.swift in Sources */,
 				71811DEC2576DC66005319DA /* SidePanel.swift in Sources */,
 				71E7F3462570D73700F15098 /* UICollectionView+Extension.swift in Sources */,
@@ -770,6 +796,7 @@
 				7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */,
 				71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */,
 				7120E00D2571116400A56E7E /* CategoryViewController.swift in Sources */,
+				718D6B8A2579D92400663CAD /* Box.swift in Sources */,
 				7120E01B257225CF00A56E7E /* UISearchBar+Extension.swift in Sources */,
 				716A8D6A2577A880005C5782 /* Report.swift in Sources */,
 				716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */,
@@ -780,6 +807,7 @@
 				71E7F3452570D73700F15098 /* UIView+Extension.swift in Sources */,
 				71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */,
 				71E7F34D2570D75B00F15098 /* Word.swift in Sources */,
+				718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */,
 				716A8D5D25777040005C5782 /* ImageConstant.swift in Sources */,
 				716A8D6425778AA3005C5782 /* ReportViewController.swift in Sources */,
 				7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */,

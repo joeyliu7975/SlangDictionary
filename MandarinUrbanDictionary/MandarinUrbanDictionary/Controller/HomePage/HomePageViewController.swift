@@ -28,12 +28,14 @@ class HomePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+        
         setup()
         
         setupNavigationController()
         
         setupPagerView()
+        
+        binding()
     }
     
     @IBAction func clickSearch(_ sender: UIButton) {
@@ -56,11 +58,14 @@ class HomePageViewController: UIViewController {
 }
 
 private extension HomePageViewController {
+    
     func setup() {
         
         view.backgroundColor = UIColor.homepageDarkBlue
         
         writeNewWordButtonView.delegate = self
+        
+        viewModel.fetchData(in: .user)
     }
     
     func setupNavigationController() {
@@ -95,6 +100,14 @@ private extension HomePageViewController {
         
         pagerView.dataSource = self
     }
+    
+    func binding() {
+        viewModel.updateData = {
+            
+            self.pagerView.reloadData()
+            
+        }
+    }
 }
 
 extension HomePageViewController: PostButtonDelegate {
@@ -111,19 +124,24 @@ extension HomePageViewController: PostButtonDelegate {
 extension HomePageViewController: FSPagerViewDelegate { }
 
 extension HomePageViewController: FSPagerViewDataSource {
+    
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return viewModel.cellCount
+        return viewModel.userViewModels.value.count
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         var cell = FSPagerViewCell()
         
-        let collectionViewContent = viewModel.collectionViewContents[index]
+        let image = viewModel.collectionViewImage[index]
+        
+        let collectionViewContent = viewModel.userViewModels.value[index]
         
         cell = pagerView.dequeueReusableCell(withReuseIdentifier: MostViewedWordCollectionViewCell.identifierName, at: index)
         
         if let mostViewedCell = cell as? MostViewedWordCollectionViewCell {
-            mostViewedCell.renderImage(name: collectionViewContent)
+            
+            mostViewedCell.renderImage(image: image, word: collectionViewContent.name, definition: collectionViewContent.identifier)
+            
             cell = mostViewedCell
         }
         

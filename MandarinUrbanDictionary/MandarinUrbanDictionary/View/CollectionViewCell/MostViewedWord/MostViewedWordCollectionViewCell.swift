@@ -32,7 +32,11 @@ class MostViewedWordCollectionViewCell:  FSPagerViewCell{
         topView.backgroundColor = .homepageDarkBlue
     }
     
-    func renderImage(name: String) {
-        contentImageView.image = UIImage(named: name)
+    func renderImage(image: String, word: String, definition: String) {
+        contentImageView.image = UIImage(named: image)
+        
+        topViewWordLabel.text = word
+        
+        bottomViewDefinitionLabel.text = definition
     }
 }

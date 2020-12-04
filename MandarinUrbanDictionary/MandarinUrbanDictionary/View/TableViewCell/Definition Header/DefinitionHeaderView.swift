@@ -53,14 +53,14 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
         case true:
             
             favoriteButton.setImage(
-                UIImage(named: JoeyImage.isFavorite),
+                UIImage(named: ImageConstant.isFavorite),
                 for: .normal
             )
             
         case false:
             
             favoriteButton.setImage(
-                UIImage(named: JoeyImage.unfavorite),
+                UIImage(named: ImageConstant.unfavorite),
                 for: .normal
             )
             

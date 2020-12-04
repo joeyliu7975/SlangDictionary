@@ -42,7 +42,7 @@ class RankTableViewCell: UITableViewCell {
         
         crownView.contentMode = .scaleToFill
         
-        crownView.image = UIImage(named: JoeyImage.crown)
+        crownView.image = UIImage(named: ImageConstant.crown)
         
         rankBoardView.addSubview(crownView)
         

@@ -76,7 +76,7 @@ private extension HomePageViewController {
         navigationController.navigationBar.shadowImage = UIImage()
         
         let sideMenuButton = UIBarButtonItem(
-            image: UIImage(named: JoeyImage.list),
+            image: UIImage(named: ImageConstant.list),
             style: .plain,
             target: self,
             action: #selector(toggleSideMenu)

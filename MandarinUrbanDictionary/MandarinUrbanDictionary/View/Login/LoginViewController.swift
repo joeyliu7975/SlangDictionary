@@ -56,7 +56,7 @@ private extension LoginViewController {
         
         let appleTextLayer = JoeyTextLayer()
         
-        let appleIconImage = UIImage(named: JoeyImage.appleIcon)?.cgImage
+        let appleIconImage = UIImage(named: ImageConstant.appleIcon)?.cgImage
         
         appleImageLayer.frame = CGRect(x: 40, y: 12, width: 36, height: 36)
         

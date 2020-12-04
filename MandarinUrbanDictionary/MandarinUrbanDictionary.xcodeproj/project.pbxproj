@@ -27,7 +27,7 @@
 		7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71425725532007F7C90 /* DefinitionHeaderView.swift */; };
 		7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7160B71925725572007F7C90 /* DefinitionHeaderView.xib */; };
 		716A8D4725773C11005C5782 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D4625773C11005C5782 /* UIViewController+Extension.swift */; };
-		716A8D5D25777040005C5782 /* JoeyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D5C25777040005C5782 /* JoeyImage.swift */; };
+		716A8D5D25777040005C5782 /* ImageConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D5C25777040005C5782 /* ImageConstant.swift */; };
 		716A8D6425778AA3005C5782 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D6225778AA3005C5782 /* ReportViewController.swift */; };
 		716A8D6525778AA4005C5782 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716A8D6325778AA3005C5782 /* ReportViewController.xib */; };
 		716A8D6A2577A880005C5782 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D692577A880005C5782 /* Report.swift */; };
@@ -58,11 +58,11 @@
 		71A84A8D257637B600E0C14D /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A84A8B257637B600E0C14D /* FavoriteTableViewCell.xib */; };
 		71A84A912576802900E0C14D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A902576802900E0C14D /* Category.swift */; };
 		71A84A96257689B000E0C14D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A95257689B000E0C14D /* CardView.swift */; };
-		71C5C7D92579311A00EAE24B /* JoeyPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C5C7D82579311A00EAE24B /* JoeyPanelViewController.swift */; };
+		71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */; };
+		71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */; };
 		71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3302570D67900F15098 /* HomePageViewController.xib */; };
 		71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3322570D67900F15098 /* MostViewedWordCollectionViewCell.swift */; };
 		71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */; };
-		71E7F3382570D67900F15098 /* NewPostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3342570D67900F15098 /* NewPostButtonView.swift */; };
 		71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F33B2570D6FD00F15098 /* HomePageViewController.swift */; };
 		71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3402570D73700F15098 /* UIColor+Extension.swift */; };
 		71E7F3452570D73700F15098 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3412570D73700F15098 /* UIView+Extension.swift */; };
@@ -97,7 +97,7 @@
 		7160B71425725532007F7C90 /* DefinitionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionHeaderView.swift; sourceTree = "<group>"; };
 		7160B71925725572007F7C90 /* DefinitionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionHeaderView.xib; sourceTree = "<group>"; };
 		716A8D4625773C11005C5782 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		716A8D5C25777040005C5782 /* JoeyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoeyImage.swift; path = "Assets Xcassets/JoeyImage.swift"; sourceTree = "<group>"; };
+		716A8D5C25777040005C5782 /* ImageConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageConstant.swift; path = "Assets Xcassets/ImageConstant.swift"; sourceTree = "<group>"; };
 		716A8D6225778AA3005C5782 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		716A8D6325778AA3005C5782 /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
 		716A8D692577A880005C5782 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
@@ -130,11 +130,11 @@
 		71A84A8B257637B600E0C14D /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		71A84A902576802900E0C14D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		71A84A95257689B000E0C14D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		71C5C7D82579311A00EAE24B /* JoeyPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoeyPanelViewController.swift; sourceTree = "<group>"; };
+		71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoeyPanelViewController.swift; sourceTree = "<group>"; };
+		71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostButtonView.swift; sourceTree = "<group>"; };
 		71E7F3302570D67900F15098 /* HomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
 		71E7F3322570D67900F15098 /* MostViewedWordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MostViewedWordCollectionViewCell.swift; sourceTree = "<group>"; };
 		71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MostViewedWordCollectionViewCell.xib; sourceTree = "<group>"; };
-		71E7F3342570D67900F15098 /* NewPostButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostButtonView.swift; sourceTree = "<group>"; };
 		71E7F33B2570D6FD00F15098 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		71E7F3402570D73700F15098 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		71E7F3412570D73700F15098 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -365,11 +365,12 @@
 		717569212570CFD300417B9C /* MandarinUrbanDictionary */ = {
 			isa = PBXGroup;
 			children = (
-				71C5C7D725792E4200EAE24B /* Utility */,
+				71C5C7D725792E4200EAE24B /* Entity */,
 				71E7F34F2570D76100F15098 /* Helper */,
 				71E7F33E2570D73700F15098 /* Extension */,
 				71E7F3492570D75B00F15098 /* Model */,
 				71E7F3502570D76600F15098 /* ViewModel */,
+				71E7F32F2570D67900F15098 /* xibs */,
 				71E7F32E2570D67900F15098 /* View */,
 				71E7F33A2570D6FD00F15098 /* Controller */,
 				717569782570D35100417B9C /* Fundmental */,
@@ -448,21 +449,37 @@
 			path = Quiz;
 			sourceTree = "<group>";
 		};
-		71C5C7D725792E4200EAE24B /* Utility */ = {
+		71C5C7D725792E4200EAE24B /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				71C5C7D82579311A00EAE24B /* JoeyPanelViewController.swift */,
 			);
-			path = Utility;
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		71CE92102579C03B0080E0A0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		71CE92152579C1FF0080E0A0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				71A84A95257689B000E0C14D /* CardView.swift */,
+				71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		71E7F32E2570D67900F15098 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				71E7F32F2570D67900F15098 /* xibs */,
+				71CE92152579C1FF0080E0A0 /* Base */,
+				716A8D6D2578771D005C5782 /* Login */,
 				71E7F3312570D67900F15098 /* CollectionViewCell */,
 				7160B713257254D8007F7C90 /* TableViewCell */,
-				71E7F3342570D67900F15098 /* NewPostButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -496,7 +513,7 @@
 		71E7F33A2570D6FD00F15098 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				716A8D6D2578771D005C5782 /* Login */,
+				71CE92102579C03B0080E0A0 /* Base */,
 				716CD30A2574F79100695A91 /* HomePage */,
 				7152EACD2575E8BE00F1C5FB /* New Word */,
 				7152EACE2575E8C800F1C5FB /* Search */,
@@ -535,7 +552,7 @@
 				71E7F34B2570D75B00F15098 /* Word.swift */,
 				71A84A902576802900E0C14D /* Category.swift */,
 				71811DEB2576DC66005319DA /* SidePanel.swift */,
-				716A8D5C25777040005C5782 /* JoeyImage.swift */,
+				716A8D5C25777040005C5782 /* ImageConstant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -544,7 +561,6 @@
 			isa = PBXGroup;
 			children = (
 				7120E0172572024A00A56E7E /* SearchButton.swift */,
-				71A84A95257689B000E0C14D /* CardView.swift */,
 				71F9441F25789B140014808E /* JoeyTextLayer.swift */,
 			);
 			path = Helper;
@@ -746,6 +762,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				716A8D4725773C11005C5782 /* UIViewController+Extension.swift in Sources */,
+				71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */,
 				716CD3212575183D00695A91 /* SidePanelViewModel.swift in Sources */,
 				71811DEC2576DC66005319DA /* SidePanel.swift in Sources */,
 				71E7F3462570D73700F15098 /* UICollectionView+Extension.swift in Sources */,
@@ -763,8 +780,7 @@
 				71E7F3452570D73700F15098 /* UIView+Extension.swift in Sources */,
 				71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */,
 				71E7F34D2570D75B00F15098 /* Word.swift in Sources */,
-				71E7F3382570D67900F15098 /* NewPostButtonView.swift in Sources */,
-				716A8D5D25777040005C5782 /* JoeyImage.swift in Sources */,
+				716A8D5D25777040005C5782 /* ImageConstant.swift in Sources */,
 				716A8D6425778AA3005C5782 /* ReportViewController.swift in Sources */,
 				7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */,
 				71348880257285F5007ADED3 /* UINavigationItem+Extension.swift in Sources */,
@@ -773,13 +789,13 @@
 				716A8D7125787A01005C5782 /* LoginViewController.swift in Sources */,
 				71883B822578EFBB00170AC9 /* QuizViewController.swift in Sources */,
 				71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */,
+				71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */,
 				7134888A25749D05007ADED3 /* DefinitionViewModel.swift in Sources */,
 				7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */,
 				71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */,
 				716CD31D2575130400695A91 /* SidePanelTableViewCell.swift in Sources */,
 				71883B7C2578D6F300170AC9 /* RankTableViewCell.swift in Sources */,
 				71A84A8C257637B600E0C14D /* FavoriteTableViewCell.swift in Sources */,
-				71C5C7D92579311A00EAE24B /* JoeyPanelViewController.swift in Sources */,
 				7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */,
 				717569232570CFD300417B9C /* AppDelegate.swift in Sources */,
 				71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */,

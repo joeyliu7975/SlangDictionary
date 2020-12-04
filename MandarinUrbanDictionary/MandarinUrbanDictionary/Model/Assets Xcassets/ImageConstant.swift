@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct JoeyImage {
+struct ImageConstant {
     
     static let list = "list"
     

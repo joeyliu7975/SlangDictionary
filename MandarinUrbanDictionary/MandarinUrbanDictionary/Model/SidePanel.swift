@@ -53,49 +53,49 @@ extension SidePanel: IconFactory {
             
             return Icon(
                 name: rawValue,
-                image: JoeyImage.dictionary
+                image: ImageConstant.dictionary
             )
             
         case .dailySlang:
             
             return Icon(
                 name: rawValue,
-                image: JoeyImage.calendar
+                image: ImageConstant.calendar
             )
             
         case .top5:
             
             return Icon(
                 name: rawValue,
-                image: JoeyImage.rank
+                image: ImageConstant.rank
             )
             
         case .favorite:
             
             return Icon(
                 name: rawValue,
-                image: JoeyImage.favoriteSideMenu
+                image: ImageConstant.favoriteSideMenu
             )
             
         case .recents:
             
             return Icon(
                 name: rawValue,
-                image: JoeyImage.clock
+                image: ImageConstant.clock
             )
             
         case .quiz:
             
             return Icon(
                 name: rawValue,
-                image: JoeyImage.puzzle
+                image: ImageConstant.puzzle
             )
             
         case .login:
             
             return Icon(
                 name: rawValue,
-                image: JoeyImage.nest
+                image: ImageConstant.nest
             )
             
         }

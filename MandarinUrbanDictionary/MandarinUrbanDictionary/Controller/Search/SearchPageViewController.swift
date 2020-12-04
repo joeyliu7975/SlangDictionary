@@ -79,7 +79,7 @@ private extension SearchPageViewController {
         navigationController.navigationBar.tintColor = .white
         
         let rightButtonItem = UIBarButtonItem(
-            image: UIImage(named: JoeyImage.matrix)
+            image: UIImage(named: ImageConstant.matrix)
             , style: .plain,
             target: self,
             action: #selector(showList)

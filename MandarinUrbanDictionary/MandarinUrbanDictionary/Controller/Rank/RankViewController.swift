@@ -125,7 +125,7 @@ private extension RankViewController {
         
         for index in 0 ..< dataPoints.count {
             
-            let item = dataPoints[index].makeIcon()
+            let item = dataPoints[index].instance()
             
             let dataEntryOne = PieChartDataEntry(value: values[index].rounded(), label: item.name, data: dataPoints[index] as AnyObject)
             

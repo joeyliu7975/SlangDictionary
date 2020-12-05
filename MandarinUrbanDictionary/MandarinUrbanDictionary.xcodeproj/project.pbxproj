@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7119AA2D257B73DE00A7F513 /* AddNewWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */; };
 		7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E0052570F65D00A56E7E /* SearchPageViewController.swift */; };
 		7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E0062570F65D00A56E7E /* SearchPageViewController.xib */; };
 		7120E00D2571116400A56E7E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E00B2571116400A56E7E /* CategoryViewController.swift */; };
@@ -33,6 +34,7 @@
 		716A8D6A2577A880005C5782 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D692577A880005C5782 /* Report.swift */; };
 		716A8D7125787A01005C5782 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D6F25787A01005C5782 /* LoginViewController.swift */; };
 		716A8D7225787A01005C5782 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716A8D7025787A01005C5782 /* LoginViewController.xib */; };
+		716CC8C1257B6C1D0059F315 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CC8C0257B6C1D0059F315 /* UITextView+Extension.swift */; };
 		716CD30D2574F7A200695A91 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD30C2574F7A200695A91 /* ContainerViewController.swift */; };
 		716CD3112574F80500695A91 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD30F2574F80500695A91 /* SidePanelViewController.swift */; };
 		716CD3122574F80500695A91 /* SidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716CD3102574F80500695A91 /* SidePanelViewController.xib */; };
@@ -80,6 +82,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordViewModel.swift; sourceTree = "<group>"; };
 		7120E0052570F65D00A56E7E /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
 		7120E0062570F65D00A56E7E /* SearchPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPageViewController.xib; sourceTree = "<group>"; };
 		7120E00B2571116400A56E7E /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 		716A8D692577A880005C5782 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		716A8D6F25787A01005C5782 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		716A8D7025787A01005C5782 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LoginViewController.xib; path = "../New Group/LoginViewController.xib"; sourceTree = "<group>"; };
+		716CC8C0257B6C1D0059F315 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		716CD30C2574F7A200695A91 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		716CD30F2574F80500695A91 /* SidePanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		716CD3102574F80500695A91 /* SidePanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidePanelViewController.xib; sourceTree = "<group>"; };
@@ -563,6 +567,7 @@
 				7134887F257285F5007ADED3 /* UINavigationItem+Extension.swift */,
 				71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */,
 				716A8D4625773C11005C5782 /* UIViewController+Extension.swift */,
+				716CC8C0257B6C1D0059F315 /* UITextView+Extension.swift */,
 			);
 			name = Extension;
 			path = MandarinUrbanDictionary/Extension;
@@ -597,6 +602,7 @@
 				71E7F3512570D76600F15098 /* HomePageViewModel.swift */,
 				7134888925749D05007ADED3 /* DefinitionViewModel.swift */,
 				716CD3202575183D00695A91 /* SidePanelViewModel.swift */,
+				7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -797,6 +803,7 @@
 				71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */,
 				7120E00D2571116400A56E7E /* CategoryViewController.swift in Sources */,
 				718D6B8A2579D92400663CAD /* Box.swift in Sources */,
+				716CC8C1257B6C1D0059F315 /* UITextView+Extension.swift in Sources */,
 				7120E01B257225CF00A56E7E /* UISearchBar+Extension.swift in Sources */,
 				716A8D6A2577A880005C5782 /* Report.swift in Sources */,
 				716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */,
@@ -807,6 +814,7 @@
 				71E7F3452570D73700F15098 /* UIView+Extension.swift in Sources */,
 				71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */,
 				71E7F34D2570D75B00F15098 /* Word.swift in Sources */,
+				7119AA2D257B73DE00A7F513 /* AddNewWordViewModel.swift in Sources */,
 				718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */,
 				716A8D5D25777040005C5782 /* ImageConstant.swift in Sources */,
 				716A8D6425778AA3005C5782 /* ReportViewController.swift in Sources */,

@@ -31,7 +31,7 @@ enum Category: String, CaseIterable {
 
 extension Category: IconFactory {
     
-    typealias Icon = Item
+    typealias Instance = Item
     
     struct Item {
         
@@ -40,26 +40,26 @@ extension Category: IconFactory {
         let image: String
     }
     
-     func makeIcon() -> Icon {
+     func instance() -> Instance {
         switch self {
         case .all:
-            return Icon(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "puzzle")
         case .engineer:
-            return Icon(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "puzzle")
         case .job:
-            return Icon(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "puzzle")
         case .school:
-            return Icon(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "puzzle")
         case .pickUpLine:
-            return Icon(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "puzzle")
         case .restaurant:
-            return Icon(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "puzzle")
         case .game:
-            return Icon(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "puzzle")
         case .gym:
-            return Icon(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "puzzle")
         case .relationship:
-            return Icon(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "puzzle")
         }
     }
 }

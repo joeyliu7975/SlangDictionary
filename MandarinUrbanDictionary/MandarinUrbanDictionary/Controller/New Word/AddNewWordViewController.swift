@@ -19,27 +19,7 @@ class AddNewWordViewController: UIViewController {
     
     @IBOutlet weak var sendButton: UIButton!
     
-    let categoryList = Category.allCases
-    
-    var buttonIsValid: Bool = false {
-        
-        didSet {
-            
-            switch buttonIsValid {
-            
-            case true:
-                
-                sendButton.backgroundColor = .white
-                
-            case false:
-                
-                sendButton.backgroundColor = .lightGray
-                
-            }
-
-            sendButton.isEnabled = buttonIsValid
-        }
-    }
+    let viewModel: AddNewWordViewModel = .init()
     
     private var pickerView: UIPickerView? {
         didSet {
@@ -64,6 +44,8 @@ class AddNewWordViewController: UIViewController {
         // Do any additional setup after loading the view.
         setup()
         
+        binding()
+        
     }
     
     @objc func closeKeyboard() {
@@ -79,14 +61,10 @@ class AddNewWordViewController: UIViewController {
             return
         }
         
-        let newWord = Word(
-            name: word,
-            definition: [definition],
-            category: category,
-            view: 0,
-            identifier: "1234567890",
-            time: Date(timeIntervalSince1970: 12469403928984)
-        )
+        // Can update id later after user make new word
+        // Make word first , then bring Word's id to Definition
+        
+        var newWord = viewModel.createNewWord(word: word, definition: definition, category: category)
         
         // Call Firebase then after firebase receive result dismiss this Page
         
@@ -104,6 +82,18 @@ extension AddNewWordViewController: UITextFieldDelegate {
 
 extension AddNewWordViewController: UITextViewDelegate {
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        textView.becomeFirstResponder()
+        
+        if textView.hasPlaceholder {
+            
+            textView.clearText()
+        }
+        
+        textView.setupContent(.startTyping)
+    }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         
         checkFormValidation()
@@ -118,25 +108,26 @@ extension AddNewWordViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categoryList.count
+        return viewModel.categoryList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let icon = categoryList[row].makeIcon()
+        let category = viewModel.categoryList[row].instance()
         
-        return categoryTF.text = icon.name
+        return categoryTF.text = category.name
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        let icon = categoryList[row].makeIcon()
+        let category = viewModel.categoryList[row].instance()
         
-        return icon.name
+        return category.name
     }
 }
 
 private extension AddNewWordViewController {
+    
     func setup() {
         
         newWordTF.delegate = self
@@ -147,7 +138,9 @@ private extension AddNewWordViewController {
         
         checkFormValidation()
         
-        definitionTextView.setCorner(radius: 15)
+        definitionTextView.setCorner(radius: 10)
+        
+        definitionTextView.setupContent(.placeHolder)
         
         sendButton.setCorner(radius: 10)
         
@@ -158,6 +151,18 @@ private extension AddNewWordViewController {
         containerView.backgroundColor = .separatorlineBlue
         
         pickerView = UIPickerView()
+    }
+    
+    func binding() {
+        
+        viewModel.updateConfirmButton = { [weak self] (isValid) in
+            
+            self?.sendButton.backgroundColor = isValid ? .white : .lightGray
+            
+            self?.sendButton.isEnabled = isValid
+            
+        }
+        
     }
     
     func checkFormValidation() {
@@ -171,12 +176,12 @@ private extension AddNewWordViewController {
             !category.isEmpty
         else {
 
-            buttonIsValid = false
+            viewModel.buttonIsValid = false
             
             return
         }
         
-        buttonIsValid = true
+        viewModel.buttonIsValid = true
         
     }
 }

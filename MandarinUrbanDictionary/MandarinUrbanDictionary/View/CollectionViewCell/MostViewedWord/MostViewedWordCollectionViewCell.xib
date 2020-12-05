@@ -57,7 +57,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn More About &gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTL-zf-fsC">
-                                        <rect key="frame" x="142" y="126" width="191" height="24"/>
+                                        <rect key="frame" x="142" y="146" width="191" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="1Dn-u0-QO0"/>
                                         </constraints>
@@ -68,10 +68,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="jTL-zf-fsC" secondAttribute="bottom" constant="30" id="2EO-bm-DVs"/>
+                                    <constraint firstAttribute="bottom" secondItem="jTL-zf-fsC" secondAttribute="bottom" constant="10" id="2EO-bm-DVs"/>
                                     <constraint firstItem="LWQ-Hm-k0F" firstAttribute="top" secondItem="Y6i-ao-nB2" secondAttribute="top" constant="5" id="9qr-rx-eTO"/>
                                     <constraint firstItem="3f3-9E-Hat" firstAttribute="top" secondItem="F33-Vg-yFy" secondAttribute="bottom" constant="5" id="HbH-nL-mWv"/>
                                     <constraint firstItem="LWQ-Hm-k0F" firstAttribute="centerX" secondItem="Y6i-ao-nB2" secondAttribute="centerX" id="Kji-p6-2Nx"/>
+                                    <constraint firstItem="jTL-zf-fsC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3f3-9E-Hat" secondAttribute="bottom" constant="10" id="SvO-0w-mTd"/>
                                     <constraint firstItem="F33-Vg-yFy" firstAttribute="centerX" secondItem="Y6i-ao-nB2" secondAttribute="centerX" id="c21-Vy-Bqz"/>
                                     <constraint firstItem="3f3-9E-Hat" firstAttribute="centerX" secondItem="Y6i-ao-nB2" secondAttribute="centerX" id="niX-ch-EFJ"/>
                                     <constraint firstItem="F33-Vg-yFy" firstAttribute="top" secondItem="LWQ-Hm-k0F" secondAttribute="bottom" constant="5" id="wfM-Uy-yOb"/>

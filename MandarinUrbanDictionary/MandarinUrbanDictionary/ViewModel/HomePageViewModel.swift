@@ -17,12 +17,10 @@ class HomePageViewModel {
     }
     
     private var networkManager: FirebaseManager = .init()
-    
-    var updateData: (() -> Void)?
-    
+        
     var userViewModels = Box([User]())
     
-    var collectionViewImage = ["whats_new", "top5"]
+    var collectionViewImage = ["whats_new", "top5", "whats_new"]
         
     var updateHot5: ( () -> Void )?
     
@@ -40,7 +38,7 @@ class HomePageViewModel {
             
         case .user:
             
-            networkManager.listen(collection: collection.name) { (result:Result<[User], Error>) in
+            networkManager.listen(collection: collection.name) { (result: Result<[User], Error>) in
                 
                 switch result {
                 
@@ -53,8 +51,6 @@ class HomePageViewModel {
                     print("fetchData.failure: \(error)")
                     
                 }
-                
-                self.updateData?()
             }
             
         }

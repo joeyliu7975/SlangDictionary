@@ -19,7 +19,7 @@ class SearchPageViewController: UIViewController {
     
     private var selectCategory: Category = .all {
         didSet {
-            let icon = selectCategory.makeIcon()
+            let icon = selectCategory.instance()
             
             navigationItem.title = icon.name
         }
@@ -50,6 +50,9 @@ class SearchPageViewController: UIViewController {
 }
 
 private extension SearchPageViewController {
+    
+    // MARK: SearchBar背景色還是改白色，字和其他icon都是黑色，來維持版面的一致性
+    
     func setup() {
         
         searchBarContainerView.backgroundColor = .searchBarBlue
@@ -89,7 +92,7 @@ private extension SearchPageViewController {
             
         navigationItem.backBarButtonItem = UIBarButtonItem()
         
-        let icon = selectCategory.makeIcon()
+        let icon = selectCategory.instance()
         
         navigationItem.setBarAppearance(with: .homepageDarkBlue, titleTextAttrs: UINavigationItem.titleAttributes, title: icon.name)
     }

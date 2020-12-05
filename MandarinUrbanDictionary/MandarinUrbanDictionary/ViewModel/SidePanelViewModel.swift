@@ -9,7 +9,7 @@ import Foundation
 
 class SidePanelViewModel {
     
-    typealias Item = SidePanel.Icon
+    typealias Item = SidePanel.Instance
     
     let sidePanelItems = SidePanel.allCases
     
@@ -18,6 +18,6 @@ class SidePanelViewModel {
     }
     
     func getItem(index: Int) -> Item {
-        return sidePanelItems[index].makeIcon()
+        return sidePanelItems[index].instance()
     }
 }

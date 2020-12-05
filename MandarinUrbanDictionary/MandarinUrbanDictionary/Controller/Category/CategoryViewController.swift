@@ -124,7 +124,7 @@ extension CategoryViewController: UICollectionViewDataSource {
         
         let category = categoryList[indexPath.row]
         
-        let icon = category.makeIcon()
+        let icon = category.instance()
         
         guard let categoryCell = cell as? CategoryCollectionViewCell
         else { return cell }

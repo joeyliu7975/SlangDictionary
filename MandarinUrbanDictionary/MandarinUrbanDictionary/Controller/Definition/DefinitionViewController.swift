@@ -74,9 +74,9 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
         
         if let indexPath = tableView.indexPath(for: cell) {
             
-            _ = indexPath.row
+            let index = indexPath.row
             
-//            let reportedDefinition = viewModel.definitions[index]
+            let reportedDefinition = viewModel.definitions[index]
             
             self.popAlert(.actionSheet({
                 

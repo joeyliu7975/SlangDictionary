@@ -71,6 +71,14 @@ private extension ContainerViewController {
 }
 
 extension ContainerViewController: CenterViewControllerDelegate {
+    
+    func writeNewWord() {
+        
+        let addNewWordVC = AddNewWordViewController()
+    
+        present(addNewWordVC, animated: true)
+    }
+    
     func toggleLeftPanel() {
         let notAlreadyExpanded = (currentState != .leftPanelExpanded)
         

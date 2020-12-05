@@ -96,7 +96,7 @@ extension FavoriteViewController: UITableViewDataSource {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifierName, for: indexPath)
         
-        let data = mockData[indexPath.row].makeIcon()
+        let data = mockData[indexPath.row].instance()
         
         if let favoriteCell = cell as? FavoriteTableViewCell {
             

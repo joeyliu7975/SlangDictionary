@@ -18,7 +18,7 @@ struct Word: Codable {
     
     var view: Int
     
-    let identifier: String
+    var identifier: String
     
     let time: Timestamp
     
@@ -27,6 +27,16 @@ struct Word: Codable {
         case name, definition, view, identifier, category
         
         case time = "created_time"
+    }
+    
+}
+
+extension Word {
+    
+    mutating func updateId(_ id: String) {
+        
+        self.identifier = id
+        
     }
     
 }

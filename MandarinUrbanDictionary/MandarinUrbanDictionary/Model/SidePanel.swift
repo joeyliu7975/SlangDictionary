@@ -9,9 +9,9 @@ import Foundation
 
 protocol IconFactory {
     
-    associatedtype Icon
+    associatedtype Instance
     
-    func makeIcon() -> Icon
+    func instance() -> Instance
     
 }
 
@@ -35,7 +35,7 @@ enum SidePanel: String, CaseIterable {
 
 extension SidePanel: IconFactory {
     
-    typealias Icon = Item
+    typealias Instance = Item
     
     struct Item {
         
@@ -45,55 +45,55 @@ extension SidePanel: IconFactory {
         
     }
     
-    func makeIcon() -> Icon {
+    func instance() -> Instance {
         
         switch self {
         
         case .homePage:
             
-            return Icon(
+            return Instance(
                 name: rawValue,
                 image: ImageConstant.dictionary
             )
             
         case .dailySlang:
             
-            return Icon(
+            return Instance(
                 name: rawValue,
                 image: ImageConstant.calendar
             )
             
         case .top5:
             
-            return Icon(
+            return Instance(
                 name: rawValue,
                 image: ImageConstant.rank
             )
             
         case .favorite:
             
-            return Icon(
+            return Instance(
                 name: rawValue,
                 image: ImageConstant.favoriteSideMenu
             )
             
         case .recents:
             
-            return Icon(
+            return Instance(
                 name: rawValue,
                 image: ImageConstant.clock
             )
             
         case .quiz:
             
-            return Icon(
+            return Instance(
                 name: rawValue,
                 image: ImageConstant.puzzle
             )
             
         case .login:
             
-            return Icon(
+            return Instance(
                 name: rawValue,
                 image: ImageConstant.nest
             )

@@ -63,6 +63,8 @@ private extension HomePageViewController {
         
         view.backgroundColor = UIColor.homepageDarkBlue
         
+        searchButton.setCorner(radius: 10.0)
+        
         writeNewWordButtonView.delegate = self
         
         viewModel.fetchData(in: .user)
@@ -102,9 +104,10 @@ private extension HomePageViewController {
     }
     
     func binding() {
-        viewModel.updateData = {
+        
+        viewModel.userViewModels.bind { [weak self] (_) in
             
-            self.pagerView.reloadData()
+            self?.pagerView.reloadData()
             
         }
     }
@@ -113,11 +116,8 @@ private extension HomePageViewController {
 extension HomePageViewController: PostButtonDelegate {
     func clickButton(_ sender: UIButton) {
         
-        let addNewWordVC = AddNewWordViewController()
-        
-        self.navigationItem.backButtonTitle = ""
+        delegate?.writeNewWord()
     
-        self.navigationController?.pushViewController(addNewWordVC, animated: true)
     }
 }
 
@@ -126,10 +126,13 @@ extension HomePageViewController: FSPagerViewDelegate { }
 extension HomePageViewController: FSPagerViewDataSource {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
+        
         return viewModel.userViewModels.value.count
+        
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        
         var cell = FSPagerViewCell()
         
         let image = viewModel.collectionViewImage[index]
@@ -166,4 +169,5 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 
 protocol CenterViewControllerDelegate: class {
   func toggleLeftPanel()
+  func writeNewWord()
 }

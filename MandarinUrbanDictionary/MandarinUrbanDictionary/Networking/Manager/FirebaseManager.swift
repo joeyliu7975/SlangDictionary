@@ -17,9 +17,10 @@ class FirebaseManager {
         self.dataBase = dataBase
     }
 
-    func listen <T: Codable>(collection name: String, completion: @escaping (Result<[T], Error>) -> Void) {
+    func listen <T: Codable>(_ collection: Collection, completion: @escaping (Result<[T], Error>) -> Void) {
         
-        dataBase.collection(name).addSnapshotListener { (querySnapshot, error) in
+        dataBase.collection(collection.name).addSnapshotListener { (querySnapshot, error) in
+            
             if let error = error {
                 
                 completion(.failure(error))
@@ -39,5 +40,52 @@ class FirebaseManager {
             }
         }
         
+    }
+    
+    func retrieveData <T: Codable>(_ collection: Collection, completion: @escaping (Result<[T], Error>) -> Void) {
+        
+        dataBase.collection(collection.name).getDocuments { (querySnapshot, error) in
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                var datas = [T]()
+                
+                for document in querySnapshot!.documents {
+                    if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
+                        datas.append(data)
+                    }
+                }
+                
+                completion(.success(datas))
+                
+            }
+        }
+        
+    }
+}
+
+extension FirebaseManager {
+    
+    enum Collection {
+        
+        case definition, user, word, time, report
+        
+        var name: String {
+            switch self {
+            case .definition:
+                return "Definition"
+            case .user:
+                return "User"
+            case .word:
+                return "Word"
+            case .time:
+                return "viewed_time"
+            case .report:
+                return "report"
+            }
+        }
     }
 }

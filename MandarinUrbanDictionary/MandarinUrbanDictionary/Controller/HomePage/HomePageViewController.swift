@@ -22,7 +22,7 @@ class HomePageViewController: UIViewController {
     
     @IBOutlet weak var pagerView: FSPagerView!
         
-    private let viewModel = HomePageViewModel()
+    private let viewModel: HomePageViewModel = .init()
     
     weak var delegate: CenterViewControllerDelegate?
     

@@ -18,7 +18,7 @@ class CategoryViewController: UIViewController {
     
     weak var delegate: CategoryDelegate?
     
-    private var selectionBorderView = UIView()
+    private var selectionBorderView: UIView = .init()
     
     let categoryList = Category.allCases
     

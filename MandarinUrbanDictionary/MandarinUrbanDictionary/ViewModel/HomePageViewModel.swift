@@ -17,7 +17,7 @@ class HomePageViewModel {
         
     var updateHot5: (() -> Void )?
     
-    func fetchData(in collection: FirebaseCollection) {
+    func fetchData(in collection: FirebaseManager.Collection) {
        
         switch collection {
         
@@ -31,7 +31,7 @@ class HomePageViewModel {
             
         case .user:
             
-            networkManager.listen(collection: collection.name) { (result: Result<[User], Error>) in
+            networkManager.listen(collection) { (result: Result<[User], Error>) in
                 
                 switch result {
                 
@@ -45,27 +45,10 @@ class HomePageViewModel {
                     
                 }
             }
-            
-        }
-    }
-}
-
-enum FirebaseCollection {
-    
-    case word, definition, user
-
-}
-
-extension FirebaseCollection {
-    
-    var name: String {
-        switch self {
-        case .word:
-            return "Word"
-        case .definition:
-            return "Definition"
-        case .user:
-            return "User"
+        case .time:
+            break
+        case .report:
+            break
         }
     }
 }

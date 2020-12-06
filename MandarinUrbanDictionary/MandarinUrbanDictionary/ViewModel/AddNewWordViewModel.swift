@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Firebase
 
 class AddNewWordViewModel {
     
@@ -28,7 +27,7 @@ class AddNewWordViewModel {
             category: category,
             view: 0,
             identifier: "1234567890",
-            time: Timestamp()
+            time: FirebaseTime()
         )
         
         return newWord

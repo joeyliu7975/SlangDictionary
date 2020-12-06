@@ -11,7 +11,7 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let viewModel = DefinitionViewModel()
+    private let viewModel: DefinitionViewModel = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()

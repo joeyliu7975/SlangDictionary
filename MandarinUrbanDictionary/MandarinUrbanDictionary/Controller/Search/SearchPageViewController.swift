@@ -17,13 +17,7 @@ class SearchPageViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var selectCategory: Category = .all {
-        didSet {
-            let icon = selectCategory.instance()
-            
-            navigationItem.title = icon.name
-        }
-    }
+    let viewModel: SearchViewModel = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +27,8 @@ class SearchPageViewController: UIViewController {
         setupTableView()
         
         setupNav()
+        
+        binding()
     }
     
     @IBAction func cancelSearch(_ sender: UIButton) {
@@ -73,6 +69,8 @@ private extension SearchPageViewController {
         tableView.delegate = self
         
         tableView.dataSource = self
+        
+        tableView.registerCell(SearchTableViewCell.identifierName)
     }
     
     func setupNav() {
@@ -82,8 +80,8 @@ private extension SearchPageViewController {
         navigationController.navigationBar.tintColor = .white
         
         let rightButtonItem = UIBarButtonItem(
-            image: UIImage(named: ImageConstant.matrix)
-            , style: .plain,
+            image: UIImage(named: ImageConstant.matrix),
+            style: .plain,
             target: self,
             action: #selector(showList)
         )
@@ -92,15 +90,41 @@ private extension SearchPageViewController {
             
         navigationItem.backBarButtonItem = UIBarButtonItem()
         
-        let icon = selectCategory.instance()
+        let title = viewModel.barTitle
         
-        navigationItem.setBarAppearance(with: .homepageDarkBlue, titleTextAttrs: UINavigationItem.titleAttributes, title: icon.name)
+        updateBarTitle(title)
+
     }
+    
+    func binding() {
+        
+        viewModel.updateTitle = { [weak self] (title) in
+            
+            self?.updateBarTitle(title)
+            
+        }
+        
+        viewModel.result.bind { [weak self] (result) in
+            
+            self?.tableView?.reloadData()
+            
+        }
+        
+    }
+    
+    func updateBarTitle(_ title: String) {
+        
+        navigationItem.setBarAppearance(with: .homepageDarkBlue, titleTextAttrs: UINavigationItem.titleAttributes, title: title)
+        
+    }
+        
 }
 
 extension SearchPageViewController: CategoryDelegate {
     func confirmSelection(_ selectedCategory: Category) {
-        selectCategory = selectedCategory
+        
+        viewModel.select(category: selectedCategory)
+        
     }
 }
 
@@ -116,11 +140,22 @@ extension SearchPageViewController: UITableViewDelegate {
 
 extension SearchPageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel.result.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        var cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifierName, for: indexPath)
+        
+        if let searchCell = cell as? SearchTableViewCell {
+            
+            let word = viewModel.result.value[indexPath.row]
+            
+            searchCell.renderUI(word.name)
+            
+            cell = searchCell
+            
+        }
+        
         
         return cell
     }

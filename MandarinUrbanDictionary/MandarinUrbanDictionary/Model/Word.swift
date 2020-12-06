@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Firebase
 
 struct Word: Codable {
     
@@ -20,7 +19,7 @@ struct Word: Codable {
     
     var identifier: String
     
-    let time: Timestamp
+    let time: FirebaseTime
     
     enum CodingKeys: String, CodingKey {
         

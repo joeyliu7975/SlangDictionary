@@ -56,6 +56,7 @@
 		718D6B8A2579D92400663CAD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B892579D92400663CAD /* Box.swift */; };
 		718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */; };
 		718D6B92257A1FF500663CAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B91257A1FF500663CAD /* User.swift */; };
+		7194F70D257C6C3F009804AF /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7194F70C257C6C3F009804AF /* Typealias.swift */; };
 		71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */; };
 		71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A832576368900E0C14D /* FavoriteViewController.swift */; };
 		71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A84A842576368900E0C14D /* FavoriteViewController.xib */; };
@@ -75,6 +76,10 @@
 		71E7F34C2570D75B00F15098 /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F34A2570D75B00F15098 /* Definition.swift */; };
 		71E7F34D2570D75B00F15098 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F34B2570D75B00F15098 /* Word.swift */; };
 		71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3512570D76600F15098 /* HomePageViewModel.swift */; };
+		71F8DDA8257C73E600507D8F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8DDA6257C73E600507D8F /* SearchTableViewCell.swift */; };
+		71F8DDA9257C73E600507D8F /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71F8DDA7257C73E600507D8F /* SearchTableViewCell.xib */; };
+		71F8DDAC257C751200507D8F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8DDAB257C751200507D8F /* SearchViewModel.swift */; };
+		71F8DDAF257C780B00507D8F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8DDAE257C780B00507D8F /* String+Extension.swift */; };
 		71F9442025789B140014808E /* JoeyTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9441F25789B140014808E /* JoeyTextLayer.swift */; };
 		71F9442C2578C15E0014808E /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9442A2578C15E0014808E /* RankViewController.swift */; };
 		71F9442D2578C15E0014808E /* RankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71F9442B2578C15E0014808E /* RankViewController.xib */; };
@@ -133,6 +138,7 @@
 		718D6B892579D92400663CAD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		718D6B91257A1FF500663CAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7194F70C257C6C3F009804AF /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FSPagerView+Extension.swift"; sourceTree = "<group>"; };
 		71A84A832576368900E0C14D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		71A84A842576368900E0C14D /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
@@ -152,6 +158,10 @@
 		71E7F34A2570D75B00F15098 /* Definition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
 		71E7F34B2570D75B00F15098 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		71E7F3512570D76600F15098 /* HomePageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
+		71F8DDA6257C73E600507D8F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		71F8DDA7257C73E600507D8F /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		71F8DDAB257C751200507D8F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		71F8DDAE257C780B00507D8F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		71F9441F25789B140014808E /* JoeyTextLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoeyTextLayer.swift; sourceTree = "<group>"; };
 		71F9442A2578C15E0014808E /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
 		71F9442B2578C15E0014808E /* RankViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RankViewController.xib; path = "../New Group2/RankViewController.xib"; sourceTree = "<group>"; };
@@ -266,6 +276,7 @@
 		7160B713257254D8007F7C90 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				71F8DDA5257C73C600507D8F /* Search */,
 				7160B71825725558007F7C90 /* Definition Header */,
 				713488832574954F007ADED3 /* Definition */,
 				716CD319257503A700695A91 /* SidePanel */,
@@ -505,7 +516,6 @@
 			isa = PBXGroup;
 			children = (
 				71CE92152579C1FF0080E0A0 /* Base */,
-				716A8D6D2578771D005C5782 /* Login */,
 				71E7F3312570D67900F15098 /* CollectionViewCell */,
 				7160B713257254D8007F7C90 /* TableViewCell */,
 			);
@@ -542,6 +552,7 @@
 			isa = PBXGroup;
 			children = (
 				71CE92102579C03B0080E0A0 /* Base */,
+				716A8D6D2578771D005C5782 /* Login */,
 				716CD30A2574F79100695A91 /* HomePage */,
 				7152EACD2575E8BE00F1C5FB /* New Word */,
 				7152EACE2575E8C800F1C5FB /* Search */,
@@ -568,6 +579,7 @@
 				71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */,
 				716A8D4625773C11005C5782 /* UIViewController+Extension.swift */,
 				716CC8C0257B6C1D0059F315 /* UITextView+Extension.swift */,
+				71F8DDAE257C780B00507D8F /* String+Extension.swift */,
 			);
 			name = Extension;
 			path = MandarinUrbanDictionary/Extension;
@@ -592,6 +604,7 @@
 			children = (
 				7120E0172572024A00A56E7E /* SearchButton.swift */,
 				71F9441F25789B140014808E /* JoeyTextLayer.swift */,
+				7194F70C257C6C3F009804AF /* Typealias.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -603,8 +616,18 @@
 				7134888925749D05007ADED3 /* DefinitionViewModel.swift */,
 				716CD3202575183D00695A91 /* SidePanelViewModel.swift */,
 				7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */,
+				71F8DDAB257C751200507D8F /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		71F8DDA5257C73C600507D8F /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				71F8DDA6257C73E600507D8F /* SearchTableViewCell.swift */,
+				71F8DDA7257C73E600507D8F /* SearchTableViewCell.xib */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		71F944292578C1380014808E /* Rank */ = {
@@ -719,6 +742,7 @@
 				7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */,
 				71A84A8D257637B600E0C14D /* FavoriteTableViewCell.xib in Resources */,
 				7120E0142571167700A56E7E /* CategoryCollectionViewCell.xib in Resources */,
+				71F8DDA9257C73E600507D8F /* SearchTableViewCell.xib in Resources */,
 				7175694C2570D0FE00417B9C /* GoogleService-Info.plist in Resources */,
 				7175692C2570CFD600417B9C /* Assets.xcassets in Resources */,
 				7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */,
@@ -806,13 +830,16 @@
 				716CC8C1257B6C1D0059F315 /* UITextView+Extension.swift in Sources */,
 				7120E01B257225CF00A56E7E /* UISearchBar+Extension.swift in Sources */,
 				716A8D6A2577A880005C5782 /* Report.swift in Sources */,
+				7194F70D257C6C3F009804AF /* Typealias.swift in Sources */,
 				716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */,
 				7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */,
 				71E7F34C2570D75B00F15098 /* Definition.swift in Sources */,
+				71F8DDAC257C751200507D8F /* SearchViewModel.swift in Sources */,
 				716CD3112574F80500695A91 /* SidePanelViewController.swift in Sources */,
 				71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */,
 				71E7F3452570D73700F15098 /* UIView+Extension.swift in Sources */,
 				71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */,
+				71F8DDAF257C780B00507D8F /* String+Extension.swift in Sources */,
 				71E7F34D2570D75B00F15098 /* Word.swift in Sources */,
 				7119AA2D257B73DE00A7F513 /* AddNewWordViewModel.swift in Sources */,
 				718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */,
@@ -836,6 +863,7 @@
 				717569232570CFD300417B9C /* AppDelegate.swift in Sources */,
 				71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */,
 				71F9442C2578C15E0014808E /* RankViewController.swift in Sources */,
+				71F8DDA8257C73E600507D8F /* SearchTableViewCell.swift in Sources */,
 				716CD30D2574F7A200695A91 /* ContainerViewController.swift in Sources */,
 				717569252570CFD300417B9C /* SceneDelegate.swift in Sources */,
 				7120E0182572024A00A56E7E /* SearchButton.swift in Sources */,

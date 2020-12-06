@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Firebase
 
 class DefinitionViewModel {
     
@@ -44,7 +43,7 @@ class DefinitionViewModel {
                 dislike: [],
                 report: "Nothing",
                 identifier: "123456789",
-                time: Timestamp(),
+                time: FirebaseTime(),
                 idForWord: "35678"
             ),
             count: 3

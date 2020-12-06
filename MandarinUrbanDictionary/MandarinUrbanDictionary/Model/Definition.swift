@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Firebase
 
 struct Definition: Codable {
     
@@ -20,7 +19,7 @@ struct Definition: Codable {
     
     var identifier: String
     
-    var time: Timestamp
+    var time: FirebaseTime
     
     var idForWord: String
     

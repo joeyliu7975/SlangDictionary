@@ -11,7 +11,7 @@ class SidePanelViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let viewModel = SidePanelViewModel()
+    let viewModel: SidePanelViewModel = .init()
     
     private var centerPanelExpandedOffset: CGFloat {
         return UIScreen.main.bounds.width * 0.217

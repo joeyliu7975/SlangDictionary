@@ -22,7 +22,7 @@ class HomePageViewController: UIViewController {
     
     @IBOutlet weak var pagerView: FSPagerView!
         
-    var viewModel = HomePageViewModel()
+    private let viewModel = HomePageViewModel()
     
     weak var delegate: CenterViewControllerDelegate?
     
@@ -135,7 +135,7 @@ extension HomePageViewController: FSPagerViewDataSource {
         
         var cell = FSPagerViewCell()
         
-        let image = viewModel.collectionViewImage[index]
+        let image = viewModel.carouselList[index].getImage()
         
         let collectionViewContent = viewModel.userViewModels.value[index]
         
@@ -143,7 +143,11 @@ extension HomePageViewController: FSPagerViewDataSource {
         
         if let mostViewedCell = cell as? MostViewedWordCollectionViewCell {
             
-            mostViewedCell.renderImage(image: image, word: collectionViewContent.name, definition: collectionViewContent.identifier)
+            mostViewedCell.renderImage(
+                image: image,
+                word: collectionViewContent.name,
+                definition: collectionViewContent.identifier
+            )
             
             cell = mostViewedCell
         }

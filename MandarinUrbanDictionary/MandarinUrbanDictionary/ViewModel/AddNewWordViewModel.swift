@@ -12,13 +12,13 @@ class AddNewWordViewModel {
     
     let categoryList = Category.allCases
     
-    var buttonIsValid: Bool = false {
+    var isEnable: Bool = false {
         didSet {
-            updateConfirmButton?(buttonIsValid)
+            updateStatus?(isEnable)
         }
     }
     
-    var updateConfirmButton: ((Bool) -> Void)?
+    var updateStatus: ((Bool) -> Void)?
     
     func createNewWord(word: String, definition: String, category: String) -> Word {
         
@@ -33,5 +33,13 @@ class AddNewWordViewModel {
         
         return newWord
         
+    }
+    
+    func containEmptyString(_ texts: [String]) -> Bool {
+        if texts.contains("") {
+            return false
+        } else {
+            return true
+        }
     }
 }

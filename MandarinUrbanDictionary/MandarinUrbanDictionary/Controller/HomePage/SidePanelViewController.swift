@@ -67,9 +67,7 @@ extension SidePanelViewController: UITableViewDelegate {
         if let sidePanelView = headerView as? SidePanelHeaderFooterView {
             
             let headerBackgroundView = UIView()
-            
-//            let width = sidePanelView.logoImageView.frame.width
-            
+                        
             let width = sidePanelView.logoImageWidth
             
             let logoImageLeadingConstant = (UIScreen.main.bounds.width - width - centerPanelExpandedOffset) / 2

@@ -155,7 +155,7 @@ private extension AddNewWordViewController {
     
     func binding() {
         
-        viewModel.updateConfirmButton = { [weak self] (isValid) in
+        viewModel.updateStatus = { [weak self] (isValid) in
             
             self?.sendButton.backgroundColor = isValid ? .white : .lightGray
             
@@ -170,18 +170,14 @@ private extension AddNewWordViewController {
         guard
             let word = newWordTF.text,
             let definition = definitionTextView.text,
-            let category = categoryTF.text,
-            !word.isEmpty,
-            !definition.isEmpty,
-            !category.isEmpty
+            let category = categoryTF.text
         else {
-
-            viewModel.buttonIsValid = false
-            
             return
         }
         
-        viewModel.buttonIsValid = true
+        let strings = [word, definition, category]
+        
+        viewModel.isEnable = viewModel.containEmptyString(strings)
         
     }
 }

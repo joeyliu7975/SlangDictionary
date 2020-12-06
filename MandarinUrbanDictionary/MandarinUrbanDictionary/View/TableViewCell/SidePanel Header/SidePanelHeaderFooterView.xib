@@ -23,8 +23,8 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
-                <constraint firstItem="yDv-BK-jgW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aqs-CR-2BX"/>
                 <constraint firstItem="yDv-BK-jgW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="80" id="gpM-7h-sLV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="yDv-BK-jgW" secondAttribute="bottom" constant="25" id="k3k-sb-FL1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

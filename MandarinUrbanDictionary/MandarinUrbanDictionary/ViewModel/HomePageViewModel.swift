@@ -9,20 +9,13 @@ import Foundation
 
 class HomePageViewModel {
     
-    var cellCount: Int {
-        
-        let carouselList = Carousel.allCases
-        
-        return carouselList.count
-    }
+    let carouselList = Carousel.allCases
     
-    private var networkManager: FirebaseManager = .init()
+    private let networkManager: FirebaseManager = .init()
         
     var userViewModels = Box([User]())
-    
-    var collectionViewImage = ["whats_new", "top5", "whats_new"]
         
-    var updateHot5: ( () -> Void )?
+    var updateHot5: (() -> Void )?
     
     func fetchData(in collection: FirebaseCollection) {
        
@@ -57,23 +50,6 @@ class HomePageViewModel {
     }
 }
 
-extension HomePageViewModel {
-    func renderCell(at carousel: Carousel) -> IndexPath {
-        
-        switch carousel {
-        
-        case .mostViewedWord:
-            
-            return IndexPath(row: 0, section: 0)
-            
-        case .newestWord:
-            
-            return IndexPath(row: 1, section: 0)
-            
-        }
-    }
-}
-
 enum FirebaseCollection {
     
     case word, definition, user
@@ -81,6 +57,7 @@ enum FirebaseCollection {
 }
 
 extension FirebaseCollection {
+    
     var name: String {
         switch self {
         case .word:
@@ -97,4 +74,12 @@ enum Carousel: CaseIterable {
     
     case mostViewedWord, newestWord
     
+    func getImage() -> String {
+        switch self {
+        case .mostViewedWord:
+            return ImageConstant.top5
+        case .newestWord:
+            return ImageConstant.newWordsLogo
+        }
+    }
 }

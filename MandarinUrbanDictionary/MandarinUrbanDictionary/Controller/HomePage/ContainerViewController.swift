@@ -40,8 +40,11 @@ private extension ContainerViewController {
         
         view.addSubview(launchScreen.view)
         
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.25, delay: 0.0, options: .curveEaseInOut) {
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.75, delay: 0.0, options: .curveEaseInOut) {
+            
             launchScreen.view.frame = CGRect(x: launchScreen.view.center.x, y: launchScreen.view.center.y, width: 0, height: 0)
+            
+            launchScreen.view.alpha = 0
         } completion: { (_) in
             launchScreen.view.removeFromSuperview()
         }

@@ -62,6 +62,8 @@ private extension SearchPageViewController {
         searchBar.setSearchIcon(color: .white)
         
         searchBar.becomeFirstResponder()
+        
+        searchBar.delegate = self
     }
     
     func setupTableView() {
@@ -125,6 +127,24 @@ extension SearchPageViewController: CategoryDelegate {
         
         viewModel.select(category: selectedCategory)
         
+    }
+}
+
+extension SearchPageViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            print(text)
+        }
+        
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar,
+                   textDidChange searchText: String) {
+        if searchText.isEmpty {
+            print("SearchBar is empty!")
+        }
     }
 }
 

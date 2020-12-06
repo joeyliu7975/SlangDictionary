@@ -55,8 +55,9 @@ class SearchViewModel {
         keyword.forEach { (character) in
             
             filtered = data.filter { (word) -> Bool in
-                return word.name.contains(keyword)
+                return word.title.contains(character)
             }
+            
         }
         
         result.value = filtered

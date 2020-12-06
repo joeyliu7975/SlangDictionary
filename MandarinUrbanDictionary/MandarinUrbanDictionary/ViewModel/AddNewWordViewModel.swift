@@ -22,8 +22,7 @@ class AddNewWordViewModel {
     func createNewWord(word: String, definition: String, category: String) -> Word {
         
         let newWord = Word(
-            name: word,
-            definition: [definition],
+            title: word,
             category: category,
             view: 0,
             identifier: "1234567890",

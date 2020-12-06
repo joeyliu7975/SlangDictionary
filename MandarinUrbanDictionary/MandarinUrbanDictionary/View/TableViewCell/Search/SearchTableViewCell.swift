@@ -16,6 +16,8 @@ class SearchTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    @IBOutlet weak var wordLabel: UILabel!
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -23,13 +25,7 @@ class SearchTableViewCell: UITableViewCell {
         self.selectedBackgroundView = UIView()
     }
     
-    func renderUI(_ data: String) {
-        
-        
-        
-    }
-    
-    func makeLabel(_ strings: [String]) {
-        
+    func renderUI(_ text: String) {
+        wordLabel.text = text
     }
 }

@@ -9,10 +9,8 @@ import Foundation
 
 struct Word: Codable {
     
-    let name: String
-    
-    var definition: [String]
-    
+    let title: String
+        
     let category: String
     
     var view: Int
@@ -23,9 +21,13 @@ struct Word: Codable {
     
     enum CodingKeys: String, CodingKey {
         
-        case name, definition, view, identifier, category
+        case title, category
+        
+        case identifier = "id"
         
         case time = "created_time"
+        
+        case view = "check_times"
     }
     
 }

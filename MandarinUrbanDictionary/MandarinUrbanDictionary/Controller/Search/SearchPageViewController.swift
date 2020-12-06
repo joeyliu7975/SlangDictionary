@@ -106,7 +106,7 @@ private extension SearchPageViewController {
             
         }
         
-        viewModel.result.bind { [weak self] (result) in
+        viewModel.result.bind { [weak self] (_) in
             
             self?.tableView?.reloadData()
             
@@ -134,7 +134,7 @@ extension SearchPageViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let text = searchBar.text {
-            print(text)
+            viewModel.search(keyword: text)
         }
         
         searchBar.resignFirstResponder()
@@ -170,7 +170,7 @@ extension SearchPageViewController: UITableViewDataSource {
             
             let word = viewModel.result.value[indexPath.row]
             
-            searchCell.renderUI(word.name)
+            searchCell.renderUI(word.title)
             
             cell = searchCell
             

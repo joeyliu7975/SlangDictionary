@@ -48,6 +48,19 @@ class SearchViewModel {
         }
     }
     
+    func clearSearchBar() {
+        
+        result.value.removeAll()
+        
+    }
+    
+    func select(category: Category) {
+        selectedCategory = category
+    }
+}
+
+private extension SearchViewModel {
+    
     func filter(_ data: [Word], with keyword: String) {
         
         var filtered = [Word]()
@@ -64,7 +77,4 @@ class SearchViewModel {
         
     }
     
-    func select(category: Category) {
-        selectedCategory = category
-    }
 }

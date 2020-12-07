@@ -14,9 +14,7 @@ struct Definition: Codable {
     var like: [String]
     
     var dislike: [String]
-    
-    var report: String
-    
+        
     var identifier: String
     
     var time: FirebaseTime
@@ -25,7 +23,9 @@ struct Definition: Codable {
     
     enum CodingKeys: String, CodingKey {
         
-        case content, like, dislike, report, identifier
+        case content, like, dislike
+        
+        case identifier = "id"
         
         case time = "created_time"
         

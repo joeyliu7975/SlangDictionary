@@ -56,7 +56,6 @@
 		718D6B8A2579D92400663CAD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B892579D92400663CAD /* Box.swift */; };
 		718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */; };
 		718D6B92257A1FF500663CAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B91257A1FF500663CAD /* User.swift */; };
-		7194F70D257C6C3F009804AF /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7194F70C257C6C3F009804AF /* Typealias.swift */; };
 		71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */; };
 		71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A832576368900E0C14D /* FavoriteViewController.swift */; };
 		71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A84A842576368900E0C14D /* FavoriteViewController.xib */; };
@@ -138,7 +137,6 @@
 		718D6B892579D92400663CAD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		718D6B91257A1FF500663CAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		7194F70C257C6C3F009804AF /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FSPagerView+Extension.swift"; sourceTree = "<group>"; };
 		71A84A832576368900E0C14D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		71A84A842576368900E0C14D /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
@@ -604,7 +602,6 @@
 			children = (
 				7120E0172572024A00A56E7E /* SearchButton.swift */,
 				71F9441F25789B140014808E /* JoeyTextLayer.swift */,
-				7194F70C257C6C3F009804AF /* Typealias.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -830,7 +827,6 @@
 				716CC8C1257B6C1D0059F315 /* UITextView+Extension.swift in Sources */,
 				7120E01B257225CF00A56E7E /* UISearchBar+Extension.swift in Sources */,
 				716A8D6A2577A880005C5782 /* Report.swift in Sources */,
-				7194F70D257C6C3F009804AF /* Typealias.swift in Sources */,
 				716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */,
 				7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */,
 				71E7F34C2570D75B00F15098 /* Definition.swift in Sources */,

@@ -11,14 +11,22 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private let viewModel: DefinitionViewModel = .init()
+    var viewModel: DefinitionViewModel?
+    
+    init(identifierNumber: String) {
+        viewModel = DefinitionViewModel(id: identifierNumber)
+        viewModel?.listen()
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        setup()
-        
         setupNav()
         
         setupTableView()
@@ -28,16 +36,6 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
 }
 
 private extension DefinitionViewController {
-    
-    func binding() {
-        viewModel.updateData = { [weak self] in
-            self?.tableView.reloadData()
-        }
-    }
-    
-    func setup() {
-        viewModel.makeMockData(amount: 3)
-    }
     
     func setupNav() {
         navigationItem.setBarAppearance(with: .homepageDarkBlue)
@@ -55,13 +53,23 @@ private extension DefinitionViewController {
         
         tableView.separatorColor = .separatorlineBlue
     }
+    
+    func binding() {
+        
+        viewModel?.definitionViewModels.bind { [weak self] (_) in
+            
+            self?.tableView.reloadData()
+            
+        }
+        
+    }
 }
 
 extension DefinitionViewController: DefinitionHeaderDelegate {
     
     func toggleFavorite() {
         
-        viewModel.isLike.toggle()
+        viewModel?.isLike.toggle()
         
     }
     
@@ -76,7 +84,7 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
             
             let index = indexPath.row
             
-            let reportedDefinition = viewModel.definitions[index]
+//            let reportedDefinition = viewModel.definitions[index]
             
             self.popAlert(.actionSheet({
                 
@@ -94,6 +102,7 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
 }
 
 extension DefinitionViewController: ReportDelegate {
+   
     func sendReport(_ isReport: Bool) {
         
         switch isReport {
@@ -122,6 +131,8 @@ extension DefinitionViewController: UITabBarDelegate {
         
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: DefinitionHeaderView.identifierName) as? DefinitionHeaderView {
             
+            guard let islike = viewModel?.isLike else { return nil }
+            
             let headerBackgroundView = UIView()
             
             headerView.delegate = self
@@ -132,7 +143,7 @@ extension DefinitionViewController: UITabBarDelegate {
             
             headerView.wordLabel.text = "The Dodo"
             
-            headerView.setFavorite(viewModel.isLike)
+            headerView.setFavorite(islike)
             
           return headerView
         }
@@ -147,16 +158,16 @@ extension DefinitionViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.definitions.count
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: DefinitionTableViewCell.identifierName, for: indexPath)
         
-        let definition = viewModel.definitions[indexPath.row]
+//        let definition = viewModel.definitions[indexPath.row]
         
-        let rankString = viewModel.convertRank(with: indexPath.row)
+        let rankString = viewModel?.convertRank(with: indexPath.row)
         
         if let definitionTableViewCell = cell as? DefinitionTableViewCell {
             
@@ -164,14 +175,14 @@ extension DefinitionViewController: UITableViewDataSource {
             
             definitionTableViewCell.delegate = self
             
-            definitionTableViewCell.renderUI(
-                rank: rankString,
-                isLiked: false,
-                amountOfLike: definition.like.count,
-                amountOfDislike: definition.dislike.count,
-                isReported: false,
-                content: definition.content
-            )
+//            definitionTableViewCell.renderUI(
+//                rank: rankString,
+//                isLiked: false,
+//                amountOfLike: definition.like.count,
+//                amountOfDislike: definition.dislike.count,
+//                isReported: false,
+//                content: definition.content
+//            )
         }
         
         return cell

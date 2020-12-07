@@ -9,13 +9,7 @@ import UIKit
 import FSPagerView
 
 class HomePageViewController: UIViewController {
-    
-    @IBOutlet weak var logoImageView: UIImageView!
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    
-    @IBOutlet weak var subtitleLabel: UILabel!
-    
+
     @IBOutlet weak var searchButton: SearchButton!
     
     @IBOutlet weak var writeNewWordButtonView: NewPostButtonView!

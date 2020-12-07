@@ -123,6 +123,7 @@ private extension SearchPageViewController {
 }
 
 extension SearchPageViewController: CategoryDelegate {
+    
     func confirmSelection(_ selectedCategory: Category) {
         
         viewModel.select(category: selectedCategory)
@@ -143,14 +144,17 @@ extension SearchPageViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar,
                    textDidChange searchText: String) {
         if searchText.isEmpty {
-            print("SearchBar is empty!")
+            viewModel.clearSearchBar()
         }
     }
 }
 
 extension SearchPageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let definitionViewController = DefinitionViewController()
+        
+        let selectedWord = viewModel.result.value[indexPath.row]
+        
+        let definitionViewController: DefinitionViewController = .init(id: selectedWord.identifier)
         
         guard let navigationController = self.navigationController else { return }
         

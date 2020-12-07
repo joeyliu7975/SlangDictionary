@@ -9,6 +9,8 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
+typealias FirebaseTime = Timestamp
+
 class FirebaseManager {
     
     private let dataBase: Firestore
@@ -19,27 +21,57 @@ class FirebaseManager {
 
     func listen <T: Codable>(_ collection: Collection, completion: @escaping (Result<[T], Error>) -> Void) {
         
-        dataBase.collection(collection.name).addSnapshotListener { (querySnapshot, error) in
+        switch collection {
+        case .definition(let id):
             
-            if let error = error {
-                
-                completion(.failure(error))
-                
-            } else {
-                
-                var datas = [T]()
-                
-                for document in querySnapshot!.documents {
-                    if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
-                        datas.append(data)
+            dataBase
+                .collection(collection.name)
+                .whereField("word_id", isEqualTo: id)
+                .order(by: "like", descending: true)
+                .addSnapshotListener { (querySnapshot, error) in
+                    if let error = error {
+                        
+                        completion(.failure(error))
+                        
+                    } else {
+                        
+                        var datas = [T]()
+                        
+                        for document in querySnapshot!.documents {
+                            if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
+                                datas.append(data)
+                            }
+                        }
+                        
+                        completion(.success(datas))
+                        
                     }
                 }
+        default:
+            
+            dataBase
+                .collection(collection.name)
+                .addSnapshotListener { (querySnapshot, error) in
                 
-                completion(.success(datas))
-                
+                if let error = error {
+                    
+                    completion(.failure(error))
+                    
+                } else {
+                    
+                    var datas = [T]()
+                    
+                    for document in querySnapshot!.documents {
+                        if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
+                            datas.append(data)
+                        }
+                    }
+                    
+                    completion(.success(datas))
+                    
+                }
             }
         }
-        
     }
     
     func retrieveData <T: Codable>(_ collection: Collection, completion: @escaping (Result<[T], Error>) -> Void) {
@@ -71,7 +103,8 @@ extension FirebaseManager {
     
     enum Collection {
         
-        case definition, user, word, time, report
+        case definition(String)
+        case user, word, time, report
         
         var name: String {
             switch self {

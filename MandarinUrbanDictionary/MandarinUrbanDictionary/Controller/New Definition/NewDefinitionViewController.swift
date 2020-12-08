@@ -18,10 +18,12 @@ class NewDefinitionViewController: UIViewController {
         textView.delegate = self
 
         textView.backgroundColor = .newDefBlue
+        
         textView.becomeFirstResponder()
+    
         textView.tintColor = .white
         
-        textView.setupContent(.placeHolder(""))
+        textView.setupContent(.startTyping(color: .white))
         
         return textView
     }()
@@ -72,13 +74,16 @@ class NewDefinitionViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         setup()
+        
         setupTextView()
+        
         setupNavigation()
     }
     
     override func viewDidLayoutSubviews() {
         
         textView.addSubview(placeholderLabel)
+        
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -101,13 +106,8 @@ class NewDefinitionViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @objc func send(sender: UIBarButtonItem) {
-        switch sender.isEnabled {
-        case true:
+    @objc func send() {
             dismiss(animated: true)
-        case false:
-            break
-        }
     }
 }
 
@@ -162,23 +162,20 @@ private extension NewDefinitionViewController {
 
 extension NewDefinitionViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        if let color = textView.textColor,
-           color == .lightGray {
-            textView.setupContent(.startTyping(color: .white))
+        
+        if let text = textView.text,
+           !text.isEmpty {
+            
             placeholderLabel.isHidden = true
-            textView.clearText()
-        } else if let text = textView.text,
-                  text.isEmpty {
-            textView.setupContent(.placeHolder(""))
+            
+            sendButton.isEnabled = true
+            
+        } else {
             
             placeholderLabel.isHidden = false
             
             sendButton.isEnabled = false
-            
-        } else {
-            
-            sendButton.isEnabled = true
-            
+
         }
     }
 }

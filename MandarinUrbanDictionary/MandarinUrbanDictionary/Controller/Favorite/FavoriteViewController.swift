@@ -11,7 +11,13 @@ class FavoriteViewController: JoeyPanelViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let mockData = Category.allCases
+    @IBOutlet weak var deleteButton: UIStackView!
+    
+    @IBOutlet weak var deleteAllButton: UIButton!
+    
+    @IBOutlet weak var stackView: UIStackView!
+    
+    var mockData = Category.allCases
     
     var navigationTitle: String? {
         didSet {
@@ -41,7 +47,7 @@ class FavoriteViewController: JoeyPanelViewController {
     }
     
     @objc func toggleEditMode() {
-        print("Toggle")
+        tableView.isEditing.toggle()
     }
 }
 
@@ -56,6 +62,10 @@ private extension FavoriteViewController {
         tableView.registerCell(FavoriteTableViewCell.identifierName)
         
         tableView.separatorStyle = .none
+        
+        tableView.allowsMultipleSelection = true
+        
+        tableView.allowsMultipleSelectionDuringEditing = true
         
         tableView.delegate = self
         
@@ -76,6 +86,8 @@ private extension FavoriteViewController {
         
         let editButton = UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(toggleEditMode))
         
+        editButton.title = "Hello"
+        
         navigationItem.rightBarButtonItem = editButton
         
     }
@@ -83,13 +95,17 @@ private extension FavoriteViewController {
 
 extension FavoriteViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return 100.0
+        
     }
 }
 
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return mockData.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

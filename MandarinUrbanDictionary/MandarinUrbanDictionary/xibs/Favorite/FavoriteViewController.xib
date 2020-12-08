@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteViewController" customModule="MandarinUrbanDictionary" customModuleProvider="target">
             <connections>
+                <outlet property="deleteAllButton" destination="ChN-Jt-5OA" id="sbs-78-hIP"/>
+                <outlet property="deleteButton" destination="rhE-UC-59R" id="5gX-hC-hYV"/>
+                <outlet property="stackView" destination="rhE-UC-59R" id="0gI-dy-pGv"/>
                 <outlet property="tableView" destination="kzO-a5-F9Q" id="BMc-SM-Hds"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,18 +23,49 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kzO-a5-F9Q">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tGs-7c-lkI">
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rhE-UC-59R">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgE-H2-0bm">
+                                    <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="20"/>
+                                    <state key="normal" title="Delete"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChN-Jt-5OA">
+                                    <rect key="frame" x="207" y="0.0" width="207" height="50"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="20"/>
+                                    <state key="normal" title="Delete All"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="rhE-UC-59R" firstAttribute="leading" secondItem="tGs-7c-lkI" secondAttribute="leading" id="avJ-0j-N0H"/>
+                        <constraint firstAttribute="trailing" secondItem="rhE-UC-59R" secondAttribute="trailing" id="gg7-nV-fcO"/>
+                        <constraint firstItem="rhE-UC-59R" firstAttribute="top" secondItem="tGs-7c-lkI" secondAttribute="top" id="jV2-8l-Crh"/>
+                        <constraint firstAttribute="bottom" secondItem="rhE-UC-59R" secondAttribute="bottom" id="zoh-Ci-gJD"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <constraints>
-                <constraint firstItem="kzO-a5-F9Q" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="45w-j0-AuC"/>
+                <constraint firstItem="kzO-a5-F9Q" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="45w-j0-AuC"/>
+                <constraint firstItem="tGs-7c-lkI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5AL-SZ-KSq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kzO-a5-F9Q" secondAttribute="bottom" id="EiL-9U-gPb"/>
                 <constraint firstItem="kzO-a5-F9Q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Fww-Lj-ZP9"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kzO-a5-F9Q" secondAttribute="trailing" id="T08-Rw-mdb"/>
+                <constraint firstItem="tGs-7c-lkI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bKh-aa-Ipm"/>
+                <constraint firstItem="kzO-a5-F9Q" firstAttribute="top" secondItem="tGs-7c-lkI" secondAttribute="bottom" id="cdS-pI-pex"/>
+                <constraint firstItem="tGs-7c-lkI" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="p4u-O7-CVZ"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="119"/>
+            <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </view>
     </objects>
     <resources>

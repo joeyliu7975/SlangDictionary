@@ -32,3 +32,25 @@ struct Definition: Codable {
         case idForWord = "word_id"
     }
 }
+
+extension Definition {
+    
+    enum Opinion {
+        
+        case like, dislike, none
+        
+    }
+    
+    func showUserOpinion(_ id: String) -> Opinion {
+        
+        if like.contains(id) {
+            return .like
+        } else if dislike.contains(id) {
+            return .dislike
+        } else {
+            return .none
+        }
+        
+    }
+    
+}

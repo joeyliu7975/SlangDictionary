@@ -30,6 +30,10 @@ private enum Color: String {
     case sidePanelBlue = "8FDEFF"
     
     case cardViewBlue = "4BC2FD"
+    
+    case newDefBlue = "16324B"
+    
+    case lightestBlue = "D7EFFE"
 }
 
 extension UIColor {
@@ -57,6 +61,10 @@ extension UIColor {
     static let cardViewBlue = renderColor(.cardViewBlue)
     
     static let transparentBlack = UIColor.black.withAlphaComponent(0.5)
+    
+    static let newDefBlue = renderColor(.newDefBlue)
+    
+    static let lightestBlue = renderColor(.lightestBlue)
     
     private static func renderColor(_ color: Color) -> UIColor {
         

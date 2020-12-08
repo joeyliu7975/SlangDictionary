@@ -14,12 +14,14 @@ extension UISearchBar {
     }
     
     func setTextColor(_ color: UIColor, cursorColor: UIColor? = .lightGray) {
-        
+                                      
         if let textfield = self.value(forKey: "searchField") as? UITextField,
            let tintColor = cursorColor {
             
             textfield.textColor = color
             
+            textfield.backgroundColor = .white
+                        
             self.tintColor = tintColor
             
         }

@@ -11,9 +11,9 @@ extension UITextView {
     
     enum Content {
         
-        case placeHolder
+        case placeHolder(String)
         
-        case startTyping
+        case startTyping(color: UIColor)
     }
     
     var hasPlaceholder: Bool {
@@ -31,15 +31,15 @@ extension UITextView {
     func setupContent(_ content: Content) {
         
         switch content {
-        case .placeHolder:
+        case .placeHolder(let text):
             
             self.textColor = .lightGray
             
-            self.text = "Please start typing here..."
+            self.text = text
             
-        case .startTyping:
+        case .startTyping(let color):
             
-            self.textColor = .black
+            self.textColor = color
             
         }
     }

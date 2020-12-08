@@ -91,7 +91,7 @@ extension AddNewWordViewController: UITextViewDelegate {
             textView.clearText()
         }
         
-        textView.setupContent(.startTyping)
+        textView.setupContent(.startTyping(color: .black))
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -140,7 +140,7 @@ private extension AddNewWordViewController {
         
         definitionTextView.setCorner(radius: 10)
         
-        definitionTextView.setupContent(.placeHolder)
+        definitionTextView.setupContent(.placeHolder("Please start typing here..."))
         
         sendButton.setCorner(radius: 10)
         

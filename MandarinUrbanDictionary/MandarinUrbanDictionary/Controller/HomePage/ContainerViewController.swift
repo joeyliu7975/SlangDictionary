@@ -27,29 +27,29 @@ class ContainerViewController: UIViewController {
         
         setup()
         
-        animation()
+//        animation()
         
     }
 }
 
 private extension ContainerViewController {
     
-    func animation() {
-        
-        guard let launchScreen = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController() else { return }
-        
-        view.addSubview(launchScreen.view)
-        
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.75, delay: 0.0, options: .curveEaseInOut) {
-            
-            launchScreen.view.frame = CGRect(x: launchScreen.view.center.x, y: launchScreen.view.center.y, width: 0, height: 0)
-            
-            launchScreen.view.alpha = 0
-        } completion: { (_) in
-            launchScreen.view.removeFromSuperview()
-        }
-
-    }
+//    func animation() {
+//
+//        guard let launchScreen = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController() else { return }
+//
+//        view.addSubview(launchScreen.view)
+//
+//        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.75, delay: 0.0, options: .curveEaseInOut) {
+//
+//            launchScreen.view.frame = CGRect(x: launchScreen.view.center.x, y: launchScreen.view.center.y, width: 0, height: 0)
+//
+//            launchScreen.view.alpha = 0
+//        } completion: { (_) in
+//            launchScreen.view.removeFromSuperview()
+//        }
+//
+//    }
     
     func setup() {
         

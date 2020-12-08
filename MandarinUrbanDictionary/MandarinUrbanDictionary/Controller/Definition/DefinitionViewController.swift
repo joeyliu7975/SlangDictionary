@@ -13,9 +13,12 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
     
     var viewModel: DefinitionViewModel?
     
-    init(identifierNumber: String) {
-        viewModel = DefinitionViewModel(id: identifierNumber)
+    init(identifierNumber: String, word: String) {
+        
+        viewModel = DefinitionViewModel(id: identifierNumber, word: word)
+        
         viewModel?.listen()
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,6 +42,8 @@ private extension DefinitionViewController {
     
     func setupNav() {
         navigationItem.setBarAppearance(with: .homepageDarkBlue)
+        
+        navigationItem.backButtonTitle = ""
     }
     
     func setupTableView() {
@@ -51,7 +56,9 @@ private extension DefinitionViewController {
         
         tableView.dataSource = self
         
-        tableView.separatorColor = .separatorlineBlue
+        tableView.separatorStyle = .none
+        
+        tableView.tableFooterView = UIView()
     }
     
     func binding() {
@@ -68,12 +75,21 @@ private extension DefinitionViewController {
 extension DefinitionViewController: DefinitionHeaderDelegate {
     
     func toggleFavorite() {
-        
-        viewModel?.isLike.toggle()
-        
+            
     }
     
-    func writeNewDefinition() { }
+    func writeNewDefinition() {
+        
+        let newDefVC = NewDefinitionViewController()
+        
+        let nav = UINavigationController(rootViewController: newDefVC)
+        
+        nav.modalPresentationStyle = .fullScreen
+        
+        nav.modalTransitionStyle = .flipHorizontal
+        
+        present(nav, animated: true)
+    }
 }
 
 extension DefinitionViewController: DefinitionTableViewCellDelegate {
@@ -120,7 +136,7 @@ extension DefinitionViewController: ReportDelegate {
 
 extension DefinitionViewController: UITabBarDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 180.0
+        return 120.0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -130,9 +146,7 @@ extension DefinitionViewController: UITabBarDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: DefinitionHeaderView.identifierName) as? DefinitionHeaderView {
-            
-            guard let islike = viewModel?.isLike else { return nil }
-            
+                        
             let headerBackgroundView = UIView()
             
             headerView.delegate = self
@@ -141,10 +155,8 @@ extension DefinitionViewController: UITabBarDelegate {
     
             headerView.backgroundView = headerBackgroundView
             
-            headerView.wordLabel.text = "The Dodo"
-            
-            headerView.setFavorite(islike)
-            
+            headerView.wordLabel.text = viewModel?.word
+                        
           return headerView
         }
         
@@ -158,16 +170,17 @@ extension DefinitionViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel?.definitionViewModels.value.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: DefinitionTableViewCell.identifierName, for: indexPath)
         
-//        let definition = viewModel.definitions[indexPath.row]
-        
-        let rankString = viewModel?.convertRank(with: indexPath.row)
+        guard
+            let definition = viewModel?.definitionViewModels.value[indexPath.row],
+            let rankString = viewModel?.convertRank(with: indexPath.row)
+              else { return cell }
         
         if let definitionTableViewCell = cell as? DefinitionTableViewCell {
             
@@ -175,14 +188,16 @@ extension DefinitionViewController: UITableViewDataSource {
             
             definitionTableViewCell.delegate = self
             
-//            definitionTableViewCell.renderUI(
-//                rank: rankString,
-//                isLiked: false,
-//                amountOfLike: definition.like.count,
-//                amountOfDislike: definition.dislike.count,
-//                isReported: false,
-//                content: definition.content
-//            )
+            let opinion = definition.showUserOpinion("ge3naXXUMzHTJ63oFbmP")
+            
+            definitionTableViewCell.renderUI(
+                rank: rankString,
+                isLiked: opinion,
+                amountOfLike: definition.like.count,
+                amountOfDislike: definition.dislike.count,
+                isReported: false,
+                content: definition.content
+            )
         }
         
         return cell

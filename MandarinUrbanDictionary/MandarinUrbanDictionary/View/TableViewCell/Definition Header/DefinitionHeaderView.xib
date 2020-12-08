@@ -10,17 +10,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="DefinitionHeaderView" id="iN0-l3-epB" customClass="DefinitionHeaderView" customModule="MandarinUrbanDictionary" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="376" height="180"/>
+            <rect key="frame" x="0.0" y="0.0" width="376" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbK-Zd-ED9">
-                    <rect key="frame" x="10" y="59" width="356" height="33.5"/>
+                    <rect key="frame" x="10" y="28.5" width="356" height="33.5"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="EQi-P1-ncy">
-                    <rect key="frame" x="136" y="133" width="104" height="32"/>
+                    <rect key="frame" x="136" y="83" width="104" height="32"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lud-Ak-m43">
                             <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
@@ -52,11 +52,10 @@
             <constraints>
                 <constraint firstItem="EQi-P1-ncy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1Sg-Ix-UHL"/>
                 <constraint firstItem="fbK-Zd-ED9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3at-TV-pdO"/>
+                <constraint firstItem="fbK-Zd-ED9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-15" id="Djh-Qc-MmM"/>
                 <constraint firstItem="fbK-Zd-ED9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="VQd-Qn-rip"/>
-                <constraint firstItem="fbK-Zd-ED9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="eva-xz-Ox4"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fbK-Zd-ED9" secondAttribute="trailing" constant="10" id="gEw-ez-8xP"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="EQi-P1-ncy" secondAttribute="bottom" constant="15" id="iRU-vs-f2P"/>
-                <constraint firstItem="EQi-P1-ncy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fbK-Zd-ED9" secondAttribute="bottom" constant="20" id="vMf-uz-nTF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="EQi-P1-ncy" secondAttribute="bottom" constant="5" id="iRU-vs-f2P"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

@@ -55,11 +55,13 @@ private extension SearchPageViewController {
             
         cancelButton.setTitleColor(.white, for: .normal)
         
-        searchBar.setTextColor(.white, cursorColor: .white)
+//        searchBar.setTextColor(.white, cursorColor: .white)
         
-        searchBar.setClearButton(color: .white)
+        searchBar.setTextColor(.black, cursorColor: .separatorlineBlue)
         
-        searchBar.setSearchIcon(color: .white)
+        searchBar.setClearButton(color: .lightGray)
+        
+        searchBar.setSearchIcon(color: .lightGray)
         
         searchBar.becomeFirstResponder()
         
@@ -154,7 +156,8 @@ extension SearchPageViewController: UITableViewDelegate {
         
         let selectedWord = viewModel.result.value[indexPath.row]
         
-        let definitionViewController: DefinitionViewController = .init(id: selectedWord.identifier)
+        let definitionViewController: DefinitionViewController =
+            .init(identifierNumber: selectedWord.identifier, word: selectedWord.title)
         
         guard let navigationController = self.navigationController else { return }
         

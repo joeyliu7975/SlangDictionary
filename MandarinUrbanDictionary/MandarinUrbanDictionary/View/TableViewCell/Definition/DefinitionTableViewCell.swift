@@ -30,8 +30,14 @@ class DefinitionTableViewCell: UITableViewCell {
     @IBOutlet weak var amountOfLikesLabel: UILabel!
     
     @IBOutlet weak var amountOfDislikesLabel: UILabel!
-
+    
+    @IBOutlet weak var separatorlineView: UIView!
+    
     weak var delegate: DefinitionTableViewCellDelegate?
+    
+    override func prepareForReuse() {
+        feedback(.none)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -75,7 +81,7 @@ extension DefinitionTableViewCell {
     
     func renderUI(
         rank: String,
-        isLiked:Bool,
+        isLiked: Definition.Opinion,
         amountOfLike: Int,
         amountOfDislike: Int,
         isReported: Bool,
@@ -90,10 +96,13 @@ extension DefinitionTableViewCell {
         
         definitionTextView.text = content
         
+        feedback(isLiked)
+        
     }
 }
 
 private extension DefinitionTableViewCell {
+    
    func defaultConfiguration() {
         rankLabelView.setCorner(radius: 10.0)
     
@@ -110,11 +119,13 @@ private extension DefinitionTableViewCell {
         likeButton.setImage(tintedLikeImage, for: .normal)
     
         dislikeButton.setImage(tintedDislikeImage, for: .normal)
+    
+        separatorlineView.backgroundColor = .separatorlineBlue
         
         feedback(.none)
     }
     
-    func feedback(_ feedback: Feedback) {
+    func feedback(_ feedback: Definition.Opinion) {
         
         switch feedback {
         
@@ -138,12 +149,4 @@ private extension DefinitionTableViewCell {
             
         }
     }
-}
-
-extension DefinitionTableViewCell {
-    
-    enum Feedback {
-        case like, dislike, none
-    }
-    
 }

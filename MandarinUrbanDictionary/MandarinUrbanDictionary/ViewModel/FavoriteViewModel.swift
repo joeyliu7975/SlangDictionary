@@ -69,4 +69,10 @@ class FavoriteViewModel {
         removeAll?()
     }
     
+    func removeSelections() {
+        
+        selectedWord.removeAll()
+        
+    }
+    
 }

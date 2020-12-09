@@ -70,21 +70,21 @@ class FavoriteViewController: JoeyPanelViewController {
     }
     
     @IBAction func tapDeleteAll(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Favorite Words", message: "Are you sure you want to delete all favorite words", preferredStyle: .alert)
-        
-        let confirm = UIAlertAction(title: "Delete All", style: .default) { (action) in
-            self.viewModel.tapDeleteAll()
-            self.viewModel.isEditing.toggle()
+        let presenter = FavoritePresenter(
+            title: "Favorite Words",
+            message: "Are you sure you want to delete all favorite words",
+            cancelTitle: "Delete All",
+            confirmTitle: "Cancel") { [unowned self] (outcome) in
+            switch outcome {
+            case .confirm:
+                self.viewModel.tapDeleteAll()
+                self.viewModel.isEditing.toggle()
+            case .cancel:
+                break
+            }
         }
         
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.addAction(confirm)
-        
-        alert.addAction(cancel)
-        
-        present(alert, animated: true)
-        
+        presenter.present(in: self)
     }
     
     @objc func toggleEditMode() {
@@ -158,6 +158,13 @@ private extension FavoriteViewController {
             self?.deleteViewHeighConstraint.constant = isEditing ? 50 : 0
             
             self?.editButton.title = isEditing ? "Done" : "Edit"
+            
+            switch isEditing {
+            case true:
+                break
+            case false:
+                self?.viewModel.removeSelections()
+            }
         }
         
         viewModel.deleteButtonEnable = { [weak self] (isEnable) in

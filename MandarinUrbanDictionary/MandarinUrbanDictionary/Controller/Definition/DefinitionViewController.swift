@@ -8,7 +8,7 @@
 import UIKit
 
 class DefinitionViewController: UIViewController, UITableViewDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: DefinitionViewModel?
@@ -29,7 +29,7 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupNav()
         
         setupTableView()
@@ -75,7 +75,7 @@ private extension DefinitionViewController {
 extension DefinitionViewController: DefinitionHeaderDelegate {
     
     func toggleFavorite() {
-            
+        
     }
     
     func writeNewDefinition() {
@@ -98,37 +98,46 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
         
         if let indexPath = tableView.indexPath(for: cell) {
             
-            let index = indexPath.row
+            //            let index = indexPath.row
             
-//            let reportedDefinition = viewModel.definitions[index]
+            //            let reportedDefinition = viewModel.definitions[index]
             
-            self.popAlert(.actionSheet({
-                
-                let reportVC = ReportViewController()
-                
-                reportVC.delegate = self
-                
-                let navVC = UINavigationController(rootViewController: reportVC)
-                
-                self.present(navVC, animated: true)
-            })
-            )
+            let presenter = ReportPresenter(
+                title: "Report",
+                message: "What's wrong with the content?",
+                cancelTitle: "Cancel",
+                reportTitle: "Report") { (outcome) in
+                switch outcome {
+                case .report:
+                    let reportVC = ReportViewController()
+                    
+                    reportVC.delegate = self
+                    
+                    let navVC = UINavigationController(rootViewController: reportVC)
+                    
+                    self.present(navVC, animated: true)
+                case .cancel:
+                    break
+                }
+            }
+            
+            presenter.present(in: self)
         }
     }
 }
 
 extension DefinitionViewController: ReportDelegate {
-   
+    
     func sendReport(_ isReport: Bool) {
         
         switch isReport {
         
         case true:
-        // Do something
-        break
+            // Do something
+            break
         case false:
-        // Do nothing
-        break
+            // Do nothing
+            break
         }
         
     }
@@ -146,18 +155,18 @@ extension DefinitionViewController: UITabBarDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: DefinitionHeaderView.identifierName) as? DefinitionHeaderView {
-                        
+            
             let headerBackgroundView = UIView()
             
             headerView.delegate = self
-                        
+            
             headerBackgroundView.backgroundColor = .searchBarBlue
-    
+            
             headerView.backgroundView = headerBackgroundView
             
             headerView.wordLabel.text = viewModel?.word
-                        
-          return headerView
+            
+            return headerView
         }
         
         return nil
@@ -180,7 +189,7 @@ extension DefinitionViewController: UITableViewDataSource {
         guard
             let definition = viewModel?.definitionViewModels.value[indexPath.row],
             let rankString = viewModel?.convertRank(with: indexPath.row)
-              else { return cell }
+        else { return cell }
         
         if let definitionTableViewCell = cell as? DefinitionTableViewCell {
             

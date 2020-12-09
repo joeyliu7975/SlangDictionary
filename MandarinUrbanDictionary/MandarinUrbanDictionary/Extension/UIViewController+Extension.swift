@@ -9,31 +9,12 @@ import UIKit
 
 extension UIViewController {
     
-    enum Alert {
-        case actionSheet((() -> Void)?)
-        case alert
-    }
-    
-    func popAlert(_ style: Alert) {
+    func popAlert(_ style: UIAlertController.Style, actions: [UIAlertAction], title: String, message: String) {
         
-        switch style {
-        case .actionSheet(let completion):
-            let alert = UIAlertController(title: "Report", message: "Do you want to report this post?", preferredStyle: .actionSheet)
-            
-            let reportAction = UIAlertAction(title: "Report", style: .destructive) { (_) in
-                completion?()
-            }
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-                // self.dismiss(animated: true, completion: nil)
-            }
-            
-            alert.addAction(reportAction)
-            alert.addAction(cancelAction)
-            
-            present(alert, animated: true)
-        case .alert:
-            break
-        }
+        let alert = UIAlertController(title: title, message: message, preferredStyle: style)
+        
+        actions.forEach { alert.addAction($0) }
+        
+        present(alert, animated: true)
     }
 }

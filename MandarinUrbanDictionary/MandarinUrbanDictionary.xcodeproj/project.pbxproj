@@ -66,6 +66,8 @@
 		71C3D5AB257E29DB00636BC4 /* NewDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */; };
 		71C3D5AC257E29DB00636BC4 /* NewDefinitionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C3D5AA257E29DB00636BC4 /* NewDefinitionViewController.xib */; };
 		71C3D5AF2580666D00636BC4 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */; };
+		71C3D5B225809A2200636BC4 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5B125809A2200636BC4 /* FavoritePresenter.swift */; };
+		71C3D5B525809C0900636BC4 /* ReportPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5B425809C0900636BC4 /* ReportPresenter.swift */; };
 		71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */; };
 		71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */; };
 		71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3302570D67900F15098 /* HomePageViewController.xib */; };
@@ -150,6 +152,8 @@
 		71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDefinitionViewController.swift; sourceTree = "<group>"; };
 		71C3D5AA257E29DB00636BC4 /* NewDefinitionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDefinitionViewController.xib; sourceTree = "<group>"; };
 		71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		71C3D5B125809A2200636BC4 /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
+		71C3D5B425809C0900636BC4 /* ReportPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPresenter.swift; sourceTree = "<group>"; };
 		71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoeyPanelViewController.swift; sourceTree = "<group>"; };
 		71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostButtonView.swift; sourceTree = "<group>"; };
 		71E7F3302570D67900F15098 /* HomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
@@ -504,6 +508,8 @@
 			isa = PBXGroup;
 			children = (
 				718D6B892579D92400663CAD /* Box.swift */,
+				71C3D5B125809A2200636BC4 /* FavoritePresenter.swift */,
+				71C3D5B425809C0900636BC4 /* ReportPresenter.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -873,6 +879,7 @@
 				7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */,
 				71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */,
 				716CD31D2575130400695A91 /* SidePanelTableViewCell.swift in Sources */,
+				71C3D5B225809A2200636BC4 /* FavoritePresenter.swift in Sources */,
 				71883B7C2578D6F300170AC9 /* RankTableViewCell.swift in Sources */,
 				71A84A8C257637B600E0C14D /* FavoriteTableViewCell.swift in Sources */,
 				7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */,
@@ -882,6 +889,7 @@
 				71F8DDA8257C73E600507D8F /* SearchTableViewCell.swift in Sources */,
 				716CD30D2574F7A200695A91 /* ContainerViewController.swift in Sources */,
 				717569252570CFD300417B9C /* SceneDelegate.swift in Sources */,
+				71C3D5B525809C0900636BC4 /* ReportPresenter.swift in Sources */,
 				7120E0182572024A00A56E7E /* SearchButton.swift in Sources */,
 				71A84A96257689B000E0C14D /* CardView.swift in Sources */,
 				71A84A912576802900E0C14D /* Category.swift in Sources */,

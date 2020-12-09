@@ -11,11 +11,13 @@ class FavoriteViewController: JoeyPanelViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var deleteButton: UIStackView!
+    @IBOutlet weak var deleteButton: UIButton!
     
     @IBOutlet weak var deleteAllButton: UIButton!
     
     @IBOutlet weak var stackView: UIStackView!
+    
+    @IBOutlet weak var deleteViewHeighConstraint: NSLayoutConstraint!
     
     let viewModel: FavoriteViewModel = .init()
     
@@ -49,6 +51,12 @@ class FavoriteViewController: JoeyPanelViewController {
         binding()
     }
     
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: true)
+        
+        tableView.setEditing(editing, animated: true)
+    }
+    
     func setNavigationBarTitle(title: String) {
         
         navigationTitle = title
@@ -61,11 +69,28 @@ class FavoriteViewController: JoeyPanelViewController {
         
     }
     
+    @IBAction func tapDeleteAll(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Favorite Words", message: "Are you sure you want to delete all favorite words", preferredStyle: .alert)
+        
+        let confirm = UIAlertAction(title: "Delete All", style: .default) { (action) in
+            self.viewModel.tapDeleteAll()
+            self.viewModel.isEditing.toggle()
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(confirm)
+        
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
+        
+    }
+    
     @objc func toggleEditMode() {
         
-        tableView.isEditing.toggle()
-        
-        editButton.title = tableView.isEditing ? "Done" : "Edit"
+        viewModel.isEditing.toggle()
+    
     }
 }
 
@@ -125,6 +150,34 @@ private extension FavoriteViewController {
             
             self?.tableView.endUpdates()
         }
+        
+        viewModel.toggleEditMode = { [weak self] (isEditing) in
+            
+            self?.tableView.isEditing = isEditing
+            
+            self?.deleteViewHeighConstraint.constant = isEditing ? 50 : 0
+            
+            self?.editButton.title = isEditing ? "Done" : "Edit"
+        }
+        
+        viewModel.deleteButtonEnable = { [weak self] (isEnable) in
+            
+            self?.deleteButton.isEnabled = isEnable
+            
+            switch isEnable {
+            case true:
+                self?.deleteButton.setTitleColor(.systemPink, for: .normal)
+            case false:
+                self?.deleteButton.setTitleColor(.lightGray, for: .normal)
+            }
+            
+        }
+        
+        viewModel.removeAll = { [weak self] in
+            
+            self?.tableView.reloadData()
+            
+        }
     }
 }
 
@@ -136,6 +189,12 @@ extension FavoriteViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                
+        viewModel.select(at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
         viewModel.select(at: indexPath)
     }
 }

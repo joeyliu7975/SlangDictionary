@@ -11,11 +11,27 @@ class FavoriteViewModel {
     
     var mockData: [Category] = .init()
     
-    var selectedWord = [Category]()
+    var selectedWord = [Category]() {
+        didSet {
+            deleteButtonEnable?(!selectedWord.isEmpty)
+        }
+    }
+    
+    var isEditing: Bool = false {
+        didSet {
+            toggleEditMode?(isEditing)
+        }
+    }
     
     var fetchData: (() -> Void)?
     
+    var toggleEditMode: ((Bool) -> Void)?
+    
     var removeData: ((Int) -> Void)?
+    
+    var removeAll: (() -> Void)?
+    
+    var deleteButtonEnable: ((Bool) -> Void)?
     
     func makeMockData() {
         mockData = Category.allCases
@@ -23,7 +39,14 @@ class FavoriteViewModel {
     }
     
     func select(at index: IndexPath) {
-        selectedWord.append(mockData[index.row])
+        
+        if selectedWord.contains(mockData[index.row]) {
+            guard let index = selectedWord.firstIndex(of: mockData[index.row]) else { return }
+            
+            selectedWord.remove(at: index)
+        } else {
+            selectedWord.append(mockData[index.row])
+        }
     }
     
     func tapDelete() {
@@ -35,6 +58,15 @@ class FavoriteViewModel {
         }
         
         selectedWord.removeAll()
+    }
+    
+    func tapDeleteAll() {
+        
+        mockData.removeAll()
+        
+        selectedWord.removeAll()
+        
+        removeAll?()
     }
     
 }

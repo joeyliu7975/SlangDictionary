@@ -73,8 +73,8 @@ class FavoriteViewController: JoeyPanelViewController {
         let presenter = FavoritePresenter(
             title: "Favorite Words",
             message: "Are you sure you want to delete all favorite words",
-            cancelTitle: "Delete All",
-            confirmTitle: "Cancel") { [unowned self] (outcome) in
+            cancelTitle: "Cancel",
+            confirmTitle: "Delete All") { [unowned self] (outcome) in
             switch outcome {
             case .confirm:
                 self.viewModel.tapDeleteAll()

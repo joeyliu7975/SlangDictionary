@@ -35,9 +35,11 @@ struct FavoritePresenter {
             self.handler(.cancel)
         }
         
+        alert.addAction(confirmAction)
+        
         alert.addAction(cancelAction)
         
-        alert.addAction(confirmAction)
+        alert.preferredAction = cancelAction
         
         viewController.present(alert, animated: true)
     }

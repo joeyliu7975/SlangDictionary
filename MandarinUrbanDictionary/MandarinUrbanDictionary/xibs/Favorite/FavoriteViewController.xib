@@ -36,6 +36,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
                                     <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="20"/>
                                     <state key="normal" title="Delete"/>
+                                    <connections>
+                                        <action selector="tapDelete:" destination="-1" eventType="touchUpInside" id="Q0l-eX-5pQ"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChN-Jt-5OA">
                                     <rect key="frame" x="207" y="0.0" width="207" height="50"/>

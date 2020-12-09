@@ -14,8 +14,16 @@ class HomePageViewModel {
     private let networkManager: FirebaseManager = .init()
         
     var userViewModels = Box([User]())
+    
+    var rotateButton: ((Bool) -> Void)?
         
     var updateHot5: (() -> Void )?
+    
+    var isVertical: Bool = false {
+        didSet {
+            rotateButton?(isVertical)
+        }
+    }
     
     func fetchData(in collection: FirebaseManager.Collection) {
        

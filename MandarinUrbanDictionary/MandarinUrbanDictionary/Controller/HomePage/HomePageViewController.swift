@@ -48,6 +48,7 @@ class HomePageViewController: UIViewController {
     @objc func toggleSideMenu() {
         //Remove leftBarButtonItem when SidePanel show
         delegate?.toggleLeftPanel()
+        viewModel.isVertical.toggle()
     }
 }
 

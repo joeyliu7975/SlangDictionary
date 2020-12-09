@@ -17,7 +17,14 @@ class FavoriteViewController: JoeyPanelViewController {
     
     @IBOutlet weak var stackView: UIStackView!
     
-    var mockData = Category.allCases
+    let viewModel: FavoriteViewModel = .init()
+    
+    private lazy var editButton: UIBarButtonItem = {
+       
+        let editButton = UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(toggleEditMode))
+        
+        return editButton
+    }()
     
     var navigationTitle: String? {
         didSet {
@@ -38,6 +45,8 @@ class FavoriteViewController: JoeyPanelViewController {
         setupTableView()
         
         setupNavigationController()
+        
+        binding()
     }
     
     func setNavigationBarTitle(title: String) {
@@ -46,15 +55,28 @@ class FavoriteViewController: JoeyPanelViewController {
         
     }
     
+    @IBAction func tapDelete(_ sender: UIButton) {
+        
+        viewModel.tapDelete()
+        
+    }
+    
     @objc func toggleEditMode() {
+        
         tableView.isEditing.toggle()
+        
+        editButton.title = tableView.isEditing ? "Done" : "Edit"
     }
 }
 
 private extension FavoriteViewController {
    
     func setup() {
+        
         view.backgroundColor = .cardViewBlue
+        
+        viewModel.makeMockData()
+        
     }
     
     func setupTableView() {
@@ -84,12 +106,25 @@ private extension FavoriteViewController {
     
     func makeRightButton() {
         
-        let editButton = UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(toggleEditMode))
-        
-        editButton.title = "Hello"
-        
         navigationItem.rightBarButtonItem = editButton
         
+    }
+    
+    func binding() {
+        
+        viewModel.fetchData = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        
+        viewModel.removeData = { [weak self] (index) in
+            self?.tableView.beginUpdates()
+            
+            self?.viewModel.mockData.remove(at: index)
+            
+            self?.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+            
+            self?.tableView.endUpdates()
+        }
     }
 }
 
@@ -99,12 +134,16 @@ extension FavoriteViewController: UITableViewDelegate {
         return 100.0
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.select(at: indexPath)
+    }
 }
 
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return mockData.count
+        return viewModel.mockData.count
         
     }
     
@@ -112,7 +151,7 @@ extension FavoriteViewController: UITableViewDataSource {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifierName, for: indexPath)
         
-        let data = mockData[indexPath.row].instance()
+        let data = viewModel.mockData[indexPath.row].instance()
         
         if let favoriteCell = cell as? FavoriteTableViewCell {
             

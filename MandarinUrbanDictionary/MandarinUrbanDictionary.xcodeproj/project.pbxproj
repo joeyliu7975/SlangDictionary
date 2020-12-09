@@ -65,6 +65,7 @@
 		71A84A96257689B000E0C14D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A95257689B000E0C14D /* CardView.swift */; };
 		71C3D5AB257E29DB00636BC4 /* NewDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */; };
 		71C3D5AC257E29DB00636BC4 /* NewDefinitionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C3D5AA257E29DB00636BC4 /* NewDefinitionViewController.xib */; };
+		71C3D5AF2580666D00636BC4 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */; };
 		71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */; };
 		71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */; };
 		71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3302570D67900F15098 /* HomePageViewController.xib */; };
@@ -148,6 +149,7 @@
 		71A84A95257689B000E0C14D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDefinitionViewController.swift; sourceTree = "<group>"; };
 		71C3D5AA257E29DB00636BC4 /* NewDefinitionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDefinitionViewController.xib; sourceTree = "<group>"; };
+		71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoeyPanelViewController.swift; sourceTree = "<group>"; };
 		71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostButtonView.swift; sourceTree = "<group>"; };
 		71E7F3302570D67900F15098 /* HomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
@@ -628,6 +630,7 @@
 				716CD3202575183D00695A91 /* SidePanelViewModel.swift */,
 				7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */,
 				71F8DDAB257C751200507D8F /* SearchViewModel.swift */,
+				71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -828,6 +831,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71C3D5AF2580666D00636BC4 /* FavoriteViewModel.swift in Sources */,
 				716A8D4725773C11005C5782 /* UIViewController+Extension.swift in Sources */,
 				71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */,
 				718D6B92257A1FF500663CAD /* User.swift in Sources */,

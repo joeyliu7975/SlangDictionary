@@ -47,7 +47,6 @@
 		717569252570CFD300417B9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569242570CFD300417B9C /* SceneDelegate.swift */; };
 		7175692C2570CFD600417B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7175692B2570CFD600417B9C /* Assets.xcassets */; };
 		7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7175692D2570CFD600417B9C /* LaunchScreen.storyboard */; };
-		7175694C2570D0FE00417B9C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7175694B2570D0FE00417B9C /* GoogleService-Info.plist */; };
 		71811DEC2576DC66005319DA /* SidePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71811DEB2576DC66005319DA /* SidePanel.swift */; };
 		71883B7C2578D6F300170AC9 /* RankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71883B7A2578D6F300170AC9 /* RankTableViewCell.swift */; };
 		71883B7D2578D6F300170AC9 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */; };
@@ -68,6 +67,7 @@
 		71C3D5AF2580666D00636BC4 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */; };
 		71C3D5B225809A2200636BC4 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5B125809A2200636BC4 /* FavoritePresenter.swift */; };
 		71C3D5B525809C0900636BC4 /* ReportPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5B425809C0900636BC4 /* ReportPresenter.swift */; };
+		71CC56C42582676F007F3AF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71CC56C32582676E007F3AF1 /* GoogleService-Info.plist */; };
 		71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */; };
 		71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */; };
 		71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3302570D67900F15098 /* HomePageViewController.xib */; };
@@ -133,7 +133,6 @@
 		7175692B2570CFD600417B9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7175692E2570CFD600417B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		717569302570CFD600417B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7175694B2570D0FE00417B9C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71811DEB2576DC66005319DA /* SidePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanel.swift; sourceTree = "<group>"; };
 		71883B7A2578D6F300170AC9 /* RankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewCell.swift; sourceTree = "<group>"; };
 		71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
@@ -154,6 +153,7 @@
 		71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		71C3D5B125809A2200636BC4 /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
 		71C3D5B425809C0900636BC4 /* ReportPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPresenter.swift; sourceTree = "<group>"; };
+		71CC56C32582676E007F3AF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoeyPanelViewController.swift; sourceTree = "<group>"; };
 		71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostButtonView.swift; sourceTree = "<group>"; };
 		71E7F3302570D67900F15098 /* HomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
@@ -413,8 +413,8 @@
 		7175694A2570D0F000417B9C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				71CC56C32582676E007F3AF1 /* GoogleService-Info.plist */,
 				7175692D2570CFD600417B9C /* LaunchScreen.storyboard */,
-				7175694B2570D0FE00417B9C /* GoogleService-Info.plist */,
 				717569302570CFD600417B9C /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -760,11 +760,11 @@
 				71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */,
 				71883B832578EFBB00170AC9 /* QuizViewController.xib in Resources */,
 				7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */,
+				71CC56C42582676F007F3AF1 /* GoogleService-Info.plist in Resources */,
 				71A84A8D257637B600E0C14D /* FavoriteTableViewCell.xib in Resources */,
 				71C3D5AC257E29DB00636BC4 /* NewDefinitionViewController.xib in Resources */,
 				7120E0142571167700A56E7E /* CategoryCollectionViewCell.xib in Resources */,
 				71F8DDA9257C73E600507D8F /* SearchTableViewCell.xib in Resources */,
-				7175694C2570D0FE00417B9C /* GoogleService-Info.plist in Resources */,
 				7175692C2570CFD600417B9C /* Assets.xcassets in Resources */,
 				7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */,
 			);
@@ -1039,7 +1039,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Joey-MUDictionary.MandarinUrbanDictionary";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Joey.SlangDict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1059,7 +1059,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Joey-MUDictionary.MandarinUrbanDictionary";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Joey.SlangDict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

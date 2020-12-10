@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="MiniRankTableViewCell" selectionStyle="default" indentationWidth="10" rowHeight="242" id="KGk-i7-Jjw" customClass="MiniRankTableViewCell" customModule="MandarinUrbanDictionary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="551" height="242"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="551" height="242"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xH2-ho-b1Z" customClass="CardView" customModule="MandarinUrbanDictionary" customModuleProvider="target">
+                        <rect key="frame" x="10" y="15" width="531" height="197"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vk3-I7-nzn">
+                                <rect key="frame" x="0.0" y="0.0" width="531" height="197"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Vk3-I7-nzn" secondAttribute="trailing" id="QXy-bp-47S"/>
+                            <constraint firstItem="Vk3-I7-nzn" firstAttribute="leading" secondItem="xH2-ho-b1Z" secondAttribute="leading" id="SEm-yS-kGP"/>
+                            <constraint firstItem="Vk3-I7-nzn" firstAttribute="top" secondItem="xH2-ho-b1Z" secondAttribute="top" id="ZOF-oU-cDH"/>
+                            <constraint firstAttribute="bottom" secondItem="Vk3-I7-nzn" secondAttribute="bottom" id="ryv-5s-UZ8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="xH2-ho-b1Z" secondAttribute="trailing" constant="10" id="APk-RV-xn3"/>
+                    <constraint firstAttribute="bottom" secondItem="xH2-ho-b1Z" secondAttribute="bottom" constant="30" id="Hle-lr-YYD"/>
+                    <constraint firstItem="xH2-ho-b1Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Jv8-qM-4E1"/>
+                    <constraint firstItem="xH2-ho-b1Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="OKC-C7-bHt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cardView" destination="xH2-ho-b1Z" id="Fpd-aP-bTc"/>
+                <outlet property="tableView" destination="Vk3-I7-nzn" id="h4s-TL-l5R"/>
+            </connections>
+            <point key="canvasLocation" x="306.52173913043481" y="219.64285714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

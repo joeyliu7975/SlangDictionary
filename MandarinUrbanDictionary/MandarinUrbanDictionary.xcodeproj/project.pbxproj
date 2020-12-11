@@ -190,30 +190,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		71055A892584285B00560C5D /* Quiz123 */ = {
+		71055A892584285B00560C5D /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
 				71055A8A2584285B00560C5D /* QuizViewController.xib */,
 			);
-			name = Quiz123;
-			path = MandarinUrbanDictionary/xibs/Quiz123;
+			name = Quiz;
+			path = MandarinUrbanDictionary/xibs/Quiz;
 			sourceTree = SOURCE_ROOT;
 		};
-		71055A8F2584289500560C5D /* Rank123 */ = {
+		71055A8F2584289500560C5D /* Rank */ = {
 			isa = PBXGroup;
 			children = (
 				71055A902584289500560C5D /* RankViewController.xib */,
 			);
-			name = Rank123;
-			path = MandarinUrbanDictionary/xibs/Rank123;
+			name = Rank;
+			path = MandarinUrbanDictionary/xibs/Rank;
 			sourceTree = SOURCE_ROOT;
 		};
-		71055A93258428A300560C5D /* Login123 */ = {
+		71055A93258428A300560C5D /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				71055A94258428A300560C5D /* LoginViewController.xib */,
 			);
-			path = Login123;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		7105AF872575E9CD000C71B4 /* Definition */ = {
@@ -554,7 +554,7 @@
 		71E7F32F2570D67900F15098 /* xibs */ = {
 			isa = PBXGroup;
 			children = (
-				71055A93258428A300560C5D /* Login123 */,
+				71055A93258428A300560C5D /* Login */,
 				716CD3152574F81000695A91 /* HomePage */,
 				7105AF892575E9E3000C71B4 /* New Word */,
 				7152EADF2575E96400F1C5FB /* Search */,
@@ -562,8 +562,8 @@
 				7105AF872575E9CD000C71B4 /* Definition */,
 				71A84A882576369600E0C14D /* Favorite */,
 				716A8D6725778AAA005C5782 /* Report */,
-				71055A8F2584289500560C5D /* Rank123 */,
-				71055A892584285B00560C5D /* Quiz123 */,
+				71055A8F2584289500560C5D /* Rank */,
+				71055A892584285B00560C5D /* Quiz */,
 			);
 			path = xibs;
 			sourceTree = "<group>";

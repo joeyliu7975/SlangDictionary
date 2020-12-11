@@ -21,6 +21,11 @@ class ContainerViewController: UIViewController {
         return UIScreen.main.bounds.width * 0.217
     }
     
+    lazy var blackView: UIView = {
+        let blackView = UIView(frame: self.centerNavigationController.view.frame)
+        return blackView
+    }()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71055A8B2584285B00560C5D /* QuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71055A8A2584285B00560C5D /* QuizViewController.xib */; };
+		71055A912584289500560C5D /* RankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71055A902584289500560C5D /* RankViewController.xib */; };
+		71055A95258428A300560C5D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71055A94258428A300560C5D /* LoginViewController.xib */; };
 		7119AA2D257B73DE00A7F513 /* AddNewWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */; };
 		7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E0052570F65D00A56E7E /* SearchPageViewController.swift */; };
 		7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E0062570F65D00A56E7E /* SearchPageViewController.xib */; };
@@ -33,7 +36,6 @@
 		716A8D6525778AA4005C5782 /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716A8D6325778AA3005C5782 /* ReportViewController.xib */; };
 		716A8D6A2577A880005C5782 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D692577A880005C5782 /* Report.swift */; };
 		716A8D7125787A01005C5782 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A8D6F25787A01005C5782 /* LoginViewController.swift */; };
-		716A8D7225787A01005C5782 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716A8D7025787A01005C5782 /* LoginViewController.xib */; };
 		716CC8C1257B6C1D0059F315 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CC8C0257B6C1D0059F315 /* UITextView+Extension.swift */; };
 		716CD30D2574F7A200695A91 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD30C2574F7A200695A91 /* ContainerViewController.swift */; };
 		716CD3112574F80500695A91 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD30F2574F80500695A91 /* SidePanelViewController.swift */; };
@@ -51,7 +53,6 @@
 		71883B7C2578D6F300170AC9 /* RankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71883B7A2578D6F300170AC9 /* RankTableViewCell.swift */; };
 		71883B7D2578D6F300170AC9 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */; };
 		71883B822578EFBB00170AC9 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71883B802578EFBB00170AC9 /* QuizViewController.swift */; };
-		71883B832578EFBB00170AC9 /* QuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71883B812578EFBB00170AC9 /* QuizViewController.xib */; };
 		718D6B8A2579D92400663CAD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B892579D92400663CAD /* Box.swift */; };
 		718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */; };
 		718D6B92257A1FF500663CAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B91257A1FF500663CAD /* User.swift */; };
@@ -86,11 +87,13 @@
 		71F8DDAF257C780B00507D8F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8DDAE257C780B00507D8F /* String+Extension.swift */; };
 		71F9442025789B140014808E /* JoeyTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9441F25789B140014808E /* JoeyTextLayer.swift */; };
 		71F9442C2578C15E0014808E /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9442A2578C15E0014808E /* RankViewController.swift */; };
-		71F9442D2578C15E0014808E /* RankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71F9442B2578C15E0014808E /* RankViewController.xib */; };
 		E19594E26AB12FCE94225D78 /* Pods_MandarinUrbanDictionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD79464FBEA10AB0680FA634 /* Pods_MandarinUrbanDictionary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71055A8A2584285B00560C5D /* QuizViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuizViewController.xib; sourceTree = "<group>"; };
+		71055A902584289500560C5D /* RankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankViewController.xib; sourceTree = "<group>"; };
+		71055A94258428A300560C5D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordViewModel.swift; sourceTree = "<group>"; };
 		7120E0052570F65D00A56E7E /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
 		7120E0062570F65D00A56E7E /* SearchPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPageViewController.xib; sourceTree = "<group>"; };
@@ -117,7 +120,6 @@
 		716A8D6325778AA3005C5782 /* ReportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
 		716A8D692577A880005C5782 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		716A8D6F25787A01005C5782 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		716A8D7025787A01005C5782 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LoginViewController.xib; path = "../New Group/LoginViewController.xib"; sourceTree = "<group>"; };
 		716CC8C0257B6C1D0059F315 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		716CD30C2574F7A200695A91 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		716CD30F2574F80500695A91 /* SidePanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
@@ -137,7 +139,6 @@
 		71883B7A2578D6F300170AC9 /* RankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewCell.swift; sourceTree = "<group>"; };
 		71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
 		71883B802578EFBB00170AC9 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
-		71883B812578EFBB00170AC9 /* QuizViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = QuizViewController.xib; path = "../New Group3/QuizViewController.xib"; sourceTree = "<group>"; };
 		718D6B892579D92400663CAD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		718D6B91257A1FF500663CAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -172,7 +173,6 @@
 		71F8DDAE257C780B00507D8F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		71F9441F25789B140014808E /* JoeyTextLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoeyTextLayer.swift; sourceTree = "<group>"; };
 		71F9442A2578C15E0014808E /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
-		71F9442B2578C15E0014808E /* RankViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RankViewController.xib; path = "../New Group2/RankViewController.xib"; sourceTree = "<group>"; };
 		BD79464FBEA10AB0680FA634 /* Pods_MandarinUrbanDictionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MandarinUrbanDictionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9ED06464B995D3E2CBF6928 /* Pods-MandarinUrbanDictionary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MandarinUrbanDictionary.release.xcconfig"; path = "Target Support Files/Pods-MandarinUrbanDictionary/Pods-MandarinUrbanDictionary.release.xcconfig"; sourceTree = "<group>"; };
 		F18C21768667612211CB775E /* Pods-MandarinUrbanDictionary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MandarinUrbanDictionary.debug.xcconfig"; path = "Target Support Files/Pods-MandarinUrbanDictionary/Pods-MandarinUrbanDictionary.debug.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +190,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71055A892584285B00560C5D /* Quiz123 */ = {
+			isa = PBXGroup;
+			children = (
+				71055A8A2584285B00560C5D /* QuizViewController.xib */,
+			);
+			name = Quiz123;
+			path = MandarinUrbanDictionary/xibs/Quiz123;
+			sourceTree = SOURCE_ROOT;
+		};
+		71055A8F2584289500560C5D /* Rank123 */ = {
+			isa = PBXGroup;
+			children = (
+				71055A902584289500560C5D /* RankViewController.xib */,
+			);
+			name = Rank123;
+			path = MandarinUrbanDictionary/xibs/Rank123;
+			sourceTree = SOURCE_ROOT;
+		};
+		71055A93258428A300560C5D /* Login123 */ = {
+			isa = PBXGroup;
+			children = (
+				71055A94258428A300560C5D /* LoginViewController.xib */,
+			);
+			path = Login123;
+			sourceTree = "<group>";
+		};
 		7105AF872575E9CD000C71B4 /* Definition */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,14 +350,6 @@
 			isa = PBXGroup;
 			children = (
 				716A8D6F25787A01005C5782 /* LoginViewController.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		716A8D7425787A29005C5782 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				716A8D7025787A01005C5782 /* LoginViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -496,14 +514,6 @@
 			path = "New Definition";
 			sourceTree = "<group>";
 		};
-		71C5C7D02579216100EAE24B /* Quiz */ = {
-			isa = PBXGroup;
-			children = (
-				71883B812578EFBB00170AC9 /* QuizViewController.xib */,
-			);
-			path = Quiz;
-			sourceTree = "<group>";
-		};
 		71C5C7D725792E4200EAE24B /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,7 +554,7 @@
 		71E7F32F2570D67900F15098 /* xibs */ = {
 			isa = PBXGroup;
 			children = (
-				716A8D7425787A29005C5782 /* Login */,
+				71055A93258428A300560C5D /* Login123 */,
 				716CD3152574F81000695A91 /* HomePage */,
 				7105AF892575E9E3000C71B4 /* New Word */,
 				7152EADF2575E96400F1C5FB /* Search */,
@@ -552,8 +562,8 @@
 				7105AF872575E9CD000C71B4 /* Definition */,
 				71A84A882576369600E0C14D /* Favorite */,
 				716A8D6725778AAA005C5782 /* Report */,
-				71F944432578C3250014808E /* Rank */,
-				71C5C7D02579216100EAE24B /* Quiz */,
+				71055A8F2584289500560C5D /* Rank123 */,
+				71055A892584285B00560C5D /* Quiz123 */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -658,14 +668,6 @@
 			path = Rank;
 			sourceTree = "<group>";
 		};
-		71F944432578C3250014808E /* Rank */ = {
-			isa = PBXGroup;
-			children = (
-				71F9442B2578C15E0014808E /* RankViewController.xib */,
-			);
-			path = Rank;
-			sourceTree = "<group>";
-		};
 		BD46FC664045AE34D3F9C256 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,19 +748,17 @@
 				716CD3122574F80500695A91 /* SidePanelViewController.xib in Resources */,
 				7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */,
 				7152EADD2575E94A00F1C5FB /* AddNewWordViewController.xib in Resources */,
-				716A8D7225787A01005C5782 /* LoginViewController.xib in Resources */,
 				71883B7D2578D6F300170AC9 /* RankTableViewCell.xib in Resources */,
 				7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */,
 				7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */,
-				71F9442D2578C15E0014808E /* RankViewController.xib in Resources */,
 				716CD3292575234100695A91 /* SidePanelHeaderFooterView.xib in Resources */,
 				7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */,
+				71055A95258428A300560C5D /* LoginViewController.xib in Resources */,
 				71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */,
 				716A8D6525778AA4005C5782 /* ReportViewController.xib in Resources */,
 				71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */,
 				716CD31E2575130400695A91 /* SidePanelTableViewCell.xib in Resources */,
 				71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */,
-				71883B832578EFBB00170AC9 /* QuizViewController.xib in Resources */,
 				7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */,
 				71CC56C42582676F007F3AF1 /* GoogleService-Info.plist in Resources */,
 				71A84A8D257637B600E0C14D /* FavoriteTableViewCell.xib in Resources */,
@@ -767,6 +767,8 @@
 				71F8DDA9257C73E600507D8F /* SearchTableViewCell.xib in Resources */,
 				7175692C2570CFD600417B9C /* Assets.xcassets in Resources */,
 				7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */,
+				71055A912584289500560C5D /* RankViewController.xib in Resources */,
+				71055A8B2584285B00560C5D /* QuizViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1033,7 +1035,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XN57F4FPDT;
+				DEVELOPMENT_TEAM = XTR83A4K57;
 				INFOPLIST_FILE = "MandarinUrbanDictionary/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1053,7 +1055,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XN57F4FPDT;
+				DEVELOPMENT_TEAM = XTR83A4K57;
 				INFOPLIST_FILE = "MandarinUrbanDictionary/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

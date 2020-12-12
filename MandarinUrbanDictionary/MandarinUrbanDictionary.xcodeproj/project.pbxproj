@@ -87,6 +87,16 @@
 		71E81E9F258499F100BECDCC /* RankChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E81E9D258499F100BECDCC /* RankChartViewController.swift */; };
 		71E81EA0258499F100BECDCC /* RankChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E81E9E258499F100BECDCC /* RankChartViewController.xib */; };
 		71E81EA42584A22500BECDCC /* FirebaseTimestamp+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E81EA32584A22500BECDCC /* FirebaseTimestamp+Extension.swift */; };
+		71E81EAA2584BAD600BECDCC /* LobbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E81EA82584BAD600BECDCC /* LobbyViewController.xib */; };
+		71E81EAB2584BAD600BECDCC /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E81EA92584BAD600BECDCC /* LobbyViewController.swift */; };
+		71E81EB02584BB5D00BECDCC /* TheNewestWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E81EAE2584BB5D00BECDCC /* TheNewestWordTableViewCell.swift */; };
+		71E81EB12584BB5D00BECDCC /* TheNewestWordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E81EAF2584BB5D00BECDCC /* TheNewestWordTableViewCell.xib */; };
+		71E81EB92584BBB900BECDCC /* Top5TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E81EB72584BBB900BECDCC /* Top5TableViewCell.swift */; };
+		71E81EBA2584BBB900BECDCC /* Top5TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E81EB82584BBB900BECDCC /* Top5TableViewCell.xib */; };
+		71E929572584E0EE001FB100 /* TopFiveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E929552584E0EE001FB100 /* TopFiveCollectionViewCell.swift */; };
+		71E929582584E0EE001FB100 /* TopFiveCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E929562584E0EE001FB100 /* TopFiveCollectionViewCell.xib */; };
+		71E9295D2584F8FF001FB100 /* LobbyTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E9295C2584F8FF001FB100 /* LobbyTableHeaderView.swift */; };
+		71E929612584FB23001FB100 /* LobbyTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E929602584FB23001FB100 /* LobbyTableHeaderView.xib */; };
 		71F8DDA8257C73E600507D8F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8DDA6257C73E600507D8F /* SearchTableViewCell.swift */; };
 		71F8DDA9257C73E600507D8F /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71F8DDA7257C73E600507D8F /* SearchTableViewCell.xib */; };
 		71F8DDAC257C751200507D8F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8DDAB257C751200507D8F /* SearchViewModel.swift */; };
@@ -180,6 +190,16 @@
 		71E81E9D258499F100BECDCC /* RankChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankChartViewController.swift; sourceTree = "<group>"; };
 		71E81E9E258499F100BECDCC /* RankChartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankChartViewController.xib; sourceTree = "<group>"; };
 		71E81EA32584A22500BECDCC /* FirebaseTimestamp+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseTimestamp+Extension.swift"; sourceTree = "<group>"; };
+		71E81EA82584BAD600BECDCC /* LobbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LobbyViewController.xib; sourceTree = "<group>"; };
+		71E81EA92584BAD600BECDCC /* LobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
+		71E81EAE2584BB5D00BECDCC /* TheNewestWordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheNewestWordTableViewCell.swift; sourceTree = "<group>"; };
+		71E81EAF2584BB5D00BECDCC /* TheNewestWordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TheNewestWordTableViewCell.xib; sourceTree = "<group>"; };
+		71E81EB72584BBB900BECDCC /* Top5TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top5TableViewCell.swift; sourceTree = "<group>"; };
+		71E81EB82584BBB900BECDCC /* Top5TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Top5TableViewCell.xib; sourceTree = "<group>"; };
+		71E929552584E0EE001FB100 /* TopFiveCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopFiveCollectionViewCell.swift; sourceTree = "<group>"; };
+		71E929562584E0EE001FB100 /* TopFiveCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopFiveCollectionViewCell.xib; sourceTree = "<group>"; };
+		71E9295C2584F8FF001FB100 /* LobbyTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyTableHeaderView.swift; sourceTree = "<group>"; };
+		71E929602584FB23001FB100 /* LobbyTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LobbyTableHeaderView.xib; sourceTree = "<group>"; };
 		71F8DDA6257C73E600507D8F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		71F8DDA7257C73E600507D8F /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		71F8DDAB257C751200507D8F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -324,6 +344,8 @@
 		7160B713257254D8007F7C90 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				71E81EAD2584BAF100BECDCC /* Lobby */,
+				71E9295A2584F690001FB100 /* LobbyHeader */,
 				71F8DDA5257C73C600507D8F /* Search */,
 				7160B71825725558007F7C90 /* Definition Header */,
 				713488832574954F007ADED3 /* Definition */,
@@ -586,6 +608,7 @@
 		71E7F3312570D67900F15098 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				71E929542584E0D3001FB100 /* TopFive */,
 				7120E0232572333B00A56E7E /* MostViewedWord */,
 				7120E0242572334300A56E7E /* Category */,
 			);
@@ -597,6 +620,7 @@
 			children = (
 				71CE92102579C03B0080E0A0 /* Base */,
 				716A8D6D2578771D005C5782 /* Login */,
+				71E81EA72584BAD600BECDCC /* Lobby */,
 				716CD30A2574F79100695A91 /* HomePage */,
 				7152EACD2575E8BE00F1C5FB /* New Word */,
 				7152EACE2575E8C800F1C5FB /* Search */,
@@ -668,6 +692,60 @@
 				7188ADEC258480AE00524D96 /* RankViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		71E81EA72584BAD600BECDCC /* Lobby */ = {
+			isa = PBXGroup;
+			children = (
+				71E81EA92584BAD600BECDCC /* LobbyViewController.swift */,
+				71E81EA82584BAD600BECDCC /* LobbyViewController.xib */,
+			);
+			path = Lobby;
+			sourceTree = "<group>";
+		};
+		71E81EAD2584BAF100BECDCC /* Lobby */ = {
+			isa = PBXGroup;
+			children = (
+				71E81EB32584BB6400BECDCC /* NewestWord */,
+				71E81EB62584BBA600BECDCC /* Top5 */,
+			);
+			path = Lobby;
+			sourceTree = "<group>";
+		};
+		71E81EB32584BB6400BECDCC /* NewestWord */ = {
+			isa = PBXGroup;
+			children = (
+				71E81EAE2584BB5D00BECDCC /* TheNewestWordTableViewCell.swift */,
+				71E81EAF2584BB5D00BECDCC /* TheNewestWordTableViewCell.xib */,
+			);
+			path = NewestWord;
+			sourceTree = "<group>";
+		};
+		71E81EB62584BBA600BECDCC /* Top5 */ = {
+			isa = PBXGroup;
+			children = (
+				71E81EB72584BBB900BECDCC /* Top5TableViewCell.swift */,
+				71E81EB82584BBB900BECDCC /* Top5TableViewCell.xib */,
+			);
+			path = Top5;
+			sourceTree = "<group>";
+		};
+		71E929542584E0D3001FB100 /* TopFive */ = {
+			isa = PBXGroup;
+			children = (
+				71E929552584E0EE001FB100 /* TopFiveCollectionViewCell.swift */,
+				71E929562584E0EE001FB100 /* TopFiveCollectionViewCell.xib */,
+			);
+			path = TopFive;
+			sourceTree = "<group>";
+		};
+		71E9295A2584F690001FB100 /* LobbyHeader */ = {
+			isa = PBXGroup;
+			children = (
+				71E9295C2584F8FF001FB100 /* LobbyTableHeaderView.swift */,
+				71E929602584FB23001FB100 /* LobbyTableHeaderView.xib */,
+			);
+			path = LobbyHeader;
 			sourceTree = "<group>";
 		};
 		71F8DDA5257C73C600507D8F /* Search */ = {
@@ -769,13 +847,18 @@
 				7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */,
 				7152EADD2575E94A00F1C5FB /* AddNewWordViewController.xib in Resources */,
 				71883B7D2578D6F300170AC9 /* RankTableViewCell.xib in Resources */,
+				71E81EB12584BB5D00BECDCC /* TheNewestWordTableViewCell.xib in Resources */,
 				7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */,
 				7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */,
 				716CD3292575234100695A91 /* SidePanelHeaderFooterView.xib in Resources */,
 				7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */,
+				71E929612584FB23001FB100 /* LobbyTableHeaderView.xib in Resources */,
 				71055A95258428A300560C5D /* LoginViewController.xib in Resources */,
+				71E929582584E0EE001FB100 /* TopFiveCollectionViewCell.xib in Resources */,
+				71E81EAA2584BAD600BECDCC /* LobbyViewController.xib in Resources */,
 				71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */,
 				716A8D6525778AA4005C5782 /* ReportViewController.xib in Resources */,
+				71E81EBA2584BBB900BECDCC /* Top5TableViewCell.xib in Resources */,
 				71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */,
 				716CD31E2575130400695A91 /* SidePanelTableViewCell.xib in Resources */,
 				71E81EA0258499F100BECDCC /* RankChartViewController.xib in Resources */,
@@ -863,6 +946,7 @@
 				71C3D5AF2580666D00636BC4 /* FavoriteViewModel.swift in Sources */,
 				716A8D4725773C11005C5782 /* UIViewController+Extension.swift in Sources */,
 				71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */,
+				71E929572584E0EE001FB100 /* TopFiveCollectionViewCell.swift in Sources */,
 				718D6B92257A1FF500663CAD /* User.swift in Sources */,
 				716CD3212575183D00695A91 /* SidePanelViewModel.swift in Sources */,
 				71811DEC2576DC66005319DA /* SidePanel.swift in Sources */,
@@ -875,6 +959,7 @@
 				718D6B8A2579D92400663CAD /* Box.swift in Sources */,
 				716CC8C1257B6C1D0059F315 /* UITextView+Extension.swift in Sources */,
 				7120E01B257225CF00A56E7E /* UISearchBar+Extension.swift in Sources */,
+				71E9295D2584F8FF001FB100 /* LobbyTableHeaderView.swift in Sources */,
 				716A8D6A2577A880005C5782 /* Report.swift in Sources */,
 				716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */,
 				71E81E9F258499F100BECDCC /* RankChartViewController.swift in Sources */,
@@ -885,9 +970,11 @@
 				71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */,
 				71E7F3452570D73700F15098 /* UIView+Extension.swift in Sources */,
 				71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */,
+				71E81EAB2584BAD600BECDCC /* LobbyViewController.swift in Sources */,
 				71F8DDAF257C780B00507D8F /* String+Extension.swift in Sources */,
 				71E7F34D2570D75B00F15098 /* Word.swift in Sources */,
 				7119AA2D257B73DE00A7F513 /* AddNewWordViewModel.swift in Sources */,
+				71E81EB92584BBB900BECDCC /* Top5TableViewCell.swift in Sources */,
 				718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */,
 				716A8D5D25777040005C5782 /* ImageConstant.swift in Sources */,
 				716A8D6425778AA3005C5782 /* ReportViewController.swift in Sources */,
@@ -895,6 +982,7 @@
 				71348880257285F5007ADED3 /* UINavigationItem+Extension.swift in Sources */,
 				71C3D5AB257E29DB00636BC4 /* NewDefinitionViewController.swift in Sources */,
 				71F9442025789B140014808E /* JoeyTextLayer.swift in Sources */,
+				71E81EB02584BB5D00BECDCC /* TheNewestWordTableViewCell.swift in Sources */,
 				7152EADC2575E94A00F1C5FB /* AddNewWordViewController.swift in Sources */,
 				716A8D7125787A01005C5782 /* LoginViewController.swift in Sources */,
 				71883B822578EFBB00170AC9 /* QuizViewController.swift in Sources */,

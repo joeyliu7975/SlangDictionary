@@ -13,7 +13,7 @@ extension Timestamp {
     func timeStampToStringDetail() -> String {
         let timeSta = self.dateValue()
         let dfmatter = DateFormatter()
-        dfmatter.dateFormat="yyyy年MM月dd日 HH:mm:ss"
+        dfmatter.dateFormat="yyyy年MM月dd日"
         return dfmatter.string(from: timeSta)
       }
     

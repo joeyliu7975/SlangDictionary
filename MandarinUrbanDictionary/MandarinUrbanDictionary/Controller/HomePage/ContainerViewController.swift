@@ -11,7 +11,7 @@ class ContainerViewController: UIViewController {
     
     var centerNavigationController: UINavigationController!
     
-    var centerViewController: HomePageViewController!
+    var centerViewController: LobbyViewController!
     
     var currentState: SlideOutState = .center
     
@@ -75,7 +75,7 @@ private extension ContainerViewController {
     
     func setup() {
         
-        centerViewController = HomePageViewController()
+        centerViewController = LobbyViewController()
         
         centerViewController.delegate = self
         
@@ -194,6 +194,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
         blackView.removeFromSuperview()
         
         switch page {
+        
         case .homePage:
             
             centerNavigationController.popToRootViewController(animated: true)

@@ -9,99 +9,212 @@ import UIKit
 
 class LobbyViewController: UIViewController {
 
+    @IBOutlet weak var writeNewButtonView: NewPostButtonView!
+    
     @IBOutlet weak var tableView: UITableView!
     
-//    weak var delegate: CenterViewControllerDelegate?
+    weak var delegate: CenterViewControllerDelegate?
     
-    private let viewModel: HomePageViewModel = .init()
+    let viewModel: HomePageViewModel = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setup()
+        
         setupTableView()
+        
+        setupNavigationController()
         
         binding()
     }
+    
+    func setup() {
+        
+        viewModel.fetchData(in: .word(orderBy: .views))
+        
+        view.backgroundColor = .homepageDarkBlue
+        
+        writeNewButtonView.delegate = self
+    }
 
     func setupTableView() {
-        tableView.registerCell(HomepageTableViewCell.reusableIdentifier)
-        tableView.registerCell(MiniRankTableViewCell.reusableIdentifier)
+        
+        tableView.registerCell(TheNewestWordTableViewCell.reusableIdentifier)
+        
+        tableView.registerCell(Top5TableViewCell.reusableIdentifier)
+        
+        tableView.registerHeaderFooterCell(LobbyTableHeaderView.reusableIdentifier)
+        
+        tableView.separatorStyle = .none
         
         tableView.delegate = self
-        tableView.dataSource = self
         
-        viewModel.fetchData(in: .user)
+        tableView.dataSource = self
+    }
+    
+    func setupNavigationController() {
+        
+        guard let navigationController = self.navigationController else { return }
+        
+        navigationItem.setBarAppearance(with: .homepageDarkBlue)
+        
+        navigationController.navigationBar.tintColor = UIColor.homepageLightBlue
+        
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        
+        navigationController.navigationBar.shadowImage = UIImage()
+        
+        let sideMenuButton = UIBarButtonItem(
+            image: UIImage(named: ImageConstant.list),
+            style: .plain,
+            target: self,
+            action: #selector(toggleSideMenu)
+        )
+        
+        self.navigationItem.leftBarButtonItem = sideMenuButton
     }
     
     func binding() {
         
-        viewModel.userViewModels.bind { [weak self] (_) in
+        viewModel.wordViewModels.bind { [weak self] (_) in
             
             self?.tableView.reloadData()
             
         }
+        
+    }
+    
+    @objc func toggleSideMenu() {
+        //Remove leftBarButtonItem when SidePanel show
+        delegate?.toggleLeftPanel()
+    }
+}
+
+extension LobbyViewController: PostButtonDelegate {
+    
+    func clickButton(_ sender: UIButton) {
+        
+        delegate?.writeNewWord()
+    
     }
 }
 
 extension LobbyViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.main.bounds.height * 0.75
+        return (indexPath.row % 2) == 0 ? tableView.frame.height * 0.5 : tableView.frame.height * 0.75
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: LobbyTableHeaderView.reusableIdentifier) as? LobbyTableHeaderView {
+            
+            let headerBackgroundView = UIView()
+            
+            headerView.delegate = self
+            
+            headerBackgroundView.backgroundColor = .homepageDarkBlue
+            
+            headerView.backgroundView = headerBackgroundView
+            
+            return headerView
+        }
+        
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80
     }
 }
 
+extension LobbyViewController: LobbyHeaderDelegate {
+    func clickSearch() {
+        let searchViewController = SearchPageViewController()
+        
+        let navController = UINavigationController(rootViewController: searchViewController)
+        
+        navController.modalPresentationStyle = .fullScreen
+        
+        navController.modalTransitionStyle = .crossDissolve
+        
+        present(navController, animated: true)
+    }
+}
+
+
+
 extension LobbyViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.carouselList.count
+        
+        return viewModel.wordViewModels.value.count >= 3 ? viewModel.carouselList.count : 0
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         var cell = UITableViewCell()
         
-        let cellType = viewModel.carouselList[indexPath.row]
+        let type = viewModel.carouselList[indexPath.row]
         
-        let item = viewModel.userViewModels.value[indexPath.row]
+        let word = viewModel.wordViewModels.value[indexPath.row]
         
-        switch cellType {
-        case .newestWord:
-            cell = tableView.dequeueReusableCell(withIdentifier: HomepageTableViewCell.reusableIdentifier, for: indexPath)
-            
-            guard let homepageCell = cell as? HomepageTableViewCell else { return cell }
-            
-            homepageCell.renderUI(word: item.name, definition: item.identifier)
-            
-            cell = homepageCell
-            
+        switch type {
+       
         case .mostViewedWord:
-            cell = tableView.dequeueReusableCell(withIdentifier: MiniRankTableViewCell.reusableIdentifier, for: indexPath)
             
-            guard let viewedCell = cell as? MiniRankTableViewCell else { return cell }
+            cell = tableView.dequeueReusableCell(withIdentifier: TheNewestWordTableViewCell.reusableIdentifier, for: indexPath)
             
-            viewedCell.assignViewModel(viewModel)
+            if let newestWordCell = cell as? TheNewestWordTableViewCell {
+                
+                newestWordCell.renderUI(title: word.title, description: word.time.timeStampToStringDetail())
+                
+                cell = newestWordCell
+            }
             
-            cell = viewedCell
+        case .newestWord:
+            cell = tableView.dequeueReusableCell(withIdentifier: Top5TableViewCell.reusableIdentifier, for: indexPath)
+            
+            if let topFiveCell = cell as? Top5TableViewCell {
+                
+                topFiveCell.topFive = viewModel.wordViewModels.value
+                
+                cell = topFiveCell
+            }
             
         case .dailyWord:
-            cell = tableView.dequeueReusableCell(withIdentifier: HomepageTableViewCell.reusableIdentifier, for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: TheNewestWordTableViewCell.reusableIdentifier, for: indexPath)
             
-            guard let homepageCell = cell as? HomepageTableViewCell else { return cell }
-            
-            homepageCell.renderUI(word: item.name, definition: item.identifier)
-            
-            cell = homepageCell
+            if let newestWordCell = cell as? TheNewestWordTableViewCell {
+                
+                newestWordCell.renderUI(title: word.title, description: word.time.timeStampToStringDetail())
+                
+                cell = newestWordCell
+            }
         }
         
-//        cell = tableView.dequeueReusableCell(withIdentifier: HomepageTableViewCell.reusableIdentifier, for: indexPath)
-//
-//        let item = viewModel.userViewModels.value[indexPath.row]
-//
-//        if let cardCell = cell as? HomepageTableViewCell {
-//            cardCell.renderUI(word: item.name, definition: item.identifier)
-//
-//            cell = cardCell
-//
-//        }
-        
         return cell
+    }
+}
+
+enum Carousel: CaseIterable {
+    
+    case mostViewedWord, newestWord, dailyWord
+    
+    func getImage() -> String {
+        switch self {
+        case .mostViewedWord:
+            return ImageConstant.top5
+        case .newestWord:
+            return ImageConstant.newWordsLogo
+        case .dailyWord:
+            return ImageConstant.top5
+        }
     }
 }

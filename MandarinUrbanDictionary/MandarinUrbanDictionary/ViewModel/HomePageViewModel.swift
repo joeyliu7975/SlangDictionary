@@ -17,13 +17,23 @@ class HomePageViewModel {
     
     var wordViewModels = Box([Word]())
     
-    var rotateButton: ((Bool) -> Void)?
-        
+    var topFive = [Word]() {
+        didSet {
+            
+        }
+    }
+            
     var updateHot5: (() -> Void )?
     
-    var isVertical: Bool = false {
+    var loadForFirstTime: (() -> Void)?
+    
+    let group = DispatchGroup()
+    
+    var dataHasReloaded: Bool = false {
         didSet {
-            rotateButton?(isVertical)
+            group.leave()
+            
+            loadForFirstTime?()
         }
     }
     
@@ -31,17 +41,14 @@ class HomePageViewModel {
        
         switch collection {
         
-        case .word:
+        case .word(let order):
             
-            break
-
-        case .definition(let id):
-            
-            networkManager.listen(collection) { (result: Result<[Word], Error>) in
-                
+            networkManager.retrieveData(.word(orderBy: order)) { (result: Result<[Word], Error>) in
                 switch result {
                 
                 case .success(let words):
+                    
+                    self.topFive = Array(words[0 ... 4])
                     
                     self.wordViewModels.value = words
                     
@@ -51,6 +58,9 @@ class HomePageViewModel {
                     
                 }
             }
+        case .definition(_):
+            
+            break
             
         case .user:
             
@@ -72,22 +82,6 @@ class HomePageViewModel {
             break
         case .report:
             break
-        }
-    }
-}
-
-enum Carousel: CaseIterable {
-    
-    case mostViewedWord, newestWord, dailyWord
-    
-    func getImage() -> String {
-        switch self {
-        case .mostViewedWord:
-            return ImageConstant.top5
-        case .newestWord:
-            return ImageConstant.newWordsLogo
-        case .dailyWord:
-            return "Daily Words"
         }
     }
 }

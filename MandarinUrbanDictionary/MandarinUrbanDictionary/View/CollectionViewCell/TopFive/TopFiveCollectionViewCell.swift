@@ -1,19 +1,17 @@
 //
-//  RankTableViewCell.swift
+//  TopFiveCollectionViewCell.swift
 //  MandarinUrbanDictionary
 //
-//  Created by Joey Liu on 12/3/20.
+//  Created by Joey Liu on 12/12/20.
 //
 
 import UIKit
 
-class RankTableViewCell: UITableViewCell {
-    
-    static let identifierName = String(describing: RankTableViewCell.self)
+class TopFiveCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var rankBoardView: UIView!
+    static let reusableIdentifier = String(describing: TopFiveCollectionViewCell.self)
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var rankBoardView: UIView!
     
     lazy var crownView: UIImageView = {
        
@@ -24,29 +22,20 @@ class RankTableViewCell: UITableViewCell {
         return crownView
     }()
     
+    override func prepareForReuse() {
+        crownView.removeFromSuperview()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        crownView.removeFromSuperview()
     }
     
     override func layoutSubviews() {
         rankBoardView.setCorner(radius: rankBoardView.bounds.height / 2)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
-    func renderUI(boardColor color: UIColor, title: String) {
-        
-        rankBoardView.backgroundColor = color
-        
-        titleLabel.text = title
-    }
+    @IBOutlet weak var titleLabel: UILabel!
     
     func makeCrown() {
         
@@ -63,4 +52,5 @@ class RankTableViewCell: UITableViewCell {
             crownView.leadingAnchor.constraint(equalTo: rankBoardView.leadingAnchor, constant: 15)
         ])
     }
+
 }

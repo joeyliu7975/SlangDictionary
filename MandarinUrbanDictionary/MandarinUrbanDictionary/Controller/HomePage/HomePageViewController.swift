@@ -48,7 +48,6 @@ class HomePageViewController: UIViewController {
     @objc func toggleSideMenu() {
         //Remove leftBarButtonItem when SidePanel show
         delegate?.toggleLeftPanel()
-        viewModel.isVertical.toggle()
     }
 }
 
@@ -62,7 +61,7 @@ private extension HomePageViewController {
         
         writeNewWordButtonView.delegate = self
         
-        viewModel.fetchData(in: .user)
+        viewModel.fetchData(in: .word(orderBy: .views))
     }
     
     func setupNavigationController() {
@@ -100,10 +99,23 @@ private extension HomePageViewController {
     
     func binding() {
         
-        viewModel.userViewModels.bind { [weak self] (_) in
+        viewModel.wordViewModels.bind { [weak self] (_) in
             
+            self?.viewModel.group.enter()
+                        
             self?.pagerView.reloadData()
             
+        }
+        
+        viewModel.loadForFirstTime = { [weak self] in
+            
+            self?.viewModel.group.leave()
+            
+            self?.viewModel.group.notify(queue: .main, execute: {
+                
+                self?.pagerView.selectItem(at: 1, animated: false)
+                
+            })
         }
     }
 }
@@ -122,7 +134,7 @@ extension HomePageViewController: FSPagerViewDataSource {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
         
-        return viewModel.userViewModels.value.count
+        return viewModel.wordViewModels.value.count
         
     }
     
@@ -130,9 +142,17 @@ extension HomePageViewController: FSPagerViewDataSource {
         
         var cell = FSPagerViewCell()
         
-        let image = viewModel.carouselList[index].getImage()
+        if !viewModel.dataHasReloaded && index == 0 {
+            
+            viewModel.dataHasReloaded = true
+            
+        }
         
-        let collectionViewContent = viewModel.userViewModels.value[index]
+        let iamgeIndex = index % 2
+        
+        let image = viewModel.carouselList[iamgeIndex].getImage()
+        
+        let collectionViewContent = viewModel.wordViewModels.value[index]
         
         cell = pagerView.dequeueReusableCell(withReuseIdentifier: MostViewedWordCollectionViewCell.identifierName, at: index)
         
@@ -140,8 +160,8 @@ extension HomePageViewController: FSPagerViewDataSource {
             
             mostViewedCell.renderImage(
                 image: image,
-                word: collectionViewContent.name,
-                definition: collectionViewContent.identifier
+                word: collectionViewContent.title,
+                definition: collectionViewContent.time.timeStampToStringDetail()
             )
             
             cell = mostViewedCell
@@ -168,5 +188,6 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
 
 protocol CenterViewControllerDelegate: class {
   func toggleLeftPanel()
+    
   func writeNewWord()
 }

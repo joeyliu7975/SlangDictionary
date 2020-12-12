@@ -635,7 +635,6 @@
 				71A84A902576802900E0C14D /* Category.swift */,
 				71811DEB2576DC66005319DA /* SidePanel.swift */,
 				716A8D5C25777040005C5782 /* ImageConstant.swift */,
-				7188ADEC258480AE00524D96 /* RankViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -658,6 +657,7 @@
 				7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */,
 				71F8DDAB257C751200507D8F /* SearchViewModel.swift */,
 				71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */,
+				7188ADEC258480AE00524D96 /* RankViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

@@ -154,6 +154,8 @@ extension SearchPageViewController: UITableViewDelegate {
         
         let selectedWord = viewModel.result.value[indexPath.row]
         
+        viewModel.updateViewsOfWord(at: indexPath.row)
+        
         let definitionViewController: DefinitionViewController =
             .init(identifierNumber: selectedWord.identifier, word: selectedWord.title)
         
@@ -180,8 +182,7 @@ extension SearchPageViewController: UITableViewDataSource {
             cell = searchCell
             
         }
-        
-        
+    
         return cell
     }
 }

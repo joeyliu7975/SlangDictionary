@@ -20,21 +20,32 @@ class RankViewController: JoeyPanelViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private let rankList: [RankColor] = [
-        .top,
-        .second,
-        .third,
-        .fourth,
-        .fifth
-    ]
+    var viewModel: RankViewModel?
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        
+        viewModel = .init()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+//    private let rankList: [RankColor] = [
+//        .top,
+//        .second,
+//        .third,
+//        .fourth,
+//        .fifth
+//    ]
 
-    private let nameList = [
-        "You're salty",
-        "Low Key",
-        "Sugar Daddy",
-        "Sup",
-        "Rat"
-    ]
+//    private let nameList = [
+//        "You're salty",
+//        "Low Key",
+//        "Sugar Daddy",
+//        "Sup",
+//        "Rat"
+//    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -167,18 +178,20 @@ extension RankViewController: UITableViewDelegate {
 extension RankViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        rankList.count
+        viewModel?.rankList.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: RankTableViewCell.identifierName, for: indexPath)
         
-        let rank = rankList[indexPath.row]
+        guard let viewModel = viewModel else { return cell }
+        
+        let rank = viewModel.rankList[indexPath.row]
         
         let color = rank.makeColor()
         
-        let word = nameList[indexPath.row]
+        let word = viewModel.nameList[indexPath.row]
         
         if let rankCell = cell as? RankTableViewCell {
             
@@ -196,17 +209,5 @@ extension RankViewController: UITableViewDataSource {
         }
         
         return cell
-    }
-}
-
-private enum RankColor: String {
-    case top = "#6DC0F8"
-    case second = "#8ACCF9"
-    case third = "#98D2FA"
-    case fourth = "#A7D9FB"
-    case fifth = "#B5E0FB"
-    
-    func makeColor() -> UIColor {
-        return UIColor.hexStringToUIColor(hex: self.rawValue)
     }
 }

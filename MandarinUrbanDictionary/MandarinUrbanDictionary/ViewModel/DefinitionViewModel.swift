@@ -31,7 +31,9 @@ class DefinitionViewModel {
             switch result {
             case .success(let definitions):
                 
-                self.definitionViewModels.value = definitions
+                let sortedDefinition = definitions.sorted { $0.like.count > $1.like.count }
+                
+                self.definitionViewModels.value = sortedDefinition
                 
             case .failure(let error):
                 

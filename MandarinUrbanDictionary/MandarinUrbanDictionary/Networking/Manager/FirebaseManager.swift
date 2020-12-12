@@ -28,7 +28,6 @@ class FirebaseManager {
             dataBase
                 .collection(collection.name)
                 .whereField("word_id", isEqualTo: id)
-                .order(by: "like", descending: true)
                 .addSnapshotListener { (querySnapshot, error) in
                     if let error = error {
                         
@@ -96,6 +95,17 @@ class FirebaseManager {
                 
             }
         }
+    }
+    
+    func updateViews(id doc: String, views: Int, completion: @escaping (() -> Void)) {
+        
+        dataBase.collection("Word").document(doc).updateData( ["check_times": views])
+        
+        completion()
+        
+    }
+    
+    func retrieveViewedTime() {
         
     }
 }

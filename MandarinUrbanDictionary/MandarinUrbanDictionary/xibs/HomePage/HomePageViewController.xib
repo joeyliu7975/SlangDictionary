@@ -80,7 +80,6 @@
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Mk-Z6-cwe" customClass="FSPagerView" customModule="FSPagerView">
                     <rect key="frame" x="10" y="186" width="394" height="562.5"/>
-                    <color key="backgroundColor" red="0.12549019607843137" green="0.33333333333333331" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

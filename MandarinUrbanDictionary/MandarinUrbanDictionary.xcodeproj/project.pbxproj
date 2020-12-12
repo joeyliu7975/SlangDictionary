@@ -55,6 +55,7 @@
 		71883B7D2578D6F300170AC9 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */; };
 		71883B822578EFBB00170AC9 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71883B802578EFBB00170AC9 /* QuizViewController.swift */; };
 		7188ADEA258471FA00524D96 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7188ADE9258471FA00524D96 /* UILabel+Extension.swift */; };
+		7188ADED258480AE00524D96 /* RankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7188ADEC258480AE00524D96 /* RankViewModel.swift */; };
 		718D6B8A2579D92400663CAD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B892579D92400663CAD /* Box.swift */; };
 		718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */; };
 		718D6B92257A1FF500663CAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B91257A1FF500663CAD /* User.swift */; };
@@ -144,6 +145,7 @@
 		71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
 		71883B802578EFBB00170AC9 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		7188ADE9258471FA00524D96 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		7188ADEC258480AE00524D96 /* RankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewModel.swift; sourceTree = "<group>"; };
 		718D6B892579D92400663CAD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		718D6B91257A1FF500663CAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -633,6 +635,7 @@
 				71A84A902576802900E0C14D /* Category.swift */,
 				71811DEB2576DC66005319DA /* SidePanel.swift */,
 				716A8D5C25777040005C5782 /* ImageConstant.swift */,
+				7188ADEC258480AE00524D96 /* RankViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -884,6 +887,7 @@
 				7152EADC2575E94A00F1C5FB /* AddNewWordViewController.swift in Sources */,
 				716A8D7125787A01005C5782 /* LoginViewController.swift in Sources */,
 				71883B822578EFBB00170AC9 /* QuizViewController.swift in Sources */,
+				7188ADED258480AE00524D96 /* RankViewModel.swift in Sources */,
 				71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */,
 				71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */,
 				7134888A25749D05007ADED3 /* DefinitionViewModel.swift in Sources */,

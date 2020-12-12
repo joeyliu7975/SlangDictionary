@@ -52,9 +52,25 @@ class SearchViewModel {
         }
     }
     
+    func updateViewsOfWord(at index: Int) {
+        
+        let id = result.value[index].identifier
+        
+        var views = result.value[index].views
+        
+        views += 1
+        
+        self.networkManager.updateViews(id: id, views: views) {
+            print("successful update!")
+        }
+        
+    }
+    
     func clearSearchBar() {
         
         result.value.removeAll()
+        
+        keyword = nil
         
     }
     

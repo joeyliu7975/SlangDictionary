@@ -24,7 +24,7 @@ class AddNewWordViewModel {
         let newWord = Word(
             title: word,
             category: category,
-            view: 0,
+            views: 0,
             identifier: "1234567890",
             time: FirebaseTime()
         )

@@ -13,7 +13,7 @@ struct Word: Codable {
         
     let category: String
     
-    var view: Int
+    var views: Int
     
     var identifier: String
     
@@ -27,7 +27,7 @@ struct Word: Codable {
         
         case time = "created_time"
         
-        case view = "check_times"
+        case views = "check_times"
     }
     
 }

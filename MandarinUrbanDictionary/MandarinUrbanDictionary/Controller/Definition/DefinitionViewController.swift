@@ -14,12 +14,11 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
     var viewModel: DefinitionViewModel?
     
     init(identifierNumber: String, word: String) {
+        super.init(nibName: nil, bundle: nil)
         
         viewModel = DefinitionViewModel(id: identifierNumber, word: word)
         
         viewModel?.listen()
-        
-        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -31,6 +30,8 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        setup()
+        
         setupNav()
         
         setupTableView()
@@ -40,6 +41,12 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
 }
 
 private extension DefinitionViewController {
+    
+    func setup() {
+    
+        viewModel?.listen()
+        
+    }
     
     func setupNav() {
         navigationItem.setBarAppearance(with: .homepageDarkBlue)

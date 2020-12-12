@@ -95,9 +95,12 @@ private extension LoginViewController {
     
     func randomNonceString(length: Int = 32) -> String {
         precondition(length > 0)
+        
         let charset: Array<Character> =
             Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        
         var result = ""
+        
         var remainingLength = length
         
         while remainingLength > 0 {
@@ -168,12 +171,18 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                 let displayName = user.displayName ?? ""
                 guard let uid = Auth.auth().currentUser?.uid else { return }
                 
-                let db = Firestore.firestore()
+                let database = Firestore.firestore()
                 
-                db.collection("User").document(uid).setData([
+                let favoriteWord: [String] = []
+                
+                let recentSearch: [String] = []
+                
+                database.collection("User").document(uid).setData([
                     "email": email,
-                    "displayName": displayName,
-                    "uid": uid
+                    "display_Name": displayName,
+                    "id": uid,
+                    "favorite_words": favoriteWord,
+                    "recent_search": recentSearch
                 ]) { err in
                     if let err = err {
                         print("Error writing document: \(err)")

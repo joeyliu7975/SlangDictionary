@@ -54,6 +54,7 @@
 		71883B7C2578D6F300170AC9 /* RankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71883B7A2578D6F300170AC9 /* RankTableViewCell.swift */; };
 		71883B7D2578D6F300170AC9 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */; };
 		71883B822578EFBB00170AC9 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71883B802578EFBB00170AC9 /* QuizViewController.swift */; };
+		7188ADEA258471FA00524D96 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7188ADE9258471FA00524D96 /* UILabel+Extension.swift */; };
 		718D6B8A2579D92400663CAD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B892579D92400663CAD /* Box.swift */; };
 		718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */; };
 		718D6B92257A1FF500663CAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B91257A1FF500663CAD /* User.swift */; };
@@ -142,6 +143,7 @@
 		71883B7A2578D6F300170AC9 /* RankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewCell.swift; sourceTree = "<group>"; };
 		71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
 		71883B802578EFBB00170AC9 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		7188ADE9258471FA00524D96 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		718D6B892579D92400663CAD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		718D6B91257A1FF500663CAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 				716CC8C0257B6C1D0059F315 /* UITextView+Extension.swift */,
 				71F8DDAE257C780B00507D8F /* String+Extension.swift */,
 				71230B5F25845C9200B78C9C /* UserDefaults+Extension.swift */,
+				7188ADE9258471FA00524D96 /* UILabel+Extension.swift */,
 			);
 			name = Extension;
 			path = MandarinUrbanDictionary/Extension;
@@ -850,6 +853,7 @@
 				718D6B92257A1FF500663CAD /* User.swift in Sources */,
 				716CD3212575183D00695A91 /* SidePanelViewModel.swift in Sources */,
 				71811DEC2576DC66005319DA /* SidePanel.swift in Sources */,
+				7188ADEA258471FA00524D96 /* UILabel+Extension.swift in Sources */,
 				71E7F3462570D73700F15098 /* UICollectionView+Extension.swift in Sources */,
 				7120E0132571167700A56E7E /* CategoryCollectionViewCell.swift in Sources */,
 				7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */,

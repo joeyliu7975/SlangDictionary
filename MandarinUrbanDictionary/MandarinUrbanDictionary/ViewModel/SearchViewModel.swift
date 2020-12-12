@@ -14,6 +14,8 @@ class SearchViewModel {
     var updateTitle: ((String) -> Void)?
     
     var showSearchResult: (() -> Void)?
+    
+    var keyword: String?
         
     private var selectedCategory: Category = .all {
         didSet {
@@ -37,6 +39,8 @@ class SearchViewModel {
             switch result {
             
             case .success(let words):
+                
+                self?.keyword = keyword
                 
                 self?.filter(words, with: keyword)
                 

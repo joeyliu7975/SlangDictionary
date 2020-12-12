@@ -54,9 +54,7 @@ private extension SearchPageViewController {
         searchBarContainerView.backgroundColor = .searchBarBlue
             
         cancelButton.setTitleColor(.white, for: .normal)
-        
-//        searchBar.setTextColor(.white, cursorColor: .white)
-        
+                
         searchBar.setTextColor(.black, cursorColor: .separatorlineBlue)
         
         searchBar.setClearButton(color: .lightGray)
@@ -177,7 +175,7 @@ extension SearchPageViewController: UITableViewDataSource {
             
             let word = viewModel.result.value[indexPath.row]
             
-            searchCell.renderUI(word.title)
+            searchCell.renderUI(word.title, keyword: viewModel.keyword)
             
             cell = searchCell
             

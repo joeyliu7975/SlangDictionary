@@ -25,7 +25,14 @@ class SearchTableViewCell: UITableViewCell {
         self.selectedBackgroundView = UIView()
     }
     
-    func renderUI(_ text: String) {
+    func renderUI(_ text: String, keyword: String?) {
+        
         wordLabel.text = text
+        
+        if let keyword = keyword {
+            
+            wordLabel.replaceKeywordColor(with: .systemBlue, keyword: keyword)
+            
+        }
     }
 }

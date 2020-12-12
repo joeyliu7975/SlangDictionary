@@ -23,6 +23,15 @@ class ContainerViewController: UIViewController {
     
     lazy var blackView: UIView = {
         let blackView = UIView(frame: self.centerNavigationController.view.frame)
+        
+        blackView.backgroundColor = UIColor.transparentBlack
+        
+        blackView.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapCoverView))
+        
+        blackView.addGestureRecognizer(tapGesture)
+        
         return blackView
     }()
     
@@ -34,6 +43,14 @@ class ContainerViewController: UIViewController {
         
 //        animation()
         
+    }
+    
+    @objc func tapCoverView() {
+        toggleLeftPanel()
+        
+        currentState = .center
+        
+        blackView.removeFromSuperview()
     }
 }
 
@@ -91,6 +108,10 @@ extension ContainerViewController: CenterViewControllerDelegate {
         let notAlreadyExpanded = (currentState != .leftPanelExpanded)
         
         if notAlreadyExpanded {
+            
+            currentState = .leftPanelExpanded
+            
+            self.centerNavigationController?.view.addSubview(blackView)
             
             addLeftPanelViewController()
             
@@ -167,6 +188,10 @@ extension ContainerViewController: LeftViewControllerDelegate {
         animateLeftPanel(shouldExpand: false)
         
         var destinationVC: UIViewController?
+        
+        currentState = .center
+        
+        blackView.removeFromSuperview()
         
         switch page {
         case .homePage:

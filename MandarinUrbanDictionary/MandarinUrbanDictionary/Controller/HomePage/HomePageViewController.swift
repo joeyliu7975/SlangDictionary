@@ -91,7 +91,7 @@ private extension HomePageViewController {
         
         pagerView.registerCell(MostViewedWordCollectionViewCell.identifierName)
         
-        pagerView.transformer = FSPagerViewTransformer(type: .coverFlow)
+        pagerView.transformer = FSPagerViewTransformer(type: .ferrisWheel)
         
         pagerView.delegate = self
         

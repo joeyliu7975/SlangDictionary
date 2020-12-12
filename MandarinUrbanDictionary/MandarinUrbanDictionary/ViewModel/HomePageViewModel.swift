@@ -15,6 +15,8 @@ class HomePageViewModel {
         
     var userViewModels = Box([User]())
     
+    var wordViewModels = Box([Word]())
+    
     var rotateButton: ((Bool) -> Void)?
         
     var updateHot5: (() -> Void )?
@@ -63,7 +65,7 @@ class HomePageViewModel {
 
 enum Carousel: CaseIterable {
     
-    case mostViewedWord, newestWord
+    case mostViewedWord, newestWord, dailyWord
     
     func getImage() -> String {
         switch self {
@@ -71,6 +73,8 @@ enum Carousel: CaseIterable {
             return ImageConstant.top5
         case .newestWord:
             return ImageConstant.newWordsLogo
+        case .dailyWord:
+            return "Daily Words"
         }
     }
 }

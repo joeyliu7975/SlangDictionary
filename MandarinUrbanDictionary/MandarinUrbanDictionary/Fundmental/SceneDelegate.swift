@@ -19,11 +19,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        window?.makeKeyAndVisible()
-        
-        let homePageVC = ContainerViewController()
-        
-        window?.rootViewController = homePageVC
+        if let hasLogin = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool {
+            
+            if hasLogin == true {
+                homePage()
+            }
+            
+        } else {
+            loginPage()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -55,3 +59,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+extension SceneDelegate {
+    func homePage() {
+        
+        window?.makeKeyAndVisible()
+        
+        let homePageVC = ContainerViewController()
+        
+        window?.rootViewController = homePageVC
+    }
+    
+    func loginPage() {
+        
+        window?.makeKeyAndVisible()
+        
+        let homePageVC = LoginViewController()
+        
+        window?.rootViewController = homePageVC
+    }
+}

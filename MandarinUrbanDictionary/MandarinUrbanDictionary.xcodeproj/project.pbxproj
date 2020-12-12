@@ -21,6 +21,7 @@
 		7120E01B257225CF00A56E7E /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E01A257225CF00A56E7E /* UISearchBar+Extension.swift */; };
 		7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E01D257231CC00A56E7E /* DefinitionViewController.swift */; };
 		7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E01E257231CC00A56E7E /* DefinitionViewController.xib */; };
+		71230B6025845C9200B78C9C /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71230B5F25845C9200B78C9C /* UserDefaults+Extension.swift */; };
 		71348880257285F5007ADED3 /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134887F257285F5007ADED3 /* UINavigationItem+Extension.swift */; };
 		7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134888425749582007ADED3 /* DefinitionTableViewCell.swift */; };
 		7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7134888525749582007ADED3 /* DefinitionTableViewCell.xib */; };
@@ -105,6 +106,8 @@
 		7120E01A257225CF00A56E7E /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
 		7120E01D257231CC00A56E7E /* DefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionViewController.swift; sourceTree = "<group>"; };
 		7120E01E257231CC00A56E7E /* DefinitionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionViewController.xib; sourceTree = "<group>"; };
+		71230B5D25845B3400B78C9C /* MandarinUrbanDictionary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MandarinUrbanDictionary.entitlements; sourceTree = "<group>"; };
+		71230B5F25845C9200B78C9C /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		7134887F257285F5007ADED3 /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
 		7134888425749582007ADED3 /* DefinitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionTableViewCell.swift; sourceTree = "<group>"; };
 		7134888525749582007ADED3 /* DefinitionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionTableViewCell.xib; sourceTree = "<group>"; };
@@ -412,6 +415,7 @@
 		717569212570CFD300417B9C /* MandarinUrbanDictionary */ = {
 			isa = PBXGroup;
 			children = (
+				71230B5D25845B3400B78C9C /* MandarinUrbanDictionary.entitlements */,
 				71C5C7D725792E4200EAE24B /* Entity */,
 				71E7F34F2570D76100F15098 /* Helper */,
 				71E7F33E2570D73700F15098 /* Extension */,
@@ -610,6 +614,7 @@
 				716A8D4625773C11005C5782 /* UIViewController+Extension.swift */,
 				716CC8C0257B6C1D0059F315 /* UITextView+Extension.swift */,
 				71F8DDAE257C780B00507D8F /* String+Extension.swift */,
+				71230B5F25845C9200B78C9C /* UserDefaults+Extension.swift */,
 			);
 			name = Extension;
 			path = MandarinUrbanDictionary/Extension;
@@ -888,6 +893,7 @@
 				717569232570CFD300417B9C /* AppDelegate.swift in Sources */,
 				71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */,
 				71F9442C2578C15E0014808E /* RankViewController.swift in Sources */,
+				71230B6025845C9200B78C9C /* UserDefaults+Extension.swift in Sources */,
 				71F8DDA8257C73E600507D8F /* SearchTableViewCell.swift in Sources */,
 				716CD30D2574F7A200695A91 /* ContainerViewController.swift in Sources */,
 				717569252570CFD300417B9C /* SceneDelegate.swift in Sources */,
@@ -1034,6 +1040,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MandarinUrbanDictionary/MandarinUrbanDictionary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XTR83A4K57;
 				INFOPLIST_FILE = "MandarinUrbanDictionary/Supporting Files/Info.plist";
@@ -1054,6 +1061,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MandarinUrbanDictionary/MandarinUrbanDictionary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XTR83A4K57;
 				INFOPLIST_FILE = "MandarinUrbanDictionary/Supporting Files/Info.plist";

@@ -22,6 +22,7 @@ class FirebaseManager {
     func listen <T: Codable>(_ collection: Collection, completion: @escaping (Result<[T], Error>) -> Void) {
         
         switch collection {
+        
         case .definition(let id):
             
             dataBase

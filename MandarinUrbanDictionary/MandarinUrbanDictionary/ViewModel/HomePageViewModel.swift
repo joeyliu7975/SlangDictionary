@@ -35,9 +35,22 @@ class HomePageViewModel {
             
             break
 
-        case .definition:
+        case .definition(let id):
             
-            break
+            networkManager.listen(collection) { (result: Result<[Word], Error>) in
+                
+                switch result {
+                
+                case .success(let words):
+                    
+                    self.wordViewModels.value = words
+                    
+                case .failure(let error):
+                    
+                    print("fetchData.failure: \(error)")
+                    
+                }
+            }
             
         case .user:
             

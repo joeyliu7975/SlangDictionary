@@ -10,14 +10,16 @@ import Charts
 
 class RankViewController: JoeyPanelViewController {
     
-    private lazy var pieChartView: PieChartView = {
-        let chartView = PieChartView()
-        
-        chartView.backgroundColor = .white
-        
-        return chartView
-    }()
-
+//    private lazy var pieChartView: PieChartView = {
+//        let chartView = PieChartView()
+//
+//        chartView.backgroundColor = .white
+//
+//        return chartView
+//    }()
+    
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: RankViewModel?
@@ -31,49 +33,87 @@ class RankViewController: JoeyPanelViewController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-//    private let rankList: [RankColor] = [
-//        .top,
-//        .second,
-//        .third,
-//        .fourth,
-//        .fifth
-//    ]
-
-//    private let nameList = [
-//        "You're salty",
-//        "Low Key",
-//        "Sugar Daddy",
-//        "Sup",
-//        "Rat"
-//    ]
+    
+    @IBAction func switchSegment(_ sender: UISegmentedControl) {
+        
+        switch  sender.selectedSegmentIndex {
+        case 0:
+            viewModel?.fetchData(sortedBy: .views)
+        case 1:
+            viewModel?.fetchData(sortedBy: .time)
+        case 2:
+            showList()
+        default:
+            break
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
-        
-        loadChartData()
-        
+                
         setupTableView()
         
         setupNavigationController()
-    
+        
+        binding()
     }
+    
+    func showList() {
+        
+        let categoryViewController = CategoryViewController()
+        
+        categoryViewController.delegate = self
+        
+        present(categoryViewController, animated: true)
+    }
+}
+
+extension RankViewController: CategoryDelegate {
+    
+    func confirmSelection(_ selectedCategory: Category) {
+        
+        var category: String = ""
+        
+        switch selectedCategory {
+        case .all:
+            category = ""
+        case .engineer:
+            category = "工程師"
+        case .job:
+            category = "職場"
+        case .school:
+            category = "校園"
+        case .pickUpLine:
+            category = "撩妹"
+        case .restaurant:
+            category = "餐飲"
+        case .game:
+            category = "遊戲"
+        case .gym:
+            category = "健身"
+        case .relationship:
+            category = "感情"
+        }
+        
+        if category == "" {
+            viewModel?.fetchData(sortedBy: .views)
+        } else {
+            viewModel?.retrieveAndfilterData(by: category)
+        }
+        
+    }
+    
 }
 
 private extension RankViewController {
     
     func setup() {
-        view.addSubview(pieChartView)
         
-        pieChartView.translatesAutoresizingMaskIntoConstraints = false
+        viewModel?.fetchData(sortedBy: .views)
         
-        NSLayoutConstraint.activate([
-            pieChartView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            pieChartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            pieChartView.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -10),
-            pieChartView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
-        ])
     }
     
     func setupTableView() {
@@ -98,74 +138,14 @@ private extension RankViewController {
         
     }
     
-    func loadChartData() {
+    func binding() {
         
-        let categories: [Category] = [
-            .engineer,
-            .game,
-            .gym,
-            .job
-        ]
-        
-        var piePercentageList = [Double]()
-        
-        for category in categories {
+        viewModel?.updateData = { [weak self] in
             
-            switch category {
-            case .engineer:
-                piePercentageList.append(50.0)
-            case .game:
-                piePercentageList.append(10.0)
-            case .job:
-                piePercentageList.append(30.0)
-            case .gym:
-                piePercentageList.append(40.0)
-            default:
-                continue
-            }
+            self?.tableView.reloadData()
             
         }
         
-        setChart(dataPoints: categories, values: piePercentageList)
-        
-    }
-    
-    func setChart(dataPoints: [Category], values: [Double]) {
-        
-        var dataEntries = [ChartDataEntry]()
-        
-        for index in 0 ..< dataPoints.count {
-            
-            let item = dataPoints[index].instance()
-            
-            let dataEntryOne = PieChartDataEntry(value: values[index].rounded(), label: item.name, data: dataPoints[index] as AnyObject)
-            
-            dataEntries.append(dataEntryOne)
-            
-        }
-        
-        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "Genre")
-        
-        let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        
-        pieChartView.data = pieChartData
-        
-        var colors: [UIColor] = []
-        
-        for _ in 0..<dataPoints.count {
-            
-            let red = Double.random(in: 0 ... 150)
-            
-            let green = Double.random(in: 0 ... 150)
-            
-            let blue = Double.random(in: 0 ... 150)
-            
-            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-            
-            colors.append(color)
-        }
-        
-        pieChartDataSet.colors = colors
     }
 }
 
@@ -178,7 +158,7 @@ extension RankViewController: UITableViewDelegate {
 extension RankViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel?.rankList.count ?? 0
+        viewModel?.top5WordList.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -191,7 +171,7 @@ extension RankViewController: UITableViewDataSource {
         
         let color = rank.makeColor()
         
-        let word = viewModel.nameList[indexPath.row]
+        let word = viewModel.top5WordList[indexPath.row]
         
         if let rankCell = cell as? RankTableViewCell {
             

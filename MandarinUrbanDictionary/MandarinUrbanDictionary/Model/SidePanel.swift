@@ -29,7 +29,7 @@ enum SidePanel: String, CaseIterable {
     
     case quiz = "Quiz"
     
-    case login = "Login"
+    case user = "User"
     
 }
 
@@ -91,7 +91,7 @@ extension SidePanel: IconFactory {
                 image: ImageConstant.puzzle
             )
             
-        case .login:
+        case .user:
             
             return Instance(
                 name: rawValue,

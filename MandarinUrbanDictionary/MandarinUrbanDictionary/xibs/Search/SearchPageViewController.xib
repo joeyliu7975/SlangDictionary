@@ -26,11 +26,11 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="64"/>
                     <subviews>
                         <searchBar contentMode="redraw" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="e8m-oX-o5W">
-                            <rect key="frame" x="0.0" y="10" width="352" height="44"/>
+                            <rect key="frame" x="0.0" y="10" width="331" height="44"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9a-rl-Q2M">
-                            <rect key="frame" x="352" y="17" width="62" height="30"/>
+                            <rect key="frame" x="331" y="17" width="73" height="30"/>
                             <state key="normal" title="Cancel">
                                 <color key="titleColor" systemColor="systemBlueColor"/>
                                 <color key="titleShadowColor" systemColor="systemBlueColor"/>
@@ -46,9 +46,9 @@
                         <constraint firstAttribute="bottom" secondItem="e8m-oX-o5W" secondAttribute="bottom" constant="10" id="Lji-wj-vdY"/>
                         <constraint firstItem="e8m-oX-o5W" firstAttribute="leading" secondItem="j6d-Vg-4rh" secondAttribute="leading" id="MKp-zD-6VH"/>
                         <constraint firstAttribute="height" constant="64" id="VNs-Of-aSX"/>
-                        <constraint firstItem="e8m-oX-o5W" firstAttribute="width" secondItem="j6d-Vg-4rh" secondAttribute="width" multiplier="0.85" id="gxR-nE-9ho"/>
+                        <constraint firstItem="e8m-oX-o5W" firstAttribute="width" secondItem="j6d-Vg-4rh" secondAttribute="width" multiplier="0.8" id="gxR-nE-9ho"/>
                         <constraint firstItem="p9a-rl-Q2M" firstAttribute="centerY" secondItem="e8m-oX-o5W" secondAttribute="centerY" id="siW-Vs-llm"/>
-                        <constraint firstAttribute="trailing" secondItem="p9a-rl-Q2M" secondAttribute="trailing" id="xbC-cf-eLl"/>
+                        <constraint firstAttribute="trailing" secondItem="p9a-rl-Q2M" secondAttribute="trailing" constant="10" id="xbC-cf-eLl"/>
                         <constraint firstItem="p9a-rl-Q2M" firstAttribute="leading" secondItem="e8m-oX-o5W" secondAttribute="trailing" id="yYG-7k-ubo"/>
                         <constraint firstItem="p9a-rl-Q2M" firstAttribute="height" secondItem="e8m-oX-o5W" secondAttribute="height" multiplier="0.681818" id="zsF-jQ-vig"/>
                     </constraints>

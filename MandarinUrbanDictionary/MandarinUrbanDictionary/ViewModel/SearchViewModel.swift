@@ -34,7 +34,7 @@ class SearchViewModel {
     
     func search(keyword: String) {
         
-        networkManager.retrieveData(.word) { [weak self] (result: Result<[Word], Error>) in
+        networkManager.retrieveData(.word(orderBy: .views)) { [weak self] (result: Result<[Word], Error>) in
             
             switch result {
             

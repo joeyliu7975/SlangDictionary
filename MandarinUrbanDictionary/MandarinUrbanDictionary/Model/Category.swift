@@ -43,23 +43,23 @@ extension Category: IconFactory {
      func instance() -> Instance {
         switch self {
         case .all:
-            return Instance(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "all_64x64")
         case .engineer:
-            return Instance(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "engineer_64x64")
         case .job:
-            return Instance(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "workplace_64x64")
         case .school:
-            return Instance(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "student_64x64")
         case .pickUpLine:
-            return Instance(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "flirting_64x64")
         case .restaurant:
-            return Instance(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "restaurant_64x64")
         case .game:
-            return Instance(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "game_64x64")
         case .gym:
-            return Instance(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "gym_64x64")
         case .relationship:
-            return Instance(name: self.rawValue, image: "puzzle")
+            return Instance(name: self.rawValue, image: "couple_64x64")
         }
     }
 }

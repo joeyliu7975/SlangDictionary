@@ -12,11 +12,23 @@ class RankTableViewCell: UITableViewCell {
     static let identifierName = String(describing: RankTableViewCell.self)
 
     @IBOutlet weak var rankBoardView: UIView!
+    
     @IBOutlet weak var titleLabel: UILabel!
+    
+    lazy var crownView: UIImageView = {
+       
+        let crownView = UIImageView()
+        
+        crownView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return crownView
+    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        crownView.removeFromSuperview()
     }
     
     override func layoutSubviews() {
@@ -38,13 +50,20 @@ class RankTableViewCell: UITableViewCell {
     
     func makeCrown() {
         
-        let crownView = UIImageView(frame: CGRect(x: 14, y: titleLabel.frame.minY, width: 35, height: 35))
+        rankBoardView.addSubview(crownView)
         
         crownView.contentMode = .scaleToFill
         
         crownView.image = UIImage(named: ImageConstant.crown)
         
-        rankBoardView.addSubview(crownView)
+        NSLayoutConstraint.activate([
+            crownView.heightAnchor.constraint(equalToConstant: 35),
+            crownView.widthAnchor.constraint(equalToConstant: 35),
+            crownView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            crownView.leadingAnchor.constraint(equalTo: rankBoardView.leadingAnchor, constant: 15)
+        ])
+        
+//        rankBoardView.addSubview(crownView)
         
     }
 }

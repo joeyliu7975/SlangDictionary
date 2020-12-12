@@ -74,26 +74,74 @@ class FirebaseManager {
         }
     }
     
-    func retrieveData <T: Codable>(_ collection: Collection, completion: @escaping (Result<[T], Error>) -> Void) {
+    func retrieveData <T: Codable>(_ collection: Collection, with category: String? = nil, completion: @escaping (Result<[T], Error>) -> Void) {
         
-        dataBase.collection(collection.name).getDocuments { (querySnapshot, error) in
-            if let error = error {
+        guard let category = category else {
+            switch collection {
+            case .word(let field):
                 
-                completion(.failure(error))
-                
-            } else {
-                
-                var datas = [T]()
-                
-                for document in querySnapshot!.documents {
-                    if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
-                        datas.append(data)
+                dataBase.collection(collection.name).order(by: field.rawValue, descending: true).getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        
+                        completion(.failure(error))
+                        
+                    } else {
+                        
+                        var datas = [T]()
+                        
+                        for document in querySnapshot!.documents {
+                            if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
+                                datas.append(data)
+                            }
+                        }
+                        
+                        completion(.success(datas))
                     }
                 }
+                            
+            default:
                 
-                completion(.success(datas))
-                
+                dataBase.collection(collection.name).getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        
+                        completion(.failure(error))
+                        
+                    } else {
+                        
+                        var datas = [T]()
+                        
+                        for document in querySnapshot!.documents {
+                            if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
+                                datas.append(data)
+                            }
+                        }
+                        
+                        completion(.success(datas))
+                        
+                    }
+                }
             }
+            return
+        }
+        
+        dataBase.collection(collection.name).whereField("category", isEqualTo: category).getDocuments { (querySnapshot, error) in
+                if let error = error {
+                    
+                    completion(.failure(error))
+                    
+                } else {
+                    
+                    var datas = [T]()
+                    
+                    for document in querySnapshot!.documents {
+                        if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
+                            datas.append(data)
+                        }
+                    }
+                    
+                    completion(.success(datas))
+                    
+                }
         }
     }
     
@@ -104,10 +152,6 @@ class FirebaseManager {
         completion()
         
     }
-    
-    func retrieveViewedTime() {
-        
-    }
 }
 
 extension FirebaseManager {
@@ -115,7 +159,8 @@ extension FirebaseManager {
     enum Collection {
         
         case definition(String)
-        case user, word, time, report
+        case word(orderBy: FirebaseManager.SortedBy)
+        case user, time, report
         
         var name: String {
             switch self {
@@ -131,5 +176,10 @@ extension FirebaseManager {
                 return "report"
             }
         }
+    }
+    
+    enum SortedBy: String {
+        case views = "check_times"
+        case time = "created_time"
     }
 }

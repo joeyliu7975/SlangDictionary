@@ -84,6 +84,9 @@
 		71E7F34C2570D75B00F15098 /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F34A2570D75B00F15098 /* Definition.swift */; };
 		71E7F34D2570D75B00F15098 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F34B2570D75B00F15098 /* Word.swift */; };
 		71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3512570D76600F15098 /* HomePageViewModel.swift */; };
+		71E81E9F258499F100BECDCC /* RankChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E81E9D258499F100BECDCC /* RankChartViewController.swift */; };
+		71E81EA0258499F100BECDCC /* RankChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E81E9E258499F100BECDCC /* RankChartViewController.xib */; };
+		71E81EA42584A22500BECDCC /* FirebaseTimestamp+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E81EA32584A22500BECDCC /* FirebaseTimestamp+Extension.swift */; };
 		71F8DDA8257C73E600507D8F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8DDA6257C73E600507D8F /* SearchTableViewCell.swift */; };
 		71F8DDA9257C73E600507D8F /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71F8DDA7257C73E600507D8F /* SearchTableViewCell.xib */; };
 		71F8DDAC257C751200507D8F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F8DDAB257C751200507D8F /* SearchViewModel.swift */; };
@@ -174,6 +177,9 @@
 		71E7F34A2570D75B00F15098 /* Definition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
 		71E7F34B2570D75B00F15098 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		71E7F3512570D76600F15098 /* HomePageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
+		71E81E9D258499F100BECDCC /* RankChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankChartViewController.swift; sourceTree = "<group>"; };
+		71E81E9E258499F100BECDCC /* RankChartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankChartViewController.xib; sourceTree = "<group>"; };
+		71E81EA32584A22500BECDCC /* FirebaseTimestamp+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseTimestamp+Extension.swift"; sourceTree = "<group>"; };
 		71F8DDA6257C73E600507D8F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		71F8DDA7257C73E600507D8F /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		71F8DDAB257C751200507D8F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -210,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				71055A902584289500560C5D /* RankViewController.xib */,
+				71E81E9E258499F100BECDCC /* RankChartViewController.xib */,
 			);
 			name = Rank;
 			path = MandarinUrbanDictionary/xibs/Rank;
@@ -620,6 +627,7 @@
 				71F8DDAE257C780B00507D8F /* String+Extension.swift */,
 				71230B5F25845C9200B78C9C /* UserDefaults+Extension.swift */,
 				7188ADE9258471FA00524D96 /* UILabel+Extension.swift */,
+				71E81EA32584A22500BECDCC /* FirebaseTimestamp+Extension.swift */,
 			);
 			name = Extension;
 			path = MandarinUrbanDictionary/Extension;
@@ -675,6 +683,7 @@
 			isa = PBXGroup;
 			children = (
 				71F9442A2578C15E0014808E /* RankViewController.swift */,
+				71E81E9D258499F100BECDCC /* RankChartViewController.swift */,
 			);
 			path = Rank;
 			sourceTree = "<group>";
@@ -769,6 +778,7 @@
 				716A8D6525778AA4005C5782 /* ReportViewController.xib in Resources */,
 				71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */,
 				716CD31E2575130400695A91 /* SidePanelTableViewCell.xib in Resources */,
+				71E81EA0258499F100BECDCC /* RankChartViewController.xib in Resources */,
 				71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */,
 				7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */,
 				71CC56C42582676F007F3AF1 /* GoogleService-Info.plist in Resources */,
@@ -867,6 +877,7 @@
 				7120E01B257225CF00A56E7E /* UISearchBar+Extension.swift in Sources */,
 				716A8D6A2577A880005C5782 /* Report.swift in Sources */,
 				716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */,
+				71E81E9F258499F100BECDCC /* RankChartViewController.swift in Sources */,
 				7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */,
 				71E7F34C2570D75B00F15098 /* Definition.swift in Sources */,
 				71F8DDAC257C751200507D8F /* SearchViewModel.swift in Sources */,
@@ -908,6 +919,7 @@
 				71C3D5B525809C0900636BC4 /* ReportPresenter.swift in Sources */,
 				7120E0182572024A00A56E7E /* SearchButton.swift in Sources */,
 				71A84A96257689B000E0C14D /* CardView.swift in Sources */,
+				71E81EA42584A22500BECDCC /* FirebaseTimestamp+Extension.swift in Sources */,
 				71A84A912576802900E0C14D /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

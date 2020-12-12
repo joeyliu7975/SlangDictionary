@@ -17,17 +17,58 @@ class RankViewModel {
         .fifth
     ]
     
-    var nameList: [String] = .init()
+    var wordViewModels = Box([Word]())
     
-    let networkManager: FirebaseManager = .init()
-    
-    func fetchData() {
-        
-        networkManager.retrieveData(.word) { (result: Result<[Word], Error>) in
-            print(result)
+    var top5WordList: [String] = .init() {
+        didSet {
+            updateData?()
         }
     }
     
+    var updateData: (() -> Void)?
+    
+    let networkManager: FirebaseManager = .init()
+    
+    func fetchData(sortedBy value: FirebaseManager.SortedBy) {
+        
+        networkManager.retrieveData(.word(orderBy: value)) { (result: Result<[Word], Error>) in
+            
+            switch result {
+            case .success(let words):
+                
+                self.wordViewModels.value = words
+                
+                let number = 5
+                
+                let top5Words = words[0 ..< number]
+                
+                self.top5WordList = top5Words.map{ $0.title }
+                
+            case .failure:
+                break
+            }
+        }
+    }
+    
+    func retrieveAndfilterData(by category: String) {
+        networkManager.retrieveData(.word(orderBy: .views), with: category) { (result: Result<[Word], Error>) in
+            
+            switch result {
+            case .success(let words):
+                
+                self.wordViewModels.value = words
+                
+                let number = 5
+                
+                let top5Words = words[0 ..< number]
+                
+                self.top5WordList = top5Words.map{ $0.title }
+                
+            case .failure:
+                break
+            }
+        }
+    }
 }
 
 extension RankViewModel {

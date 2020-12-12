@@ -245,7 +245,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
                 }
             }
             
-        case .login:
+        case .user:
             break
         }
         

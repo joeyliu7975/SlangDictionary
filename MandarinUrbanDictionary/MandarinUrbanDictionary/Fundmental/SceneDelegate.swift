@@ -16,18 +16,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
+//
         window = UIWindow(windowScene: windowScene)
+//
+        window?.makeKeyAndVisible()
+
+        let loginPageVC = ContainerViewController()
+
+        window?.rootViewController = loginPageVC
         
-        if let hasLogin = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool {
-            
-            if hasLogin == true {
-                homePage()
-            }
-            
-        } else {
-            loginPage()
-        }
+//        if let hasLogin = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool {
+//
+//            if hasLogin == true {
+//                homePage()
+//            }
+//
+//        } else {
+//            loginPage()
+//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -58,23 +64,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 }
-
+//
 extension SceneDelegate {
     func homePage() {
-        
+
         window?.makeKeyAndVisible()
-        
-        let homePageVC = ContainerViewController()
-        
-        window?.rootViewController = homePageVC
+
+        let loginPageVC = ContainerViewController()
+
+        window?.rootViewController = loginPageVC
     }
-    
+
     func loginPage() {
-        
+
         window?.makeKeyAndVisible()
-        
+
         let homePageVC = LoginViewController()
-        
+
         window?.rootViewController = homePageVC
     }
 }

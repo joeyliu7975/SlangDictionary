@@ -11,6 +11,8 @@ class DefinitionViewModel {
     
     let networkManager: FirebaseManager = .init()
     
+    var userId = ""
+    
     let wordIdentifier: String
     
     let word: String

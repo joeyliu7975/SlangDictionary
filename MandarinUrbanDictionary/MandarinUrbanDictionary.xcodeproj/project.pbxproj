@@ -223,6 +223,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71007E092585EEBE00E6ADEA /* Lobby */ = {
+			isa = PBXGroup;
+			children = (
+				71E81EA82584BAD600BECDCC /* LobbyViewController.xib */,
+			);
+			path = Lobby;
+			sourceTree = "<group>";
+		};
 		71055A892584285B00560C5D /* Quiz */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,6 +600,7 @@
 			isa = PBXGroup;
 			children = (
 				71055A93258428A300560C5D /* Login */,
+				71007E092585EEBE00E6ADEA /* Lobby */,
 				716CD3152574F81000695A91 /* HomePage */,
 				7105AF892575E9E3000C71B4 /* New Word */,
 				7152EADF2575E96400F1C5FB /* Search */,
@@ -698,7 +707,6 @@
 			isa = PBXGroup;
 			children = (
 				71E81EA92584BAD600BECDCC /* LobbyViewController.swift */,
-				71E81EA82584BAD600BECDCC /* LobbyViewController.xib */,
 			);
 			path = Lobby;
 			sourceTree = "<group>";

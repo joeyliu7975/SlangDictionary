@@ -30,7 +30,7 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setup()
+        setup()
         
         setupNav()
         
@@ -43,8 +43,8 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
 private extension DefinitionViewController {
     
     func setup() {
-    
-        viewModel?.listen()
+        
+        viewModel?.userId = "ZCfJ0RFd0IWYfDSUSRZp0tzGPy92"
         
     }
     
@@ -70,19 +70,45 @@ private extension DefinitionViewController {
     }
     
     func binding() {
-        
         viewModel?.definitionViewModels.bind { [weak self] (_) in
             
             self?.tableView.reloadData()
             
         }
+    }
+    
+    func showAlert() {
+        let presenter = ReportPresenter(
+            title: "Report",
+            message: "Do you want to report this definition",
+            cancelTitle: "Cancel",
+            reportTitle: "Report") { (outcome) in
+            switch outcome {
+            case .report:
+                // Call API Here...
+                let reportVC = ReportViewController()
+                
+                reportVC.modalPresentationStyle = .fullScreen
+                
+                reportVC.modalTransitionStyle = .flipHorizontal
+                
+                self.navigationController?.pushViewController(reportVC, animated: true)
+            case .cancel:
+                // Do Absolutely Nothing
+//                self.dismiss(animated: true, completion: nil)
+            break
+            }
+        }
         
+        presenter.present(in: self)
     }
 }
 
 extension DefinitionViewController: DefinitionHeaderDelegate {
     
     func toggleFavorite() {
+        
+//        viewModel?.favorite
         
     }
     
@@ -110,26 +136,7 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
             
             //            let reportedDefinition = viewModel.definitions[index]
             
-            let presenter = ReportPresenter(
-                title: "Report",
-                message: "What's wrong with the content?",
-                cancelTitle: "Cancel",
-                reportTitle: "Report") { (outcome) in
-                switch outcome {
-                case .report:
-                    let reportVC = ReportViewController()
-                    
-                    reportVC.delegate = self
-                    
-                    let navVC = UINavigationController(rootViewController: reportVC)
-                    
-                    self.present(navVC, animated: true)
-                case .cancel:
-                    break
-                }
-            }
-            
-            presenter.present(in: self)
+            showAlert()
         }
     }
 }

@@ -71,8 +71,6 @@ class SearchPageViewController: UIViewController {
 
 private extension SearchPageViewController {
     
-    // MARK: SearchBar背景色還是改白色，字和其他icon都是黑色，來維持版面的一致性
-    
     func setup() {
         
         searchBarContainerView.backgroundColor = .searchBarBlue
@@ -87,7 +85,7 @@ private extension SearchPageViewController {
         
         searchBar.becomeFirstResponder()
         
-        searchBar.returnKeyType = .done
+        searchBar.returnKeyType = .default
         
         searchBar.delegate = self
         
@@ -131,23 +129,19 @@ private extension SearchPageViewController {
         
         coverView.addSubview(noResultLabel)
         
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 coverView.topAnchor.constraint(equalTo: tableView.topAnchor, constant: 0),
                 coverView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0),
                 coverView.leadingAnchor.constraint(equalTo: tableView.leadingAnchor, constant: 0),
                 coverView.trailingAnchor.constraint(equalTo: tableView.trailingAnchor, constant: 0),
-            ]
-        )
+            ])
         
-        NSLayoutConstraint.activate(
-            [
+        NSLayoutConstraint.activate([
                 noResultLabel.centerYAnchor.constraint(equalTo: coverView.centerYAnchor, constant:  -100),
                 noResultLabel.centerXAnchor.constraint(equalTo: coverView.centerXAnchor),
                 noResultLabel.heightAnchor.constraint(equalToConstant: 24),
                 noResultLabel.widthAnchor.constraint(equalToConstant: 150)
-            ]
-        )
+            ])
     }
     
     func binding() {
@@ -160,9 +154,13 @@ private extension SearchPageViewController {
         
         viewModel.result.bind { [weak self] (result) in
             
+            guard let keyword = self?.viewModel.keyword else {
+                return
+            }
+            
             self?.setupNoResultView()
             
-            if self?.viewModel.keyword == "" {
+            if keyword.isEmpty {
                 
                 self?.noResultLabel.text = ""
                 
@@ -193,6 +191,10 @@ private extension SearchPageViewController {
 extension SearchPageViewController: CategoryDelegate {
     
     func confirmSelection(_ selectedCategory: Category) {
+        
+        searchBar.text?.removeAll()
+        
+        viewModel.clearSearchBar()
         
         viewModel.select(category: selectedCategory)
         

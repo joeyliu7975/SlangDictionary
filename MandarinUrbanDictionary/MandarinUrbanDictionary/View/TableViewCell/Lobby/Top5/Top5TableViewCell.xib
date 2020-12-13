@@ -21,7 +21,7 @@
                         <rect key="frame" x="15" y="10" width="594" height="451"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Wnw-0B-Rp7">
-                                <rect key="frame" x="0.0" y="113" width="594" height="338"/>
+                                <rect key="frame" x="0.0" y="106.5" width="594" height="324.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rLd-f6-ih9">
                                     <size key="itemSize" width="128" height="128"/>
@@ -31,18 +31,18 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top5" translatesAutoresizingMaskIntoConstraints="NO" id="unV-Q1-vW4">
-                                <rect key="frame" x="0.0" y="0.0" width="594" height="113"/>
+                                <rect key="frame" x="0.0" y="0.0" width="594" height="86.5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="unV-Q1-vW4" firstAttribute="top" secondItem="vgr-NY-Hmn" secondAttribute="top" id="BUH-O0-42l"/>
                             <constraint firstItem="unV-Q1-vW4" firstAttribute="leading" secondItem="vgr-NY-Hmn" secondAttribute="leading" id="IvZ-xe-tem"/>
-                            <constraint firstItem="Wnw-0B-Rp7" firstAttribute="top" secondItem="unV-Q1-vW4" secondAttribute="bottom" id="LL3-ak-Pe6"/>
                             <constraint firstAttribute="trailing" secondItem="unV-Q1-vW4" secondAttribute="trailing" id="RRA-fv-PJv"/>
+                            <constraint firstItem="Wnw-0B-Rp7" firstAttribute="top" secondItem="unV-Q1-vW4" secondAttribute="bottom" constant="20" id="RZR-DI-LHH"/>
                             <constraint firstItem="Wnw-0B-Rp7" firstAttribute="centerX" secondItem="vgr-NY-Hmn" secondAttribute="centerX" id="aVw-e0-RYj"/>
-                            <constraint firstItem="Wnw-0B-Rp7" firstAttribute="height" secondItem="vgr-NY-Hmn" secondAttribute="height" multiplier="0.75" id="c1R-eM-sSE"/>
-                            <constraint firstAttribute="bottom" secondItem="Wnw-0B-Rp7" secondAttribute="bottom" id="tjb-Ch-OlS"/>
+                            <constraint firstItem="Wnw-0B-Rp7" firstAttribute="height" secondItem="vgr-NY-Hmn" secondAttribute="height" multiplier="0.72" id="c1R-eM-sSE"/>
+                            <constraint firstAttribute="bottom" secondItem="Wnw-0B-Rp7" secondAttribute="bottom" constant="20" id="tjb-Ch-OlS"/>
                             <constraint firstItem="Wnw-0B-Rp7" firstAttribute="width" secondItem="vgr-NY-Hmn" secondAttribute="width" id="uZL-fr-gYH"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

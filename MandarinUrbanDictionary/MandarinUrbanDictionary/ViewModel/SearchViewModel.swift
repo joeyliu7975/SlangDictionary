@@ -81,11 +81,13 @@ class SearchViewModel {
 
 private extension SearchViewModel {
     
-    func filter(_ data: [Word], with keyword: String) {
+    func filter(_ words: [Word], with keyword: String) {
         
         var filtered = [Word]()
         
-        filtered = data.filter{ $0.title.contains(keyword) }
+        filtered = words.filter { $0.title.fuzzyMatch(keyword) }
+        
+//        filtered = words.filter { $0.title.contains(keyword) }
     
         result.value = filtered
     }

@@ -14,7 +14,7 @@ protocol ReportDelegate: class {
 }
 
 class ReportViewController: UIViewController {
-
+    
     @IBOutlet weak var textView: UITextView!
     
     private var sendButton: UIBarButtonItem!
@@ -25,29 +25,9 @@ class ReportViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setup()
-    }
-    
-    private func setup() {
-        
-        navigationItem.setBarAppearance(
-            with: .barButtonRed,
-            titleTextAttrs: UINavigationItem.titleAttributes,
-            title: "Report"
-        )
-        
-        navigationController?.navigationBar.tintColor = .white
-        
-        sendButton = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(click))
-        
-        cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(click))
-        
-        navigationItem.leftBarButtonItem = cancelButton
-        
-        navigationItem.rightBarButtonItem = sendButton
-        
     }
     
     @objc func click(_ sender: UIBarButtonItem) {
@@ -69,5 +49,25 @@ class ReportViewController: UIViewController {
         }
         
         self.dismiss(animated: true)
+    }
+}
+
+private extension ReportViewController {
+    func setup() {
+        navigationItem.setBarAppearance(
+            with: .barButtonRed,
+            titleTextAttrs: UINavigationItem.titleAttributes,
+            title: "Report"
+        )
+        
+        navigationController?.navigationBar.tintColor = .white
+        
+        sendButton = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(click))
+        
+        cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(click))
+        
+        navigationItem.leftBarButtonItem = cancelButton
+        
+        navigationItem.rightBarButtonItem = sendButton
     }
 }

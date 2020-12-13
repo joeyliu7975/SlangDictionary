@@ -70,21 +70,7 @@ class FavoriteViewController: JoeyPanelViewController {
     }
     
     @IBAction func tapDeleteAll(_ sender: UIButton) {
-        let presenter = FavoritePresenter(
-            title: "Favorite Words",
-            message: "Are you sure you want to delete all favorite words",
-            cancelTitle: "Cancel",
-            confirmTitle: "Delete All") { [unowned self] (outcome) in
-            switch outcome {
-            case .confirm:
-                self.viewModel.tapDeleteAll()
-                self.viewModel.isEditing.toggle()
-            case .cancel:
-                break
-            }
-        }
-        
-        presenter.present(in: self)
+        showAlert()
     }
     
     @objc func toggleEditMode() {
@@ -133,6 +119,24 @@ private extension FavoriteViewController {
         
         navigationItem.rightBarButtonItem = editButton
         
+    }
+    
+    func showAlert() {
+        let presenter = FavoritePresenter(
+            title: "Favorite Words",
+            message: "Are you sure you want to delete all favorite words",
+            cancelTitle: "Cancel",
+            confirmTitle: "Delete All") { [unowned self] (outcome) in
+            switch outcome {
+            case .confirm:
+                self.viewModel.tapDeleteAll()
+                self.viewModel.isEditing.toggle()
+            case .cancel:
+                break
+            }
+        }
+        
+        presenter.present(in: self)
     }
     
     func binding() {

@@ -162,13 +162,13 @@ private extension SearchPageViewController {
             
             self?.setupNoResultView()
             
-            if result.isEmpty && self?.viewModel.keyword != "" {
+            if self?.viewModel.keyword == "" {
                 
-                self?.noResultLabel.text = "No Match Found"
+                self?.noResultLabel.text = ""
                 
             } else if result.isEmpty {
                 
-                self?.noResultLabel.text = ""
+                self?.noResultLabel.text = "No Match Found"
                 
             } else {
                 

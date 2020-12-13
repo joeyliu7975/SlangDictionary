@@ -24,6 +24,8 @@ class TheNewestWordTableViewCell: UITableViewCell {
     
     func setup() {
         self.backgroundColor = .homepageDarkBlue
+        
+        self.selectedBackgroundView = UIView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -12,12 +12,18 @@ class HomePageViewModel {
     let carouselList = Carousel.allCases
     
     private let networkManager: FirebaseManager = .init()
-        
-    var userViewModels = Box([User]())
     
+    var userViewModels = Box([User]())
+            
     var wordViewModels = Box([Word]())
     
-    var topFive = [Word]() {
+    var topFiveWords = [Word]() {
+        didSet {
+            
+        }
+    }
+    
+    var newestWord = [Word]() {
         didSet {
             
         }
@@ -48,7 +54,7 @@ class HomePageViewModel {
                 
                 case .success(let words):
                     
-                    self.topFive = Array(words[0 ... 4])
+                    self.topFiveWords = Array(words[0 ... 4])
                     
                     self.wordViewModels.value = words
                     

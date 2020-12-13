@@ -30,6 +30,8 @@ class Top5TableViewCell: UITableViewCell {
     func setup() {
         self.backgroundColor = .homepageDarkBlue
         
+        self.selectedBackgroundView = UIView()
+        
         collectionView.setCorner(radius: 10)
     }
 
@@ -80,7 +82,7 @@ extension Top5TableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let height = cardView.frame.height / 6
+        let height = (cardView.frame.height * 0.75) / 6
         
         let width = cardView.frame.width
         

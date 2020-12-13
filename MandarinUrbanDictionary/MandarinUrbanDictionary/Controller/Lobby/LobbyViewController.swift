@@ -33,7 +33,7 @@ class LobbyViewController: UIViewController {
     
     func setup() {
         
-        viewModel.fetchData(in: .word(orderBy: .views))
+        viewModel.fetchData(in: .word(orderBy: .time))
         
         view.backgroundColor = .homepageDarkBlue
         
@@ -79,10 +79,19 @@ class LobbyViewController: UIViewController {
     
     func binding() {
         
-        viewModel.wordViewModels.bind { [weak self] (_) in
+        viewModel.wordViewModels.bind { [weak self] (words) in
+            
+            if words.isEmpty {
+                return 
+            }
+            
+            self?.viewModel.newestWord = Array(arrayLiteral: words[0])
+            
+            let wordOrderByViews = words.sorted { $0.views > $1.views }
+            
+            self?.viewModel.topFiveWords = Array(wordOrderByViews[0 ... 4])
             
             self?.tableView.reloadData()
-            
         }
         
     }
@@ -104,12 +113,14 @@ extension LobbyViewController: PostButtonDelegate {
 
 extension LobbyViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (indexPath.row % 2) == 0 ? tableView.frame.height * 0.5 : tableView.frame.height * 0.75
+        return (indexPath.row % 2) == 0 ? tableView.frame.height * 0.5 : tableView.frame.height * 0.9
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: LobbyTableHeaderView.reusableIdentifier) as? LobbyTableHeaderView {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: LobbyTableHeaderView.reusableIdentifier)
+        
+        if let headerView = headerView as? LobbyTableHeaderView {
             
             let headerBackgroundView = UIView()
             
@@ -144,8 +155,6 @@ extension LobbyViewController: LobbyHeaderDelegate {
     }
 }
 
-
-
 extension LobbyViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -163,8 +172,6 @@ extension LobbyViewController: UITableViewDataSource {
         
         let type = viewModel.carouselList[indexPath.row]
         
-        let word = viewModel.wordViewModels.value[indexPath.row]
-        
         switch type {
        
         case .mostViewedWord:
@@ -172,6 +179,8 @@ extension LobbyViewController: UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: TheNewestWordTableViewCell.reusableIdentifier, for: indexPath)
             
             if let newestWordCell = cell as? TheNewestWordTableViewCell {
+                
+                let word = viewModel.newestWord[indexPath.row]
                 
                 newestWordCell.renderUI(title: word.title, description: word.time.timeStampToStringDetail())
                 
@@ -183,7 +192,7 @@ extension LobbyViewController: UITableViewDataSource {
             
             if let topFiveCell = cell as? Top5TableViewCell {
                 
-                topFiveCell.topFive = viewModel.wordViewModels.value
+                topFiveCell.topFive = viewModel.topFiveWords
                 
                 cell = topFiveCell
             }
@@ -192,6 +201,10 @@ extension LobbyViewController: UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: TheNewestWordTableViewCell.reusableIdentifier, for: indexPath)
             
             if let newestWordCell = cell as? TheNewestWordTableViewCell {
+                
+                let number = Int.random(in: 0 ..< viewModel.wordViewModels.value.count)
+                
+                let word = viewModel.wordViewModels.value[number]
                 
                 newestWordCell.renderUI(title: word.title, description: word.time.timeStampToStringDetail())
                 

@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-extension Timestamp {
+extension Timestamp: Equatable {
     
     func timeStampToStringDetail() -> String {
         let timeSta = self.dateValue()

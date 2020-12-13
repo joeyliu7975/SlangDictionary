@@ -122,6 +122,11 @@ private extension FavoriteViewController {
     }
     
     func showAlert() {
+        
+//        self.popAlert(.favorite) {
+//            self.viewModel.tapDeleteAll()
+//            self.viewModel.isEditing.toggle()
+//        }
         let presenter = FavoritePresenter(
             title: "Favorite Words",
             message: "Are you sure you want to delete all favorite words",
@@ -135,7 +140,7 @@ private extension FavoriteViewController {
                 break
             }
         }
-        
+
         presenter.present(in: self)
     }
     

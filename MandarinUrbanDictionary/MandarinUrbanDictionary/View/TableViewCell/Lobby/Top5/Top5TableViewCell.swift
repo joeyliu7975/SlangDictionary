@@ -8,6 +8,10 @@
 import UIKit
 import FSPagerView
 
+protocol Top5TableViewDelegate: class {
+    func didSelectWord<T:Codable>(_ word: T)
+}
+
 class Top5TableViewCell: UITableViewCell {
     
     static let reusableIdentifier = String(describing: Top5TableViewCell.self)
@@ -15,6 +19,8 @@ class Top5TableViewCell: UITableViewCell {
     @IBOutlet weak var cardView: CardView!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    weak var delegate: Top5TableViewDelegate?
     
     var topFive = [Word]()
     
@@ -50,7 +56,18 @@ class Top5TableViewCell: UITableViewCell {
     }
 }
 
-extension Top5TableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension Top5TableViewCell:  UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            
+        if (topFive.count - 1) >= indexPath.row {
+            let word = topFive[indexPath.row]
+            
+            delegate?.didSelectWord(word)
+        }
+    }
+}
+
+extension Top5TableViewCell: UICollectionViewDataSource {
    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         1

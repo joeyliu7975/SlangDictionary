@@ -7,11 +7,22 @@
 
 import UIKit
 
-struct ReportPresenter {
+protocol AlertPresenter {
+    
+    associatedtype Output
+    
+    func present(in viewController: UIViewController)
+    
+    var handler: (Output) -> Void { get }
+}
+
+struct ReportPresenter: AlertPresenter {
     
     enum Outcome {
         case report, cancel
     }
+    
+    typealias Output = Outcome
     
     let title: String
     
@@ -21,7 +32,7 @@ struct ReportPresenter {
     
     let reportTitle: String
     
-    let handler: (ReportPresenter.Outcome) -> Void
+    var handler: (Output) -> Void
     
     func present(in viewController: UIViewController) {
         

@@ -81,12 +81,10 @@ extension ContainerViewController: CenterViewControllerDelegate {
     func writeNewWord() {
         
         UserDefaults.standard.setValue(false, forKey: UserDefaults.keyForLoginStatus)
-        
-        self.dismiss(animated: true)
-//
-//        let addNewWordVC = AddNewWordViewController()
-//
-//        present(addNewWordVC, animated: true)
+
+        let addNewWordVC = AddNewWordViewController()
+
+        present(addNewWordVC, animated: true)
     }
     
     func toggleLeftPanel() {

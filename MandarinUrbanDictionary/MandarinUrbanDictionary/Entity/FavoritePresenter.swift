@@ -7,11 +7,13 @@
 
 import UIKit
 
-struct FavoritePresenter {
+struct FavoritePresenter: AlertPresenter {
     
     enum Outcome {
         case confirm, cancel
     }
+    
+    typealias Output = Outcome
     
     let title: String
     
@@ -21,7 +23,7 @@ struct FavoritePresenter {
     
     let confirmTitle: String
     
-    let handler: (FavoritePresenter.Outcome) -> Void
+    var handler: (Output) -> Void
     
     func present(in viewController: UIViewController) {
         

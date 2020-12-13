@@ -8,7 +8,7 @@
 import UIKit
 
 class LobbyViewController: UIViewController {
-
+    
     @IBOutlet weak var writeNewButtonView: NewPostButtonView!
     
     @IBOutlet weak var tableView: UITableView!
@@ -19,7 +19,7 @@ class LobbyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         setup()
@@ -39,7 +39,7 @@ class LobbyViewController: UIViewController {
         
         writeNewButtonView.delegate = self
     }
-
+    
     func setupTableView() {
         
         tableView.registerCell(TheNewestWordTableViewCell.reusableIdentifier)
@@ -107,11 +107,50 @@ extension LobbyViewController: PostButtonDelegate {
     func clickButton(_ sender: UIButton) {
         
         delegate?.writeNewWord()
-    
+        
     }
 }
 
 extension LobbyViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var viewController = UIViewController()
+        
+        let type = viewModel.carouselList[indexPath.row]
+        
+        switch type {
+        case .newestWord:
+            let word = viewModel.newestWord[indexPath.row]
+            
+            let definitionController = DefinitionViewController(identifierNumber: word.identifier, word: word.title)
+            
+            viewController = definitionController
+        case .mostViewedWord:
+            
+            return
+            
+        case .dailyWord:
+            
+            let titles = viewModel.wordViewModels.value.map { $0.title }
+            
+            if let cell = tableView.cellForRow(at: indexPath) as? TheNewestWordTableViewCell,
+               let title = cell.titleLabel.text,
+               let index = titles.firstIndex(of: title) {
+                
+                let id = viewModel.wordViewModels.value[index].identifier
+                
+                let definitionController = DefinitionViewController(identifierNumber: id, word: title)
+                
+                viewController = definitionController
+            }
+        }
+        
+        self.navigationItem.backButtonTitle = ""
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (indexPath.row % 2) == 0 ? tableView.frame.height * 0.5 : tableView.frame.height * 0.9
     }
@@ -157,6 +196,18 @@ extension LobbyViewController: LobbyHeaderDelegate {
     }
 }
 
+extension LobbyViewController: Top5TableViewDelegate {
+    func didSelectWord<T>(_ word: T) where T : Decodable, T : Encodable {
+        guard let word = word as? Word else { return }
+        
+        let viewController = DefinitionViewController(identifierNumber: word.identifier, word: word.title)
+        
+        self.navigationItem.backButtonTitle = ""
+
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
 extension LobbyViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -175,8 +226,8 @@ extension LobbyViewController: UITableViewDataSource {
         let type = viewModel.carouselList[indexPath.row]
         
         switch type {
-       
-        case .mostViewedWord:
+        
+        case .newestWord:
             
             cell = tableView.dequeueReusableCell(withIdentifier: TheNewestWordTableViewCell.reusableIdentifier, for: indexPath)
             
@@ -189,12 +240,14 @@ extension LobbyViewController: UITableViewDataSource {
                 cell = newestWordCell
             }
             
-        case .newestWord:
+        case .mostViewedWord:
             cell = tableView.dequeueReusableCell(withIdentifier: Top5TableViewCell.reusableIdentifier, for: indexPath)
             
             if let topFiveCell = cell as? Top5TableViewCell {
                 
                 topFiveCell.topFive = viewModel.topFiveWords
+                
+                topFiveCell.delegate = self
                 
                 cell = topFiveCell
             }
@@ -220,7 +273,7 @@ extension LobbyViewController: UITableViewDataSource {
 
 enum Carousel: CaseIterable {
     
-    case mostViewedWord, newestWord, dailyWord
+    case newestWord, mostViewedWord, dailyWord
     
     func getImage() -> String {
         switch self {

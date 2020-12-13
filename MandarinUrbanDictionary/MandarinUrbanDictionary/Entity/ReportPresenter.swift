@@ -25,7 +25,7 @@ struct ReportPresenter {
     
     func present(in viewController: UIViewController) {
         
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         
         let reportAction = UIAlertAction(title: reportTitle, style: .destructive) { (_) in
             self.handler(.report)

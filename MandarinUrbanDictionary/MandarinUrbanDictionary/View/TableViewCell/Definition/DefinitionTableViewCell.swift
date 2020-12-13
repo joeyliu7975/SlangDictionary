@@ -131,7 +131,7 @@ private extension DefinitionTableViewCell {
         
         case .like:
             
-            likeButton.tintColor = .blue
+            likeButton.tintColor = .homepageDarkBlue
             
             dislikeButton.tintColor = .black
             
@@ -139,7 +139,7 @@ private extension DefinitionTableViewCell {
             
             likeButton.tintColor = .black
             
-            dislikeButton.tintColor = .blue
+            dislikeButton.tintColor = .barButtonRed
             
         case .none:
             

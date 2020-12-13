@@ -219,9 +219,26 @@ extension SearchPageViewController: UISearchBarDelegate {
         
         }
     }
+    
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let validString = NSCharacterSet.searchBarValidString
+
+        if (searchBar.textInputMode?.primaryLanguage == "emoji") || searchBar.textInputMode?.primaryLanguage == nil {
+            return false
+        }
+        if let range = text.rangeOfCharacter(from: validString as CharacterSet) {
+            
+            return false
+        }
+        
+        return true
+        
+        
+    }
 }
 
 extension SearchPageViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let selectedWord = viewModel.result.value[indexPath.row]
@@ -238,6 +255,7 @@ extension SearchPageViewController: UITableViewDelegate {
 }
 
 extension SearchPageViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.result.value.count
     }

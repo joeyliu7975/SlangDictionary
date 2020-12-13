@@ -88,11 +88,13 @@ private extension DefinitionViewController {
                 // Call API Here...
                 let reportVC = ReportViewController()
                 
-                reportVC.modalPresentationStyle = .fullScreen
+                let nav = UINavigationController(rootViewController: reportVC)
                 
-                reportVC.modalTransitionStyle = .flipHorizontal
+                nav.modalPresentationStyle = .fullScreen
                 
-                self.navigationController?.pushViewController(reportVC, animated: true)
+                nav.modalTransitionStyle = .coverVertical
+                
+                self.present(nav, animated: true)
             case .cancel:
                 // Do Absolutely Nothing
 //                self.dismiss(animated: true, completion: nil)

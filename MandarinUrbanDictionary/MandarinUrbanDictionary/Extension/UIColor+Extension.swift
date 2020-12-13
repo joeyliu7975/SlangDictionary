@@ -13,7 +13,7 @@ private enum Color: String {
     
     case darkGreen = "6D9B2C"
     
-    case reportDarkBlue = "#213147"
+    case barButtonRed = "#FC573A"
     
     case popularWordCollection = "DFBDA9"
     
@@ -40,7 +40,7 @@ extension UIColor {
     /// HomePage backgroundColor
     static let homepageDarkBlue = renderColor(.homepageDarkBlue)
     /// RedColor for barButtonItem
-    static let reportDarkBlue = renderColor(.reportDarkBlue)
+    static let barButtonRed = renderColor(.barButtonRed)
     /// BlueColor for searchBar containerView
     static let searchBarBlue = renderColor(.searchBarBlue)
     /// Dark Green for NavigationBar 

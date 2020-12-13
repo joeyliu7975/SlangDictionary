@@ -60,6 +60,7 @@
 		718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */; };
 		718D6B92257A1FF500663CAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B91257A1FF500663CAD /* User.swift */; };
 		71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */; };
+		71A6C20D2586163800FC478D /* NSCharacterSet+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */; };
 		71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A832576368900E0C14D /* FavoriteViewController.swift */; };
 		71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A84A842576368900E0C14D /* FavoriteViewController.xib */; };
 		71A84A8C257637B600E0C14D /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A8A257637B600E0C14D /* FavoriteTableViewCell.swift */; };
@@ -163,6 +164,7 @@
 		718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		718D6B91257A1FF500663CAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FSPagerView+Extension.swift"; sourceTree = "<group>"; };
+		71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCharacterSet+Extension.swift"; sourceTree = "<group>"; };
 		71A84A832576368900E0C14D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		71A84A842576368900E0C14D /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
 		71A84A8A257637B600E0C14D /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
@@ -525,6 +527,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		71A6C20A2586131100FC478D /* NewDefinition */ = {
+			isa = PBXGroup;
+			children = (
+				71C3D5AA257E29DB00636BC4 /* NewDefinitionViewController.xib */,
+			);
+			path = NewDefinition;
+			sourceTree = "<group>";
+		};
 		71A84A822576365000E0C14D /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,7 +564,6 @@
 			isa = PBXGroup;
 			children = (
 				71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */,
-				71C3D5AA257E29DB00636BC4 /* NewDefinitionViewController.xib */,
 			);
 			path = "New Definition";
 			sourceTree = "<group>";
@@ -606,6 +615,7 @@
 				7152EADF2575E96400F1C5FB /* Search */,
 				7152EAE02575E96900F1C5FB /* Category */,
 				7105AF872575E9CD000C71B4 /* Definition */,
+				71A6C20A2586131100FC478D /* NewDefinition */,
 				71A84A882576369600E0C14D /* Favorite */,
 				716A8D6725778AAA005C5782 /* Report */,
 				71055A8F2584289500560C5D /* Rank */,
@@ -661,6 +671,7 @@
 				71230B5F25845C9200B78C9C /* UserDefaults+Extension.swift */,
 				7188ADE9258471FA00524D96 /* UILabel+Extension.swift */,
 				71E81EA32584A22500BECDCC /* FirebaseTimestamp+Extension.swift */,
+				71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */,
 			);
 			name = Extension;
 			path = MandarinUrbanDictionary/Extension;
@@ -1007,6 +1018,7 @@
 				7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */,
 				717569232570CFD300417B9C /* AppDelegate.swift in Sources */,
 				71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */,
+				71A6C20D2586163800FC478D /* NSCharacterSet+Extension.swift in Sources */,
 				71F9442C2578C15E0014808E /* RankViewController.swift in Sources */,
 				71230B6025845C9200B78C9C /* UserDefaults+Extension.swift in Sources */,
 				71F8DDA8257C73E600507D8F /* SearchTableViewCell.swift in Sources */,

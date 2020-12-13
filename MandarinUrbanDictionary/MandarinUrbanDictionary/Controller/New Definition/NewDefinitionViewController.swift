@@ -69,6 +69,8 @@ class NewDefinitionViewController: UIViewController {
     
     private var heightConstraint: NSLayoutConstraint?
     
+    var characterCounter = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -177,5 +179,20 @@ extension NewDefinitionViewController: UITextViewDelegate {
             sendButton.isEnabled = false
 
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        let validString = NSCharacterSet.textViewValidString
+
+        if (textView.textInputMode?.primaryLanguage == "emoji") || textView.textInputMode?.primaryLanguage == nil {
+            return false
+        }
+        if let range = text.rangeOfCharacter(from: validString as CharacterSet) {
+            
+            return false
+        }
+        
+        return true
     }
 }

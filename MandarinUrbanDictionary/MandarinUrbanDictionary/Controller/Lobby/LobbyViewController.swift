@@ -124,6 +124,8 @@ extension LobbyViewController: UITableViewDelegate {
             
             let headerBackgroundView = UIView()
             
+            headerView.searchButton.setCorner(radius: 10)
+            
             headerView.delegate = self
             
             headerBackgroundView.backgroundColor = .homepageDarkBlue

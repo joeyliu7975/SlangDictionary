@@ -17,6 +17,28 @@ class SearchPageViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    lazy var coverView: UIView = {
+       
+        let myView = UIView(frame: tableView.bounds)
+        
+        myView.translatesAutoresizingMaskIntoConstraints = false
+        
+        myView.backgroundColor = .white
+        
+        return myView
+    }()
+    
+    lazy var noResultLabel: UILabel = {
+       
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+                        
+        label.textAlignment = .center
+                
+        return label
+    }()
+    
     let viewModel: SearchViewModel = .init()
     
     override func viewDidLoad() {
@@ -27,6 +49,8 @@ class SearchPageViewController: UIViewController {
         setupTableView()
         
         setupNav()
+        
+        setupNoResultView()
         
         binding()
     }
@@ -63,7 +87,10 @@ private extension SearchPageViewController {
         
         searchBar.becomeFirstResponder()
         
+        searchBar.returnKeyType = .done
+        
         searchBar.delegate = self
+        
     }
     
     func setupTableView() {
@@ -98,6 +125,31 @@ private extension SearchPageViewController {
 
     }
     
+    func setupNoResultView() {
+        
+        view.insertSubview(coverView, aboveSubview: tableView)
+        
+        coverView.addSubview(noResultLabel)
+        
+        NSLayoutConstraint.activate(
+            [
+                coverView.topAnchor.constraint(equalTo: tableView.topAnchor, constant: 0),
+                coverView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0),
+                coverView.leadingAnchor.constraint(equalTo: tableView.leadingAnchor, constant: 0),
+                coverView.trailingAnchor.constraint(equalTo: tableView.trailingAnchor, constant: 0),
+            ]
+        )
+        
+        NSLayoutConstraint.activate(
+            [
+                noResultLabel.centerYAnchor.constraint(equalTo: coverView.centerYAnchor, constant:  -100),
+                noResultLabel.centerXAnchor.constraint(equalTo: coverView.centerXAnchor),
+                noResultLabel.heightAnchor.constraint(equalToConstant: 24),
+                noResultLabel.widthAnchor.constraint(equalToConstant: 150)
+            ]
+        )
+    }
+    
     func binding() {
         
         viewModel.updateTitle = { [weak self] (title) in
@@ -106,7 +158,23 @@ private extension SearchPageViewController {
             
         }
         
-        viewModel.result.bind { [weak self] (_) in
+        viewModel.result.bind { [weak self] (result) in
+            
+            self?.setupNoResultView()
+            
+            if result.isEmpty && self?.viewModel.keyword != "" {
+                
+                self?.noResultLabel.text = "No Match Found"
+                
+            } else if result.isEmpty {
+                
+                self?.noResultLabel.text = ""
+                
+            } else {
+                
+                self?.coverView.removeFromSuperview()
+                
+            }
             
             self?.tableView?.reloadData()
             
@@ -134,17 +202,19 @@ extension SearchPageViewController: CategoryDelegate {
 extension SearchPageViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let text = searchBar.text {
-            viewModel.search(keyword: text)
-        }
-        
+
         searchBar.resignFirstResponder()
     }
     
     func searchBar(_ searchBar: UISearchBar,
                    textDidChange searchText: String) {
-        if searchText.isEmpty {
-            viewModel.clearSearchBar()
+        
+        viewModel.clearSearchBar()
+        
+        if !searchText.isEmpty {
+            
+            viewModel.search(keyword: searchText)
+        
         }
     }
 }
@@ -171,6 +241,7 @@ extension SearchPageViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         var cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifierName, for: indexPath)
         
         if let searchCell = cell as? SearchTableViewCell {

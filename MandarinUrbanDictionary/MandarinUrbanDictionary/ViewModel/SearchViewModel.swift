@@ -15,7 +15,7 @@ class SearchViewModel {
     
     var showSearchResult: (() -> Void)?
     
-    var keyword: String?
+    var keyword: String = ""
         
     private var selectedCategory: Category = .all {
         didSet {
@@ -68,9 +68,9 @@ class SearchViewModel {
     
     func clearSearchBar() {
         
-        result.value.removeAll()
+        keyword.removeAll()
         
-        keyword = nil
+        result.value.removeAll()
         
     }
     
@@ -84,17 +84,10 @@ private extension SearchViewModel {
     func filter(_ data: [Word], with keyword: String) {
         
         var filtered = [Word]()
-            
-        keyword.forEach { (character) in
-            
-            filtered = data.filter { (word) -> Bool in
-                return word.title.contains(character)
-            }
-            
-        }
         
+        filtered = data.filter{ $0.title.contains(keyword) }
+    
         result.value = filtered
-        
     }
     
 }

@@ -9,7 +9,7 @@ import UIKit
 
 protocol DefinitionHeaderDelegate: class {
     
-    func toggleFavorite()
+    func toggleFavorite(_ isFavorite: Bool)
     
     func writeNewDefinition()
     
@@ -26,6 +26,12 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
     @IBOutlet var writeDefinition: UIButton!
     
     weak var delegate: DefinitionHeaderDelegate?
+    
+    var isFavorite: Bool = false {
+        didSet {
+            setFavoriteButton()
+        }
+    }
         
     @IBAction func clickButton(_ sender: UIButton) {
         
@@ -33,7 +39,9 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
         
         case favoriteButton:
             
-            delegate?.toggleFavorite()
+            isFavorite.toggle()
+            
+            delegate?.toggleFavorite(isFavorite)
             
         case writeDefinition:
             
@@ -47,6 +55,10 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
     }
     
     func setFavorite(_ isFavorite: Bool) {
+        self.isFavorite = isFavorite
+    }
+    
+    private func setFavoriteButton() {
         
         switch isFavorite {
         

@@ -44,7 +44,7 @@ private extension DefinitionViewController {
     
     func setup() {
         
-        viewModel?.userId = "ZCfJ0RFd0IWYfDSUSRZp0tzGPy92"
+        viewModel?.checkFavorite()
         
     }
     
@@ -70,7 +70,14 @@ private extension DefinitionViewController {
     }
     
     func binding() {
+        
         viewModel?.definitionViewModels.bind { [weak self] (_) in
+            
+            self?.tableView.reloadData()
+            
+        }
+        
+        viewModel?.updateData = { [weak self] in
             
             self?.tableView.reloadData()
             
@@ -108,9 +115,25 @@ private extension DefinitionViewController {
 
 extension DefinitionViewController: DefinitionHeaderDelegate {
     
-    func toggleFavorite() {
+    func toggleFavorite(_ isFavorite: Bool) {
         
-//        viewModel?.favorite
+        if isFavorite {
+            
+            guard let viewModel = viewModel else { return }
+            
+            viewModel.updateFavorites(action: .add) {
+                print("Add to Favorite Successfully!")
+            }
+            
+        } else {
+            
+            guard let viewModel = viewModel else { return }
+            
+            viewModel.updateFavorites(action: .remove) {
+                print("Remove from Favorite Successfully!")
+            }
+            
+        }
         
     }
     
@@ -132,7 +155,7 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
     
     func report(_ cell: DefinitionTableViewCell) {
         
-        if let indexPath = tableView.indexPath(for: cell) {
+        if tableView.indexPath(for: cell) != nil {
             
             //            let index = indexPath.row
             
@@ -171,17 +194,21 @@ extension DefinitionViewController: UITabBarDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: DefinitionHeaderView.identifierName) as? DefinitionHeaderView {
+        if
+            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: DefinitionHeaderView.identifierName) as? DefinitionHeaderView,
+            let viewModel = viewModel {
             
             let headerBackgroundView = UIView()
             
             headerView.delegate = self
             
+            headerView.setFavorite(viewModel.isFavorite)
+            
             headerBackgroundView.backgroundColor = .searchBarBlue
             
             headerView.backgroundView = headerBackgroundView
             
-            headerView.wordLabel.text = viewModel?.word
+            headerView.wordLabel.text = viewModel.word
             
             return headerView
         }

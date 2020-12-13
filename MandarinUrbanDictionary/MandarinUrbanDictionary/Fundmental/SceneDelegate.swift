@@ -19,12 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //
         window = UIWindow(windowScene: windowScene)
 //
-        window?.makeKeyAndVisible()
-
-        let loginPageVC = ContainerViewController()
-
-        window?.rootViewController = loginPageVC
+//        window?.makeKeyAndVisible()
+//
+//        let loginPageVC = ContainerViewController()
+//
+//        window?.rootViewController = loginPageVC
         
+        loginPage()
+//        
 //        if let hasLogin = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool {
 //
 //            if hasLogin == true {

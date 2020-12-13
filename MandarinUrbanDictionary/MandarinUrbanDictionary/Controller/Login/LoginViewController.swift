@@ -33,6 +33,12 @@ class LoginViewController: UIViewController {
         addSubLayers()
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        userHasSignedIn()
+        
+    }
 
     @available(iOS 13, *)
     @objc func startSignInWithAppleFlow() {
@@ -61,24 +67,24 @@ class LoginViewController: UIViewController {
 
 private extension LoginViewController {
     
-//    func userHasSignedIn() {
-//        if let hasLogin = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool {
-//            if hasLogin == true {
-//                jumpTohomePage()
-//            }
-//        }
-//    }
-//
-//    func jumpTohomePage() {
-//
-//        let homepageVC = ContainerViewController()
-//
-//        homepageVC.modalTransitionStyle = .coverVertical
-//
-//        homepageVC.modalPresentationStyle = .fullScreen
-//
-//        present(homepageVC, animated: true)
-//    }
+    func userHasSignedIn() {
+        if let hasLogin = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool {
+            if hasLogin == true {
+                jumpTohomePage()
+            }
+        }
+    }
+    
+    func jumpTohomePage() {
+
+        let homepageVC = ContainerViewController()
+
+        homepageVC.modalTransitionStyle = .flipHorizontal
+
+        homepageVC.modalPresentationStyle = .fullScreen
+
+        present(homepageVC, animated: true)
+    }
     
     func setup() {
         
@@ -170,8 +176,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                 let recentSearch: [String] = []
                 
                 database.collection("User").document(uid).setData([
-                    "email": email,
-                    "display_Name": displayName,
+                    "display_Name": uid,
                     "id": uid,
                     "favorite_words": favoriteWord,
                     "recent_search": recentSearch
@@ -179,13 +184,16 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                     if let err = err {
                         print("Error writing document: \(err)")
                     } else {
+                        
                         UserDefaults.standard.setValue(true, forKey: UserDefaults.keyForLoginStatus)
+                        
+                        UserDefaults.standard.setValue(uid, forKey: "uid")
                         
                         let homeVC = ContainerViewController()
                         
                         homeVC.modalPresentationStyle = .fullScreen
                         
-                        homeVC.modalTransitionStyle = .crossDissolve
+                        homeVC.modalTransitionStyle = .flipHorizontal
                         
                         self.present(homeVC, animated: true)
                     }

@@ -10,12 +10,16 @@ import Foundation
 class DefinitionViewModel {
     
     let networkManager: FirebaseManager = .init()
-    
-    var userId = ""
-    
+        
     let wordIdentifier: String
     
     let word: String
+    
+    var isFavorite: Bool = false {
+        didSet {
+            updateData?()
+        }
+    }
     
     var updateData: (() -> Void)?
     
@@ -42,6 +46,33 @@ class DefinitionViewModel {
                 print("Fatal Error with: \(error.localizedDescription)")
                 
             }
+        }
+    }
+    
+    func checkFavorite() {
+        
+        if let userID = UserDefaults.standard.value(forKey: "uid") as? String {
+            
+            networkManager.retrieveUser(userID: userID, wordID: wordIdentifier) { (result: Result<User?, Error>) in
+                
+                switch result {
+                case .success(let user):
+                    self.isFavorite = (user == nil) ? false : true
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            }
+        }
+    
+    func updateFavorites(action: FirebaseManager.FavoriteStauts,completion: @escaping (() -> Void)) {
+        
+        if let userID = UserDefaults.standard.value(forKey: "uid") as? String {
+            
+            networkManager.updateFavorite(userID: userID, wordID: wordIdentifier, action: action) {
+                completion()
+            }
+            
         }
     }
     

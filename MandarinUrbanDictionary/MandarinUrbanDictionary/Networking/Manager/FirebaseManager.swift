@@ -140,7 +140,6 @@ class FirebaseManager {
                     }
                     
                     completion(.success(datas))
-                    
                 }
         }
     }
@@ -150,7 +149,37 @@ class FirebaseManager {
         dataBase.collection("Word").document(doc).updateData( ["check_times": views])
         
         completion()
+    }
+    
+    func updateFavorite(userID: String, wordID: String, action: FavoriteStauts,completion: @escaping (() -> Void)) {
         
+        switch action {
+        case .add:
+            dataBase.collection("User").document(userID).updateData(["favorite_words": FieldValue.arrayUnion([wordID])])
+        case .remove:
+            dataBase.collection("User").document(userID).updateData(["favorite_words": FieldValue.arrayRemove([wordID])])
+        }
+        
+        completion()
+    }
+    
+    func retrieveUser<T:Codable>(userID: String, wordID: String, completion: @escaping (Result<T?, Error>) -> Void) {
+        dataBase.collection("User").document(userID).getDocument { (querySnapshot, error) in
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                if let data = try? querySnapshot?.data(as: T.self, decoder: Firestore.Decoder()) {
+                    
+                    completion(.success(data))
+                    
+                } else {
+                    completion(.success(nil))
+                }
+            }
+        }
     }
 }
 
@@ -181,5 +210,9 @@ extension FirebaseManager {
     enum SortedBy: String {
         case views = "check_times"
         case time = "created_time"
+    }
+    
+    enum FavoriteStauts {
+        case add, remove
     }
 }

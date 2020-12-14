@@ -16,5 +16,6 @@ target 'MandarinUrbanDictionary' do
 	pod 'Firebase/Auth'
 	pod 'FSPagerView'
 	pod 'Charts'
+	pod 'Hero'
 
 end

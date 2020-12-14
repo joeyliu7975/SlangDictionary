@@ -26,6 +26,7 @@
 		7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134888425749582007ADED3 /* DefinitionTableViewCell.swift */; };
 		7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7134888525749582007ADED3 /* DefinitionTableViewCell.xib */; };
 		7134888A25749D05007ADED3 /* DefinitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134888925749D05007ADED3 /* DefinitionViewModel.swift */; };
+		7150956F25874EE60086B854 /* NewDefinitionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150956E25874EE60086B854 /* NewDefinitionViewModel.swift */; };
 		7152EADC2575E94A00F1C5FB /* AddNewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7152EADA2575E94A00F1C5FB /* AddNewWordViewController.swift */; };
 		7152EADD2575E94A00F1C5FB /* AddNewWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7152EADB2575E94A00F1C5FB /* AddNewWordViewController.xib */; };
 		7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71025725359007F7C90 /* UITableView+Extension.swift */; };
@@ -75,10 +76,8 @@
 		71CC56C42582676F007F3AF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71CC56C32582676E007F3AF1 /* GoogleService-Info.plist */; };
 		71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */; };
 		71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */; };
-		71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3302570D67900F15098 /* HomePageViewController.xib */; };
 		71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3322570D67900F15098 /* MostViewedWordCollectionViewCell.swift */; };
 		71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */; };
-		71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F33B2570D6FD00F15098 /* HomePageViewController.swift */; };
 		71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3402570D73700F15098 /* UIColor+Extension.swift */; };
 		71E7F3452570D73700F15098 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3412570D73700F15098 /* UIView+Extension.swift */; };
 		71E7F3462570D73700F15098 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3422570D73700F15098 /* UICollectionView+Extension.swift */; };
@@ -128,6 +127,7 @@
 		7134888425749582007ADED3 /* DefinitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionTableViewCell.swift; sourceTree = "<group>"; };
 		7134888525749582007ADED3 /* DefinitionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionTableViewCell.xib; sourceTree = "<group>"; };
 		7134888925749D05007ADED3 /* DefinitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionViewModel.swift; sourceTree = "<group>"; };
+		7150956E25874EE60086B854 /* NewDefinitionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDefinitionViewModel.swift; sourceTree = "<group>"; };
 		7152EADA2575E94A00F1C5FB /* AddNewWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordViewController.swift; sourceTree = "<group>"; };
 		7152EADB2575E94A00F1C5FB /* AddNewWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewWordViewController.xib; sourceTree = "<group>"; };
 		7160B71025725359007F7C90 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
@@ -179,10 +179,8 @@
 		71CC56C32582676E007F3AF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoeyPanelViewController.swift; sourceTree = "<group>"; };
 		71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostButtonView.swift; sourceTree = "<group>"; };
-		71E7F3302570D67900F15098 /* HomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePageViewController.xib; sourceTree = "<group>"; };
 		71E7F3322570D67900F15098 /* MostViewedWordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MostViewedWordCollectionViewCell.swift; sourceTree = "<group>"; };
 		71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MostViewedWordCollectionViewCell.xib; sourceTree = "<group>"; };
-		71E7F33B2570D6FD00F15098 /* HomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		71E7F3402570D73700F15098 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		71E7F3412570D73700F15098 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		71E7F3422570D73700F15098 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
@@ -404,7 +402,6 @@
 			isa = PBXGroup;
 			children = (
 				716CD30C2574F7A200695A91 /* ContainerViewController.swift */,
-				71E7F33B2570D6FD00F15098 /* HomePageViewController.swift */,
 				716CD30F2574F80500695A91 /* SidePanelViewController.swift */,
 			);
 			path = HomePage;
@@ -413,7 +410,6 @@
 		716CD3152574F81000695A91 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				71E7F3302570D67900F15098 /* HomePageViewController.xib */,
 				716CD3102574F80500695A91 /* SidePanelViewController.xib */,
 			);
 			path = HomePage;
@@ -710,6 +706,7 @@
 				71F8DDAB257C751200507D8F /* SearchViewModel.swift */,
 				71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */,
 				7188ADEC258480AE00524D96 /* RankViewModel.swift */,
+				7150956E25874EE60086B854 /* NewDefinitionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -875,7 +872,6 @@
 				71055A95258428A300560C5D /* LoginViewController.xib in Resources */,
 				71E929582584E0EE001FB100 /* TopFiveCollectionViewCell.xib in Resources */,
 				71E81EAA2584BAD600BECDCC /* LobbyViewController.xib in Resources */,
-				71E7F3352570D67900F15098 /* HomePageViewController.xib in Resources */,
 				716A8D6525778AA4005C5782 /* ReportViewController.xib in Resources */,
 				71E81EBA2584BBB900BECDCC /* Top5TableViewCell.xib in Resources */,
 				71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */,
@@ -1016,8 +1012,8 @@
 				71883B7C2578D6F300170AC9 /* RankTableViewCell.swift in Sources */,
 				71A84A8C257637B600E0C14D /* FavoriteTableViewCell.swift in Sources */,
 				7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */,
+				7150956F25874EE60086B854 /* NewDefinitionViewModel.swift in Sources */,
 				717569232570CFD300417B9C /* AppDelegate.swift in Sources */,
-				71E7F33C2570D6FD00F15098 /* HomePageViewController.swift in Sources */,
 				71A6C20D2586163800FC478D /* NSCharacterSet+Extension.swift in Sources */,
 				71F9442C2578C15E0014808E /* RankViewController.swift in Sources */,
 				71230B6025845C9200B78C9C /* UserDefaults+Extension.swift in Sources */,

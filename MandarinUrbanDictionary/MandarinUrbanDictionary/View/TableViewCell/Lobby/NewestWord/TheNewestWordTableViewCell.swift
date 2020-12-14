@@ -15,6 +15,8 @@ class TheNewestWordTableViewCell: UITableViewCell {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -34,11 +36,13 @@ class TheNewestWordTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func renderUI(title: String, description: String) {
+    func renderUI(title: String, description: String, image: String) {
         
         titleLabel.text = title
         
         descriptionLabel.text = description
+        
+        logoImageView.image = UIImage(named: image)
     }
     
 }

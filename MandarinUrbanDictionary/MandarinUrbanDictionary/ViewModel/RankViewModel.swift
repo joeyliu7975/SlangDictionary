@@ -42,7 +42,7 @@ class RankViewModel {
                 
                 let top5Words = words[0 ..< number]
                 
-                self.top5WordList = top5Words.map{ $0.title }
+                self.top5WordList = top5Words.map { $0.title }
                 
             case .failure:
                 break
@@ -67,6 +67,40 @@ class RankViewModel {
             case .failure:
                 break
             }
+        }
+    }
+}
+
+extension RankViewModel {
+    func getCategory(_ selectedCategory: Category) {
+        var category: String = ""
+        
+        switch selectedCategory {
+        case .all:
+            category = ""
+        case .engineer:
+            category = "工程師"
+        case .job:
+            category = "職場"
+        case .school:
+            category = "校園"
+        case .pickUpLine:
+            category = "撩妹"
+        case .restaurant:
+            category = "餐飲"
+        case .game:
+            category = "遊戲"
+        case .gym:
+            category = "健身"
+        case .relationship:
+            category = "感情"
+        }
+        
+        switch category == "" {
+        case true:
+            fetchData(sortedBy: .views)
+        case false:
+            retrieveAndfilterData(by: category)
         }
     }
 }

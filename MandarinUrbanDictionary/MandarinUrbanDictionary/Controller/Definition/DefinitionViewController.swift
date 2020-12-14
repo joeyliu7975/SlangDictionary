@@ -45,15 +45,19 @@ private extension DefinitionViewController {
     func setup() {
         
         viewModel?.checkFavorite(completion: { [weak self] (isFavorite) in
+            
             self?.viewModel?.isFavorite = isFavorite
+            
         })
         
     }
     
     func setupNav() {
+        
         navigationItem.setBarAppearance(with: .homepageDarkBlue)
         
         navigationItem.backButtonTitle = ""
+        
     }
     
     func setupTableView() {
@@ -73,7 +77,7 @@ private extension DefinitionViewController {
     
     func binding() {
         
-        viewModel?.definitionViewModels.bind { [weak self] (_) in
+        viewModel?.definitionViewModels.bind { [weak self] (definitions) in
             
             self?.tableView.reloadData()
             
@@ -105,9 +109,7 @@ private extension DefinitionViewController {
                 
                 self.present(nav, animated: true)
             case .cancel:
-                // Do Absolutely Nothing
-//                self.dismiss(animated: true, completion: nil)
-            break
+                break
             }
         }
         
@@ -119,29 +121,34 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
     
     func toggleFavorite(_ isFavorite: Bool) {
         
-        if isFavorite {
+        switch isFavorite {
+        case true:
             
             guard let viewModel = viewModel else { return }
             
             viewModel.updateFavorites(action: .add) {
+                
                 print("Add to Favorite Successfully!")
+                
             }
-            
-        } else {
+        case false:
             
             guard let viewModel = viewModel else { return }
             
             viewModel.updateFavorites(action: .remove) {
+                
                 print("Remove from Favorite Successfully!")
+                
             }
-            
         }
         
     }
     
     func writeNewDefinition() {
         
-        let newDefVC = NewDefinitionViewController()
+        guard let viewModel = viewModel else { return }
+        
+        let newDefVC = NewDefinitionViewController(wordID: viewModel.wordIdentifier)
         
         let nav = UINavigationController(rootViewController: newDefVC)
         
@@ -154,6 +161,58 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
 }
 
 extension DefinitionViewController: DefinitionTableViewCellDelegate {
+    
+    func like(_ cell: DefinitionTableViewCell) {
+        guard
+            let viewModel = viewModel,
+            let index = tableView.indexPath(for: cell),
+            let uid = UserDefaults.standard.value(forKey: "uid") as? String
+              else { return }
+        
+        let defID = viewModel.definitionViewModels.value[index.row].identifier
+            
+        let isLike = viewModel.definitionViewModels.value[index.row].like.contains(uid)
+        
+        switch isLike {
+        case true:
+           //取消Like
+            viewModel.updateLikes(isLike: !isLike, defID: defID)
+            
+        case false:
+            // Like，取消Dislike
+            viewModel.updateLikes(isLike: !isLike, defID: defID)
+            
+            viewModel.updateDislikes(isDislike: isLike, defID: defID)
+            
+        }
+    }
+    
+    func dislike(_ cell: DefinitionTableViewCell) {
+        guard
+            let viewModel = viewModel,
+            let index = tableView.indexPath(for: cell),
+            let uid = UserDefaults.standard.value(forKey: "uid") as? String
+              else { return }
+        
+        let defID = viewModel.definitionViewModels.value[index.row].identifier
+        
+        let isDislike = viewModel.definitionViewModels.value[index.row].dislike.contains(uid)
+        
+        switch isDislike {
+        case true:
+            //取消Dislike
+            viewModel.updateDislikes(isDislike: !isDislike, defID: defID)
+            
+        case false:
+            //取消Like，Dislike
+            viewModel.updateDislikes(isDislike: !isDislike, defID: defID)
+            
+            viewModel.updateLikes(isLike: isDislike, defID: defID)
+            
+        }
+        
+    }
+    
     
     func report(_ cell: DefinitionTableViewCell) {
         
@@ -234,7 +293,8 @@ extension DefinitionViewController: UITableViewDataSource {
         
         guard
             let definition = viewModel?.definitionViewModels.value[indexPath.row],
-            let rankString = viewModel?.convertRank(with: indexPath.row)
+            let rankString = viewModel?.convertRank(with: indexPath.row),
+            let uid = UserDefaults.standard.value(forKey: "uid") as? String
         else { return cell }
         
         if let definitionTableViewCell = cell as? DefinitionTableViewCell {
@@ -243,7 +303,7 @@ extension DefinitionViewController: UITableViewDataSource {
             
             definitionTableViewCell.delegate = self
             
-            let opinion = definition.showUserOpinion("ge3naXXUMzHTJ63oFbmP")
+            let opinion = definition.showUserOpinion(uid)
             
             definitionTableViewCell.renderUI(
                 rank: rankString,

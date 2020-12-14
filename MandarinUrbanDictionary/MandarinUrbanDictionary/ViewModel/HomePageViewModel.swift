@@ -16,24 +16,16 @@ class HomePageViewModel {
     var userViewModels = Box([User]())
             
     var wordViewModels = Box([Word]())
+
+    var topFiveWords = [Word]()
     
-    var topFiveWords = [Word]() {
-        didSet {
-            
-        }
-    }
-    
-    var newestWord = [Word]() {
-        didSet {
-            
-        }
-    }
+    var newestWord = [Word]()
             
     var updateHot5: (() -> Void )?
     
     var loadForFirstTime: (() -> Void)?
     
-    let group = DispatchGroup()
+    private let group: DispatchGroup = .init()
     
     var dataHasReloaded: Bool = false {
         didSet {
@@ -63,11 +55,6 @@ class HomePageViewModel {
                     
                 }
             }
-            
-        case .definition(_):
-            
-            break
-            
         case .user:
             
             networkManager.listen(collection) { (result: Result<[User], Error>) in
@@ -84,9 +71,7 @@ class HomePageViewModel {
                     
                 }
             }
-        case .time:
-            break
-        case .report:
+        default :
             break
         }
     }
@@ -112,10 +97,6 @@ class HomePageViewModel {
                     
                 }
             }
-        case .definition(_):
-            
-            break
-            
         case .user:
             
             networkManager.listen(collection) { (result: Result<[User], Error>) in
@@ -132,10 +113,33 @@ class HomePageViewModel {
                     
                 }
             }
-        case .time:
+        default:
             break
-        case .report:
-            break
+        }
+    }
+}
+
+extension HomePageViewModel {
+    enum Carousel: CaseIterable {
+        
+        case newestWord, mostViewedWord, dailyWord
+        
+        func getImage() -> String {
+            
+            switch self {
+            
+            case .mostViewedWord:
+                
+                return ImageConstant.top5
+                
+            case .newestWord:
+                
+                return ImageConstant.newWordsLogo
+                
+            case .dailyWord:
+                
+                return ImageConstant.wordOfTheDay
+            }
         }
     }
 }

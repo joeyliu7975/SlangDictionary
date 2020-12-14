@@ -29,6 +29,21 @@ struct Word: Codable {
         
         case views = "check_times"
     }
+}
+
+extension Word: FirebaseItem {
+    
+    typealias Item = [String: Any]
+    
+    var dictionary: Item {
+        return [
+            "title": title,
+            "category": category,
+            "id": identifier,
+            "created_time": time,
+            "check_times": views
+        ]
+    }
     
 }
 

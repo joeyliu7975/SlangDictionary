@@ -44,7 +44,12 @@ class AddNewWordViewModel {
             idForWord: wordID
         )
         
-        networkManager.createNewWord(word: newWord, def: definition, completion: completion)
+        networkManager.createNewWord(
+            word: newWord,
+            def: definition,
+            completion: completion
+        )
+       
     }
     
     func containEmptyString(_ texts: [String]) -> Bool {

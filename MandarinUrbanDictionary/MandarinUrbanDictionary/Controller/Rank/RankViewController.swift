@@ -10,14 +10,6 @@ import Charts
 
 class RankViewController: JoeyPanelViewController {
     
-//    private lazy var pieChartView: PieChartView = {
-//        let chartView = PieChartView()
-//
-//        chartView.backgroundColor = .white
-//
-//        return chartView
-//    }()
-    
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
     @IBOutlet weak var tableView: UITableView!
@@ -36,29 +28,24 @@ class RankViewController: JoeyPanelViewController {
     
     @IBAction func switchSegment(_ sender: UISegmentedControl) {
         
-        switch  sender.selectedSegmentIndex {
-        case 0:
-            viewModel?.fetchData(sortedBy: .views)
-        case 1:
-            viewModel?.fetchData(sortedBy: .time)
-        case 2:
-            showList()
-        default:
-            break
-        }
+        fetchData(at: sender.selectedSegmentIndex)
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setup()
                 
         setupTableView()
         
         setupNavigationController()
         
         binding()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        fetchData(at: segmentControl.selectedSegmentIndex)
+        
     }
     
     func showList() {
@@ -74,47 +61,13 @@ class RankViewController: JoeyPanelViewController {
 extension RankViewController: CategoryDelegate {
     
     func confirmSelection(_ selectedCategory: Category) {
-        
-        var category: String = ""
-        
-        switch selectedCategory {
-        case .all:
-            category = ""
-        case .engineer:
-            category = "工程師"
-        case .job:
-            category = "職場"
-        case .school:
-            category = "校園"
-        case .pickUpLine:
-            category = "撩妹"
-        case .restaurant:
-            category = "餐飲"
-        case .game:
-            category = "遊戲"
-        case .gym:
-            category = "健身"
-        case .relationship:
-            category = "感情"
-        }
-        
-        if category == "" {
-            viewModel?.fetchData(sortedBy: .views)
-        } else {
-            viewModel?.retrieveAndfilterData(by: category)
-        }
-        
+       
+        viewModel?.getCategory(selectedCategory)
+
     }
-    
 }
 
 private extension RankViewController {
-    
-    func setup() {
-        
-        viewModel?.fetchData(sortedBy: .views)
-        
-    }
     
     func setupTableView() {
         
@@ -147,6 +100,25 @@ private extension RankViewController {
         }
         
     }
+}
+
+extension RankViewController {
+    
+    func fetchData(at index: Int) {
+        
+        switch  index {
+        case 0:
+            viewModel?.fetchData(sortedBy: .views)
+        case 1:
+            viewModel?.fetchData(sortedBy: .time)
+        case 2:
+            showList()
+        default:
+            break
+        }
+        
+    }
+    
 }
 
 extension RankViewController: UITableViewDelegate {

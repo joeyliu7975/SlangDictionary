@@ -173,6 +173,34 @@ class FirebaseManager {
         completion()
     }
     
+    func updateLike(defID: String, isLike: Bool, completion: @escaping (() -> Void)) {
+        
+        guard let uid = UserDefaults.standard.value(forKey: "uid") else { return }
+        
+        switch isLike {
+        case true:
+            dataBase.collection("Definition").document(defID).updateData(["like": FieldValue.arrayUnion([uid])])
+        case false:
+            dataBase.collection("Definition").document(defID).updateData(["like": FieldValue.arrayRemove([uid])])
+        }
+        
+        completion()
+    }
+    
+    func updateDislike(defID: String, isDislike: Bool, completion: @escaping (() -> Void)) {
+        
+        guard let uid = UserDefaults.standard.value(forKey: "uid") else { return }
+        
+        switch isDislike {
+        case true:
+            dataBase.collection("Definition").document(defID).updateData(["dislike": FieldValue.arrayUnion([uid])])
+        case false:
+            dataBase.collection("Definition").document(defID).updateData(["dislike": FieldValue.arrayRemove([uid])])
+        }
+        
+        completion()
+    }
+    
     func updateFavorite(userID: String, wordID: String, action: FavoriteStauts, completion: @escaping (() -> Void)) {
         
         switch action {
@@ -187,24 +215,17 @@ class FirebaseManager {
     
     func createNewWord(word: Word, def: Definition, completion: () -> Void) {
         
-        dataBase.collection("Word").document(word.identifier).setData([
-            "category": word.category,
-            "check_times": word.views,
-            "created_time": word.time,
-            "id": word.identifier,
-            "title": word.title
-        ]
-        )
+        dataBase.collection("Word").document(word.identifier).setData(word.dictionary)
+        
+        createNewDef(def: def, completion: completion)
+//        dataBase.collection("Definition").document(def.identifier)
+//            .setData(def.dictionary)
+    }
+    
+    func createNewDef(def: Definition, completion: () -> Void) {
         
         dataBase.collection("Definition").document(def.identifier)
-            .setData([
-                "content": def.content,
-                "created_time": def.time,
-                "dislike": def.dislike,
-                "id": def.identifier,
-                "like": def.like,
-                "word_id": def.idForWord
-            ])
+            .setData(def.dictionary)
         
         completion()
     }
@@ -264,4 +285,11 @@ extension FirebaseManager {
 enum NetworkError: Error {
     case decodeError
     case noData(Error)
+}
+
+protocol FirebaseItem {
+    
+    associatedtype Item
+    
+    var dictionary: Item { get }
 }

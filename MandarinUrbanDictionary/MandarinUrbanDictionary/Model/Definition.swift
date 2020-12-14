@@ -33,6 +33,21 @@ struct Definition: Codable {
     }
 }
 
+extension Definition: FirebaseItem {
+        typealias Item = [String: Any]
+        
+        var dictionary: Item {
+            return [
+                "content": content,
+                "like": like,
+                "dislike": dislike,
+                "id": identifier,
+                "created_time": time,
+                "word_id": idForWord
+            ]
+        }
+}
+
 extension Definition {
     
     enum Opinion {

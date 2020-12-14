@@ -52,6 +52,11 @@ class AddNewWordViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    @IBAction func clickCancel(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
+    
     @IBAction func clickSend(_ sender: UIButton) {
         
         guard
@@ -61,9 +66,6 @@ class AddNewWordViewController: UIViewController {
         else {
             return
         }
-        
-        // Can update id later after user make new word
-        // Make word first , then bring Word's id to Definition
         
         viewModel.createNewWord(word: word, definition: definition, category: category) {
             

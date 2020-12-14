@@ -58,4 +58,6 @@ struct ImageConstant {
     static let appleIcon = "apple_icon"
     
     static let crown = "crown_filled_50x50"
+    
+    static let wordOfTheDay = "word_of_the_day"
 }

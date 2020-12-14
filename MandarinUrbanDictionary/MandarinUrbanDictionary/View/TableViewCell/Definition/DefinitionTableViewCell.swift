@@ -9,6 +9,8 @@ import UIKit
 
 protocol DefinitionTableViewCellDelegate: class {
     func report(_ cell: DefinitionTableViewCell)
+    func like(_ cell: DefinitionTableViewCell)
+    func dislike(_ cell: DefinitionTableViewCell)
 }
 
 class DefinitionTableViewCell: UITableViewCell {
@@ -59,11 +61,11 @@ class DefinitionTableViewCell: UITableViewCell {
         
         case likeButton:
             
-            feedback(.like)
+            delegate?.like(self)
             
         case dislikeButton:
             
-            feedback(.dislike)
+            delegate?.dislike(self)
             
         case reportButton:
             
@@ -104,6 +106,7 @@ extension DefinitionTableViewCell {
 private extension DefinitionTableViewCell {
     
    func defaultConfiguration() {
+    
         rankLabelView.setCorner(radius: 10.0)
     
         rankLabelView.backgroundColor = .rankLabelBackgroundBlue

@@ -21,3 +21,17 @@ struct Report: Codable {
         
     }
 }
+
+extension Report: FirebaseItem {
+    
+    typealias Item = [String: Any]
+    
+    var dictionary: Item {
+        return [
+            "userIdentifierNumber": userIdentifierNumber,
+            "time": time,
+            "reason": reason
+        ]
+    }
+    
+}

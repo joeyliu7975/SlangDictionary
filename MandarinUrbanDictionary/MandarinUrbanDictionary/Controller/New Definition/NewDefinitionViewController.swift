@@ -69,7 +69,23 @@ class NewDefinitionViewController: UIViewController {
     
     private var heightConstraint: NSLayoutConstraint?
     
+    private var viewModel: NewDefinitionViewModel?
+    
     var characterCounter = 0
+    
+    init(wordID: String) {
+        
+        viewModel = NewDefinitionViewModel(wordID: wordID)
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        
+        super.init(coder: coder)
+        
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +112,15 @@ class NewDefinitionViewController: UIViewController {
             
             let height = view.bounds.height - keyboardSize.height - barHeight - 70
             
-            heightConstraint = NSLayoutConstraint(item: textView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: height)
+            heightConstraint = NSLayoutConstraint(
+                item: textView,
+                attribute: .height,
+                relatedBy: .equal,
+                toItem: nil,
+                attribute: .notAnAttribute,
+                multiplier: 1,
+                constant: height
+            )
             
             textView.addConstraint(heightConstraint!)
             
@@ -109,7 +133,9 @@ class NewDefinitionViewController: UIViewController {
     }
     
     @objc func send() {
+        viewModel?.writeNewDefinition(completion: {
             dismiss(animated: true)
+        })
     }
 }
 
@@ -172,6 +198,8 @@ extension NewDefinitionViewController: UITextViewDelegate {
             
             sendButton.isEnabled = true
             
+            viewModel?.textViewContent(text)
+            
         } else {
             
             placeholderLabel.isHidden = false
@@ -179,6 +207,8 @@ extension NewDefinitionViewController: UITextViewDelegate {
             sendButton.isEnabled = false
 
         }
+        
+        
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -188,7 +218,7 @@ extension NewDefinitionViewController: UITextViewDelegate {
         if (textView.textInputMode?.primaryLanguage == "emoji") || textView.textInputMode?.primaryLanguage == nil {
             return false
         }
-        if let range = text.rangeOfCharacter(from: validString as CharacterSet) {
+        if text.rangeOfCharacter(from: validString as CharacterSet) != nil {
             
             return false
         }

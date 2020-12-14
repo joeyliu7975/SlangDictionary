@@ -49,6 +49,22 @@ class DefinitionViewModel {
         }
     }
     
+    func updateLikes(isLike: Bool, defID: String) {
+        
+        networkManager.updateLike(defID: defID, isLike: isLike) {
+            print("update Likes")
+        }
+
+    }
+    
+    func updateDislikes(isDislike: Bool, defID: String) {
+        
+        networkManager.updateDislike(defID: defID, isDislike: isDislike) {
+            print("update Dislikes")
+        }
+        
+    }
+    
     func checkFavorite(completion: @escaping (Bool) -> Void) {
         
         if let userID = UserDefaults.standard.value(forKey: "uid") as? String {
@@ -58,7 +74,7 @@ class DefinitionViewModel {
                 switch result {
                 case .success(let user):
                     
-                   let isFavorite = user.favorites.contains(self.wordIdentifier)
+                    let isFavorite = user.favorites.contains(self.wordIdentifier)
                     
                     completion(isFavorite)
                     
@@ -72,8 +88,8 @@ class DefinitionViewModel {
                     
                 }
             }
-            }
         }
+    }
     
     func updateFavorites(action: FirebaseManager.FavoriteStauts,completion: @escaping (() -> Void)) {
         

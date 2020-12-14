@@ -148,12 +148,15 @@ extension LobbyViewController: UITableViewDelegate {
         let type = viewModel.carouselList[indexPath.row]
         
         switch type {
+        
         case .newestWord:
+            
             let word = viewModel.newestWord[indexPath.row]
             
             let definitionController = DefinitionViewController(identifierNumber: word.identifier, word: word.title)
             
             viewController = definitionController
+            
         case .mostViewedWord:
             
             return
@@ -212,6 +215,7 @@ extension LobbyViewController: UITableViewDelegate {
 
 extension LobbyViewController: LobbyHeaderDelegate {
     func clickSearch() {
+        
         let searchViewController = SearchPageViewController()
         
         let navController = UINavigationController(rootViewController: searchViewController)
@@ -225,7 +229,9 @@ extension LobbyViewController: LobbyHeaderDelegate {
 }
 
 extension LobbyViewController: Top5TableViewDelegate {
-    func didSelectWord<T>(_ word: T) where T : Decodable, T : Encodable {
+    
+    func didSelectWord<T>(_ word: T) where T: Codable {
+        
         guard let word = word as? Word else { return }
         
         let viewController = DefinitionViewController(identifierNumber: word.identifier, word: word.title)
@@ -237,6 +243,7 @@ extension LobbyViewController: Top5TableViewDelegate {
 }
 
 extension LobbyViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -263,7 +270,11 @@ extension LobbyViewController: UITableViewDataSource {
                 
                 let word = viewModel.newestWord[indexPath.row]
                 
-                newestWordCell.renderUI(title: word.title, description: word.time.timeStampToStringDetail())
+                newestWordCell.renderUI(
+                    title: word.title,
+                    description: word.time.timeStampToStringDetail(),
+                    image: type.getImage()
+                )
                 
                 cell = newestWordCell
             }
@@ -283,15 +294,19 @@ extension LobbyViewController: UITableViewDataSource {
         case .dailyWord:
             cell = tableView.dequeueReusableCell(withIdentifier: TheNewestWordTableViewCell.reusableIdentifier, for: indexPath)
             
-            if let newestWordCell = cell as? TheNewestWordTableViewCell {
+            if let wordOfTheDayCell = cell as? TheNewestWordTableViewCell {
                 
                 let number = Int.random(in: 0 ..< viewModel.wordViewModels.value.count)
                 
                 let word = viewModel.wordViewModels.value[number]
                 
-                newestWordCell.renderUI(title: word.title, description: word.time.timeStampToStringDetail())
+                wordOfTheDayCell.renderUI(
+                    title: word.title,
+                    description: word.time.timeStampToStringDetail(),
+                    image: type.getImage()
+                )
                 
-                cell = newestWordCell
+                cell = wordOfTheDayCell
             }
         }
         
@@ -299,18 +314,9 @@ extension LobbyViewController: UITableViewDataSource {
     }
 }
 
-enum Carousel: CaseIterable {
+protocol CenterViewControllerDelegate: class {
     
-    case newestWord, mostViewedWord, dailyWord
+  func toggleLeftPanel()
     
-    func getImage() -> String {
-        switch self {
-        case .mostViewedWord:
-            return ImageConstant.top5
-        case .newestWord:
-            return ImageConstant.newWordsLogo
-        case .dailyWord:
-            return ImageConstant.top5
-        }
-    }
+  func writeNewWord()
 }

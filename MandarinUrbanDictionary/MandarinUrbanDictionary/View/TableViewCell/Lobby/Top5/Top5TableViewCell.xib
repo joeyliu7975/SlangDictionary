@@ -31,12 +31,12 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top5" translatesAutoresizingMaskIntoConstraints="NO" id="unV-Q1-vW4">
-                                <rect key="frame" x="0.0" y="0.0" width="560" height="86.5"/>
+                                <rect key="frame" x="0.0" y="20" width="560" height="66.5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="unV-Q1-vW4" firstAttribute="top" secondItem="vgr-NY-Hmn" secondAttribute="top" id="BUH-O0-42l"/>
+                            <constraint firstItem="unV-Q1-vW4" firstAttribute="top" secondItem="vgr-NY-Hmn" secondAttribute="top" constant="20" id="BUH-O0-42l"/>
                             <constraint firstItem="unV-Q1-vW4" firstAttribute="leading" secondItem="vgr-NY-Hmn" secondAttribute="leading" id="IvZ-xe-tem"/>
                             <constraint firstAttribute="trailing" secondItem="unV-Q1-vW4" secondAttribute="trailing" id="RRA-fv-PJv"/>
                             <constraint firstItem="Wnw-0B-Rp7" firstAttribute="top" secondItem="unV-Q1-vW4" secondAttribute="bottom" constant="20" id="RZR-DI-LHH"/>

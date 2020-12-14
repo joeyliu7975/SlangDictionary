@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import Hero
+
+protocol TopFiveCollectionCellDelegate: class {
+    func didSelectCell(_ cell: TopFiveCollectionViewCell)
+}
 
 class TopFiveCollectionViewCell: UICollectionViewCell {
 
     static let reusableIdentifier = String(describing: TopFiveCollectionViewCell.self)
     
     @IBOutlet weak var rankBoardView: UIView!
+    
+    weak var delegate: TopFiveCollectionCellDelegate?
     
     lazy var crownView: UIImageView = {
        
@@ -29,6 +36,10 @@ class TopFiveCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    override func select(_ sender: Any?) {
+        self.delegate?.didSelectCell(self)
     }
     
     override func layoutSubviews() {

@@ -64,6 +64,7 @@ class CategoryViewController: UIViewController {
         delegate?.confirmSelection(selectedCategory)
         
         self.dismiss(animated: true)
+        
     }
 }
 
@@ -121,7 +122,7 @@ extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifierName, for: indexPath)
-        
+                
         let category = categoryList[indexPath.row]
         
         let icon = category.instance()

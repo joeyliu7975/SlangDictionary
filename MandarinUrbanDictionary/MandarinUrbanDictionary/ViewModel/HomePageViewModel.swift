@@ -43,6 +43,54 @@ class HomePageViewModel {
         }
     }
     
+    func listen(in collection: FirebaseManager.Collection) {
+        switch collection {
+        
+        case .word(let order):
+            
+            networkManager.listen(.word(orderBy: order)) { (result: Result<[Word], Error>) in
+                switch result {
+                
+                case .success(let words):
+                    
+                    self.topFiveWords = Array(words[0 ... 4])
+                    
+                    self.wordViewModels.value = words
+                    
+                case .failure(let error):
+                    
+                    print("fetchData.failure: \(error)")
+                    
+                }
+            }
+            
+        case .definition(_):
+            
+            break
+            
+        case .user:
+            
+            networkManager.listen(collection) { (result: Result<[User], Error>) in
+                
+                switch result {
+                
+                case .success(let users):
+                    
+                    self.userViewModels.value = users
+                    
+                case .failure(let error):
+                    
+                    print("fetchData.failure: \(error)")
+                    
+                }
+            }
+        case .time:
+            break
+        case .report:
+            break
+        }
+    }
+    
     func fetchData(in collection: FirebaseManager.Collection) {
        
         switch collection {

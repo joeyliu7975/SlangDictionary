@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slang_dictionary_logo" translatesAutoresizingMaskIntoConstraints="NO" id="qxC-wK-78K">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slang dictionary_logo_nobackground" translatesAutoresizingMaskIntoConstraints="NO" id="qxC-wK-78K">
                                 <rect key="frame" x="0.0" y="241" width="414" height="414"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qxC-wK-78K" secondAttribute="height" multiplier="1:1" id="RBW-oK-bGX"/>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="slang_dictionary_logo" width="500" height="500"/>
+        <image name="slang dictionary_logo_nobackground" width="500" height="500"/>
     </resources>
 </document>

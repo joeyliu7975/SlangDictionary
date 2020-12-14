@@ -44,7 +44,9 @@ private extension DefinitionViewController {
     
     func setup() {
         
-        viewModel?.checkFavorite()
+        viewModel?.checkFavorite(completion: { [weak self] (isFavorite) in
+            self?.viewModel?.isFavorite = isFavorite
+        })
         
     }
     

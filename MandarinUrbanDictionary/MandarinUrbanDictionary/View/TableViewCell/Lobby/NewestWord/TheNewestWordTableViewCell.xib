@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqV-7V-auB" customClass="CardView" customModule="MandarinUrbanDictionary" customModuleProvider="target">
-                        <rect key="frame" x="15" y="16" width="378" height="247"/>
+                        <rect key="frame" x="32" y="20" width="344" height="253"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whats_new" translatesAutoresizingMaskIntoConstraints="NO" id="t4l-16-vjr">
-                                <rect key="frame" x="0.0" y="0.0" width="378" height="123.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="344" height="126.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XbR-jX-VvD">
-                                <rect key="frame" x="165" y="153.5" width="48" height="21"/>
+                                <rect key="frame" x="148" y="156.5" width="48" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bAK-uG-PKW"/>
                                 </constraints>
@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8aM-gS-tSt">
-                                <rect key="frame" x="180" y="179.5" width="18" height="1"/>
+                                <rect key="frame" x="163" y="182.5" width="18" height="1"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="SxJ-kr-Dde"/>
@@ -41,7 +41,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQw-BZ-PhV">
-                                <rect key="frame" x="15" y="185.5" width="348" height="21"/>
+                                <rect key="frame" x="15" y="188.5" width="314" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="EuX-VY-O4D"/>
                                 </constraints>
@@ -73,10 +73,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="mqV-7V-auB" secondAttribute="trailing" constant="15" id="97a-x9-B4K"/>
-                    <constraint firstAttribute="bottom" secondItem="mqV-7V-auB" secondAttribute="bottom" constant="30" id="Ck3-UY-TRe"/>
-                    <constraint firstItem="mqV-7V-auB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="H92-o4-7Ag"/>
-                    <constraint firstItem="mqV-7V-auB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="cnJ-HD-RlE"/>
+                    <constraint firstAttribute="trailing" secondItem="mqV-7V-auB" secondAttribute="trailing" constant="32" id="97a-x9-B4K"/>
+                    <constraint firstAttribute="bottom" secondItem="mqV-7V-auB" secondAttribute="bottom" constant="20" id="Ck3-UY-TRe"/>
+                    <constraint firstItem="mqV-7V-auB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="H92-o4-7Ag"/>
+                    <constraint firstItem="mqV-7V-auB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="cnJ-HD-RlE"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

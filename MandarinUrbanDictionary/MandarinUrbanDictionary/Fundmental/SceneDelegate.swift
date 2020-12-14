@@ -18,24 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 //
         window = UIWindow(windowScene: windowScene)
-//
-//        window?.makeKeyAndVisible()
-//
-//        let loginPageVC = ContainerViewController()
-//
-//        window?.rootViewController = loginPageVC
         
-        loginPage()
-//        
-//        if let hasLogin = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool {
-//
-//            if hasLogin == true {
-//                homePage()
-//            }
-//
-//        } else {
-//            loginPage()
-//        }
+        homePage()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

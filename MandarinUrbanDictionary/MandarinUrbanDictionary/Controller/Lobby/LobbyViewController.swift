@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero
 
 class LobbyViewController: UIViewController {
     
@@ -31,9 +32,40 @@ class LobbyViewController: UIViewController {
         binding()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        userHasSignedIn()
+    }
+    
+    @objc func toggleSideMenu() {
+        //Remove leftBarButtonItem when SidePanel show
+        delegate?.toggleLeftPanel()
+    }
+}
+
+private extension LobbyViewController {
+   
+    func userHasSignedIn() {
+        if let hasLogin = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool {
+            if hasLogin == false {
+                jumpToLoginpage()
+            }
+        }
+    }
+    
+    func jumpToLoginpage() {
+
+        let loginPage = LoginViewController()
+
+        loginPage.modalTransitionStyle = .coverVertical
+
+        loginPage.modalPresentationStyle = .fullScreen
+
+        present(loginPage, animated: true)
+    }
+    
     func setup() {
         
-        viewModel.fetchData(in: .word(orderBy: .time))
+        viewModel.listen(in: .word(orderBy: .time))
         
         view.backgroundColor = .homepageDarkBlue
         
@@ -82,7 +114,7 @@ class LobbyViewController: UIViewController {
         viewModel.wordViewModels.bind { [weak self] (words) in
             
             if words.isEmpty {
-                return 
+                return
             }
             
             self?.viewModel.newestWord = Array(arrayLiteral: words[0])
@@ -96,10 +128,6 @@ class LobbyViewController: UIViewController {
         
     }
     
-    @objc func toggleSideMenu() {
-        //Remove leftBarButtonItem when SidePanel show
-        delegate?.toggleLeftPanel()
-    }
 }
 
 extension LobbyViewController: PostButtonDelegate {
@@ -178,7 +206,7 @@ extension LobbyViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 80
+        return 72
     }
 }
 

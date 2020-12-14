@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODj-ub-FS6">
-                        <rect key="frame" x="30" y="10" width="290" height="50"/>
+                        <rect key="frame" x="30" y="0.0" width="290" height="70"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPP-Er-UNc">
-                                <rect key="frame" x="121.5" y="12" width="47" height="26"/>
+                                <rect key="frame" x="121.5" y="22" width="47" height="26"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -37,9 +37,9 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="ODj-ub-FS6" secondAttribute="trailing" constant="30" id="Y27-gC-SSZ"/>
-                <constraint firstItem="ODj-ub-FS6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="hkJ-Xz-P0u"/>
+                <constraint firstItem="ODj-ub-FS6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hkJ-Xz-P0u"/>
                 <constraint firstItem="ODj-ub-FS6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="30" id="iUr-II-XUc"/>
-                <constraint firstAttribute="bottom" secondItem="ODj-ub-FS6" secondAttribute="bottom" constant="10" id="jIb-uw-KFN"/>
+                <constraint firstAttribute="bottom" secondItem="ODj-ub-FS6" secondAttribute="bottom" id="jIb-uw-KFN"/>
             </constraints>
             <size key="customSize" width="409" height="182"/>
             <connections>

@@ -80,10 +80,8 @@ extension ContainerViewController: CenterViewControllerDelegate {
     
     func writeNewWord() {
         
-        UserDefaults.standard.setValue(false, forKey: UserDefaults.keyForLoginStatus)
-
         let addNewWordVC = AddNewWordViewController()
-
+        
         present(addNewWordVC, animated: true)
     }
     

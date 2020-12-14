@@ -23,6 +23,28 @@ class FirebaseManager {
         
         switch collection {
         
+        case .word(let field):
+            dataBase.collection(collection.name).order(by: field.rawValue, descending: true).addSnapshotListener { (querySnapshot, error) in
+                
+                if let error = error {
+                    
+                    completion(.failure(error))
+                    
+                } else {
+                    
+                    var datas = [T]()
+                    
+                    for document in querySnapshot!.documents {
+                        if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
+                            datas.append(data)
+                        }
+                    }
+                    
+                    completion(.success(datas))
+                    
+                }
+            }
+        
         case .definition(let id):
             
             dataBase
@@ -151,7 +173,7 @@ class FirebaseManager {
         completion()
     }
     
-    func updateFavorite(userID: String, wordID: String, action: FavoriteStauts,completion: @escaping (() -> Void)) {
+    func updateFavorite(userID: String, wordID: String, action: FavoriteStauts, completion: @escaping (() -> Void)) {
         
         switch action {
         case .add:
@@ -163,21 +185,43 @@ class FirebaseManager {
         completion()
     }
     
-    func retrieveUser<T:Codable>(userID: String, wordID: String, completion: @escaping (Result<T?, Error>) -> Void) {
+    func createNewWord(word: Word, def: Definition, completion: () -> Void) {
+        
+        dataBase.collection("Word").document(word.identifier).setData([
+            "category": word.category,
+            "check_times": word.views,
+            "created_time": word.time,
+            "id": word.identifier,
+            "title": word.title
+        ]
+        )
+        
+        dataBase.collection("Definition").document(def.identifier)
+            .setData([
+                "content": def.content,
+                "created_time": def.time,
+                "dislike": def.dislike,
+                "id": def.identifier,
+                "like": def.like,
+                "word_id": def.idForWord
+            ])
+        
+        completion()
+    }
+    
+    func retrieveUser<T: Codable>(userID: String, completion: @escaping (Result<T, NetworkError>) -> Void) {
+        
         dataBase.collection("User").document(userID).getDocument { (querySnapshot, error) in
             if let error = error {
                 
-                completion(.failure(error))
+                completion(.failure(.noData(error)))
                 
             } else {
-                
-                if let data = try? querySnapshot?.data(as: T.self, decoder: Firestore.Decoder()) {
-                    
+                    if let data = try? querySnapshot?.data(as: T.self, decoder: Firestore.Decoder()) {
                     completion(.success(data))
-                    
-                } else {
-                    completion(.success(nil))
-                }
+                    } else {
+                        completion(.failure(.decodeError))
+                    }
             }
         }
     }
@@ -215,4 +259,9 @@ extension FirebaseManager {
     enum FavoriteStauts {
         case add, remove
     }
+}
+
+enum NetworkError: Error {
+    case decodeError
+    case noData(Error)
 }

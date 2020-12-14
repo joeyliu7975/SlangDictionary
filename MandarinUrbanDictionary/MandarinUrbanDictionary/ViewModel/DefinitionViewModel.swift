@@ -49,17 +49,27 @@ class DefinitionViewModel {
         }
     }
     
-    func checkFavorite() {
+    func checkFavorite(completion: @escaping (Bool) -> Void) {
         
         if let userID = UserDefaults.standard.value(forKey: "uid") as? String {
             
-            networkManager.retrieveUser(userID: userID, wordID: wordIdentifier) { (result: Result<User?, Error>) in
+            networkManager.retrieveUser(userID: userID) { (result: Result<User, NetworkError>) in
                 
                 switch result {
                 case .success(let user):
-                    self.isFavorite = (user == nil) ? false : true
-                case .failure(let error):
+                    
+                   let isFavorite = user.favorites.contains(self.wordIdentifier)
+                    
+                    completion(isFavorite)
+                    
+                case .failure(.noData(let error)):
+                    
                     print(error.localizedDescription)
+                    
+                case .failure(.decodeError):
+                    
+                    print("Decode Error!")
+                    
                 }
             }
             }

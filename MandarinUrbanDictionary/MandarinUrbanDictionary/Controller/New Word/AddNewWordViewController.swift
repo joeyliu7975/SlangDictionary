@@ -53,6 +53,7 @@ class AddNewWordViewController: UIViewController {
     }
     
     @IBAction func clickSend(_ sender: UIButton) {
+        
         guard
             let word = newWordTF.text,
             let definition = definitionTextView.text,
@@ -64,11 +65,11 @@ class AddNewWordViewController: UIViewController {
         // Can update id later after user make new word
         // Make word first , then bring Word's id to Definition
         
-        var newWord = viewModel.createNewWord(word: word, definition: definition, category: category)
-        
-        // Call Firebase then after firebase receive result dismiss this Page
-        
-        self.dismiss(animated: true)
+        viewModel.createNewWord(word: word, definition: definition, category: category) {
+            
+            self.dismiss(animated: true)
+            
+        }
     }
 }
 
@@ -151,6 +152,7 @@ private extension AddNewWordViewController {
         containerView.backgroundColor = .separatorlineBlue
         
         pickerView = UIPickerView()
+        
     }
     
     func binding() {

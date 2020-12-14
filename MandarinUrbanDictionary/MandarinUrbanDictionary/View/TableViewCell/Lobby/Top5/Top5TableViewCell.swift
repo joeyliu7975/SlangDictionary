@@ -57,6 +57,7 @@ class Top5TableViewCell: UITableViewCell {
 }
 
 extension Top5TableViewCell:  UICollectionViewDelegate{
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
         if (topFive.count - 1) >= indexPath.row {

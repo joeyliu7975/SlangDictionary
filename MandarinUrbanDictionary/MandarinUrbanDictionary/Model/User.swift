@@ -21,7 +21,7 @@ struct User: Codable {
         
         case identifier = "id"
         
-        case name = "display_name"
+        case name = "display_Name"
         
         case recents = "recent_search"
         

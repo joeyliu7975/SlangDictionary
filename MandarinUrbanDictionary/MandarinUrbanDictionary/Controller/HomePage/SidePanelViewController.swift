@@ -44,9 +44,9 @@ class SidePanelViewController: UIViewController {
 extension SidePanelViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectIcon = viewModel.selectItem(index: indexPath.row)
+        let selectedIcon = viewModel.selectItem(index: indexPath.row)
         
-        delegate?.navigate(to: selectIcon)
+        delegate?.navigate(to: selectedIcon)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -95,6 +95,7 @@ extension SidePanelViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         var cell = UITableViewCell()
         
         let item = viewModel.getItem(index: indexPath.row)
@@ -113,5 +114,7 @@ extension SidePanelViewController: UITableViewDataSource {
 }
 
 protocol LeftViewControllerDelegate: class {
+    
     func navigate(to page: SidePanel)
+    
 }

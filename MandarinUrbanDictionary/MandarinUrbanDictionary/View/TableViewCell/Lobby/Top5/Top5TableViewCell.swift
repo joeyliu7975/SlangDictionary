@@ -9,7 +9,11 @@ import UIKit
 import FSPagerView
 
 protocol Top5TableViewDelegate: class {
-    func didSelectWord<T:Codable>(_ word: T)
+    
+    
+    
+    func didSelectWord<T: Codable>(_ word: T)
+    
 }
 
 class Top5TableViewCell: UITableViewCell {
@@ -22,7 +26,7 @@ class Top5TableViewCell: UITableViewCell {
     
     weak var delegate: Top5TableViewDelegate?
     
-    var topFive = [Word]()
+    private var topFive = [Word]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +37,19 @@ class Top5TableViewCell: UITableViewCell {
         setupPagerView()
     }
     
+    func setTopFiveWord(_ words: [Word]) {
+        topFive = words
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+}
+
+extension Top5TableViewCell {
+    
     func setup() {
         self.backgroundColor = .homepageDarkBlue
         
@@ -40,14 +57,8 @@ class Top5TableViewCell: UITableViewCell {
         
         collectionView.setCorner(radius: 10)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
-    private func setupPagerView() {
+    func setupPagerView() {
         
         collectionView.registerCell(TopFiveCollectionViewCell.reusableIdentifier)
         
@@ -56,15 +67,28 @@ class Top5TableViewCell: UITableViewCell {
     }
 }
 
-extension Top5TableViewCell:  UICollectionViewDelegate{
+extension Top5TableViewCell: UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let isIndexValid = topFive.indices.contains(indexPath.row)
+        
+        switch isIndexValid {
+        case true:
             
-        if (topFive.count - 1) >= indexPath.row {
             let word = topFive[indexPath.row]
             
             delegate?.didSelectWord(word)
+        case false:
+            break
         }
+            
+//        if (topFive.count - 1) >= indexPath.row {
+//
+//            let word = topFive[indexPath.row]
+//
+//            delegate?.didSelectWord(word)
+//        }
     }
 }
 
@@ -79,15 +103,25 @@ extension Top5TableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopFiveCollectionViewCell.reusableIdentifier, for: indexPath)
         
         if let topFiveCell = cell as? TopFiveCollectionViewCell {
-            
-            if indexPath.row == 0 {
-                topFiveCell.makeCrown()
-            }
+//
+//            if indexPath.row == 0 {
+//
+//                topFiveCell.makeCrown()
+//
+//            }
             
             topFiveCell.titleLabel.text = topFive[indexPath.row].title
+            
+            switch indexPath.row {
+            case 0:
+                topFiveCell.makeCrown()
+            default:
+                break
+            }
             
             cell = topFiveCell
         }

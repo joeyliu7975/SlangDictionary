@@ -53,9 +53,10 @@ class AddNewWordViewController: UIViewController {
     }
     
     @IBAction func clickCancel(_ sender: UIButton) {
+        
         self.dismiss(animated: true)
+        
     }
-    
     
     @IBAction func clickSend(_ sender: UIButton) {
         
@@ -139,6 +140,12 @@ private extension AddNewWordViewController {
         
         definitionTextView.delegate = self
         
+//        newWordTF.returnKeyType = .default
+//        
+//        categoryTF.returnKeyType = .done
+//        
+//        definitionTextView.returnKeyType = .done
+
         checkFormValidation()
         
         definitionTextView.setCorner(radius: 10)

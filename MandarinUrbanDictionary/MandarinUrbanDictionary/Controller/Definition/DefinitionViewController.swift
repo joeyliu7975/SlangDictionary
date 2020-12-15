@@ -55,7 +55,7 @@ private extension DefinitionViewController {
     func setupNav() {
         
         navigationItem.setBarAppearance(with: .homepageDarkBlue)
-        
+                
         navigationItem.backButtonTitle = ""
         
     }
@@ -91,12 +91,14 @@ private extension DefinitionViewController {
     }
     
     func showAlert() {
+        
         let presenter = ReportPresenter(
             title: "Report",
             message: "Do you want to report this definition",
             cancelTitle: "Cancel",
             reportTitle: "Report") { (outcome) in
             switch outcome {
+            
             case .report:
                 // Call API Here...
                 let reportVC = ReportViewController()
@@ -174,6 +176,7 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
         let isLike = viewModel.definitionViewModels.value[index.row].like.contains(uid)
         
         switch isLike {
+        
         case true:
            //取消Like
             viewModel.updateLikes(isLike: !isLike, defID: defID)
@@ -199,6 +202,7 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
         let isDislike = viewModel.definitionViewModels.value[index.row].dislike.contains(uid)
         
         switch isDislike {
+        
         case true:
             //取消Dislike
             viewModel.updateDislikes(isDislike: !isDislike, defID: defID)
@@ -213,10 +217,9 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
         
     }
     
-    
     func report(_ cell: DefinitionTableViewCell) {
         
-        if tableView.indexPath(for: cell) != nil {
+        if let index = tableView.indexPath(for: cell) {
             
             //            let index = indexPath.row
             

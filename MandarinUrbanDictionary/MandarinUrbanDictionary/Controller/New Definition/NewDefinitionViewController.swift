@@ -47,7 +47,7 @@ class NewDefinitionViewController: UIViewController {
 
         button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], for: .disabled)
         
-        button.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.homepageDarkBlue], for: .normal)
+        button.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.homepageLightBlue], for: .normal)
         
         button.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .disabled)
                 
@@ -62,7 +62,7 @@ class NewDefinitionViewController: UIViewController {
         
         cancelButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], for: .disabled)
         
-        cancelButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.homepageDarkBlue], for: .normal)
+        cancelButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.homepageLightBlue], for: .normal)
         
         return cancelButton
     }()
@@ -191,24 +191,24 @@ private extension NewDefinitionViewController {
 extension NewDefinitionViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         
-        if let text = textView.text,
-           !text.isEmpty {
+        if let text = textView.text {
             
-            placeholderLabel.isHidden = true
-            
-            sendButton.isEnabled = true
-            
-            viewModel?.textViewContent(text)
-            
-        } else {
-            
-            placeholderLabel.isHidden = false
-            
-            sendButton.isEnabled = false
+            switch text.isEmpty {
+            case true:
+                
+                placeholderLabel.isHidden = false
 
+                sendButton.isEnabled = false
+            case false:
+                
+                placeholderLabel.isHidden = true
+
+                sendButton.isEnabled = true
+
+                viewModel?.textViewContent(text)
+            }
+            
         }
-        
-        
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -218,6 +218,7 @@ extension NewDefinitionViewController: UITextViewDelegate {
         if (textView.textInputMode?.primaryLanguage == "emoji") || textView.textInputMode?.primaryLanguage == nil {
             return false
         }
+        
         if text.rangeOfCharacter(from: validString as CharacterSet) != nil {
             
             return false

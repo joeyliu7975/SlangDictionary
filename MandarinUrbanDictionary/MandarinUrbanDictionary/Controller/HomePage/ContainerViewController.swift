@@ -86,6 +86,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
     }
     
     func toggleLeftPanel() {
+        
         let notAlreadyExpanded = (currentState != .leftPanelExpanded)
         
         if notAlreadyExpanded {
@@ -124,7 +125,9 @@ extension ContainerViewController: CenterViewControllerDelegate {
     }
     
     func animateLeftPanel(shouldExpand: Bool) {
-        if shouldExpand {
+        
+        switch shouldExpand {
+        case true:
             
             currentState = .leftPanelExpanded
             
@@ -132,9 +135,10 @@ extension ContainerViewController: CenterViewControllerDelegate {
                 targetPosition: centerNavigationController.view.frame.width
                     - centerPanelExpandedOffset
             )
-        } else {
             
-            animateCenterPanelXPosition(targetPosition: 0) {_ in
+        case false:
+            
+            animateCenterPanelXPosition(targetPosition: 0) { _ in
                 
                 self.currentState = .center
                 
@@ -142,7 +146,28 @@ extension ContainerViewController: CenterViewControllerDelegate {
                 
                 self.leftViewController = nil
             }
+            
         }
+        
+//        if shouldExpand {
+//
+//            currentState = .leftPanelExpanded
+//
+//            animateCenterPanelXPosition(
+//                targetPosition: centerNavigationController.view.frame.width
+//                    - centerPanelExpandedOffset
+//            )
+//        } else {
+//
+//            animateCenterPanelXPosition(targetPosition: 0) { _ in
+//
+//                self.currentState = .center
+//
+//                self.leftViewController?.view.removeFromSuperview()
+//
+//                self.leftViewController = nil
+//            }
+//        }
     }
     
     func animateCenterPanelXPosition(
@@ -166,6 +191,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
 extension ContainerViewController: LeftViewControllerDelegate {
     
     func navigate(to page: SidePanel) {
+        
         animateLeftPanel(shouldExpand: false)
         
         var destinationVC: UIViewController?
@@ -181,7 +207,9 @@ extension ContainerViewController: LeftViewControllerDelegate {
             centerNavigationController.popToRootViewController(animated: true)
         
         case .dailySlang:
+            
             break
+            
         case .top5:
             
             destinationVC = RankViewController()
@@ -238,6 +266,8 @@ extension ContainerViewController: LeftViewControllerDelegate {
 }
 
 enum SlideOutState: Equatable {
+    
     case center
+    
     case leftPanelExpanded
 }

@@ -125,6 +125,23 @@ extension RankViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.bounds.height / 5
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        guard let viewModel = viewModel else { return }
+        
+        if viewModel.wordViewModels.value.indices.contains(indexPath.row) {
+            
+            let word = viewModel.wordViewModels.value[indexPath.row]
+            
+            let definitionVC = DefinitionViewController(identifierNumber: word.identifier, word: word.title)
+            
+            self.navigationItem.backButtonTitle = ""
+            
+            self.navigationController?.pushViewController(definitionVC, animated: true)
+            
+        }
+    }
 }
 
 extension RankViewController: UITableViewDataSource {

@@ -9,9 +9,9 @@ import Foundation
 
 class FavoriteViewModel {
     
-    var mockData: [Category] = .init()
+    var favoriteViewModels = Box([Word]())
     
-    var selectedWord = [Category]() {
+    var selectedWord = [Word]() {
         didSet {
             deleteButtonEnable?(!selectedWord.isEmpty)
         }
@@ -33,25 +33,42 @@ class FavoriteViewModel {
     
     var deleteButtonEnable: ((Bool) -> Void)?
     
-    func makeMockData() {
-        mockData = Category.allCases
-        fetchData?()
-    }
+//    func makeMockData() {
+//
+//        favoriteViewModels = Category.allCases
+//
+//        fetchData?()
+//    }
     
     func select(at index: IndexPath) {
         
-        if selectedWord.contains(mockData[index.row]) {
-            guard let index = selectedWord.firstIndex(of: mockData[index.row]) else { return }
+       let isWordSelected = selectedWord.contains(favoriteViewModels.value[index.row])
+        
+        switch isWordSelected {
+        case true:
+           
+            guard let index = selectedWord.firstIndex(of: favoriteViewModels.value[index.row]) else { return }
             
             selectedWord.remove(at: index)
-        } else {
-            selectedWord.append(mockData[index.row])
+            
+        case false:
+            
+            selectedWord.append(favoriteViewModels.value[index.row])
+            
         }
+        
+//        if selectedWord.contains(favoriteViewModels.value[index.row]) {
+//            guard let index = selectedWord.firstIndex(of: favoriteViewModels.value[index.row]) else { return }
+//
+//            selectedWord.remove(at: index)
+//        } else {
+//            selectedWord.append(favoriteViewModels[index.row])
+//        }
     }
     
     func tapDelete() {
         selectedWord.forEach {
-            if let index = mockData.firstIndex(of: $0) {
+            if let index = favoriteViewModels.value.firstIndex(of: $0) {
                 removeData?(index)
             }
             
@@ -62,7 +79,7 @@ class FavoriteViewModel {
     
     func tapDeleteAll() {
         
-        mockData.removeAll()
+        favoriteViewModels.value.removeAll()
         
         selectedWord.removeAll()
         

@@ -33,7 +33,7 @@ extension UITextView {
         switch content {
         case .placeHolder(let text):
             
-            self.textColor = .lightGray
+            self.textColor = .placeholderText
             
             self.text = text
             

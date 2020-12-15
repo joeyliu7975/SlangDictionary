@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Word: Codable {
+struct Word: Codable, Equatable {
     
     let title: String
         

@@ -81,13 +81,23 @@ class ReportViewController: UIViewController {
 extension ReportViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
-        if !textView.text.isEmpty {
-            placeholderLabel.isHidden = true
-            sendButton.isEnabled = true
-        } else {
+        
+        switch textView.text.isEmpty {
+        case true:
             placeholderLabel.isHidden = false
             sendButton.isEnabled = false
+        case false:
+            placeholderLabel.isHidden = true
+            sendButton.isEnabled = true
         }
+//
+//        if !textView.text.isEmpty {
+//            placeholderLabel.isHidden = true
+//            sendButton.isEnabled = true
+//        } else {
+//            placeholderLabel.isHidden = false
+//            sendButton.isEnabled = false
+//        }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -97,6 +107,7 @@ extension ReportViewController: UITextViewDelegate {
         if (textView.textInputMode?.primaryLanguage == "emoji") || textView.textInputMode?.primaryLanguage == nil {
             return false
         }
+        
         if let range = text.rangeOfCharacter(from: validString as CharacterSet) {
             
             return false

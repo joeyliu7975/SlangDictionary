@@ -10,7 +10,7 @@ import Foundation
 extension NSCharacterSet {
     
     class var textViewValidString: NSCharacterSet {
-        return NSCharacterSet(charactersIn: " @#$%^&*()_+{}[]|\"<>~`/:;-=\\¥'£•¢\n")
+        return NSCharacterSet(charactersIn: "@#$%^&*()_+{}[]|\"<>~`/:;-=\\¥'£•¢\n")
     }
     
     class var searchBarValidString: NSCharacterSet {

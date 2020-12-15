@@ -26,7 +26,6 @@ class RankChartViewController: UIViewController {
         setup()
     }
     
-    
     func setup() {
         view.addSubview(pieChartView)
         
@@ -94,7 +93,7 @@ class RankChartViewController: UIViewController {
         
         var colors: [UIColor] = []
         
-        for _ in 0..<dataPoints.count {
+        for _ in 0 ..< dataPoints.count {
             
             let red = Double.random(in: 0 ... 150)
             

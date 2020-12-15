@@ -227,13 +227,13 @@ extension SearchPageViewController: UISearchBarDelegate {
         if (searchBar.textInputMode?.primaryLanguage == "emoji") || searchBar.textInputMode?.primaryLanguage == nil {
             return false
         }
+        
         if let range = text.rangeOfCharacter(from: validString as CharacterSet) {
             
             return false
         }
         
         return true
-        
         
     }
 }

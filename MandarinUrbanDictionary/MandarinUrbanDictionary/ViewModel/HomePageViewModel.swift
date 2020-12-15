@@ -20,9 +20,7 @@ class HomePageViewModel {
     var topFiveWords = [Word]()
     
     var newestWord = [Word]()
-            
-    var updateHot5: (() -> Void )?
-    
+                
     var loadForFirstTime: (() -> Void)?
     
     private let group: DispatchGroup = .init()

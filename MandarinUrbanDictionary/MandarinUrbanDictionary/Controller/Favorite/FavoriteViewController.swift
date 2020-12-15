@@ -85,9 +85,7 @@ private extension FavoriteViewController {
     func setup() {
         
         view.backgroundColor = .cardViewBlue
-        
-        viewModel.makeMockData()
-        
+                
     }
     
     func setupTableView() {
@@ -122,11 +120,7 @@ private extension FavoriteViewController {
     }
     
     func showAlert() {
-        
-//        self.popAlert(.favorite) {
-//            self.viewModel.tapDeleteAll()
-//            self.viewModel.isEditing.toggle()
-//        }
+
         let presenter = FavoritePresenter(
             title: "Favorite Words",
             message: "Are you sure you want to delete all favorite words",
@@ -146,14 +140,21 @@ private extension FavoriteViewController {
     
     func binding() {
         
-        viewModel.fetchData = { [weak self] in
+//        viewModel.fetchData = { [weak self] in
+//            self?.tableView.reloadData()
+//        }
+        
+        viewModel.favoriteViewModels.bind { [weak self] (_) in
+            
             self?.tableView.reloadData()
+            
         }
         
         viewModel.removeData = { [weak self] (index) in
+            
             self?.tableView.beginUpdates()
             
-            self?.viewModel.mockData.remove(at: index)
+            self?.viewModel.favoriteViewModels.value.remove(at: index)
             
             self?.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
             
@@ -218,7 +219,7 @@ extension FavoriteViewController: UITableViewDelegate {
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return viewModel.mockData.count
+        return viewModel.favoriteViewModels.value.count
         
     }
     
@@ -226,11 +227,11 @@ extension FavoriteViewController: UITableViewDataSource {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifierName, for: indexPath)
         
-        let data = viewModel.mockData[indexPath.row].instance()
+        let data = viewModel.favoriteViewModels.value[indexPath.row]
         
         if let favoriteCell = cell as? FavoriteTableViewCell {
             
-            favoriteCell.renderUI(word: data.name, tag: data.image)
+            favoriteCell.renderUI(word: data.title, tag: data.category)
             
             cell = favoriteCell
         }

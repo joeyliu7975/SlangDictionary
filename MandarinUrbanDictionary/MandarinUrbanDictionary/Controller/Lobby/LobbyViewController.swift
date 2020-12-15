@@ -37,29 +37,30 @@ class LobbyViewController: UIViewController {
     }
     
     @objc func toggleSideMenu() {
-        //Remove leftBarButtonItem when SidePanel show
+        
         delegate?.toggleLeftPanel()
+        
     }
 }
 
 private extension LobbyViewController {
-   
+    
     func userHasSignedIn() {
-        if let hasLogin = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool {
-            if hasLogin == false {
-                jumpToLoginpage()
-            }
+        guard let hasLogin = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool else { return }
+        
+        if !hasLogin {
+            showLoginViewController()
         }
     }
     
-    func jumpToLoginpage() {
-
+    func showLoginViewController() {
+        
         let loginPage = LoginViewController()
-
+        
         loginPage.modalTransitionStyle = .coverVertical
-
+        
         loginPage.modalPresentationStyle = .fullScreen
-
+        
         present(loginPage, animated: true)
     }
     
@@ -70,6 +71,8 @@ private extension LobbyViewController {
         view.backgroundColor = .homepageDarkBlue
         
         writeNewButtonView.delegate = self
+        
+        self.navigationItem.backButtonTitle = ""
     }
     
     func setupTableView() {
@@ -113,17 +116,29 @@ private extension LobbyViewController {
         
         viewModel.wordViewModels.bind { [weak self] (words) in
             
-            if words.isEmpty {
-                return
+            switch words.isEmpty {
+            case true:
+                break
+            case false:
+                
+                self?.viewModel.newestWord = Array(arrayLiteral: words[0])
+                
+                let wordOrderByViews = words.sorted { $0.views > $1.views }
+                
+                self?.viewModel.topFiveWords = Array(wordOrderByViews[0 ... 4])
+                
+                self?.tableView.reloadData()
             }
             
-            self?.viewModel.newestWord = Array(arrayLiteral: words[0])
-            
-            let wordOrderByViews = words.sorted { $0.views > $1.views }
-            
-            self?.viewModel.topFiveWords = Array(wordOrderByViews[0 ... 4])
-            
-            self?.tableView.reloadData()
+            //            if words.isEmpty { return }
+            //
+            //            self?.viewModel.newestWord = Array(arrayLiteral: words[0])
+            //
+            //            let wordOrderByViews = words.sorted { $0.views > $1.views }
+            //
+            //            self?.viewModel.topFiveWords = Array(wordOrderByViews[0 ... 4])
+            //
+            //            self?.tableView.reloadData()
         }
         
     }
@@ -145,9 +160,9 @@ extension LobbyViewController: UITableViewDelegate {
         
         var viewController = UIViewController()
         
-        let type = viewModel.carouselList[indexPath.row]
+        let cellType = viewModel.carouselList[indexPath.row]
         
-        switch type {
+        switch cellType {
         
         case .newestWord:
             
@@ -156,11 +171,7 @@ extension LobbyViewController: UITableViewDelegate {
             let definitionController = DefinitionViewController(identifierNumber: word.identifier, word: word.title)
             
             viewController = definitionController
-            
-        case .mostViewedWord:
-            
-            return
-            
+        
         case .dailyWord:
             
             let titles = viewModel.wordViewModels.value.map { $0.title }
@@ -175,9 +186,11 @@ extension LobbyViewController: UITableViewDelegate {
                 
                 viewController = definitionController
             }
+        default:
+            return
         }
         
-        self.navigationItem.backButtonTitle = ""
+//        self.navigationItem.backButtonTitle = ""
         
         self.navigationController?.pushViewController(viewController, animated: true)
     }
@@ -225,6 +238,7 @@ extension LobbyViewController: LobbyHeaderDelegate {
         navController.modalTransitionStyle = .crossDissolve
         
         present(navController, animated: true)
+        
     }
 }
 
@@ -236,8 +250,8 @@ extension LobbyViewController: Top5TableViewDelegate {
         
         let viewController = DefinitionViewController(identifierNumber: word.identifier, word: word.title)
         
-        self.navigationItem.backButtonTitle = ""
-
+//        self.navigationItem.backButtonTitle = ""
+        
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -250,17 +264,26 @@ extension LobbyViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return viewModel.wordViewModels.value.count >= 3 ? viewModel.carouselList.count : 0
-        
+        switch viewModel.wordViewModels.value.count {
+        case 0 ... 2:
+            return 0
+        default:
+            return viewModel.carouselList.count
+        }
+//
+//        return viewModel.wordViewModels.value.count >= 3 ? viewModel.carouselList.count : 0
+//
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = UITableViewCell()
         
-        let type = viewModel.carouselList[indexPath.row]
+        let cellType = viewModel.carouselList[indexPath.row]
         
-        switch type {
+        let image = cellType.getImage()
+        
+        switch cellType {
         
         case .newestWord:
             
@@ -273,7 +296,7 @@ extension LobbyViewController: UITableViewDataSource {
                 newestWordCell.renderUI(
                     title: word.title,
                     description: word.time.timeStampToStringDetail(),
-                    image: type.getImage()
+                    image: image
                 )
                 
                 cell = newestWordCell
@@ -284,7 +307,7 @@ extension LobbyViewController: UITableViewDataSource {
             
             if let topFiveCell = cell as? Top5TableViewCell {
                 
-                topFiveCell.topFive = viewModel.topFiveWords
+                topFiveCell.setTopFiveWord(viewModel.topFiveWords)
                 
                 topFiveCell.delegate = self
                 
@@ -303,7 +326,7 @@ extension LobbyViewController: UITableViewDataSource {
                 wordOfTheDayCell.renderUI(
                     title: word.title,
                     description: word.time.timeStampToStringDetail(),
-                    image: type.getImage()
+                    image: image
                 )
                 
                 cell = wordOfTheDayCell
@@ -316,7 +339,7 @@ extension LobbyViewController: UITableViewDataSource {
 
 protocol CenterViewControllerDelegate: class {
     
-  func toggleLeftPanel()
+    func toggleLeftPanel()
     
-  func writeNewWord()
+    func writeNewWord()
 }

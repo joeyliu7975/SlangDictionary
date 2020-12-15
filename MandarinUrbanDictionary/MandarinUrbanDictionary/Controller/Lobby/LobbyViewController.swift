@@ -14,9 +14,26 @@ class LobbyViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    lazy var searchBar: UISearchBar = {
+        
+        let width = UIScreen.main.bounds.width - 70
+        
+        let searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width, height: 20))
+        
+        searchBar.placeholder = "搜尋"
+        
+        searchBar.setTextColor(.homepageDarkBlue, cursorColor: .homepageDarkBlue)
+        
+        return searchBar
+    }()
+    
     weak var delegate: CenterViewControllerDelegate?
     
     let viewModel: HomePageViewModel = .init()
+    
+    override func viewDidLayoutSubviews() {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +47,10 @@ class LobbyViewController: UIViewController {
         setupNavigationController()
         
         binding()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        searchBar.resignFirstResponder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,6 +94,12 @@ private extension LobbyViewController {
         writeNewButtonView.delegate = self
         
         self.navigationItem.backButtonTitle = ""
+        
+        searchBar.delegate = self
+        
+        let rightNavBarButton = UIBarButtonItem(customView: searchBar)
+        
+        self.navigationItem.rightBarButtonItem = rightNavBarButton
     }
     
     func setupTableView() {
@@ -112,6 +139,19 @@ private extension LobbyViewController {
         self.navigationItem.leftBarButtonItem = sideMenuButton
     }
     
+    func clickSearch() {
+        
+        let searchViewController = SearchPageViewController()
+        
+        let navController = UINavigationController(rootViewController: searchViewController)
+        
+        navController.modalPresentationStyle = .fullScreen
+        
+        navController.modalTransitionStyle = .crossDissolve
+        
+        present(navController, animated: true)
+    }
+    
     func binding() {
         
         viewModel.wordViewModels.bind { [weak self] (words) in
@@ -129,20 +169,17 @@ private extension LobbyViewController {
                 
                 self?.tableView.reloadData()
             }
-            
-            //            if words.isEmpty { return }
-            //
-            //            self?.viewModel.newestWord = Array(arrayLiteral: words[0])
-            //
-            //            let wordOrderByViews = words.sorted { $0.views > $1.views }
-            //
-            //            self?.viewModel.topFiveWords = Array(wordOrderByViews[0 ... 4])
-            //
-            //            self?.tableView.reloadData()
         }
-        
     }
-    
+}
+
+extension LobbyViewController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        
+        clickSearch()
+        
+        return true
+    }
 }
 
 extension LobbyViewController: PostButtonDelegate {
@@ -180,65 +217,21 @@ extension LobbyViewController: UITableViewDelegate {
                let title = cell.titleLabel.text,
                let index = titles.firstIndex(of: title) {
                 
-                let id = viewModel.wordViewModels.value[index].identifier
+                let uid = viewModel.wordViewModels.value[index].identifier
                 
-                let definitionController = DefinitionViewController(identifierNumber: id, word: title)
+                let definitionController = DefinitionViewController(identifierNumber: uid, word: title)
                 
                 viewController = definitionController
             }
         default:
             return
         }
-        
-//        self.navigationItem.backButtonTitle = ""
-        
+                
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (indexPath.row % 2) == 0 ? tableView.frame.height * 0.5 : tableView.frame.height * 0.9
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: LobbyTableHeaderView.reusableIdentifier)
-        
-        if let headerView = headerView as? LobbyTableHeaderView {
-            
-            let headerBackgroundView = UIView()
-            
-            headerView.searchButton.setCorner(radius: 10)
-            
-            headerView.delegate = self
-            
-            headerBackgroundView.backgroundColor = .homepageDarkBlue
-            
-            headerView.backgroundView = headerBackgroundView
-            
-            return headerView
-        }
-        
-        return nil
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 63
-    }
-}
-
-extension LobbyViewController: LobbyHeaderDelegate {
-    func clickSearch() {
-        
-        let searchViewController = SearchPageViewController()
-        
-        let navController = UINavigationController(rootViewController: searchViewController)
-        
-        navController.modalPresentationStyle = .fullScreen
-        
-        navController.modalTransitionStyle = .crossDissolve
-        
-        present(navController, animated: true)
-        
     }
 }
 
@@ -249,9 +242,7 @@ extension LobbyViewController: Top5TableViewDelegate {
         guard let word = word as? Word else { return }
         
         let viewController = DefinitionViewController(identifierNumber: word.identifier, word: word.title)
-        
-//        self.navigationItem.backButtonTitle = ""
-        
+                
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -270,9 +261,6 @@ extension LobbyViewController: UITableViewDataSource {
         default:
             return viewModel.carouselList.count
         }
-//
-//        return viewModel.wordViewModels.value.count >= 3 ? viewModel.carouselList.count : 0
-//
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -18,6 +18,20 @@ class SearchPageViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+//    lazy var searchBar: UISearchBar = {
+//
+//        let width = UIScreen.main.bounds.width - 70
+//
+//        let searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width, height: 20))
+//
+//        searchBar.placeholder = "搜尋"
+//
+//        searchBar.setTextColor(.homepageDarkBlue, cursorColor: .homepageDarkBlue)
+//
+//        return searchBar
+//
+//    }()
+    
     lazy var coverView: UIView = {
        
         let myView = UIView(frame: tableView.bounds)
@@ -134,11 +148,11 @@ private extension SearchPageViewController {
                 coverView.topAnchor.constraint(equalTo: tableView.topAnchor, constant: 0),
                 coverView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 0),
                 coverView.leadingAnchor.constraint(equalTo: tableView.leadingAnchor, constant: 0),
-                coverView.trailingAnchor.constraint(equalTo: tableView.trailingAnchor, constant: 0),
+                coverView.trailingAnchor.constraint(equalTo: tableView.trailingAnchor, constant: 0)
             ])
         
         NSLayoutConstraint.activate([
-                noResultLabel.centerYAnchor.constraint(equalTo: coverView.centerYAnchor, constant:  -100),
+                noResultLabel.centerYAnchor.constraint(equalTo: coverView.centerYAnchor, constant: -100),
                 noResultLabel.centerXAnchor.constraint(equalTo: coverView.centerXAnchor),
                 noResultLabel.heightAnchor.constraint(equalToConstant: 24),
                 noResultLabel.widthAnchor.constraint(equalToConstant: 150)

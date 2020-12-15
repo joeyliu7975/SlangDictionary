@@ -13,6 +13,8 @@ protocol DefinitionHeaderDelegate: class {
     
     func writeNewDefinition()
     
+    func clickBackButton()
+    
 }
 
 final class DefinitionHeaderView: UITableViewHeaderFooterView {
@@ -24,6 +26,14 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
     @IBOutlet var favoriteButton: UIButton!
     
     @IBOutlet var writeDefinition: UIButton!
+    
+    @IBOutlet weak var categoryContainerView: UIView!
+    
+    @IBOutlet weak var categoryLabel: UILabel!
+    
+    @IBOutlet weak var categoryImageView: UIImageView!
+    
+    @IBOutlet weak var customBackButton: UIButton!
     
     weak var delegate: DefinitionHeaderDelegate?
     
@@ -46,12 +56,34 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
         case writeDefinition:
             
             delegate?.writeNewDefinition()
+        
+        case customBackButton:
+            
+            delegate?.clickBackButton()
             
         default:
             
             break
             
         }
+    }
+    
+    func renderUI(category: String, word: String) {
+        
+        let categoryImage = Category(rawValue: category)!.instance()
+        
+        wordLabel.text = word
+        
+        categoryLabel.text = category
+        
+        categoryLabel.textColor = .separatorlineBlue
+        
+        categoryContainerView.backgroundColor = .white
+        
+        categoryContainerView.setCorner(radius: 5)
+        
+        categoryImageView.image = UIImage(named: categoryImage.image)
+        
     }
     
     func setFavorite(_ isFavorite: Bool) {

@@ -10,27 +10,29 @@ import Hero
 
 class SearchPageViewController: UIViewController {
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    
-    @IBOutlet weak var cancelButton: UIButton!
-    
-    @IBOutlet weak var searchBarContainerView: UIView!
-    
     @IBOutlet weak var tableView: UITableView!
     
-//    lazy var searchBar: UISearchBar = {
-//
-//        let width = UIScreen.main.bounds.width - 70
-//
-//        let searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width, height: 20))
-//
-//        searchBar.placeholder = "搜尋"
-//
-//        searchBar.setTextColor(.homepageDarkBlue, cursorColor: .homepageDarkBlue)
-//
-//        return searchBar
-//
-//    }()
+    lazy var searchBar: UISearchBar = {
+
+        let width = UIScreen.main.bounds.width - 90
+
+        let searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width, height: 20))
+
+        searchBar.setTextColor(.homepageDarkBlue, cursorColor: .homepageDarkBlue)
+
+        return searchBar
+
+    }()
+    
+    lazy var cancelButton: UIButton = {
+        let cancelButton: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 20))
+        
+        cancelButton.setTitle("取消", for: .normal)
+        
+        cancelButton.setTitleColor(.white, for: .normal)
+        
+        return cancelButton
+    }()
     
     lazy var coverView: UIView = {
        
@@ -69,26 +71,15 @@ class SearchPageViewController: UIViewController {
         
         binding()
     }
-    
-    @IBAction func cancelSearch(_ sender: UIButton) {
+
+    @objc func cancelSearch(_ sender: UIButton) {
         dismiss(animated: true)
-    }
-    
-    @objc func showList() {
-        
-        let categoryViewController = CategoryViewController()
-        
-        categoryViewController.delegate = self
-        
-        present(categoryViewController, animated: true)
     }
 }
 
 private extension SearchPageViewController {
     
     func setup() {
-        
-        searchBarContainerView.backgroundColor = .searchBarBlue
             
         cancelButton.setTitleColor(.white, for: .normal)
                 
@@ -104,6 +95,9 @@ private extension SearchPageViewController {
         
         searchBar.delegate = self
         
+        let leftNavBarButton = UIBarButtonItem(customView: searchBar)
+        
+        self.navigationItem.leftBarButtonItem = leftNavBarButton
     }
     
     func setupTableView() {
@@ -121,21 +115,15 @@ private extension SearchPageViewController {
             
         navigationController.navigationBar.tintColor = .white
         
-        let rightButtonItem = UIBarButtonItem(
-            image: UIImage(named: ImageConstant.matrix),
-            style: .plain,
-            target: self,
-            action: #selector(showList)
-        )
+        cancelButton.addTarget(self, action: #selector(cancelSearch), for: .touchUpInside)
+        
+        let rightButtonItem = UIBarButtonItem(customView: cancelButton)
         
         navigationItem.rightBarButtonItem = rightButtonItem
             
         navigationItem.backBarButtonItem = UIBarButtonItem()
         
-        let title = viewModel.barTitle
-        
-        updateBarTitle(title)
-
+        navigationItem.setBarAppearance(with: .homepageDarkBlue)
     }
     
     func setupNoResultView() {
@@ -248,7 +236,12 @@ extension SearchPageViewController: UISearchBarDelegate {
         }
         
         return true
-        
+    }
+}
+
+extension SearchPageViewController: DefinitionViewControllerDelegate {
+    func dismissSearchViewController() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -261,7 +254,9 @@ extension SearchPageViewController: UITableViewDelegate {
         viewModel.updateViewsOfWord(at: indexPath.row)
         
         let definitionViewController: DefinitionViewController =
-            .init(identifierNumber: selectedWord.identifier, word: selectedWord.title)
+            .init(identifierNumber: selectedWord.identifier, word: selectedWord.title, category: selectedWord.category)
+        
+        definitionViewController.delegate = self
         
         guard let navigationController = self.navigationController else { return }
         

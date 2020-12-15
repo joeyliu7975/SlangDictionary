@@ -7,20 +7,28 @@
 
 import UIKit
 
+protocol DefinitionViewControllerDelegate: class {
+    func dismissSearchViewController()
+}
+
 class DefinitionViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: DefinitionViewModel?
     
-    init(identifierNumber: String, word: String) {
+    weak var delegate: DefinitionViewControllerDelegate?
+    
+    init(identifierNumber: String, word: String, category: String) {
         super.init(nibName: nil, bundle: nil)
         
-        viewModel = DefinitionViewModel(id: identifierNumber, word: word)
+        viewModel = DefinitionViewModel(id: identifierNumber, word: word, category: category)
         
         viewModel?.renewRecentSearch { [weak self] in
             self?.viewModel?.addToRecentSearch()
         }
+        
+        searchBar.text = word
         
         viewModel?.listen()
     }
@@ -30,6 +38,18 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
         
         fatalError("init(coder:) has not been implemented")
     }
+    
+    lazy var searchBar: UISearchBar = {
+
+        let width = UIScreen.main.bounds.width - 20
+
+        let searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 5, y: 0, width: width, height: 20))
+
+        searchBar.setTextColor(.black, cursorColor: .homepageDarkBlue)
+
+        return searchBar
+
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +61,10 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
         setupTableView()
         
         binding()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        searchBar.resignFirstResponder()
     }
 }
 
@@ -54,6 +78,8 @@ private extension DefinitionViewController {
             
         })
         
+        searchBar.delegate = self
+        
     }
     
     func setupNav() {
@@ -62,6 +88,11 @@ private extension DefinitionViewController {
                 
         navigationItem.backButtonTitle = ""
         
+        navigationItem.backBarButtonItem = UIBarButtonItem()
+        
+        let leftButtonItem = UIBarButtonItem(customView: searchBar)
+        
+        navigationItem.leftBarButtonItem = leftButtonItem
     }
     
     func setupTableView() {
@@ -124,6 +155,15 @@ private extension DefinitionViewController {
 }
 
 extension DefinitionViewController: DefinitionHeaderDelegate {
+    
+    func clickBackButton() {
+        
+        if let rootVC = self.navigationController?.viewControllers.first as? LobbyViewController {
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        delegate?.dismissSearchViewController()
+    }
     
     func toggleFavorite(_ isFavorite: Bool) {
         
@@ -236,6 +276,19 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
             showAlert()
         }
     }
+    
+    func clickSearch() {
+        
+        let searchViewController = SearchPageViewController()
+        
+        let navController = UINavigationController(rootViewController: searchViewController)
+        
+        navController.modalPresentationStyle = .fullScreen
+        
+        navController.modalTransitionStyle = .crossDissolve
+        
+        present(navController, animated: true)
+    }
 }
 
 extension DefinitionViewController: ReportDelegate {
@@ -252,6 +305,14 @@ extension DefinitionViewController: ReportDelegate {
             break
         }
         
+    }
+}
+
+extension DefinitionViewController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        clickSearch()
+        
+        return true
     }
 }
 
@@ -275,6 +336,8 @@ extension DefinitionViewController: UITabBarDelegate {
             headerView.delegate = self
             
             headerView.setFavorite(viewModel.isFavorite)
+            
+            headerView.renderUI(category: viewModel.category, word: viewModel.word)
             
             headerBackgroundView.backgroundColor = .searchBarBlue
             

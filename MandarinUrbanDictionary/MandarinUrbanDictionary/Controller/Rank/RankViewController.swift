@@ -134,7 +134,7 @@ extension RankViewController: UITableViewDelegate {
             
             let word = viewModel.wordViewModels.value[indexPath.row]
             
-            let definitionVC = DefinitionViewController(identifierNumber: word.identifier, word: word.title)
+            let definitionVC = DefinitionViewController(identifierNumber: word.identifier, word: word.title, category: word.category)
             
             self.navigationItem.backButtonTitle = ""
             

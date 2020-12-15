@@ -15,6 +15,8 @@ class DefinitionViewModel {
     
     let word: String
     
+    let category: String
+    
     var isFavorite: Bool = false {
         didSet {
             updateData?()
@@ -23,11 +25,13 @@ class DefinitionViewModel {
     
     var updateData: (() -> Void)?
     
-    init(id: String, word: String) {
+    init(id: String, word: String, category: String) {
         
         self.wordIdentifier = id
         
         self.word = word
+        
+        self.category = category
     }
         
     var definitionViewModels = Box([Definition]())

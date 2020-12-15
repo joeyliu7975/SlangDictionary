@@ -205,7 +205,7 @@ extension LobbyViewController: UITableViewDelegate {
             
             let word = viewModel.newestWord[indexPath.row]
             
-            let definitionController = DefinitionViewController(identifierNumber: word.identifier, word: word.title)
+            let definitionController = DefinitionViewController(identifierNumber: word.identifier, word: word.title, category: word.category)
             
             viewController = definitionController
         
@@ -219,7 +219,7 @@ extension LobbyViewController: UITableViewDelegate {
                 
                 let uid = viewModel.wordViewModels.value[index].identifier
                 
-                let definitionController = DefinitionViewController(identifierNumber: uid, word: title)
+                let definitionController = DefinitionViewController(identifierNumber: uid, word: title, category: viewModel.wordViewModels.value[index].category)
                 
                 viewController = definitionController
             }
@@ -241,7 +241,7 @@ extension LobbyViewController: Top5TableViewDelegate {
         
         guard let word = word as? Word else { return }
         
-        let viewController = DefinitionViewController(identifierNumber: word.identifier, word: word.title)
+        let viewController = DefinitionViewController(identifierNumber: word.identifier, word: word.title, category: word.category)
                 
         navigationController?.pushViewController(viewController, animated: true)
     }

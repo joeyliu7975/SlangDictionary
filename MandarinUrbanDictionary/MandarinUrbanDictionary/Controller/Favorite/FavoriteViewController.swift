@@ -147,17 +147,26 @@ private extension FavoriteViewController {
         
         viewModel?.favoriteViewModels.bind { [weak self] (_) in
             
-            self?.tableView.reloadData()
+            guard let viewModel = self?.viewModel else { return }
             
+            switch viewModel.isEditing {
+            case true:
+                break
+            case false:
+                self?.tableView.reloadData()
+            }
         }
         
-        viewModel?.removeData = { [weak self] (index) in
+        viewModel?.removeData = { [weak self] (indexs) in
             
             self?.tableView.beginUpdates()
             
-            self?.viewModel?.favoriteViewModels.value.remove(at: index)
+            indexs.sorted { $0 > $1 }.forEach { self?.viewModel?.favoriteViewModels.value.remove(at: $0)
+            }
             
-            self?.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+            let indexPaths: [IndexPath] = indexs.sorted { $0 > $1 }.map { IndexPath(row: $0, section: 0) }
+            
+            self?.tableView.deleteRows(at: indexPaths, with: .top)
             
             self?.tableView.endUpdates()
         }
@@ -188,12 +197,6 @@ private extension FavoriteViewController {
             case false:
                 self?.deleteButton.setTitleColor(.lightGray, for: .normal)
             }
-            
-        }
-        
-        viewModel?.removeAll = { [weak self] in
-            
-            self?.tableView.reloadData()
             
         }
     }

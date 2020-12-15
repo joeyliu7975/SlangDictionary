@@ -49,6 +49,43 @@ class DefinitionViewModel {
         }
     }
     
+    func renewRecentSearch(completion: @escaping () -> Void) {
+        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
+            networkManager.retrieveUser(userID: uid) { (result: Result<User, NetworkError>) in
+                switch result {
+                case .success(let user):
+                    
+                    if user.recents.contains(self.wordIdentifier) {
+                        self.removeFromRecentSearch(completion: completion)
+                    }
+                    
+                    completion()
+                    
+                case .failure(.noData(let error)):
+                    print(error.localizedDescription)
+                case .failure(.decodeError):
+                    print("Decode Error!")
+                }
+            }
+        }
+    }
+    
+    func removeFromRecentSearch(completion: @escaping () -> Void) {
+        
+        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
+            networkManager.deleteArray(uid: uid, wordID: wordIdentifier, arrayName: "recent_search")
+        }
+        
+    }
+    
+    func addToRecentSearch() {
+        
+        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
+            networkManager.updateArray(uid: uid, wordID: wordIdentifier, arrayName: "recent_search")
+        }
+            
+    }
+    
     func updateLikes(isLike: Bool, defID: String) {
         
         networkManager.updateLike(defID: defID, isLike: isLike) {

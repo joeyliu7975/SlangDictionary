@@ -18,6 +18,10 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
         
         viewModel = DefinitionViewModel(id: identifierNumber, word: word)
         
+        viewModel?.renewRecentSearch { [weak self] in
+            self?.viewModel?.addToRecentSearch()
+        }
+        
         viewModel?.listen()
     }
     
@@ -43,7 +47,7 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
 private extension DefinitionViewController {
     
     func setup() {
-        
+                
         viewModel?.checkFavorite(completion: { [weak self] (isFavorite) in
             
             self?.viewModel?.isFavorite = isFavorite
@@ -77,7 +81,7 @@ private extension DefinitionViewController {
     
     func binding() {
         
-        viewModel?.definitionViewModels.bind { [weak self] (definitions) in
+        viewModel?.definitionViewModels.bind { [weak self] (_) in
             
             self?.tableView.reloadData()
             
@@ -124,6 +128,7 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
     func toggleFavorite(_ isFavorite: Bool) {
         
         switch isFavorite {
+        
         case true:
             
             guard let viewModel = viewModel else { return }
@@ -133,6 +138,7 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
                 print("Add to Favorite Successfully!")
                 
             }
+            
         case false:
             
             guard let viewModel = viewModel else { return }
@@ -165,6 +171,7 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
 extension DefinitionViewController: DefinitionTableViewCellDelegate {
     
     func like(_ cell: DefinitionTableViewCell) {
+        
         guard
             let viewModel = viewModel,
             let index = tableView.indexPath(for: cell),
@@ -191,6 +198,7 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
     }
     
     func dislike(_ cell: DefinitionTableViewCell) {
+        
         guard
             let viewModel = viewModel,
             let index = tableView.indexPath(for: cell),
@@ -219,7 +227,7 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
     
     func report(_ cell: DefinitionTableViewCell) {
         
-        if let index = tableView.indexPath(for: cell) {
+        if let _ = tableView.indexPath(for: cell) {
             
             //            let index = indexPath.row
             

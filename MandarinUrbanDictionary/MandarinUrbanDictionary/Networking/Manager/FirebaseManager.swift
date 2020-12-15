@@ -262,6 +262,14 @@ class FirebaseManager {
             
         }
     }
+    
+    func deleteArray(uid: String, wordID: String, arrayName: String) {
+        dataBase.collection("User").document(uid).updateData([arrayName: FieldValue.arrayRemove([wordID])])
+    }
+    
+    func updateArray(uid: String, wordID: String, arrayName: String) {
+        dataBase.collection("User").document(uid).updateData([arrayName: FieldValue.arrayUnion([wordID])])
+    }
 }
 
 extension FirebaseManager {

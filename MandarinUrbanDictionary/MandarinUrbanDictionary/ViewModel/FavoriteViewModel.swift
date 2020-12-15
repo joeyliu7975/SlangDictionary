@@ -12,11 +12,13 @@ class FavoriteViewModel {
     var title: String
     
     var user: User? {
+        
         didSet {
             guard let user = user else { return }
             
             switch title == "Favorites" {
             case true:
+                
                 user.favorites.forEach {
                     networkManager.retrieveWord(id: $0) { (result: Result<Word, NetworkError>) in
                         switch result {
@@ -29,7 +31,9 @@ class FavoriteViewModel {
                         }
                     }
                 }
+                
             case false:
+                
                 user.recents.forEach {
                     networkManager.retrieveWord(id: $0) { (result: Result<Word, NetworkError>) in
                         switch result {
@@ -43,19 +47,6 @@ class FavoriteViewModel {
                     }
                 }
             }
-            
-//            user.favorites.forEach {
-//                networkManager.retrieveWord(id: $0) { (result: Result<Word, NetworkError>) in
-//                    switch result {
-//                    case .success(let word):
-//                        self.favoriteViewModels.value.append(word)
-//                    case .failure(.noData(let error)):
-//                        print(error.localizedDescription)
-//                    case .failure(.decodeError):
-//                        print("Decode Error!")
-//                    }
-//                }
-//            }
         }
     }
     
@@ -65,7 +56,9 @@ class FavoriteViewModel {
     
     var selectedWord = [Word]() {
         didSet {
+            
             deleteButtonEnable?(!selectedWord.isEmpty)
+            
         }
     }
     
@@ -79,9 +72,7 @@ class FavoriteViewModel {
     
     var toggleEditMode: ((Bool) -> Void)?
     
-    var removeData: ((Int) -> Void)?
-    
-    var removeAll: (() -> Void)?
+    var removeData: (([Int]) -> Void)?
     
     var deleteButtonEnable: ((Bool) -> Void)?
     
@@ -107,7 +98,30 @@ class FavoriteViewModel {
                 print("Decode Error!")
             }
         }
+    }
+    
+    func removeArray(words: [Word], completion: () -> Void) {
+        
+        var fieldName: String
+        
+        if let user = user {
+            
+            switch title == "Favorites" {
+            case true:
+                fieldName = "favorite_words"
+            case false:
+                fieldName = "recent_search"
+            }
+        
+            words.forEach {
+                
+                networkManager.deleteArray(uid: user.identifier, wordID: $0.identifier, arrayName: fieldName)
 
+            }
+            
+            completion()
+        }
+        
     }
     
     // MARK Local 操作
@@ -131,10 +145,18 @@ class FavoriteViewModel {
     }
     
     func tapDelete() {
-        selectedWord.forEach {
+        
+        var favoritedWords = [Int]()
+        
+        selectedWord.map {
             if let index = favoriteViewModels.value.firstIndex(of: $0) {
-                removeData?(index)
+                favoritedWords.append(index)
             }
+        }
+            
+        removeArray(words: selectedWord) {
+            
+            self.removeData?(Array(favoritedWords))
             
         }
         
@@ -143,17 +165,16 @@ class FavoriteViewModel {
     
     func tapDeleteAll() {
         
-        favoriteViewModels.value.removeAll()
-        
-        selectedWord.removeAll()
-        
-        removeAll?()
+        removeArray(words: favoriteViewModels.value) {
+            isEditing = false
+            favoriteViewModels.value.removeAll()
+        }
     }
     
     func removeSelections() {
-        
-        selectedWord.removeAll()
-        
+
+            selectedWord.removeAll()
+
     }
     
 }

@@ -19,7 +19,7 @@ class FavoriteViewController: JoeyPanelViewController {
     
     @IBOutlet weak var deleteViewHeighConstraint: NSLayoutConstraint!
     
-    let viewModel: FavoriteViewModel = .init()
+    var viewModel: FavoriteViewModel?
     
     private lazy var editButton: UIBarButtonItem = {
        
@@ -65,7 +65,7 @@ class FavoriteViewController: JoeyPanelViewController {
     
     @IBAction func tapDelete(_ sender: UIButton) {
         
-        viewModel.tapDelete()
+        viewModel?.tapDelete()
         
     }
     
@@ -75,7 +75,7 @@ class FavoriteViewController: JoeyPanelViewController {
     
     @objc func toggleEditMode() {
         
-        viewModel.isEditing.toggle()
+        viewModel?.isEditing.toggle()
     
     }
 }
@@ -85,7 +85,12 @@ private extension FavoriteViewController {
     func setup() {
         
         view.backgroundColor = .cardViewBlue
-                
+        
+        guard let title = navigationItem.title else { return }
+        
+        viewModel = FavoriteViewModel(title: title)
+        
+        viewModel?.getUserFavoriteWordsList()
     }
     
     func setupTableView() {
@@ -128,8 +133,8 @@ private extension FavoriteViewController {
             confirmTitle: "Delete All") { [unowned self] (outcome) in
             switch outcome {
             case .confirm:
-                self.viewModel.tapDeleteAll()
-                self.viewModel.isEditing.toggle()
+                self.viewModel?.tapDeleteAll()
+                self.viewModel?.isEditing.toggle()
             case .cancel:
                 break
             }
@@ -140,28 +145,24 @@ private extension FavoriteViewController {
     
     func binding() {
         
-//        viewModel.fetchData = { [weak self] in
-//            self?.tableView.reloadData()
-//        }
-        
-        viewModel.favoriteViewModels.bind { [weak self] (_) in
+        viewModel?.favoriteViewModels.bind { [weak self] (_) in
             
             self?.tableView.reloadData()
             
         }
         
-        viewModel.removeData = { [weak self] (index) in
+        viewModel?.removeData = { [weak self] (index) in
             
             self?.tableView.beginUpdates()
             
-            self?.viewModel.favoriteViewModels.value.remove(at: index)
+            self?.viewModel?.favoriteViewModels.value.remove(at: index)
             
             self?.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
             
             self?.tableView.endUpdates()
         }
         
-        viewModel.toggleEditMode = { [weak self] (isEditing) in
+        viewModel?.toggleEditMode = { [weak self] (isEditing) in
             
             self?.tableView.isEditing = isEditing
             
@@ -173,11 +174,11 @@ private extension FavoriteViewController {
             case true:
                 break
             case false:
-                self?.viewModel.removeSelections()
+                self?.viewModel?.removeSelections()
             }
         }
         
-        viewModel.deleteButtonEnable = { [weak self] (isEnable) in
+        viewModel?.deleteButtonEnable = { [weak self] (isEnable) in
             
             self?.deleteButton.isEnabled = isEnable
             
@@ -190,7 +191,7 @@ private extension FavoriteViewController {
             
         }
         
-        viewModel.removeAll = { [weak self] in
+        viewModel?.removeAll = { [weak self] in
             
             self?.tableView.reloadData()
             
@@ -207,25 +208,27 @@ extension FavoriteViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                 
-        viewModel.select(at: indexPath)
+        viewModel?.select(at: indexPath)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
-        viewModel.select(at: indexPath)
+        viewModel?.select(at: indexPath)
     }
 }
 
 extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return viewModel.favoriteViewModels.value.count
+        return viewModel?.favoriteViewModels.value.count ?? 0
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifierName, for: indexPath)
+        
+        guard let viewModel = viewModel else { return cell }
         
         let data = viewModel.favoriteViewModels.value[indexPath.row]
         

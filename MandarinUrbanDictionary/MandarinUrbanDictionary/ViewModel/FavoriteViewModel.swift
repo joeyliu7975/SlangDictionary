@@ -9,6 +9,58 @@ import Foundation
 
 class FavoriteViewModel {
     
+    var title: String
+    
+    var user: User? {
+        didSet {
+            guard let user = user else { return }
+            
+            switch title == "Favorites" {
+            case true:
+                user.favorites.forEach {
+                    networkManager.retrieveWord(id: $0) { (result: Result<Word, NetworkError>) in
+                        switch result {
+                        case .success(let word):
+                            self.favoriteViewModels.value.append(word)
+                        case .failure(.noData(let error)):
+                            print(error.localizedDescription)
+                        case .failure(.decodeError):
+                            print("Decode Error!")
+                        }
+                    }
+                }
+            case false:
+                user.recents.forEach {
+                    networkManager.retrieveWord(id: $0) { (result: Result<Word, NetworkError>) in
+                        switch result {
+                        case .success(let word):
+                            self.favoriteViewModels.value.append(word)
+                        case .failure(.noData(let error)):
+                            print(error.localizedDescription)
+                        case .failure(.decodeError):
+                            print("Decode Error!")
+                        }
+                    }
+                }
+            }
+            
+//            user.favorites.forEach {
+//                networkManager.retrieveWord(id: $0) { (result: Result<Word, NetworkError>) in
+//                    switch result {
+//                    case .success(let word):
+//                        self.favoriteViewModels.value.append(word)
+//                    case .failure(.noData(let error)):
+//                        print(error.localizedDescription)
+//                    case .failure(.decodeError):
+//                        print("Decode Error!")
+//                    }
+//                }
+//            }
+        }
+    }
+    
+    let networkManager: FirebaseManager = .init()
+    
     var favoriteViewModels = Box([Word]())
     
     var selectedWord = [Word]() {
@@ -33,12 +85,32 @@ class FavoriteViewModel {
     
     var deleteButtonEnable: ((Bool) -> Void)?
     
-//    func makeMockData() {
-//
-//        favoriteViewModels = Category.allCases
-//
-//        fetchData?()
-//    }
+    init(title: String) {
+        self.title = title
+    }
+    
+    // Firebase 操作
+    
+    func getUserFavoriteWordsList() {
+        
+        guard let uid = UserDefaults.standard.value(forKey: "uid") as? String else { return }
+ 
+        networkManager.retrieveUser(userID: uid) { (result: Result<User, NetworkError>) in
+            switch result {
+            case .success(let user):
+                
+                self.user = user
+                
+            case .failure(.noData(let error)):
+                print(error.localizedDescription)
+            case .failure(.decodeError):
+                print("Decode Error!")
+            }
+        }
+
+    }
+    
+    // MARK Local 操作
     
     func select(at index: IndexPath) {
         
@@ -56,14 +128,6 @@ class FavoriteViewModel {
             selectedWord.append(favoriteViewModels.value[index.row])
             
         }
-        
-//        if selectedWord.contains(favoriteViewModels.value[index.row]) {
-//            guard let index = selectedWord.firstIndex(of: favoriteViewModels.value[index.row]) else { return }
-//
-//            selectedWord.remove(at: index)
-//        } else {
-//            selectedWord.append(favoriteViewModels[index.row])
-//        }
     }
     
     func tapDelete() {

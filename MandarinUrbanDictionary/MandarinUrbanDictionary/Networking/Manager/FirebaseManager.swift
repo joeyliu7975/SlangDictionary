@@ -218,8 +218,6 @@ class FirebaseManager {
         dataBase.collection("Word").document(word.identifier).setData(word.dictionary)
         
         createNewDef(def: def, completion: completion)
-//        dataBase.collection("Definition").document(def.identifier)
-//            .setData(def.dictionary)
     }
     
     func createNewDef(def: Definition, completion: () -> Void) {
@@ -244,6 +242,24 @@ class FirebaseManager {
                         completion(.failure(.decodeError))
                     }
             }
+        }
+    }
+    
+    func retrieveWord<T: Codable>(id: String, completion: @escaping (Result<T, NetworkError>) -> Void) {
+        dataBase.collection("Word").document(id).getDocument { (querySnapshot, error) in
+            
+            if let error = error {
+                
+                completion(.failure(.noData(error)))
+                
+            } else {
+                    if let data = try? querySnapshot?.data(as: T.self, decoder: Firestore.Decoder()) {
+                    completion(.success(data))
+                    } else {
+                        completion(.failure(.decodeError))
+                    }
+            }
+            
         }
     }
 }

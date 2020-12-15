@@ -148,26 +148,6 @@ extension ContainerViewController: CenterViewControllerDelegate {
             }
             
         }
-        
-//        if shouldExpand {
-//
-//            currentState = .leftPanelExpanded
-//
-//            animateCenterPanelXPosition(
-//                targetPosition: centerNavigationController.view.frame.width
-//                    - centerPanelExpandedOffset
-//            )
-//        } else {
-//
-//            animateCenterPanelXPosition(targetPosition: 0) { _ in
-//
-//                self.currentState = .center
-//
-//                self.leftViewController?.view.removeFromSuperview()
-//
-//                self.leftViewController = nil
-//            }
-//        }
     }
     
     func animateCenterPanelXPosition(

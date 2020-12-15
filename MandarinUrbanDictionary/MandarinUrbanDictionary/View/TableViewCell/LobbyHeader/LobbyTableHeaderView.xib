@@ -22,7 +22,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="28"/>
                     <color key="tintColor" red="0.19215686269999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <state key="normal" title="Slang Yet?" image="search">
+                    <state key="normal" title="立馬搜尋?" image="search">
                         <color key="titleColor" red="0.19215686269999999" green="0.75686274509999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </state>
                     <connections>

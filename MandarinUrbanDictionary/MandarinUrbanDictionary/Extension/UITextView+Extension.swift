@@ -18,7 +18,7 @@ extension UITextView {
     
     var hasPlaceholder: Bool {
         
-        return self.textColor == UIColor.lightGray ? true : false
+        return self.textColor == UIColor.placeholderText ? true : false
         
     }
     

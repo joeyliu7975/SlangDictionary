@@ -9,23 +9,23 @@ import UIKit
 
 enum Category: String, CaseIterable {
     
-    case all = "All"
+    case all = "全部"
     
-    case engineer = "Engineer"
+    case engineer = "工程師"
     
-    case job = "Workplace"
+    case job = "工作"
     
-    case school = "School"
+    case school = "校園"
     
-    case pickUpLine = "Pickup Line"
+    case pickUpLine = "撩妹"
     
-    case restaurant = "Restaurant"
+    case restaurant = "餐廳"
     
-    case game = "Game"
+    case game = "遊戲"
     
-    case gym = "Gym"
+    case gym = "健身"
     
-    case relationship = "Relationship"
+    case relationship = "感情"
     
 }
 

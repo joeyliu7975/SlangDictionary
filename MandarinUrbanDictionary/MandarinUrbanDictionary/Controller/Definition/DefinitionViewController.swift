@@ -97,10 +97,10 @@ private extension DefinitionViewController {
     func showAlert() {
         
         let presenter = ReportPresenter(
-            title: "Report",
-            message: "Do you want to report this definition",
-            cancelTitle: "Cancel",
-            reportTitle: "Report") { (outcome) in
+            title: "檢舉",
+            message: "請問你想要檢舉此則解釋",
+            cancelTitle: "取消",
+            reportTitle: "檢舉") { (outcome) in
             switch outcome {
             
             case .report:

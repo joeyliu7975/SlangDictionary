@@ -17,19 +17,19 @@ protocol IconFactory {
 
 enum SidePanel: String, CaseIterable {
     
-    case homePage = "Dictionary"
+    case homePage = "辭海"
     
-    case dailySlang = "Daily Slang"
+    case dailySlang = "每日一句"
     
-    case top5 = "Top 5"
+    case top5 = "排行榜"
     
-    case favorite = "Favorite"
+    case favorite = "我的最愛"
     
-    case recents = "Recents"
+    case recents = "歷史紀錄"
     
-    case quiz = "Quiz"
+    case quiz = "挑戰"
     
-    case user = "User"
+    case user = "用戶"
     
 }
 

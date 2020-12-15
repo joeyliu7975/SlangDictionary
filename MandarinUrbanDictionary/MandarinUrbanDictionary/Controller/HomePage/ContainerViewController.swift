@@ -210,7 +210,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
                     self.toggleLeftPanel()
                 }
                 
-                desVC.setNavigationBarTitle(title: "Favorites")
+                desVC.setNavigationBarTitle(title: "我的最愛")
             }
             
         case .recents:
@@ -223,7 +223,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
                     self.toggleLeftPanel()
                 }
                 
-                desVC.setNavigationBarTitle(title: "Recents")
+                desVC.setNavigationBarTitle(title: "歷史紀錄")
             }
         case .quiz:
             

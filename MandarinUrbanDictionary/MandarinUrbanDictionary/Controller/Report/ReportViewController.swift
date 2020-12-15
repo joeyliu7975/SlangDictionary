@@ -30,7 +30,7 @@ class ReportViewController: UIViewController {
     lazy var placeholderLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 10, y: 6, width: 280, height: 28))
         
-        label.text = "Tell us what's going on..."
+        label.text = "請問告訴我們為何檢舉此則解釋..."
         
         label.font = UIFont(name: "PingFang SC", size: 22)
         
@@ -148,16 +148,16 @@ private extension ReportViewController {
         navigationItem.setBarAppearance(
             with: .barButtonRed,
             titleTextAttrs: UINavigationItem.titleAttributes,
-            title: "Report"
+            title: "檢舉"
         )
         
         navigationController?.navigationBar.tintColor = .white
         
-        sendButton = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(click))
+        sendButton = UIBarButtonItem(title: "發送", style: .plain, target: self, action: #selector(click))
         
         sendButton.isEnabled = false
                 
-        cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(click))
+        cancelButton = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(click))
         
         navigationItem.leftBarButtonItem = cancelButton
         

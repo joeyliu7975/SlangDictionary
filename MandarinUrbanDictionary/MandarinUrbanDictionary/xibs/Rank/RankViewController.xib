@@ -30,9 +30,9 @@
                         <constraint firstAttribute="height" constant="40" id="flM-Td-e3v"/>
                     </constraints>
                     <segments>
-                        <segment title="Trending"/>
-                        <segment title="Newest"/>
-                        <segment title="Category"/>
+                        <segment title="點閱率"/>
+                        <segment title="最新"/>
+                        <segment title="分類"/>
                     </segments>
                     <connections>
                         <action selector="switchSegment:" destination="-1" eventType="valueChanged" id="FnB-dL-E20"/>

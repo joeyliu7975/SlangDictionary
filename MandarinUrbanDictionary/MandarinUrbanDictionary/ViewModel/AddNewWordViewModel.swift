@@ -9,7 +9,16 @@ import Foundation
 
 class AddNewWordViewModel {
     
-    let categoryList = Category.allCases
+    let categoryList: [Category] = [
+        .engineer,
+        .job,
+        .school,
+        .pickUpLine,
+        .restaurant,
+        .game,
+        .gym,
+        .relationship
+    ]
     
     let networkManager: FirebaseManager = .init()
     

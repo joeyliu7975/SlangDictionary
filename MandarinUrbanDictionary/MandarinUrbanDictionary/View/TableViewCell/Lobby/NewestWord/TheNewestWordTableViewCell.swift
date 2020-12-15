@@ -17,6 +17,10 @@ class TheNewestWordTableViewCell: UITableViewCell {
     
     @IBOutlet weak var logoImageView: UIImageView!
     
+    @IBOutlet weak var categoryView: UIView!
+    
+    @IBOutlet weak var categoryImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,6 +31,12 @@ class TheNewestWordTableViewCell: UITableViewCell {
     func setup() {
         self.backgroundColor = .homepageDarkBlue
         
+        self.categoryView.backgroundColor = .homepageDarkBlue
+        
+        self.descriptionLabel.tintColor = .homepageLightBlue
+        
+        self.categoryView.setCorner(radius: 5)
+        
         self.selectedBackgroundView = UIView()
     }
 
@@ -36,13 +46,17 @@ class TheNewestWordTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func renderUI(title: String, description: String, image: String) {
+    func renderUI(title: String, category: String, image: String) {
+        
+        let categoryImage = Category(rawValue: category)!.instance()
         
         titleLabel.text = title
         
-        descriptionLabel.text = description
+        descriptionLabel.text = category
         
         logoImageView.image = UIImage(named: image)
+        
+        categoryImageView.image = UIImage(named: categoryImage.image)
     }
     
 }

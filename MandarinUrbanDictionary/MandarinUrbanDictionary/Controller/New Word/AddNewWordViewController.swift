@@ -139,18 +139,12 @@ private extension AddNewWordViewController {
         categoryTF.delegate = self
         
         definitionTextView.delegate = self
-        
-//        newWordTF.returnKeyType = .default
-//        
-//        categoryTF.returnKeyType = .done
-//        
-//        definitionTextView.returnKeyType = .done
 
         checkFormValidation()
         
         definitionTextView.setCorner(radius: 10)
         
-        definitionTextView.setupContent(.placeHolder("Please start typing here..."))
+        definitionTextView.setupContent(.placeHolder("請在此新增字詞解釋..."))
         
         sendButton.setCorner(radius: 10)
         

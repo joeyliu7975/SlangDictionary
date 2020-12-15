@@ -23,7 +23,7 @@ class FavoriteViewController: JoeyPanelViewController {
     
     private lazy var editButton: UIBarButtonItem = {
        
-        let editButton = UIBarButtonItem(title: "Edit", style: .done, target: self, action: #selector(toggleEditMode))
+        let editButton = UIBarButtonItem(title: "編輯", style: .done, target: self, action: #selector(toggleEditMode))
         
         return editButton
     }()
@@ -127,10 +127,10 @@ private extension FavoriteViewController {
     func showAlert() {
 
         let presenter = FavoritePresenter(
-            title: "Favorite Words",
-            message: "Are you sure you want to delete all favorite words",
-            cancelTitle: "Cancel",
-            confirmTitle: "Delete All") { [unowned self] (outcome) in
+            title: "移除全部",
+            message: "請問要移除所有內容？",
+            cancelTitle: "取消",
+            confirmTitle: "刪除全部") { [unowned self] (outcome) in
             switch outcome {
             case .confirm:
                 self.viewModel?.tapDeleteAll()
@@ -177,7 +177,7 @@ private extension FavoriteViewController {
             
             self?.deleteViewHeighConstraint.constant = isEditing ? 50 : 0
             
-            self?.editButton.title = isEditing ? "Done" : "Edit"
+            self?.editButton.title = isEditing ? "完成" : "編輯"
             
             switch isEditing {
             case true:

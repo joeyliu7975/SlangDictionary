@@ -16,7 +16,7 @@ class FavoriteViewModel {
         didSet {
             guard let user = user else { return }
             
-            switch title == "Favorites" {
+            switch title == "我的最愛" {
             case true:
                 
                 user.favorites.forEach {
@@ -106,7 +106,7 @@ class FavoriteViewModel {
         
         if let user = user {
             
-            switch title == "Favorites" {
+            switch title == "我的最愛" {
             case true:
                 fieldName = "favorite_words"
             case false:

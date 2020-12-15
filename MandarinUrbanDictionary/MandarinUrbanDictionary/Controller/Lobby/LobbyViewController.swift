@@ -295,7 +295,7 @@ extension LobbyViewController: UITableViewDataSource {
                 
                 newestWordCell.renderUI(
                     title: word.title,
-                    description: word.time.timeStampToStringDetail(),
+                    category: word.category,
                     image: image
                 )
                 
@@ -325,7 +325,7 @@ extension LobbyViewController: UITableViewDataSource {
                 
                 wordOfTheDayCell.renderUI(
                     title: word.title,
-                    description: word.time.timeStampToStringDetail(),
+                    category: word.category,
                     image: image
                 )
                 

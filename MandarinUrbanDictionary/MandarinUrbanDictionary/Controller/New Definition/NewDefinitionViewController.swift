@@ -33,7 +33,7 @@ class NewDefinitionViewController: UIViewController {
         let label = UILabel(frame: CGRect(x: 10, y: 10, width: 300, height: 28))
         
         label.textColor = .lightGray
-        label.text = "Write New Definition..."
+        label.text = "為此字加入新的定義..."
         label.font = UIFont.init(name: "PingFang SC", size: 24.0)
         
         return label
@@ -41,7 +41,7 @@ class NewDefinitionViewController: UIViewController {
     
     lazy var sendButton: UIBarButtonItem = {
         
-        let button = UIBarButtonItem(title: "Send", style: .plain, target: self, action: #selector(send))
+        let button = UIBarButtonItem(title: "送出", style: .plain, target: self, action: #selector(send))
         
         button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], for: .normal)
 
@@ -56,7 +56,7 @@ class NewDefinitionViewController: UIViewController {
     
     lazy var cancelButton: UIBarButtonItem = {
         
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
+        let cancelButton = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancel))
         
         cancelButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], for: .normal)
         

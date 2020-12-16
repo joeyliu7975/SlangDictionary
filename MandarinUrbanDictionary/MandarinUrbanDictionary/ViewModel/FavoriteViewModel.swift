@@ -11,39 +11,82 @@ class FavoriteViewModel {
     
     var title: String
     
+    var myList = [String]()
+    
+    var dic = [String: Word]()
+    
     var user: User? {
         
         didSet {
-            guard let user = user else { return }
+            guard var user = user else { return }
             
-            switch title == "我的最愛" {
-            case true:
+            let type = ListType.getType(with: title)
+            
+            switch type {
+            case .favorite:
                 
-                user.favorites.forEach {
+                if user.favorites.isEmpty { return }
+                                
+//                myList = user.favorites
+                
+                while !user.favorites.isEmpty {
                     
-                    networkManager.retrieveWord(id: $0) { (result: Result<Word, NetworkError>) in
+                    guard let id = user.favorites.popLast() else { return }
+                    
+                    myList.append(id)
+                    
+                    networkManager.retrieveWord(id: id) { (result: Result<Word, NetworkError>) in
                         switch result {
                         case .success(let word):
-                            self.favoriteViewModels.value.append(word)
+                           
+                            self.dic[id] = word
+                            
+                            if user.recents.isEmpty {
+                                self.getDictionary()
+                            }
+                            
                         case .failure(.noData(let error)):
+                            
                             print(error.localizedDescription)
+                            
                         case .failure(.decodeError):
+                            
                             print("Decode Error!")
+                            
                         }
                     }
                 }
                 
-            case false:
+            case .recent:
                 
-                user.recents.forEach {
-                    networkManager.retrieveWord(id: $0) { (result: Result<Word, NetworkError>) in
+                if user.recents.isEmpty { return }
+                
+//                myList = user.recents
+                                
+                while !user.recents.isEmpty {
+                    
+                    guard let id = user.recents.popLast() else { return }
+                    
+                    myList.append(id)
+                    
+                    networkManager.retrieveWord(id: id) { (result: Result<Word, NetworkError>) in
                         switch result {
                         case .success(let word):
-                            self.favoriteViewModels.value.append(word)
+                            
+                            self.dic[id] = word
+                            
+                            if user.recents.isEmpty {
+                                self.getDictionary()
+                            }
+                            
                         case .failure(.noData(let error)):
+                            
                             print(error.localizedDescription)
+                            
                         case .failure(.decodeError):
+                            
                             print("Decode Error!")
+                            
                         }
                     }
                 }
@@ -107,10 +150,13 @@ class FavoriteViewModel {
         
         if let user = user {
             
-            switch title == "我的最愛" {
-            case true:
+            let type = ListType.getType(with: title)
+            
+            switch type {
+            case .favorite:
+                
                 fieldName = "favorite_words"
-            case false:
+            case .recent:
                 fieldName = "recent_search"
             }
         
@@ -176,6 +222,31 @@ class FavoriteViewModel {
 
             selectedWord.removeAll()
 
+    }
+    
+    func getDictionary() {
+        
+        var words = [Word]()
+        
+        for id in myList {
+            guard let word = dic[id] else { return }
+            
+            words.append(word)
+        }
+        
+        favoriteViewModels.value = words
+    }
+}
+
+extension FavoriteViewModel {
+    
+    enum ListType: String {
+        case favorite = "我的最愛"
+        case recent = "歷史紀錄"
+        
+        static func getType(with title: String) -> ListType {
+            return ListType(rawValue: title) ?? .recent
+        }
     }
     
 }

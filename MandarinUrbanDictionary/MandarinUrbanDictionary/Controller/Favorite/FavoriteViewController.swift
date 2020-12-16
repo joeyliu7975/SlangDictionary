@@ -145,7 +145,7 @@ private extension FavoriteViewController {
     
     func binding() {
         
-        viewModel?.favoriteViewModels.bind { [weak self] (words) in
+        viewModel?.favoriteViewModels.bind { [weak self] (_) in
             
             guard let viewModel = self?.viewModel else { return }
             
@@ -236,25 +236,8 @@ extension FavoriteViewController: UITableViewDataSource {
         var cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifierName, for: indexPath)
         
         guard let viewModel = viewModel else { return cell }
-        
-        var word: Word
-        
-        let lastIndex = viewModel.favoriteViewModels.value.count - 1
-        
-        word = viewModel.favoriteViewModels.value[lastIndex - indexPath.row]
-        
-//        switch (viewModel.title == "我的最愛") {
-//        
-//        case true:
-//            let lastIndex = viewModel.favoriteViewModels.value.count - 1
-//            
-//            word = viewModel.favoriteViewModels.value[lastIndex - indexPath.row]
-//        case false:
-//            
-//            let lastIndex = viewModel.recentSearchWords.count - 1
-//
-//            word = viewModel.recentSearchWords[lastIndex - indexPath.row]
-//        }
+
+        let word = viewModel.favoriteViewModels.value[indexPath.row]
         
         if let favoriteCell = cell as? FavoriteTableViewCell {
             

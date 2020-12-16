@@ -26,6 +26,7 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
         
         viewModel?.renewRecentSearch { [weak self] in
             self?.viewModel?.addToRecentSearch()
+            self?.viewModel?.discoverWord()
         }
         
         searchBar.text = word
@@ -319,6 +320,7 @@ extension DefinitionViewController: UISearchBarDelegate {
 }
 
 extension DefinitionViewController: UITabBarDelegate {
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 120.0
     }

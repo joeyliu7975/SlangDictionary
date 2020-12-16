@@ -42,8 +42,8 @@
                         <action selector="clickButton:" destination="-2" eventType="touchUpInside" id="wsS-2w-6QG"/>
                     </connections>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wbs-Ga-zke">
-                    <rect key="frame" x="244" y="78" width="105.5" height="32"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wbs-Ga-zke">
+                    <rect key="frame" x="244" y="78" width="107.5" height="32"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VHg-qh-g1T">
                             <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
@@ -53,7 +53,7 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-9p-oFr">
-                            <rect key="frame" x="40" y="0.0" width="65.5" height="32"/>
+                            <rect key="frame" x="42" y="0.0" width="65.5" height="32"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工程師" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChJ-Wi-3cE">
                                     <rect key="frame" x="5" y="5.5" width="55.5" height="21"/>

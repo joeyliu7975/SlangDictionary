@@ -11,6 +11,9 @@
 		71055A912584289500560C5D /* RankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71055A902584289500560C5D /* RankViewController.xib */; };
 		71055A95258428A300560C5D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71055A94258428A300560C5D /* LoginViewController.xib */; };
 		710574B92589E771004556DF /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710574B82589E771004556DF /* UIButton+Extension.swift */; };
+		710574BE2589FF90004556DF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710574BC2589FF90004556DF /* UserViewController.swift */; };
+		710574BF2589FF90004556DF /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710574BD2589FF90004556DF /* UserViewController.xib */; };
+		710574F1258A16FD004556DF /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710574F0258A16FD004556DF /* UserViewModel.swift */; };
 		7119AA2D257B73DE00A7F513 /* AddNewWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */; };
 		7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E0052570F65D00A56E7E /* SearchPageViewController.swift */; };
 		7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E0062570F65D00A56E7E /* SearchPageViewController.xib */; };
@@ -85,7 +88,6 @@
 		71E7F34C2570D75B00F15098 /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F34A2570D75B00F15098 /* Definition.swift */; };
 		71E7F34D2570D75B00F15098 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F34B2570D75B00F15098 /* Word.swift */; };
 		71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3512570D76600F15098 /* HomePageViewModel.swift */; };
-		71E81E9F258499F100BECDCC /* RankChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E81E9D258499F100BECDCC /* RankChartViewController.swift */; };
 		71E81EA0258499F100BECDCC /* RankChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E81E9E258499F100BECDCC /* RankChartViewController.xib */; };
 		71E81EA42584A22500BECDCC /* FirebaseTimestamp+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E81EA32584A22500BECDCC /* FirebaseTimestamp+Extension.swift */; };
 		71E81EAA2584BAD600BECDCC /* LobbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E81EA82584BAD600BECDCC /* LobbyViewController.xib */; };
@@ -112,6 +114,9 @@
 		71055A902584289500560C5D /* RankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankViewController.xib; sourceTree = "<group>"; };
 		71055A94258428A300560C5D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		710574B82589E771004556DF /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		710574BC2589FF90004556DF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		710574BD2589FF90004556DF /* UserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
+		710574F0258A16FD004556DF /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordViewModel.swift; sourceTree = "<group>"; };
 		7120E0052570F65D00A56E7E /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
 		7120E0062570F65D00A56E7E /* SearchPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPageViewController.xib; sourceTree = "<group>"; };
@@ -189,7 +194,6 @@
 		71E7F34A2570D75B00F15098 /* Definition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
 		71E7F34B2570D75B00F15098 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		71E7F3512570D76600F15098 /* HomePageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
-		71E81E9D258499F100BECDCC /* RankChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankChartViewController.swift; sourceTree = "<group>"; };
 		71E81E9E258499F100BECDCC /* RankChartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankChartViewController.xib; sourceTree = "<group>"; };
 		71E81EA32584A22500BECDCC /* FirebaseTimestamp+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseTimestamp+Extension.swift"; sourceTree = "<group>"; };
 		71E81EA82584BAD600BECDCC /* LobbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LobbyViewController.xib; sourceTree = "<group>"; };
@@ -258,6 +262,22 @@
 				71055A94258428A300560C5D /* LoginViewController.xib */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		710574BB2589FF1D004556DF /* User */ = {
+			isa = PBXGroup;
+			children = (
+				710574BC2589FF90004556DF /* UserViewController.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		710574D8258A1093004556DF /* User */ = {
+			isa = PBXGroup;
+			children = (
+				710574BD2589FF90004556DF /* UserViewController.xib */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		7105AF872575E9CD000C71B4 /* Definition */ = {
@@ -617,6 +637,7 @@
 				71A84A882576369600E0C14D /* Favorite */,
 				716A8D6725778AAA005C5782 /* Report */,
 				71055A8F2584289500560C5D /* Rank */,
+				710574D8258A1093004556DF /* User */,
 				71055A892584285B00560C5D /* Quiz */,
 			);
 			path = xibs;
@@ -647,6 +668,7 @@
 				71A84A822576365000E0C14D /* Favorite */,
 				71F944292578C1380014808E /* Rank */,
 				71883B7F2578EF9F00170AC9 /* Quiz */,
+				710574BB2589FF1D004556DF /* User */,
 				716A8D6125778A85005C5782 /* Report */,
 			);
 			name = Controller;
@@ -710,6 +732,7 @@
 				71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */,
 				7188ADEC258480AE00524D96 /* RankViewModel.swift */,
 				7150956E25874EE60086B854 /* NewDefinitionViewModel.swift */,
+				710574F0258A16FD004556DF /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -780,7 +803,6 @@
 			isa = PBXGroup;
 			children = (
 				71F9442A2578C15E0014808E /* RankViewController.swift */,
-				71E81E9D258499F100BECDCC /* RankChartViewController.swift */,
 			);
 			path = Rank;
 			sourceTree = "<group>";
@@ -863,6 +885,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				716CD3122574F80500695A91 /* SidePanelViewController.xib in Resources */,
+				710574BF2589FF90004556DF /* UserViewController.xib in Resources */,
 				7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */,
 				7152EADD2575E94A00F1C5FB /* AddNewWordViewController.xib in Resources */,
 				71883B7D2578D6F300170AC9 /* RankTableViewCell.xib in Resources */,
@@ -971,6 +994,7 @@
 				7188ADEA258471FA00524D96 /* UILabel+Extension.swift in Sources */,
 				71E7F3462570D73700F15098 /* UICollectionView+Extension.swift in Sources */,
 				7120E0132571167700A56E7E /* CategoryCollectionViewCell.swift in Sources */,
+				710574F1258A16FD004556DF /* UserViewModel.swift in Sources */,
 				7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */,
 				71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */,
 				7120E00D2571116400A56E7E /* CategoryViewController.swift in Sources */,
@@ -980,7 +1004,6 @@
 				71E9295D2584F8FF001FB100 /* LobbyTableHeaderView.swift in Sources */,
 				716A8D6A2577A880005C5782 /* Report.swift in Sources */,
 				716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */,
-				71E81E9F258499F100BECDCC /* RankChartViewController.swift in Sources */,
 				7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */,
 				71E7F34C2570D75B00F15098 /* Definition.swift in Sources */,
 				71F8DDAC257C751200507D8F /* SearchViewModel.swift in Sources */,
@@ -1004,6 +1027,7 @@
 				71E81EB02584BB5D00BECDCC /* TheNewestWordTableViewCell.swift in Sources */,
 				7152EADC2575E94A00F1C5FB /* AddNewWordViewController.swift in Sources */,
 				716A8D7125787A01005C5782 /* LoginViewController.swift in Sources */,
+				710574BE2589FF90004556DF /* UserViewController.swift in Sources */,
 				71883B822578EFBB00170AC9 /* QuizViewController.swift in Sources */,
 				7188ADED258480AE00524D96 /* RankViewModel.swift in Sources */,
 				71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */,

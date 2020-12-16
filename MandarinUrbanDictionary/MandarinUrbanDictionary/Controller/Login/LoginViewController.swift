@@ -140,8 +140,11 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                     return
                 }
                 guard let user = authResult?.user else { return }
+                
                 let email = user.email ?? ""
+                
                 let displayName = user.displayName ?? ""
+                
                 guard let uid = Auth.auth().currentUser?.uid else { return }
                 
                 let database = Firestore.firestore()
@@ -150,11 +153,14 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                 
                 let recentSearch: [String] = []
                 
+                let discoveredWords: [String] = []
+                
                 database.collection("User").document(uid).setData([
                     "display_Name": uid,
                     "id": uid,
                     "favorite_words": favoriteWord,
-                    "recent_search": recentSearch
+                    "recent_search": recentSearch,
+                    "discovered_words": discoveredWords
                 ]) { err in
                     if let err = err {
                         print("Error writing document: \(err)")

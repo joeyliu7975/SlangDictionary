@@ -10,6 +10,8 @@ import UIKit
 class QuizViewController: JoeyPanelViewController {
 
     @IBOutlet weak var imageViewTopAnchor: NSLayoutConstraint!
+    
+    
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +41,7 @@ private extension QuizViewController {
         
         removeBackButtonItem()
         
-        setBarAppearance(title: "Quiz")
+        setBarAppearance(title: "挑戰")
         
         makeSideMenuButton()
     }

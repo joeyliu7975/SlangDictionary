@@ -241,7 +241,14 @@ extension ContainerViewController: LeftViewControllerDelegate {
             }
             
         case .user:
-            break
+            
+            destinationVC = UserViewController()
+            
+            if let desVC = destinationVC as? UserViewController {
+                desVC.clickSideMenu = {
+                    self.toggleLeftPanel()
+                }
+            }
         }
         
         guard let desVC = destinationVC else { return }

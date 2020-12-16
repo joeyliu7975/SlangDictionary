@@ -17,6 +17,8 @@ struct User: Codable {
     
     var recents: [String]
     
+    var discoveredWords: [String]
+    
     enum CodingKeys: String, CodingKey {
         
         case identifier = "id"
@@ -26,6 +28,8 @@ struct User: Codable {
         case recents = "recent_search"
         
         case favorites = "favorite_words"
+        
+        case discoveredWords = "discovered_words"
     }
 }
 
@@ -37,7 +41,8 @@ extension User: FirebaseItem {
             "id": identifier,
             "display_Name": name,
             "recent_search": recents,
-            "favorite_words": favorites
+            "favorite_words": favorites,
+            "discovered_words": discoveredWords
         ]
     }
 }

@@ -74,6 +74,14 @@ class DefinitionViewModel {
         }
     }
     
+    func discoverWord() {
+        
+        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
+            networkManager.updateArray(uid: uid, wordID: wordIdentifier, arrayName: "discovered_words")
+        }
+        
+    }
+    
     func removeFromRecentSearch(completion: @escaping () -> Void) {
         
         if let uid = UserDefaults.standard.value(forKey: "uid") as? String {

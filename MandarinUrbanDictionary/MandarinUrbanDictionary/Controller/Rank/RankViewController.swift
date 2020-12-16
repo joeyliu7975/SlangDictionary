@@ -166,12 +166,14 @@ extension RankViewController: UITableViewDataSource {
             
             rankCell.renderUI(boardColor: color, title: word)
             
-            if rank == .top {
-                
+            switch rank {
+            
+            case .top:
                 rankCell.layoutSubviews()
                 
                 rankCell.makeCrown()
-                
+            default:
+                break
             }
             
             cell = rankCell

@@ -20,6 +20,7 @@ class FavoriteViewModel {
             case true:
                 
                 user.favorites.forEach {
+                    
                     networkManager.retrieveWord(id: $0) { (result: Result<Word, NetworkError>) in
                         switch result {
                         case .success(let word):

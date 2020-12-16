@@ -145,15 +145,19 @@ private extension FavoriteViewController {
     
     func binding() {
         
-        viewModel?.favoriteViewModels.bind { [weak self] (_) in
+        viewModel?.favoriteViewModels.bind { [weak self] (words) in
             
             guard let viewModel = self?.viewModel else { return }
             
             switch viewModel.isEditing {
             case true:
+                
                 break
+                
             case false:
+                
                 self?.tableView.reloadData()
+                            
             }
         }
         
@@ -233,11 +237,28 @@ extension FavoriteViewController: UITableViewDataSource {
         
         guard let viewModel = viewModel else { return cell }
         
-        let data = viewModel.favoriteViewModels.value[indexPath.row]
+        var word: Word
+        
+        let lastIndex = viewModel.favoriteViewModels.value.count - 1
+        
+        word = viewModel.favoriteViewModels.value[lastIndex - indexPath.row]
+        
+//        switch (viewModel.title == "我的最愛") {
+//        
+//        case true:
+//            let lastIndex = viewModel.favoriteViewModels.value.count - 1
+//            
+//            word = viewModel.favoriteViewModels.value[lastIndex - indexPath.row]
+//        case false:
+//            
+//            let lastIndex = viewModel.recentSearchWords.count - 1
+//
+//            word = viewModel.recentSearchWords[lastIndex - indexPath.row]
+//        }
         
         if let favoriteCell = cell as? FavoriteTableViewCell {
             
-            favoriteCell.renderUI(word: data.title, tag: data.category)
+            favoriteCell.renderUI(word: word.title, tag: word.category)
             
             cell = favoriteCell
         }

@@ -25,6 +25,12 @@ class FavoriteTableViewCell: UITableViewCell {
         
         setup()
     }
+    
+    override func prepareForReuse() {
+        self.wordLabel.text = ""
+        
+        self.categoryTagLabel.text = ""
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -42,7 +48,11 @@ class FavoriteTableViewCell: UITableViewCell {
     private func setup() {
         
         cardView.backgroundColor = .cardViewBlue
+
+        categoryTagView.setCorner(radius: 10.0)
         
-        categoryTagView.setCorner(radius: 15.0)
+        categoryTagView.backgroundColor = .white
+        
+        categoryTagLabel.textColor = .cardViewBlue
     }
 }

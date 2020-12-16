@@ -49,10 +49,6 @@ class LobbyViewController: UIViewController {
         binding()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        searchBar.resignFirstResponder()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         userHasSignedIn()
     }
@@ -145,9 +141,11 @@ private extension LobbyViewController {
         
         let navController = UINavigationController(rootViewController: searchViewController)
         
-        navController.modalPresentationStyle = .fullScreen
+        navController.isHeroEnabled = true
         
-        navController.modalTransitionStyle = .crossDissolve
+        navController.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .pageOut(direction: .right))
+    
+        navController.modalPresentationStyle = .fullScreen
         
         present(navController, animated: true)
     }

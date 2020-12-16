@@ -28,6 +28,14 @@ class Top5TableViewCell: UITableViewCell {
     
     private var topFive = [Word]()
     
+    let rankList: [RankColor] = [
+        .top,
+        .second,
+        .third,
+        .fourth,
+        .fifth
+    ]
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -107,20 +115,22 @@ extension Top5TableViewCell: UICollectionViewDataSource {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopFiveCollectionViewCell.reusableIdentifier, for: indexPath)
         
         if let topFiveCell = cell as? TopFiveCollectionViewCell {
-//
-//            if indexPath.row == 0 {
-//
-//                topFiveCell.makeCrown()
-//
-//            }
+            
+            let rank = rankList[indexPath.row]
             
             topFiveCell.titleLabel.text = topFive[indexPath.row].title
             
-            switch indexPath.row {
-            case 0:
+            topFiveCell.rankBoardView.backgroundColor = rank.makeColor()
+            
+            switch rank {
+            case .top:
+                
                 topFiveCell.makeCrown()
+                
             default:
+                
                 break
+                
             }
             
             cell = topFiveCell
@@ -143,5 +153,19 @@ extension Top5TableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+extension Top5TableViewCell {
+    enum RankColor: String {
+        case top = "#6DC0F8"
+        case second = "#8ACCF9"
+        case third = "#98D2FA"
+        case fourth = "#A7D9FB"
+        case fifth = "#B5E0FB"
+        
+        func makeColor() -> UIColor {
+            return UIColor.hexStringToUIColor(hex: self.rawValue)
+        }
     }
 }

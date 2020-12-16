@@ -51,6 +51,10 @@ class FavoriteViewController: JoeyPanelViewController {
         binding()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel?.getUserFavoriteWordsList()
+    }
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: true)
         
@@ -70,7 +74,9 @@ class FavoriteViewController: JoeyPanelViewController {
     }
     
     @IBAction func tapDeleteAll(_ sender: UIButton) {
+        
         showAlert()
+        
     }
     
     @objc func toggleEditMode() {
@@ -90,7 +96,7 @@ private extension FavoriteViewController {
         
         viewModel = FavoriteViewModel(title: title)
         
-        viewModel?.getUserFavoriteWordsList()
+//        viewModel?.getUserFavoriteWordsList()
     }
     
     func setupTableView() {

@@ -8,7 +8,7 @@
 import UIKit
 import Hero
 
-class LobbyViewController: UIViewController {
+class LobbyViewController: JoeyPanelViewController {
     
     @IBOutlet weak var writeNewButtonView: NewPostButtonView!
     
@@ -31,16 +31,14 @@ class LobbyViewController: UIViewController {
     
     let viewModel: HomePageViewModel = .init()
     
-    override func viewDidLayoutSubviews() {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
         setup()
+        
+        makeSideMenuButton()
         
         setupTableView()
         
@@ -53,11 +51,11 @@ class LobbyViewController: UIViewController {
         userHasSignedIn()
     }
     
-    @objc func toggleSideMenu() {
-        
-        delegate?.toggleLeftPanel()
-        
-    }
+//    @objc func toggleSideMenu() {
+//
+//        delegate?.toggleLeftPanel()
+//
+//    }
 }
 
 private extension LobbyViewController {
@@ -124,15 +122,7 @@ private extension LobbyViewController {
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         
         navigationController.navigationBar.shadowImage = UIImage()
-        
-        let sideMenuButton = UIBarButtonItem(
-            image: UIImage(named: ImageConstant.list),
-            style: .plain,
-            target: self,
-            action: #selector(toggleSideMenu)
-        )
-        
-        self.navigationItem.leftBarButtonItem = sideMenuButton
+
     }
     
     func clickSearch() {

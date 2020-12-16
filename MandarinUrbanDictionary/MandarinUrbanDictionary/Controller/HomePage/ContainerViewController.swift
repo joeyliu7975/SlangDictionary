@@ -44,6 +44,7 @@ class ContainerViewController: UIViewController {
     }
     
     @objc func tapCoverView() {
+        
         toggleLeftPanel()
         
         currentState = .center
@@ -67,6 +68,10 @@ private extension ContainerViewController {
         addChild(centerNavigationController)
         
         centerNavigationController.didMove(toParent: self)
+    
+        centerViewController.clickSideMenu = {
+            self.toggleLeftPanel()
+        }
     }
     
     func setupNavigationController() {

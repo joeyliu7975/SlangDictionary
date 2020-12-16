@@ -55,7 +55,23 @@ class JoeyPanelViewController: UIViewController, SidePanelControl {
     
     func makeSideMenuButton() {
         
-        let sideMenuButton = UIBarButtonItem(image: UIImage(named: ImageConstant.list), style: .plain, target: self, action: #selector(toggleSideMenu))
+        let button = UIButton()
+        
+        button.imageView?.contentMode = .scaleToFill
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.setImage(UIImage(named: ImageConstant.list), for: .normal)
+        
+        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        button.addTarget(self, action: #selector(toggleSideMenu), for: .touchDown)
+        
+        let sideMenuButton = UIBarButtonItem(customView: button)
+        
+//        let sideMenuButton = UIBarButtonItem(image: UIImage(named: ImageConstant.list), style: .plain, target: self, action: #selector(toggleSideMenu))
         
         navigationItem.leftBarButtonItem = sideMenuButton
         

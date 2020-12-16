@@ -34,6 +34,10 @@ private enum Color: String {
     case newDefBlue = "16324B"
     
     case lightestBlue = "D7EFFE"
+    
+    case disableBackgroundBlue = "B9DDF7"
+    
+    case disableLightgray = "E2DBDB"
 }
 
 extension UIColor {
@@ -65,6 +69,8 @@ extension UIColor {
     static let newDefBlue = renderColor(.newDefBlue)
     
     static let lightestBlue = renderColor(.lightestBlue)
+    
+    static let disableBackgroundBlue = renderColor(.disableBackgroundBlue)
     
     private static func renderColor(_ color: Color) -> UIColor {
         

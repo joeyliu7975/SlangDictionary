@@ -15,7 +15,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbK-Zd-ED9">
-                    <rect key="frame" x="32.5" y="28.5" width="333.5" height="33.5"/>
+                    <rect key="frame" x="154.5" y="28.5" width="67.5" height="33.5"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfa-56-DJ3">
-                    <rect key="frame" x="10" y="32.5" width="25" height="25"/>
+                    <rect key="frame" x="15" y="32.5" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="7xg-Qb-xdt"/>
                         <constraint firstAttribute="height" constant="25" id="NgG-mo-mC9"/>
@@ -92,16 +92,17 @@
             <color key="backgroundColor" systemColor="systemYellowColor"/>
             <constraints>
                 <constraint firstItem="xyG-L5-wy1" firstAttribute="leading" secondItem="lud-Ak-m43" secondAttribute="trailing" constant="40" id="4Xt-x7-Sx7"/>
-                <constraint firstItem="Vfa-56-DJ3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="BVd-Xx-PCW"/>
+                <constraint firstItem="fbK-Zd-ED9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ABZ-8T-TMz"/>
+                <constraint firstItem="Vfa-56-DJ3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="BVd-Xx-PCW"/>
                 <constraint firstItem="fbK-Zd-ED9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-15" id="Djh-Qc-MmM"/>
                 <constraint firstItem="xyG-L5-wy1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="P6y-iA-6VA"/>
                 <constraint firstItem="Vfa-56-DJ3" firstAttribute="centerY" secondItem="fbK-Zd-ED9" secondAttribute="centerY" id="R2t-Qb-0UT"/>
-                <constraint firstItem="fbK-Zd-ED9" firstAttribute="leading" secondItem="Vfa-56-DJ3" secondAttribute="centerX" constant="10" id="VQd-Qn-rip"/>
+                <constraint firstItem="fbK-Zd-ED9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vfa-56-DJ3" secondAttribute="centerX" constant="10" id="VQd-Qn-rip"/>
                 <constraint firstItem="wbs-Ga-zke" firstAttribute="bottom" secondItem="xyG-L5-wy1" secondAttribute="bottom" id="Z0t-jw-VRD"/>
                 <constraint firstItem="lud-Ak-m43" firstAttribute="bottom" secondItem="xyG-L5-wy1" secondAttribute="bottom" id="Zls-oB-LcI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="xyG-L5-wy1" secondAttribute="bottom" constant="10" id="bxv-K2-haM"/>
                 <constraint firstItem="wbs-Ga-zke" firstAttribute="leading" secondItem="xyG-L5-wy1" secondAttribute="trailing" constant="40" id="fRA-r1-q5U"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fbK-Zd-ED9" secondAttribute="trailing" constant="10" id="gEw-ez-8xP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fbK-Zd-ED9" secondAttribute="trailing" constant="10" id="gEw-ez-8xP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

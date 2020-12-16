@@ -10,6 +10,7 @@
 		71055A8B2584285B00560C5D /* QuizViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71055A8A2584285B00560C5D /* QuizViewController.xib */; };
 		71055A912584289500560C5D /* RankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71055A902584289500560C5D /* RankViewController.xib */; };
 		71055A95258428A300560C5D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71055A94258428A300560C5D /* LoginViewController.xib */; };
+		710574B92589E771004556DF /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710574B82589E771004556DF /* UIButton+Extension.swift */; };
 		7119AA2D257B73DE00A7F513 /* AddNewWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */; };
 		7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E0052570F65D00A56E7E /* SearchPageViewController.swift */; };
 		7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E0062570F65D00A56E7E /* SearchPageViewController.xib */; };
@@ -110,6 +111,7 @@
 		71055A8A2584285B00560C5D /* QuizViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuizViewController.xib; sourceTree = "<group>"; };
 		71055A902584289500560C5D /* RankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankViewController.xib; sourceTree = "<group>"; };
 		71055A94258428A300560C5D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		710574B82589E771004556DF /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordViewModel.swift; sourceTree = "<group>"; };
 		7120E0052570F65D00A56E7E /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
 		7120E0062570F65D00A56E7E /* SearchPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPageViewController.xib; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 				7188ADE9258471FA00524D96 /* UILabel+Extension.swift */,
 				71E81EA32584A22500BECDCC /* FirebaseTimestamp+Extension.swift */,
 				71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */,
+				710574B82589E771004556DF /* UIButton+Extension.swift */,
 			);
 			name = Extension;
 			path = MandarinUrbanDictionary/Extension;
@@ -995,6 +998,7 @@
 				716A8D6425778AA3005C5782 /* ReportViewController.swift in Sources */,
 				7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */,
 				71348880257285F5007ADED3 /* UINavigationItem+Extension.swift in Sources */,
+				710574B92589E771004556DF /* UIButton+Extension.swift in Sources */,
 				71C3D5AB257E29DB00636BC4 /* NewDefinitionViewController.swift in Sources */,
 				71F9442025789B140014808E /* JoeyTextLayer.swift in Sources */,
 				71E81EB02584BB5D00BECDCC /* TheNewestWordTableViewCell.swift in Sources */,

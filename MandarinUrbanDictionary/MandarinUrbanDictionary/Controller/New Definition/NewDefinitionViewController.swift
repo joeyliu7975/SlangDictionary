@@ -39,32 +39,48 @@ class NewDefinitionViewController: UIViewController {
         return label
     }()
     
-    lazy var sendButton: UIBarButtonItem = {
+    lazy var sendButton: UIButton = {
+                
+        let button = UIButton()
         
-        let button = UIBarButtonItem(title: "送出", style: .plain, target: self, action: #selector(send))
+        button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], for: .normal)
-
-        button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], for: .disabled)
+        button.widthAnchor.constraint(equalToConstant: 75).isActive = true
         
-        button.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.homepageLightBlue], for: .normal)
+        button.heightAnchor.constraint(equalToConstant: 35).isActive = true
         
-        button.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .disabled)
+        button.setTitle("送出", for: .normal)
+        
+        button.titleLabel?.font = UIFont(name: "PingFang SC", size: 18)
+        
+        button.setTitleColor(.white, for: .normal)
+        
+        button.setTitleColor(.white, for: .disabled)
+        
+        button.setBackgroundColor(.homepageDarkBlue, for: .normal)
+        
+        button.setBackgroundColor(.disableBackgroundBlue, for: .disabled)
                 
         return button
     }()
     
-    lazy var cancelButton: UIBarButtonItem = {
+    lazy var cancelButton: UIButton = {
         
-        let cancelButton = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancel))
+        let button = UIButton()
         
-        cancelButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         
-        cancelButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)], for: .disabled)
+        button.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
-        cancelButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.homepageLightBlue], for: .normal)
+        button.heightAnchor.constraint(equalToConstant: 35).isActive = true
         
-        return cancelButton
+        button.setTitle("取消", for: .normal)
+        
+        button.titleLabel?.font = UIFont(name: "PingFang SC", size: 18)
+        
+        button.setTitleColor(.homepageDarkBlue, for: .normal)
+        
+        return button
     }()
     
     private var heightConstraint: NSLayoutConstraint?
@@ -154,15 +170,25 @@ private extension NewDefinitionViewController {
                          name: UIResponder.keyboardWillShowNotification,
                          object: nil
             )
-        
-        sendButton.isEnabled = false
     }
     
     func setupNavigation() {
-                
-        navigationItem.leftBarButtonItem = cancelButton
         
-        navigationItem.rightBarButtonItem = sendButton
+        sendButton.addTarget(self, action: #selector(send), for: .touchUpInside)
+        
+        cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+        
+        let rightBarButton = UIBarButtonItem(customView: sendButton)
+        
+        let leftBarButton = UIBarButtonItem(customView: cancelButton)
+        
+        navigationItem.leftBarButtonItem = leftBarButton
+        
+        navigationItem.rightBarButtonItem = rightBarButton
+        
+        sendButton.isEnabled = false
+        
+        sendButton.setCorner(radius: 15)
     }
     
     func setupTextView() {

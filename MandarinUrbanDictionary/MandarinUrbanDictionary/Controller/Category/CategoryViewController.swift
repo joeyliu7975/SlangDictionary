@@ -38,19 +38,12 @@ class CategoryViewController: UIViewController {
         }
         
         didSet {
-            
             switch selectCategory == nil {
             case true:
                 disableButton()
             case false:
                 enableButton()
             }
-//            
-//            if selectCategory != nil {
-//                enableButton()
-//            } else {
-//                disableButton()
-//            }
         }
     }
     

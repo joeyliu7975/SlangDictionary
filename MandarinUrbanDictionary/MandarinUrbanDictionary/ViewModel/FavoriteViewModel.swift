@@ -26,9 +26,7 @@ class FavoriteViewModel {
             case .favorite:
                 
                 if user.favorites.isEmpty { return }
-                                
-//                myList = user.favorites
-                
+                                                
                 while !user.favorites.isEmpty {
                     
                     guard let id = user.favorites.popLast() else { return }
@@ -42,7 +40,7 @@ class FavoriteViewModel {
                             self.dic[id] = word
                             
                             if user.recents.isEmpty {
-                                self.getDictionary()
+                                self.orderWords()
                             }
                             
                         case .failure(.noData(let error)):
@@ -60,9 +58,7 @@ class FavoriteViewModel {
             case .recent:
                 
                 if user.recents.isEmpty { return }
-                
-//                myList = user.recents
-                                
+                                                
                 while !user.recents.isEmpty {
                     
                     guard let id = user.recents.popLast() else { return }
@@ -76,7 +72,7 @@ class FavoriteViewModel {
                             self.dic[id] = word
                             
                             if user.recents.isEmpty {
-                                self.getDictionary()
+                                self.orderWords()
                             }
                             
                         case .failure(.noData(let error)):
@@ -224,7 +220,7 @@ class FavoriteViewModel {
 
     }
     
-    func getDictionary() {
+    func orderWords() {
         
         var words = [Word]()
         

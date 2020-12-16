@@ -10,23 +10,23 @@ import UIKit
 class NewDefinitionViewController: UIViewController {
     
     lazy var textView: UITextView = {
-        
-        let textView = UITextView()
-        
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        
-        textView.delegate = self
-
-        textView.backgroundColor = .newDefBlue
-        
-        textView.becomeFirstResponder()
     
-        textView.tintColor = .white
-        
-        textView.setupContent(.startTyping(color: .white))
-        
-        return textView
-    }()
+    let textView = UITextView()
+    
+    textView.translatesAutoresizingMaskIntoConstraints = false
+    
+    textView.delegate = self
+
+    textView.backgroundColor = .newDefBlue
+    
+    textView.becomeFirstResponder()
+
+    textView.tintColor = .white
+    
+    textView.setupContent(.startTyping(color: .white))
+    
+    return textView
+}()
     
     lazy var placeholderLabel: UILabel = {
         
@@ -214,6 +214,7 @@ private extension NewDefinitionViewController {
     }
 }
 
+//MARK: TextViewDelegate and Datasource
 extension NewDefinitionViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         

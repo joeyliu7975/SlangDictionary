@@ -176,7 +176,7 @@ class DefinitionViewModel {
         
         case 0:
             
-            rankString = "置頂解釋"
+            rankString = "最佳解釋"
             
         default:
             

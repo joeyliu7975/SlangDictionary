@@ -18,8 +18,17 @@ class FirebaseManager {
     init(_ dataBase: Firestore = Firestore.firestore()) {
         self.dataBase = dataBase
     }
+    
+    // TEST Firebase Reuqest
 
-    func listen <T: Codable>(_ collection: Collection, completion: @escaping (Result<[T], Error>) -> Void) {
+    func listen<T>(request: Request, completion: @escaping (Result<[T], NetworkError>) -> Void) {
+        print("Test")
+//        dataBase.collection(request.collection)
+        
+    }
+    
+    // Original Firebase
+    func listen<T: Codable>(_ collection: Collection, completion: @escaping (Result<[T], Error>) -> Void) {
         
         switch collection {
         

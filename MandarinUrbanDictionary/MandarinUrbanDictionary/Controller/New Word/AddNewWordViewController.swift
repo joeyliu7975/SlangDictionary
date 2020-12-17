@@ -44,6 +44,8 @@ class AddNewWordViewController: UIViewController {
         // Do any additional setup after loading the view.
         setup()
         
+        renderDoneButton()
+        
         binding()
         
     }
@@ -73,6 +75,10 @@ class AddNewWordViewController: UIViewController {
             self.dismiss(animated: true)
             
         }
+    }
+    
+    @objc func donePicker() {
+        categoryTF.resignFirstResponder()
     }
 }
 
@@ -119,6 +125,8 @@ extension AddNewWordViewController: UIPickerViewDelegate, UIPickerViewDataSource
         
         let category = viewModel.categoryList[row].instance()
         
+        pickerView.resignFirstResponder()
+        
         return categoryTF.text = category.name
     }
     
@@ -128,6 +136,7 @@ extension AddNewWordViewController: UIPickerViewDelegate, UIPickerViewDataSource
         
         return category.name
     }
+    
 }
 
 private extension AddNewWordViewController {
@@ -156,6 +165,26 @@ private extension AddNewWordViewController {
         
         pickerView = UIPickerView()
         
+    }
+    
+    func renderDoneButton() {
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor.separatorlineBlue
+        toolBar.sizeToFit()
+        
+        let leftSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        let middleSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(donePicker))
+        
+        toolBar.setItems([leftSpacer,middleSpacer, doneButton], animated: false)
+        
+        toolBar.isUserInteractionEnabled = true
+        
+        categoryTF.inputAccessoryView = toolBar
     }
     
     func binding() {

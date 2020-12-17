@@ -10,8 +10,6 @@ import FSPagerView
 
 protocol Top5TableViewDelegate: class {
     
-    
-    
     func didSelectWord<T: Codable>(_ word: T)
     
 }

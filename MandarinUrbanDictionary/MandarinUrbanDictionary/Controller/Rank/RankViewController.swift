@@ -121,6 +121,7 @@ extension RankViewController {
 }
 
 extension RankViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.bounds.height / 5
     }
@@ -151,7 +152,7 @@ extension RankViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: RankTableViewCell.identifierName, for: indexPath)
+        let cell: RankTableViewCell = tableView.makeCell(indexPath: indexPath)
         
         guard let viewModel = viewModel else { return cell }
         
@@ -160,22 +161,17 @@ extension RankViewController: UITableViewDataSource {
         let color = rank.makeColor()
         
         let word = viewModel.top5WordList[indexPath.row]
-        
-        if let rankCell = cell as? RankTableViewCell {
             
-            rankCell.renderUI(boardColor: color, title: word)
+            cell.renderUI(boardColor: color, title: word)
             
             switch rank {
             
             case .top:
-                rankCell.layoutSubviews()
+                cell.layoutSubviews()
                 
-                rankCell.makeCrown()
+                cell.makeCrown()
             default:
                 break
-            }
-            
-            cell = rankCell
         }
         
         return cell

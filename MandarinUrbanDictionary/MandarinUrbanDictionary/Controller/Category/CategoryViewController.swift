@@ -122,18 +122,15 @@ extension CategoryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifierName, for: indexPath)
+        let cell: CategoryCollectionViewCell = collectionView.makeCell(indexPath: indexPath)
                 
         let category = categoryList[indexPath.row]
         
         let icon = category.instance()
         
-        guard let categoryCell = cell as? CategoryCollectionViewCell
-        else { return cell }
+        cell.renderUI(title: icon.name, image: icon.image)
         
-        categoryCell.renderUI(title: icon.name, image: icon.image)
-        
-        return categoryCell
+        return cell
     }
 }
 

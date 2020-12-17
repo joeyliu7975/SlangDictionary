@@ -39,7 +39,7 @@ class FavoriteViewModel {
                            
                             self.dic[id] = word
                             
-                            if user.recents.isEmpty {
+                            if user.favorites.isEmpty {
                                 self.orderWords()
                             }
                             

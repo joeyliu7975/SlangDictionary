@@ -239,18 +239,13 @@ extension FavoriteViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifierName, for: indexPath)
+        let cell: FavoriteTableViewCell = tableView.makeCell(indexPath: indexPath)
         
         guard let viewModel = viewModel else { return cell }
 
         let word = viewModel.favoriteViewModels.value[indexPath.row]
-        
-        if let favoriteCell = cell as? FavoriteTableViewCell {
             
-            favoriteCell.renderUI(word: word.title, tag: word.category)
-            
-            cell = favoriteCell
-        }
+        cell.renderUI(word: word.title, tag: word.category)
         
         return cell
     }

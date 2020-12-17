@@ -14,4 +14,13 @@ extension UICollectionView {
         
         self.register(nib, forCellWithReuseIdentifier: cellName)
     }
+    
+    func makeCell<T: UICollectionViewCell>(indexPath: IndexPath) -> T {
+        
+        guard let cell = self.dequeueReusableCell(withReuseIdentifier: String(describing: T.self), for: indexPath) as? T else {
+            fatalError("CollectionView Cell Does Not Exist!")
+        }
+        
+        return cell
+    }
 }

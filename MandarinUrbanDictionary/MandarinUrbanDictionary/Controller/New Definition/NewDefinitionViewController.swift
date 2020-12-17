@@ -216,6 +216,7 @@ private extension NewDefinitionViewController {
 
 //MARK: TextViewDelegate and Datasource
 extension NewDefinitionViewController: UITextViewDelegate {
+   
     func textViewDidChange(_ textView: UITextView) {
         
         if let text = textView.text {

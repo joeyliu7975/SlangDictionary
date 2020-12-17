@@ -199,7 +199,7 @@ extension SearchPageViewController: CategoryDelegate {
         
         viewModel.clearSearchBar()
         
-        viewModel.select(category: selectedCategory)
+//        viewModel.select(category: selectedCategory)
         
     }
 }
@@ -272,17 +272,11 @@ extension SearchPageViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifierName, for: indexPath)
-        
-        if let searchCell = cell as? SearchTableViewCell {
+        let cell: SearchTableViewCell = tableView.makeCell(indexPath: indexPath)
             
-            let word = viewModel.result.value[indexPath.row]
+        let word = viewModel.result.value[indexPath.row]
             
-            searchCell.renderUI(word.title, keyword: viewModel.keyword)
-            
-            cell = searchCell
-            
-        }
+        cell.renderUI(word.title, keyword: viewModel.keyword, category: word.category)
     
         return cell
     }

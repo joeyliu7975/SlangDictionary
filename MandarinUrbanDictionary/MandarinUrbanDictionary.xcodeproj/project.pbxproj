@@ -80,6 +80,7 @@
 		71CC56C42582676F007F3AF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71CC56C32582676E007F3AF1 /* GoogleService-Info.plist */; };
 		71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */; };
 		71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */; };
+		71D3E6C8258A42640064693C /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */; };
 		71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3322570D67900F15098 /* MostViewedWordCollectionViewCell.swift */; };
 		71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */; };
 		71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3402570D73700F15098 /* UIColor+Extension.swift */; };
@@ -186,6 +187,7 @@
 		71CC56C32582676E007F3AF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoeyPanelViewController.swift; sourceTree = "<group>"; };
 		71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostButtonView.swift; sourceTree = "<group>"; };
+		71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		71E7F3322570D67900F15098 /* MostViewedWordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MostViewedWordCollectionViewCell.swift; sourceTree = "<group>"; };
 		71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MostViewedWordCollectionViewCell.xib; sourceTree = "<group>"; };
 		71E7F3402570D73700F15098 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -693,6 +695,7 @@
 				71E81EA32584A22500BECDCC /* FirebaseTimestamp+Extension.swift */,
 				71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */,
 				710574B82589E771004556DF /* UIButton+Extension.swift */,
+				71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */,
 			);
 			name = Extension;
 			path = MandarinUrbanDictionary/Extension;
@@ -1051,6 +1054,7 @@
 				71C3D5B525809C0900636BC4 /* ReportPresenter.swift in Sources */,
 				7120E0182572024A00A56E7E /* SearchButton.swift in Sources */,
 				71A84A96257689B000E0C14D /* CardView.swift in Sources */,
+				71D3E6C8258A42640064693C /* UINavigationController+Extension.swift in Sources */,
 				71E81EA42584A22500BECDCC /* FirebaseTimestamp+Extension.swift in Sources */,
 				71A84A912576802900E0C14D /* Category.swift in Sources */,
 			);

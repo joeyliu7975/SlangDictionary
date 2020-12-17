@@ -159,7 +159,7 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
     
     func clickBackButton() {
         
-        if let rootVC = self.navigationController?.viewControllers.first as? LobbyViewController {
+        if let _ = navigationController?.rootViewController as? LobbyViewController {
             self.navigationController?.popViewController(animated: true)
         }
         
@@ -278,19 +278,13 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
         }
     }
     
-    func clickSearch() {
+    func tapSearchBar() {
         
         let searchViewController = SearchPageViewController()
         
         let navController = UINavigationController(rootViewController: searchViewController)
         
-        navController.isHeroEnabled = true
-        
-        navController.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .pageOut(direction: .right))
-    
-        navController.modalPresentationStyle = .fullScreen
-        
-        present(navController, animated: true)
+        navController.present(self)
     }
 }
 
@@ -313,9 +307,10 @@ extension DefinitionViewController: ReportDelegate {
 
 extension DefinitionViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        clickSearch()
         
-        return true
+        tapSearchBar()
+        
+        return false
     }
 }
 
@@ -367,23 +362,19 @@ extension DefinitionViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: DefinitionTableViewCell.identifierName, for: indexPath)
+        let cell: DefinitionTableViewCell = tableView.makeCell(indexPath: indexPath)
         
         guard
             let definition = viewModel?.definitionViewModels.value[indexPath.row],
             let rankString = viewModel?.convertRank(with: indexPath.row),
             let uid = UserDefaults.standard.value(forKey: "uid") as? String
         else { return cell }
-        
-        if let definitionTableViewCell = cell as? DefinitionTableViewCell {
             
-            cell = definitionTableViewCell
-            
-            definitionTableViewCell.delegate = self
+            cell.delegate = self
             
             let opinion = definition.showUserOpinion(uid)
             
-            definitionTableViewCell.renderUI(
+        cell.renderUI(
                 rank: rankString,
                 isLiked: opinion,
                 amountOfLike: definition.like.count,
@@ -391,7 +382,6 @@ extension DefinitionViewController: UITableViewDataSource {
                 isReported: false,
                 content: definition.content
             )
-        }
         
         return cell
     }

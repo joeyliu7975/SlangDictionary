@@ -96,18 +96,11 @@ extension SidePanelViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = UITableViewCell()
+        let cell: SidePanelTableViewCell = tableView.makeCell(indexPath: indexPath)
         
         let item = viewModel.getItem(index: indexPath.row)
         
-        cell = tableView.dequeueReusableCell(withIdentifier: SidePanelTableViewCell.identifierName, for: indexPath)
-        
-        if let sidePanelTableViewCell = cell as? SidePanelTableViewCell {
-            
-            sidePanelTableViewCell.renderUI(title: item.name, imageName: item.image)
-            
-            cell = sidePanelTableViewCell
-        }
+        cell.renderUI(title: item.name, imageName: item.image)
         
         return cell
     }

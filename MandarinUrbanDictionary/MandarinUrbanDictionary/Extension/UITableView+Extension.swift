@@ -20,4 +20,13 @@ extension UITableView {
         
         self.register(nib, forHeaderFooterViewReuseIdentifier: cellName)
     }
+    
+    func makeCell<T: UITableViewCell>(indexPath: IndexPath) -> T {
+        
+        guard let cell = self.dequeueReusableCell(withIdentifier: String(describing: T.self), for: indexPath) as? T else {
+            fatalError("TableView Cell Does Not Exist!")
+        }
+        
+        return cell
+    }
 }

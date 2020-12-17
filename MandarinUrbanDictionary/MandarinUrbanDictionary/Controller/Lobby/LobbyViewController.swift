@@ -50,12 +50,6 @@ class LobbyViewController: JoeyPanelViewController {
     override func viewDidAppear(_ animated: Bool) {
         userHasSignedIn()
     }
-    
-//    @objc func toggleSideMenu() {
-//
-//        delegate?.toggleLeftPanel()
-//
-//    }
 }
 
 private extension LobbyViewController {
@@ -87,13 +81,13 @@ private extension LobbyViewController {
         
         writeNewButtonView.delegate = self
         
-        self.navigationItem.backButtonTitle = ""
-        
         searchBar.delegate = self
         
         let rightNavBarButton = UIBarButtonItem(customView: searchBar)
         
-        self.navigationItem.rightBarButtonItem = rightNavBarButton
+        navigationItem.backButtonTitle = ""
+        
+        navigationItem.rightBarButtonItem = rightNavBarButton
     }
     
     func setupTableView() {
@@ -125,19 +119,12 @@ private extension LobbyViewController {
 
     }
     
-    func clickSearch() {
-        
+    func tapSearchBar() {
         let searchViewController = SearchPageViewController()
         
         let navController = UINavigationController(rootViewController: searchViewController)
         
-        navController.isHeroEnabled = true
-        
-        navController.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .pageOut(direction: .right))
-    
-        navController.modalPresentationStyle = .fullScreen
-        
-        present(navController, animated: true)
+        navController.present(self)
     }
     
     func binding() {
@@ -164,9 +151,9 @@ private extension LobbyViewController {
 extension LobbyViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         
-        clickSearch()
+        tapSearchBar()
         
-        return true
+        return false
     }
 }
 
@@ -183,11 +170,13 @@ extension LobbyViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        var viewController = UIViewController()
+        var viewController: UIViewController = .init()
         
-        let cellType = viewModel.carouselList[indexPath.row]
+        let reusableCell = viewModel.carouselList[indexPath.row]
         
-        switch cellType {
+        let words = viewModel.wordViewModels.value
+        
+        switch reusableCell {
         
         case .newestWord:
             
@@ -196,7 +185,7 @@ extension LobbyViewController: UITableViewDelegate {
             let definitionController = DefinitionViewController(identifierNumber: word.identifier, word: word.title, category: word.category)
             
             viewController = definitionController
-        
+            
         case .dailyWord:
             
             let titles = viewModel.wordViewModels.value.map { $0.title }
@@ -205,21 +194,33 @@ extension LobbyViewController: UITableViewDelegate {
                let title = cell.titleLabel.text,
                let index = titles.firstIndex(of: title) {
                 
-                let uid = viewModel.wordViewModels.value[index].identifier
+                let word = words[index]
                 
-                let definitionController = DefinitionViewController(identifierNumber: uid, word: title, category: viewModel.wordViewModels.value[index].category)
+                let uid = word.identifier
+                
+                let category = word.category
+                
+                let definitionController = DefinitionViewController(
+                    identifierNumber: uid,
+                    word: title,
+                    category: category
+                )
                 
                 viewController = definitionController
             }
-        default:
-            return
+            
+        case .mostViewedWord:
+            break
         }
                 
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (indexPath.row % 2) == 0 ? tableView.frame.height * 0.5 : tableView.frame.height * 0.9
+        
+        let height = tableView.frame.height
+        
+        return (indexPath.row % 2) == 0 ? height * 0.5 : height * 0.9
     }
 }
 
@@ -229,7 +230,11 @@ extension LobbyViewController: Top5TableViewDelegate {
         
         guard let word = word as? Word else { return }
         
-        let viewController = DefinitionViewController(identifierNumber: word.identifier, word: word.title, category: word.category)
+        let viewController = DefinitionViewController(
+            identifierNumber: word.identifier,
+            word: word.title,
+            category: word.category
+        )
                 
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -245,68 +250,65 @@ extension LobbyViewController: UITableViewDataSource {
         
         switch viewModel.wordViewModels.value.count {
         case 0 ... 2:
+            
             return 0
+            
         default:
+            
             return viewModel.carouselList.count
+            
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = UITableViewCell()
+        var cell: UITableViewCell = .init()
         
-        let cellType = viewModel.carouselList[indexPath.row]
+        let reusableCell = viewModel.carouselList[indexPath.row]
         
-        let image = cellType.getImage()
+        let image = reusableCell.getImage()
         
-        switch cellType {
+        switch reusableCell {
         
         case .newestWord:
             
-            cell = tableView.dequeueReusableCell(withIdentifier: TheNewestWordTableViewCell.reusableIdentifier, for: indexPath)
+            let newestWordCell: TheNewestWordTableViewCell = tableView.makeCell(indexPath: indexPath)
             
-            if let newestWordCell = cell as? TheNewestWordTableViewCell {
-                
-                let word = viewModel.newestWord[indexPath.row]
-                
-                newestWordCell.renderUI(
-                    title: word.title,
-                    category: word.category,
-                    image: image
-                )
-                
-                cell = newestWordCell
-            }
+            let word = viewModel.newestWord[indexPath.row]
+            
+            newestWordCell.renderUI(
+                title: word.title,
+                category: word.category,
+                image: image
+            )
+            
+            cell = newestWordCell
             
         case .mostViewedWord:
-            cell = tableView.dequeueReusableCell(withIdentifier: Top5TableViewCell.reusableIdentifier, for: indexPath)
             
-            if let topFiveCell = cell as? Top5TableViewCell {
-                
-                topFiveCell.setTopFiveWord(viewModel.topFiveWords)
-                
-                topFiveCell.delegate = self
-                
-                cell = topFiveCell
-            }
+            let topFiveCell: Top5TableViewCell = tableView.makeCell(indexPath: indexPath)
+            
+            topFiveCell.setTopFiveWord(viewModel.topFiveWords)
+            
+            topFiveCell.delegate = self
+            
+            cell = topFiveCell
             
         case .dailyWord:
-            cell = tableView.dequeueReusableCell(withIdentifier: TheNewestWordTableViewCell.reusableIdentifier, for: indexPath)
             
-            if let wordOfTheDayCell = cell as? TheNewestWordTableViewCell {
-                
-                let number = Int.random(in: 0 ..< viewModel.wordViewModels.value.count)
-                
-                let word = viewModel.wordViewModels.value[number]
-                
-                wordOfTheDayCell.renderUI(
-                    title: word.title,
-                    category: word.category,
-                    image: image
-                )
-                
-                cell = wordOfTheDayCell
-            }
+            let wordOfDayCell: TheNewestWordTableViewCell = tableView.makeCell( indexPath: indexPath)
+            
+            let number = Int.random(in: 0 ..< viewModel.wordViewModels.value.count)
+            
+            let word = viewModel.wordViewModels.value[number]
+            
+            wordOfDayCell.renderUI(
+                title: word.title,
+                category: word.category,
+                image: image
+            )
+            
+            cell = wordOfDayCell
         }
         
         return cell

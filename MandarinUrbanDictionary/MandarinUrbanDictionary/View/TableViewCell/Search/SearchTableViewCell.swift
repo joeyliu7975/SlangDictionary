@@ -17,6 +17,7 @@ class SearchTableViewCell: UITableViewCell {
     }
 
     @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -25,9 +26,13 @@ class SearchTableViewCell: UITableViewCell {
         self.selectedBackgroundView = UIView()
     }
     
-    func renderUI(_ text: String, keyword: String?) {
+    func renderUI(_ text: String, keyword: String?, category: String) {
+        
+        let categoryImage = Category(rawValue: category)!.instance()
         
         wordLabel.text = text
+        
+        logoImageView.image = UIImage(named: categoryImage.image)
         
         if let keyword = keyword {
             

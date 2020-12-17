@@ -112,29 +112,24 @@ extension Top5TableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopFiveCollectionViewCell.reusableIdentifier, for: indexPath)
-        
-        if let topFiveCell = cell as? TopFiveCollectionViewCell {
+        let cell: TopFiveCollectionViewCell = collectionView.makeCell(indexPath: indexPath)
             
             let rank = rankList[indexPath.row]
             
-            topFiveCell.titleLabel.text = topFive[indexPath.row].title
+        cell.titleLabel.text = topFive[indexPath.row].title
             
-            topFiveCell.rankBoardView.backgroundColor = rank.makeColor()
+        cell.rankBoardView.backgroundColor = rank.makeColor()
             
             switch rank {
             case .top:
                 
-                topFiveCell.makeCrown()
+                cell.makeCrown()
                 
             default:
                 
                 break
                 
             }
-            
-            cell = topFiveCell
-        }
         
         return cell
     }

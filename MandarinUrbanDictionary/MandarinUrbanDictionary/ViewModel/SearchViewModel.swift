@@ -17,19 +17,6 @@ class SearchViewModel {
     
     var keyword: String = ""
         
-    private var selectedCategory: Category = .all {
-        didSet {
-            
-            let title = barTitle
-            
-            updateTitle?(title)
-        }
-    }
-    
-    var barTitle: String {
-        return selectedCategory.instance().name
-    }
-    
     private let networkManager: FirebaseManager = .init()
     
     func search(keyword: String) {
@@ -74,9 +61,9 @@ class SearchViewModel {
         
     }
     
-    func select(category: Category) {
-        selectedCategory = category
-    }
+//    func select(category: Category) {
+//        selectedCategory = category
+//    }
 }
 
 private extension SearchViewModel {
@@ -86,9 +73,7 @@ private extension SearchViewModel {
         var filtered = [Word]()
         
         filtered = words.filter { $0.title.fuzzyMatch(keyword) }
-        
-//        filtered = words.filter { $0.title.contains(keyword) }
-    
+            
         result.value = filtered
     }
     

@@ -22,14 +22,24 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6sQ-RD-iil">
+                        <rect key="frame" x="345" y="8" width="28" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="7dt-UJ-dVP"/>
+                            <constraint firstAttribute="width" secondItem="6sQ-RD-iil" secondAttribute="height" multiplier="1:1" id="gNk-Qz-2jV"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="6sQ-RD-iil" secondAttribute="trailing" constant="25" id="0SL-rC-5gf"/>
                     <constraint firstItem="Rji-xq-khh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WC6-m6-eDc"/>
+                    <constraint firstItem="6sQ-RD-iil" firstAttribute="centerY" secondItem="Rji-xq-khh" secondAttribute="centerY" id="d1h-ec-SRu"/>
                     <constraint firstItem="Rji-xq-khh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="vVK-hp-GRH"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="logoImageView" destination="6sQ-RD-iil" id="5iI-NW-059"/>
                 <outlet property="wordLabel" destination="Rji-xq-khh" id="dX6-fX-6Wq"/>
             </connections>
             <point key="canvasLocation" x="192.75362318840581" y="135.26785714285714"/>

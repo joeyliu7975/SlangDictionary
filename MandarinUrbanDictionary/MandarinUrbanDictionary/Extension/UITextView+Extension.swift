@@ -28,7 +28,7 @@ extension UITextView {
         
     }
     
-    func setupContent(_ content: Content) {
+    func textingStatus(with content: Content) {
         
         switch content {
         case .placeHolder(let text):

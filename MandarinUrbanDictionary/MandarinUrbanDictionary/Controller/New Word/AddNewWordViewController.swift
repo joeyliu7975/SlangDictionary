@@ -19,7 +19,7 @@ class AddNewWordViewController: UIViewController {
     
     @IBOutlet weak var sendButton: UIButton!
     
-    let viewModel: AddNewWordViewModel = .init()
+    private let viewModel: AddNewWordViewModel = .init()
     
     private var pickerView: UIPickerView? {
         didSet {
@@ -33,7 +33,7 @@ class AddNewWordViewController: UIViewController {
             categoryTF.inputView = picker
             
             let tap = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
-            
+
             view.addGestureRecognizer(tap)
         }
     }
@@ -61,16 +61,8 @@ class AddNewWordViewController: UIViewController {
     }
     
     @IBAction func clickSend(_ sender: UIButton) {
-        
-        guard
-            let word = newWordTF.text,
-            let definition = definitionTextView.text,
-            let category = categoryTF.text
-        else {
-            return
-        }
-        
-        viewModel.createNewWord(word: word, definition: definition, category: category) {
+
+        viewModel.createNewWord(word: newWordTF.text, definition: definitionTextView.text, category: categoryTF.text) {
             
             self.dismiss(animated: true)
             
@@ -78,6 +70,9 @@ class AddNewWordViewController: UIViewController {
     }
     
     @objc func donePicker() {
+
+        categoryTF.text = viewModel.pickerView(selectRowAs: categoryTF.text)
+        
         categoryTF.resignFirstResponder()
     }
 }
@@ -101,7 +96,7 @@ extension AddNewWordViewController: UITextViewDelegate {
             textView.clearText()
         }
         
-        textView.setupContent(.startTyping(color: .black))
+        textView.textingStatus(with: .startTyping(color: .black))
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -153,7 +148,7 @@ private extension AddNewWordViewController {
         
         definitionTextView.setCorner(radius: 10)
         
-        definitionTextView.setupContent(.placeHolder("請在此新增字詞解釋..."))
+        definitionTextView.textingStatus(with: .placeHolder("請在此新增字詞解釋..."))
         
         sendButton.setCorner(radius: 10)
         
@@ -173,14 +168,12 @@ private extension AddNewWordViewController {
         toolBar.isTranslucent = true
         toolBar.tintColor = UIColor.separatorlineBlue
         toolBar.sizeToFit()
-        
-        let leftSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
-        let middleSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(donePicker))
         
-        toolBar.setItems([leftSpacer,middleSpacer, doneButton], animated: false)
+        toolBar.setItems([spacer, spacer, doneButton], animated: false)
         
         toolBar.isUserInteractionEnabled = true
         
@@ -201,17 +194,14 @@ private extension AddNewWordViewController {
     
     func checkFormValidation() {
         
-        guard
-            let word = newWordTF.text,
-            let definition = definitionTextView.text,
-            let category = categoryTF.text
-        else {
-            return
+        if definitionTextView.textColor == .placeholderText { return }
+        
+        viewModel.containEmptyString(
+            newWord: newWordTF.text,
+            definition: definitionTextView.text,
+            category: categoryTF.text
+        ) { [weak self] (isEnable) in
+            self?.viewModel.isEnable = isEnable
         }
-        
-        let strings = [word, definition, category]
-        
-        viewModel.isEnable = viewModel.containEmptyString(strings)
-        
     }
 }

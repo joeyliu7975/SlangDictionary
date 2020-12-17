@@ -30,6 +30,8 @@ DerivedData/
 *.dSYM.zip
 *.dSYM
 *.DS_Store
+MandarinUrbanDictionary/MandarinUrbanDictionary.xcworkspace
+MandarinUrbanDictionary/Pods
 
 ## Playgrounds
 timeline.xctimeline

@@ -20,6 +20,8 @@ class HomePageViewModel {
     var topFiveWords = [Word]()
     
     var newestWord = [Word]()
+    
+    var dailyWord: Word?
                 
     var loadForFirstTime: (() -> Void)?
         
@@ -47,7 +49,13 @@ class HomePageViewModel {
                     
                     self.topFiveWords = Array(words[0 ... 4])
                     
-                    self.wordViewModels.value = words
+                    self.listenDailyWord { (id) in
+                        let dailyWords = words.filter { $0.identifier == id }
+                        
+                        self.dailyWord = dailyWords.first
+                        
+                        self.wordViewModels.value = words
+                    }
                     
                 case .failure(let error):
                     
@@ -74,6 +82,19 @@ class HomePageViewModel {
         default :
             break
         }
+    }
+    
+    func listenDailyWord(completion: @escaping (String) -> Void) {
+        
+        networkManager.listenDailyWord { (result: Result<DailyWord, Error>) in
+            switch result {
+            case .success(let dailyWord):
+                completion(dailyWord.id)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
     }
     
     func fetchData(in collection: FirebaseManager.Collection) {

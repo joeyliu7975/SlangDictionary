@@ -96,6 +96,52 @@ class FirebaseManager {
         }
     }
     
+    func listenSingleDoc<T: Codable>(_ collection: Collection, completion: @escaping (Result<T, NetworkError>) -> Void) {
+        switch collection {
+        case .user(let id):
+            dataBase
+                .collection(collection.name)
+                .document(id)
+                .addSnapshotListener { (querySnapshot, error) in
+                    if let error = error {
+                        completion(.failure(.noData(error)))
+                    } else {
+                        if let data = try? querySnapshot!.data(as: T.self, decoder: Firestore.Decoder()) {
+                            completion(.success(data))
+                        } else {
+                            completion(.failure(.decodeError))
+                        }
+                    }
+                }
+        default:
+            break
+        }
+    }
+
+    func listenDailyWord(completion: @escaping (Result<DailyWord, Error>) -> Void) {
+        
+        dataBase.collection("DailyWord").order(by: "today", descending: true).addSnapshotListener { (querySnapshot, error) in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            }  else {
+                var datas = [DailyWord]()
+                
+                for document in querySnapshot!.documents {
+                    if let data = try? document.data(as: DailyWord.self, decoder: Firestore.Decoder()) {
+                        datas.append(data)
+                    }
+                }
+                
+                completion(.success(datas.first!))
+            }
+            
+        }
+        
+    }
+    
     func retrieveData <T: Codable>(_ collection: Collection, with category: String? = nil, completion: @escaping (Result<[T], Error>) -> Void) {
         
         guard let category = category else {
@@ -278,7 +324,8 @@ extension FirebaseManager {
         
         case definition(String)
         case word(orderBy: FirebaseManager.SortedBy)
-        case user, time, report
+        case user(String)
+        case time, report
         
         var name: String {
             switch self {

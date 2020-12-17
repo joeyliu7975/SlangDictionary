@@ -83,6 +83,7 @@
 		71D3E6F0258B100F0064693C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71D3E6EF258B100F0064693C /* GoogleService-Info.plist */; };
 		71D3E6F5258B25FA0064693C /* RandomWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3E6F3258B25FA0064693C /* RandomWordTableViewCell.swift */; };
 		71D3E6F6258B25FA0064693C /* RandomWordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71D3E6F4258B25FA0064693C /* RandomWordTableViewCell.xib */; };
+		71D83CA1258B540100BC8D21 /* DailyWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D83CA0258B540000BC8D21 /* DailyWord.swift */; };
 		71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3322570D67900F15098 /* MostViewedWordCollectionViewCell.swift */; };
 		71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */; };
 		71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3402570D73700F15098 /* UIColor+Extension.swift */; };
@@ -192,6 +193,7 @@
 		71D3E6EF258B100F0064693C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71D3E6F3258B25FA0064693C /* RandomWordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RandomWordTableViewCell.swift; path = MandarinUrbanDictionary/Extension/RandomWordTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		71D3E6F4258B25FA0064693C /* RandomWordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RandomWordTableViewCell.xib; path = MandarinUrbanDictionary/Extension/RandomWordTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		71D83CA0258B540000BC8D21 /* DailyWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWord.swift; sourceTree = "<group>"; };
 		71E7F3322570D67900F15098 /* MostViewedWordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MostViewedWordCollectionViewCell.swift; sourceTree = "<group>"; };
 		71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MostViewedWordCollectionViewCell.xib; sourceTree = "<group>"; };
 		71E7F3402570D73700F15098 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -724,6 +726,7 @@
 				71A84A902576802900E0C14D /* Category.swift */,
 				71811DEB2576DC66005319DA /* SidePanel.swift */,
 				716A8D5C25777040005C5782 /* ImageConstant.swift */,
+				71D83CA0258B540000BC8D21 /* DailyWord.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1003,6 +1006,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71C3D5AF2580666D00636BC4 /* FavoriteViewModel.swift in Sources */,
+				71D83CA1258B540100BC8D21 /* DailyWord.swift in Sources */,
 				716A8D4725773C11005C5782 /* UIViewController+Extension.swift in Sources */,
 				71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */,
 				71E929572584E0EE001FB100 /* TopFiveCollectionViewCell.swift in Sources */,

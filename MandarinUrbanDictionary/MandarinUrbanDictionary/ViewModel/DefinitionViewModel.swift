@@ -51,6 +51,23 @@ class DefinitionViewModel {
                 
             }
         }
+        
+        guard let uid = UserDefaults.standard.value(forKey: "uid") as? String else { return }
+        
+        networkManager.listenSingleDoc(.user(uid)) { (result: Result<User, NetworkError>) in
+            switch result {
+            case .success(let data):
+                
+                let isFavorite = data.favorites.contains(self.wordIdentifier)
+                    
+                self.isFavorite = isFavorite
+
+            case .failure(.noData(let error)):
+                print(error.localizedDescription)
+            case .failure(.decodeError):
+                print("Decode Error")
+            }
+        }
     }
     
     func renewRecentSearch(completion: @escaping () -> Void) {

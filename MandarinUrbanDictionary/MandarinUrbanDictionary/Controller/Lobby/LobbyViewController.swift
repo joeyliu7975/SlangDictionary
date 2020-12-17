@@ -333,9 +333,7 @@ extension LobbyViewController: UITableViewDataSource {
             
             let wordOfDayCell: TheNewestWordTableViewCell = tableView.makeCell( indexPath: indexPath)
             
-            let number = 9
-            
-            let word = viewModel.wordViewModels.value[number]
+            guard let word = viewModel.dailyWord else { return wordOfDayCell }
             
             wordOfDayCell.renderUI(
                 title: word.title,

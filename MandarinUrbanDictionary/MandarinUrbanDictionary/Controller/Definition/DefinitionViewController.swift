@@ -64,6 +64,10 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
         binding()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         searchBar.resignFirstResponder()
     }
@@ -72,14 +76,14 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
 private extension DefinitionViewController {
     
     func setup() {
-                
+        
+        searchBar.delegate = self
+        
         viewModel?.checkFavorite(completion: { [weak self] (isFavorite) in
             
             self?.viewModel?.isFavorite = isFavorite
             
         })
-        
-        searchBar.delegate = self
         
     }
     

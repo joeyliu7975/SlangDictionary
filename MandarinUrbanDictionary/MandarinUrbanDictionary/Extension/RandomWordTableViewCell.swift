@@ -26,25 +26,16 @@ class RandomWordTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryView: UIView!
     
     @IBOutlet weak var categoryImageView: UIImageView!
-    
+        
     weak var delegate: RandomWordTableViewDelegate?
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        categoryImageView.image = nil
-        
-        categoryLabel.text = ""
-        
-        titleLabel.text = ""
-    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
         setup()
         
-        imageAction()
+        tapViewAction()
     }
     
     private func setup() {
@@ -59,7 +50,7 @@ class RandomWordTableViewCell: UITableViewCell {
         self.selectedBackgroundView = UIView()
     }
     
-    private func imageAction() {
+    private func tapViewAction() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
         
         self.logoImageView.isUserInteractionEnabled = true

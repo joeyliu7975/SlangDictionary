@@ -22,7 +22,7 @@ class HomePageViewModel {
     var newestWord = [Word]()
                 
     var loadForFirstTime: (() -> Void)?
-    
+        
     private let group: DispatchGroup = .init()
     
     var dataHasReloaded: Bool = false {
@@ -32,6 +32,8 @@ class HomePageViewModel {
             loadForFirstTime?()
         }
     }
+    
+    var randomNumber = 12
     
     func listen(in collection: FirebaseManager.Collection) {
         switch collection {
@@ -118,9 +120,18 @@ class HomePageViewModel {
 }
 
 extension HomePageViewModel {
+    func makeRandomNumber() {
+        guard !wordViewModels.value.isEmpty else { return }
+        
+        randomNumber = Int.random(in: 0 ..< wordViewModels.value.count)
+
+    }
+}
+
+extension HomePageViewModel {
     enum Carousel: CaseIterable {
         
-        case newestWord, mostViewedWord, dailyWord
+        case newestWord, mostViewedWord, dailyWord, randomWord
         
         func getImage() -> String {
             
@@ -137,6 +148,10 @@ extension HomePageViewModel {
             case .dailyWord:
                 
                 return ImageConstant.wordOfTheDay
+                
+            case .randomWord:
+                
+                return ImageConstant.randomWord
             }
         }
     }

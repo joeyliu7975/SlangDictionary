@@ -90,13 +90,6 @@ extension Top5TableViewCell: UICollectionViewDelegate{
         case false:
             break
         }
-            
-//        if (topFive.count - 1) >= indexPath.row {
-//
-//            let word = topFive[indexPath.row]
-//
-//            delegate?.didSelectWord(word)
-//        }
     }
 }
 

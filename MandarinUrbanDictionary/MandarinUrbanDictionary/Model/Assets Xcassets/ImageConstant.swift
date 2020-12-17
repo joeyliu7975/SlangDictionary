@@ -60,4 +60,6 @@ struct ImageConstant {
     static let crown = "crown_filled_50x50"
     
     static let wordOfTheDay = "word_of_the_day"
+    
+    static let randomWord = "shuffle_words_256x256"
 }

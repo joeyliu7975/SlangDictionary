@@ -96,6 +96,8 @@ private extension LobbyViewController {
         
         tableView.registerCell(Top5TableViewCell.reusableIdentifier)
         
+        tableView.registerCell(RandomWordTableViewCell.reusableIdentifier)
+        
         tableView.registerHeaderFooterCell(LobbyTableHeaderView.reusableIdentifier)
         
         tableView.separatorStyle = .none
@@ -133,7 +135,9 @@ private extension LobbyViewController {
             
             switch words.isEmpty {
             case true:
+                
                 break
+                
             case false:
                 
                 self?.viewModel.newestWord = Array(arrayLiteral: words[0])
@@ -210,7 +214,16 @@ extension LobbyViewController: UITableViewDelegate {
             }
             
         case .mostViewedWord:
-            break
+            
+            return
+            
+        case .randomWord:
+            
+            let word = viewModel.wordViewModels.value[viewModel.randomNumber]
+            
+            let definitionController = DefinitionViewController(identifierNumber: word.identifier, word: word.title, category: word.category)
+            
+            viewController = definitionController
         }
                 
         self.navigationController?.pushViewController(viewController, animated: true)
@@ -220,7 +233,15 @@ extension LobbyViewController: UITableViewDelegate {
         
         let height = tableView.frame.height
         
-        return (indexPath.row % 2) == 0 ? height * 0.5 : height * 0.9
+        let reusableCell = viewModel.carouselList[indexPath.row]
+        
+        switch reusableCell {
+        case .mostViewedWord:
+            return height * 0.9
+        default:
+            return height * 0.5
+        }
+    
     }
 }
 
@@ -240,6 +261,22 @@ extension LobbyViewController: Top5TableViewDelegate {
     }
 }
 
+extension LobbyViewController: RandomWordTableViewDelegate {
+   
+    func getRandomWord(_ cell: UITableViewCell) {
+        guard let index = tableView.indexPath(for: cell) else { return }
+        
+        tableView.beginUpdates()
+        
+        viewModel.makeRandomNumber()
+        
+        tableView.reloadRows(at: [index], with: .fade)
+        
+        tableView.endUpdates()
+    }
+    
+}
+
 extension LobbyViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -249,7 +286,7 @@ extension LobbyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch viewModel.wordViewModels.value.count {
-        case 0 ... 2:
+        case 0 ... 5:
             
             return 0
             
@@ -261,9 +298,7 @@ extension LobbyViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        var cell: UITableViewCell = .init()
-        
+                
         let reusableCell = viewModel.carouselList[indexPath.row]
         
         let image = reusableCell.getImage()
@@ -282,7 +317,7 @@ extension LobbyViewController: UITableViewDataSource {
                 image: image
             )
             
-            cell = newestWordCell
+            return newestWordCell
             
         case .mostViewedWord:
             
@@ -292,13 +327,13 @@ extension LobbyViewController: UITableViewDataSource {
             
             topFiveCell.delegate = self
             
-            cell = topFiveCell
+            return topFiveCell
             
         case .dailyWord:
             
             let wordOfDayCell: TheNewestWordTableViewCell = tableView.makeCell( indexPath: indexPath)
             
-            let number = Int.random(in: 0 ..< viewModel.wordViewModels.value.count)
+            let number = 9
             
             let word = viewModel.wordViewModels.value[number]
             
@@ -308,10 +343,24 @@ extension LobbyViewController: UITableViewDataSource {
                 image: image
             )
             
-            cell = wordOfDayCell
-        }
+            return wordOfDayCell
         
-        return cell
+        case .randomWord:
+            
+            let randomWordCell: RandomWordTableViewCell = tableView.makeCell(indexPath: indexPath)
+            
+            randomWordCell.delegate = self
+            
+            let word = viewModel.wordViewModels.value[viewModel.randomNumber]
+            
+            randomWordCell.renderUI(
+                title: word.title,
+                category: word.category,
+                image: image
+            )
+            
+            return randomWordCell
+        }
     }
 }
 

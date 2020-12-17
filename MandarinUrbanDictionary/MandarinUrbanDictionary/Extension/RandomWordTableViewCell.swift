@@ -1,15 +1,21 @@
 //
-//  TheNewestWordTableViewCell.swift
+//  RandomWordTableViewCell.swift
 //  MandarinUrbanDictionary
 //
-//  Created by Joey Liu on 12/12/20.
+//  Created by Joey Liu on 12/17/20.
 //
 
 import UIKit
 
-class TheNewestWordTableViewCell: UITableViewCell {
+protocol RandomWordTableViewDelegate: class {
+    
+    func getRandomWord(_ cell: UITableViewCell)
+    
+}
 
-    static let reusableIdentifier = String(describing: TheNewestWordTableViewCell.self)
+class RandomWordTableViewCell: UITableViewCell {
+    
+    static let reusableIdentifier = String(describing: RandomWordTableViewCell.self)
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -21,14 +27,27 @@ class TheNewestWordTableViewCell: UITableViewCell {
     
     @IBOutlet weak var categoryImageView: UIImageView!
     
+    weak var delegate: RandomWordTableViewDelegate?
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        categoryImageView.image = nil
+        
+        categoryLabel.text = ""
+        
+        titleLabel.text = ""
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
         setup()
+        
+        imageAction()
     }
     
-    func setup() {
+    private func setup() {
         self.backgroundColor = .homepageDarkBlue
         
         self.categoryView.backgroundColor = .homepageDarkBlue
@@ -39,6 +58,18 @@ class TheNewestWordTableViewCell: UITableViewCell {
         
         self.selectedBackgroundView = UIView()
     }
+    
+    private func imageAction() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        
+        self.logoImageView.isUserInteractionEnabled = true
+        
+        self.logoImageView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func tap(_ sender: UITapGestureRecognizer) {
+        delegate?.getRandomWord(self)
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -47,8 +78,7 @@ class TheNewestWordTableViewCell: UITableViewCell {
     }
     
     func renderUI(title: String, category: String, image: String) {
-        
-        let categoryImage = Category(rawValue: category)!.instance()
+                let categoryImage = Category(rawValue: category)!.instance()
         
         titleLabel.text = title
         

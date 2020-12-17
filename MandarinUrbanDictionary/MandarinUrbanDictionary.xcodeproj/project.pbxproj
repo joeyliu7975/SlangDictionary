@@ -77,10 +77,12 @@
 		71C3D5AF2580666D00636BC4 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */; };
 		71C3D5B225809A2200636BC4 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5B125809A2200636BC4 /* FavoritePresenter.swift */; };
 		71C3D5B525809C0900636BC4 /* ReportPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5B425809C0900636BC4 /* ReportPresenter.swift */; };
-		71CC56C42582676F007F3AF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71CC56C32582676E007F3AF1 /* GoogleService-Info.plist */; };
 		71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */; };
 		71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */; };
 		71D3E6C8258A42640064693C /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */; };
+		71D3E6F0258B100F0064693C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71D3E6EF258B100F0064693C /* GoogleService-Info.plist */; };
+		71D3E6F5258B25FA0064693C /* RandomWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3E6F3258B25FA0064693C /* RandomWordTableViewCell.swift */; };
+		71D3E6F6258B25FA0064693C /* RandomWordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71D3E6F4258B25FA0064693C /* RandomWordTableViewCell.xib */; };
 		71E7F3362570D67900F15098 /* MostViewedWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3322570D67900F15098 /* MostViewedWordCollectionViewCell.swift */; };
 		71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */; };
 		71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3402570D73700F15098 /* UIColor+Extension.swift */; };
@@ -184,10 +186,12 @@
 		71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		71C3D5B125809A2200636BC4 /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
 		71C3D5B425809C0900636BC4 /* ReportPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPresenter.swift; sourceTree = "<group>"; };
-		71CC56C32582676E007F3AF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoeyPanelViewController.swift; sourceTree = "<group>"; };
 		71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostButtonView.swift; sourceTree = "<group>"; };
 		71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		71D3E6EF258B100F0064693C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		71D3E6F3258B25FA0064693C /* RandomWordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RandomWordTableViewCell.swift; path = MandarinUrbanDictionary/Extension/RandomWordTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		71D3E6F4258B25FA0064693C /* RandomWordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RandomWordTableViewCell.xib; path = MandarinUrbanDictionary/Extension/RandomWordTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		71E7F3322570D67900F15098 /* MostViewedWordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MostViewedWordCollectionViewCell.swift; sourceTree = "<group>"; };
 		71E7F3332570D67900F15098 /* MostViewedWordCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MostViewedWordCollectionViewCell.xib; sourceTree = "<group>"; };
 		71E7F3402570D73700F15098 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -498,8 +502,8 @@
 		7175694A2570D0F000417B9C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				71CC56C32582676E007F3AF1 /* GoogleService-Info.plist */,
 				7175692D2570CFD600417B9C /* LaunchScreen.storyboard */,
+				71D3E6EF258B100F0064693C /* GoogleService-Info.plist */,
 				717569302570CFD600417B9C /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -613,6 +617,15 @@
 				71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		71D3E6F2258B25950064693C /* RandomWord */ = {
+			isa = PBXGroup;
+			children = (
+				71D3E6F3258B25FA0064693C /* RandomWordTableViewCell.swift */,
+				71D3E6F4258B25FA0064693C /* RandomWordTableViewCell.xib */,
+			);
+			path = RandomWord;
 			sourceTree = "<group>";
 		};
 		71E7F32E2570D67900F15098 /* View */ = {
@@ -753,6 +766,7 @@
 			children = (
 				71E81EB32584BB6400BECDCC /* NewestWord */,
 				71E81EB62584BBA600BECDCC /* Top5 */,
+				71D3E6F2258B25950064693C /* RandomWord */,
 			);
 			path = Lobby;
 			sourceTree = "<group>";
@@ -900,15 +914,16 @@
 				71E929612584FB23001FB100 /* LobbyTableHeaderView.xib in Resources */,
 				71055A95258428A300560C5D /* LoginViewController.xib in Resources */,
 				71E929582584E0EE001FB100 /* TopFiveCollectionViewCell.xib in Resources */,
+				71D3E6F6258B25FA0064693C /* RandomWordTableViewCell.xib in Resources */,
 				71E81EAA2584BAD600BECDCC /* LobbyViewController.xib in Resources */,
 				716A8D6525778AA4005C5782 /* ReportViewController.xib in Resources */,
 				71E81EBA2584BBB900BECDCC /* Top5TableViewCell.xib in Resources */,
 				71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */,
+				71D3E6F0258B100F0064693C /* GoogleService-Info.plist in Resources */,
 				716CD31E2575130400695A91 /* SidePanelTableViewCell.xib in Resources */,
 				71E81EA0258499F100BECDCC /* RankChartViewController.xib in Resources */,
 				71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */,
 				7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */,
-				71CC56C42582676F007F3AF1 /* GoogleService-Info.plist in Resources */,
 				71A84A8D257637B600E0C14D /* FavoriteTableViewCell.xib in Resources */,
 				71C3D5AC257E29DB00636BC4 /* NewDefinitionViewController.xib in Resources */,
 				7120E0142571167700A56E7E /* CategoryCollectionViewCell.xib in Resources */,
@@ -1023,6 +1038,7 @@
 				716A8D5D25777040005C5782 /* ImageConstant.swift in Sources */,
 				716A8D6425778AA3005C5782 /* ReportViewController.swift in Sources */,
 				7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */,
+				71D3E6F5258B25FA0064693C /* RandomWordTableViewCell.swift in Sources */,
 				71348880257285F5007ADED3 /* UINavigationItem+Extension.swift in Sources */,
 				710574B92589E771004556DF /* UIButton+Extension.swift in Sources */,
 				71C3D5AB257E29DB00636BC4 /* NewDefinitionViewController.swift in Sources */,

@@ -60,10 +60,33 @@ class SearchViewModel {
         result.value.removeAll()
         
     }
+}
+
+extension SearchViewModel {
     
-//    func select(category: Category) {
-//        selectedCategory = category
-//    }
+    func showResult<T: Codable> (keyword: String, result: [T]) -> SearchResult {
+        if keyword.isEmpty {
+            
+            return .noKeyword
+            
+        } else if result.isEmpty {
+            
+            return .noMatchFound
+            
+        } else {
+            
+            return .hasResult
+            
+        }
+    }
+
+}
+
+extension SearchViewModel {
+    
+    enum SearchResult {
+        case noKeyword, noMatchFound, hasResult
+    }
 }
 
 private extension SearchViewModel {

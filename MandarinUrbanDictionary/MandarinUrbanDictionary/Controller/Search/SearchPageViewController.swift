@@ -106,6 +106,8 @@ private extension SearchPageViewController {
         
         tableView.dataSource = self
         
+        tableView.tableFooterView = UIView()
+        
         tableView.registerCell(SearchTableViewCell.identifierName)
     }
     
@@ -163,20 +165,17 @@ private extension SearchPageViewController {
             
             self?.setupNoResultView()
             
-            if keyword.isEmpty {
-                
-                self?.noResultLabel.text = ""
-                
-            } else if result.isEmpty {
-                
-                self?.noResultLabel.text = "No Match Found"
-                
-            } else {
-                
-                self?.coverView.removeFromSuperview()
-                
-            }
+            guard let result = self?.viewModel.showResult(keyword: keyword, result: result) else { return }
             
+            switch result {
+            case .noKeyword:
+                self?.noResultLabel.text = ""
+            case .noMatchFound:
+                self?.noResultLabel.text = "No Match Found"
+            case .hasResult:
+                self?.coverView.removeFromSuperview()
+            }
+
             self?.tableView?.reloadData()
             
         }
@@ -189,19 +188,6 @@ private extension SearchPageViewController {
         
     }
         
-}
-
-extension SearchPageViewController: CategoryDelegate {
-    
-    func confirmSelection(_ selectedCategory: Category) {
-        
-        searchBar.text?.removeAll()
-        
-        viewModel.clearSearchBar()
-        
-//        viewModel.select(category: selectedCategory)
-        
-    }
 }
 
 extension SearchPageViewController: UISearchBarDelegate {
@@ -246,6 +232,10 @@ extension SearchPageViewController: DefinitionViewControllerDelegate {
 }
 
 extension SearchPageViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

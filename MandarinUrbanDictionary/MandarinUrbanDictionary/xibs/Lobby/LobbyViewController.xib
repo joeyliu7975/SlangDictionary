@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LobbyViewController" customModule="MandarinUrbanDictionary" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="uL3-hI-Apb" id="OK1-Qi-gBU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="writeNewButtonView" destination="Eug-b8-hAW" id="2RH-vn-FwF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uL3-hI-Apb">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eug-b8-hAW" customClass="NewPostButtonView" customModule="MandarinUrbanDictionary" customModuleProvider="target">
+                    <rect key="frame" x="333.5" y="781.5" width="50.5" height="50.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qur-jO-nWz">
+                            <rect key="frame" x="0.0" y="0.0" width="50.5" height="50.5"/>
+                            <state key="normal" title="Button" image="write_new_word_home"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="30"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="30"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="writeNewPost:" destination="Eug-b8-hAW" eventType="touchUpInside" id="CA3-ny-rVw"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="qur-jO-nWz" firstAttribute="top" secondItem="Eug-b8-hAW" secondAttribute="top" id="1sv-Gu-HSj"/>
+                        <constraint firstAttribute="trailing" secondItem="qur-jO-nWz" secondAttribute="trailing" id="5qb-gY-FSX"/>
+                        <constraint firstAttribute="height" constant="50.5" id="UYF-gM-Iry"/>
+                        <constraint firstAttribute="width" secondItem="qur-jO-nWz" secondAttribute="height" multiplier="1:1" id="Vfu-5W-Rir"/>
+                        <constraint firstAttribute="width" constant="50.5" id="aZB-Xx-sjR"/>
+                        <constraint firstAttribute="bottom" secondItem="qur-jO-nWz" secondAttribute="bottom" id="ewe-3E-ZPP"/>
+                        <constraint firstItem="qur-jO-nWz" firstAttribute="leading" secondItem="Eug-b8-hAW" secondAttribute="leading" id="jJe-5D-H1t"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="writeButton" destination="qur-jO-nWz" id="ygS-Vt-Bui"/>
+                    </connections>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Eug-b8-hAW" secondAttribute="trailing" constant="30" id="01E-ao-45Q"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Eug-b8-hAW" secondAttribute="bottom" constant="30" id="64Y-Fn-1cn"/>
+                <constraint firstItem="uL3-hI-Apb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HbO-Lp-11i"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uL3-hI-Apb" secondAttribute="bottom" id="LG2-6P-DbW"/>
+                <constraint firstItem="uL3-hI-Apb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="TE7-Vl-74V"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uL3-hI-Apb" secondAttribute="trailing" id="aOe-kv-emi"/>
+            </constraints>
+            <point key="canvasLocation" x="33" y="154"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="write_new_word_home" width="281" height="281"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

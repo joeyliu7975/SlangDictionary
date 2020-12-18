@@ -1,0 +1,6 @@
+framework module Pods_MandarinUrbanDictionary {
+  umbrella header "Pods-MandarinUrbanDictionary-umbrella.h"
+
+  export *
+  module * { export * }
+}

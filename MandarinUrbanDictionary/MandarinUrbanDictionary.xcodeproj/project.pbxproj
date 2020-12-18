@@ -27,6 +27,7 @@
 		7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E01E257231CC00A56E7E /* DefinitionViewController.xib */; };
 		71230B6025845C9200B78C9C /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71230B5F25845C9200B78C9C /* UserDefaults+Extension.swift */; };
 		713361C3258B8E5F00FEEB43 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713361C2258B8E5F00FEEB43 /* Request.swift */; };
+		713361C9258C45B500FEEB43 /* AddNewWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713361C8258C45B500FEEB43 /* AddNewWordView.swift */; };
 		71348880257285F5007ADED3 /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134887F257285F5007ADED3 /* UINavigationItem+Extension.swift */; };
 		7134888625749582007ADED3 /* DefinitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134888425749582007ADED3 /* DefinitionTableViewCell.swift */; };
 		7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7134888525749582007ADED3 /* DefinitionTableViewCell.xib */; };
@@ -136,6 +137,7 @@
 		71230B5D25845B3400B78C9C /* MandarinUrbanDictionary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MandarinUrbanDictionary.entitlements; sourceTree = "<group>"; };
 		71230B5F25845C9200B78C9C /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		713361C2258B8E5F00FEEB43 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		713361C8258C45B500FEEB43 /* AddNewWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordView.swift; sourceTree = "<group>"; };
 		7134887F257285F5007ADED3 /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
 		7134888425749582007ADED3 /* DefinitionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionTableViewCell.swift; sourceTree = "<group>"; };
 		7134888525749582007ADED3 /* DefinitionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionTableViewCell.xib; sourceTree = "<group>"; };
@@ -332,6 +334,21 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		713361C6258C44E600FEEB43 /* Lobby */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lobby;
+			sourceTree = "<group>";
+		};
+		713361C7258C452800FEEB43 /* NewWord */ = {
+			isa = PBXGroup;
+			children = (
+				713361C8258C45B500FEEB43 /* AddNewWordView.swift */,
+			);
+			path = NewWord;
+			sourceTree = "<group>";
+		};
 		713488832574954F007ADED3 /* Definition */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,12 +358,12 @@
 			path = Definition;
 			sourceTree = "<group>";
 		};
-		7152EACD2575E8BE00F1C5FB /* New Word */ = {
+		7152EACD2575E8BE00F1C5FB /* NewWord */ = {
 			isa = PBXGroup;
 			children = (
 				7152EADA2575E94A00F1C5FB /* AddNewWordViewController.swift */,
 			);
-			path = "New Word";
+			path = NewWord;
 			sourceTree = "<group>";
 		};
 		7152EACE2575E8C800F1C5FB /* Search */ = {
@@ -645,6 +662,8 @@
 			isa = PBXGroup;
 			children = (
 				71CE92152579C1FF0080E0A0 /* Base */,
+				713361C6258C44E600FEEB43 /* Lobby */,
+				713361C7258C452800FEEB43 /* NewWord */,
 				71E7F3312570D67900F15098 /* CollectionViewCell */,
 				7160B713257254D8007F7C90 /* TableViewCell */,
 			);
@@ -688,7 +707,7 @@
 				716A8D6D2578771D005C5782 /* Login */,
 				71E81EA72584BAD600BECDCC /* Lobby */,
 				716CD30A2574F79100695A91 /* HomePage */,
-				7152EACD2575E8BE00F1C5FB /* New Word */,
+				7152EACD2575E8BE00F1C5FB /* NewWord */,
 				7152EACE2575E8C800F1C5FB /* Search */,
 				7152EAD02575E8D900F1C5FB /* Category */,
 				7152EAD32575E8E000F1C5FB /* Definition */,
@@ -1089,6 +1108,7 @@
 				71D3E6C8258A42640064693C /* UINavigationController+Extension.swift in Sources */,
 				71E81EA42584A22500BECDCC /* FirebaseTimestamp+Extension.swift in Sources */,
 				71A84A912576802900E0C14D /* Category.swift in Sources */,
+				713361C9258C45B500FEEB43 /* AddNewWordView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@ class NewDefinitionViewController: UIViewController {
 
     textView.tintColor = .white
     
-    textView.textingStatus(with: .startTyping(color: .white))
+        textView.textingStatus(with: .startTyping(color: .white))
     
     return textView
 }()

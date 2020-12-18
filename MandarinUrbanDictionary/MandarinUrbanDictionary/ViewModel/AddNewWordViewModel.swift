@@ -5,7 +5,7 @@
 //  Created by Joey Liu on 12/5/20.
 //
 
-import Foundation
+import UIKit
 
 class AddNewWordViewModel {
     
@@ -98,4 +98,22 @@ class AddNewWordViewModel {
         return text
     }
     
+    func categoryName(at row: Int) -> String {
+        let category = categoryList[row].instance()
+        
+        return category.name
+    }
+    
+    func checkFormValidation(definitionStatus: UITextView.Content, definition: String?, newWord: String?, category: String?) {
+        
+        if definitionStatus == .placeHolder { return }
+
+        containEmptyString(
+            newWord: newWord,
+            definition: definition,
+            category: category
+        ) { [weak self] (isEnable) in
+            self?.isEnable = isEnable
+        }
+    }
 }

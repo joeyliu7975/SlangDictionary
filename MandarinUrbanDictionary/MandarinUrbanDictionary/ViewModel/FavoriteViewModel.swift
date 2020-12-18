@@ -153,6 +153,7 @@ class FavoriteViewModel {
                 
                 fieldName = "favorite_words"
             case .recent:
+                
                 fieldName = "recent_search"
             }
         

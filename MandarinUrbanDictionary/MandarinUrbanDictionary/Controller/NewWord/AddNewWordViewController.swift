@@ -29,9 +29,7 @@ class AddNewWordViewController: UIViewController {
 extension AddNewWordViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        guard let addNewWordView = addNewWordView else { return }
-        
-        checkFormValidation(definitionTextView: addNewWordView.definitionTextView, newWordTF: addNewWordView.newWordTF, categoryTF: addNewWordView.categoryTF)
+        checkFormValidation()
         
     }
 }
@@ -47,14 +45,12 @@ extension AddNewWordViewController: UITextViewDelegate {
             textView.clearText()
         }
         
-        textView.textingStatus(with: .startTyping(color: .black))
+        textView.textingStatus(with: .startTyping)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         
-        guard let addNewWordView = addNewWordView else { return }
-        
-        checkFormValidation(definitionTextView: addNewWordView.definitionTextView, newWordTF: addNewWordView.newWordTF, categoryTF: addNewWordView.categoryTF)
+        checkFormValidation()
         
     }
     
@@ -71,24 +67,26 @@ extension AddNewWordViewController: UIPickerViewDelegate, UIPickerViewDataSource
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let category = viewModel.categoryList[row].instance()
+        let name = viewModel.categoryName(at: row)
         
         pickerView.resignFirstResponder()
         
-        addNewWordView?.categoryTF.text = category.name
+        addNewWordView?.updateText(target: addNewWordView?.categoryTF, with: name)
+        
+//        addNewWordView?.categoryTF.text = name
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        let category = viewModel.categoryList[row].instance()
+        let name = viewModel.categoryName(at: row)
 
-        return category.name
+        return name
     }
 }
 
 extension AddNewWordViewController: AddNewWordViewDelegate {
     
-    func clickCancel(_ view: UIView) {
+    func clickCancel() {
         
         self.dismiss(animated: true)
         
@@ -119,8 +117,6 @@ private extension AddNewWordViewController {
     
     func setupAddNewWordView() {
         
-        guard let addNewWordView = addNewWordView else { return }
-        
         addNewWordView.pickerView = UIPickerView()
         
         addNewWordView.delegate = self
@@ -133,9 +129,9 @@ private extension AddNewWordViewController {
         
         addNewWordView.pickerView?.delegate = self
         
-        checkFormValidation(definitionTextView: addNewWordView.definitionTextView, newWordTF: addNewWordView.newWordTF, categoryTF: addNewWordView.categoryTF)
-        
         addNewWordView.backgroundColor = .separatorlineBlue
+        
+        checkFormValidation()
     }
     
     func binding() {
@@ -143,7 +139,6 @@ private extension AddNewWordViewController {
         viewModel.updateStatus = { [weak self] (isValid) in
 
             guard let addNewWordView = self?.addNewWordView else { return }
-            
             
             addNewWordView.sendButton.backgroundColor = isValid ? .white : .lightGray
 
@@ -153,16 +148,12 @@ private extension AddNewWordViewController {
         
     }
     
-    func checkFormValidation(definitionTextView: UITextView, newWordTF: UITextField, categoryTF: UITextField) {
-
-        if definitionTextView.textColor == .placeholderText { return }
-
-        viewModel.containEmptyString(
-            newWord: newWordTF.text,
-            definition: definitionTextView.text,
-            category: categoryTF.text
-        ) { [weak self] (isEnable) in
-            self?.viewModel.isEnable = isEnable
-        }
+    func checkFormValidation() {
+        guard
+            let defintion = addNewWordView.definitionTextView,
+            let newWord = addNewWordView.newWordTF,
+            let category = addNewWordView.categoryTF else { return }
+        
+        viewModel.checkFormValidation(definitionStatus: defintion.textingStauts, definition: defintion.text, newWord: newWord.text, category: category.text)
     }
 }

@@ -21,11 +21,11 @@ class FirebaseManager {
     
     // TEST Firebase Reuqest
 
-    func listen<T>(request: Request, completion: @escaping (Result<[T], NetworkError>) -> Void) {
-        print("Test")
+//    func listen<T>(request: Request, completion: @escaping (Result<[T], NetworkError>) -> Void) {
+//        print("Test")
 //        dataBase.collection(request.collection)
         
-    }
+//    }
     
     // Original Firebase
     func listen<T: Codable>(_ collection: Collection, completion: @escaping (Result<[T], Error>) -> Void) {

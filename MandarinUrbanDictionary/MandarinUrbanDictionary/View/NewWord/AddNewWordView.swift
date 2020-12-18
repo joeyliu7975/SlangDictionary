@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddNewWordViewDelegate: class {
-    func clickCancel(_ view: UIView)
+    func clickCancel()
     func clickSend(_ view: UIView, newWord: String?, definition: String?, category: String?)
     func clikckDone(categoryTextField: UITextField)
 }
@@ -23,7 +23,9 @@ class AddNewWordView: UIView {
         didSet {
             definitionTextView.setCorner(radius: 10)
             
-            definitionTextView.textingStatus(with: .placeHolder("請在此新增字詞解釋..."))
+            definitionTextView.textingStatus(with: .placeHolder)
+            
+            definitionTextView.text = "請在此新增字詞解釋..."
         }
     }
     
@@ -73,7 +75,7 @@ class AddNewWordView: UIView {
     
     @IBAction func clickCancel(_ sender: UIButton) {
         
-        delegate?.clickCancel(self)
+        delegate?.clickCancel()
         
     }
     
@@ -89,4 +91,14 @@ class AddNewWordView: UIView {
         
     }
     
+}
+
+extension AddNewWordView {
+    func updateText<T: UITextInput>(target: T?, with text: String) {
+        if let textField = target as? UITextField {
+            textField.text = text
+        } else if let textView = target as? UITextView {
+            textView.text = text
+        }
+    }
 }

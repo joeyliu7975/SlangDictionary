@@ -11,14 +11,14 @@ extension UITextView {
     
     enum Content {
         
-        case placeHolder(String)
+        case placeHolder
         
-        case startTyping(color: UIColor)
+        case startTyping
     }
     
     var hasPlaceholder: Bool {
         
-        return self.textColor == UIColor.placeholderText ? true : false
+        return self.textingStauts == .placeHolder ? true : false
         
     }
     
@@ -31,16 +31,24 @@ extension UITextView {
     func textingStatus(with content: Content) {
         
         switch content {
-        case .placeHolder(let text):
+        
+        case .placeHolder:
             
             self.textColor = .placeholderText
             
-            self.text = text
+        case .startTyping:
             
-        case .startTyping(let color):
+            self.textColor = .black
             
-            self.textColor = color
-            
+        }
+    }
+    
+    var textingStauts: Content {
+        switch self.textColor {
+        case UIColor.placeholderText:
+            return .placeHolder
+        default:
+            return .startTyping
         }
     }
     

@@ -21,6 +21,16 @@ class TheNewestWordTableViewCell: UITableViewCell {
     
     @IBOutlet weak var categoryImageView: UIImageView!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        logoImageView.image = nil
+        
+        titleLabel.text = ""
+        
+        categoryLabel.text = ""
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

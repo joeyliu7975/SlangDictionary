@@ -62,4 +62,6 @@ struct ImageConstant {
     static let wordOfTheDay = "word_of_the_day"
     
     static let randomWord = "shuffle_words_256x256"
+    
+    static let superImage = "super_challenge_png"
 }

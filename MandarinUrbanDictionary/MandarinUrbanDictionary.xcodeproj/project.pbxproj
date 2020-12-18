@@ -74,6 +74,8 @@
 		71A84A8D257637B600E0C14D /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A84A8B257637B600E0C14D /* FavoriteTableViewCell.xib */; };
 		71A84A912576802900E0C14D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A902576802900E0C14D /* Category.swift */; };
 		71A84A96257689B000E0C14D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A95257689B000E0C14D /* CardView.swift */; };
+		71C0B7E7258CA66B00DDD82A /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C0B7E5258CA66B00DDD82A /* UserTableViewCell.swift */; };
+		71C0B7E8258CA66B00DDD82A /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C0B7E6258CA66B00DDD82A /* UserTableViewCell.xib */; };
 		71C3D5AB257E29DB00636BC4 /* NewDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */; };
 		71C3D5AC257E29DB00636BC4 /* NewDefinitionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C3D5AA257E29DB00636BC4 /* NewDefinitionViewController.xib */; };
 		71C3D5AF2580666D00636BC4 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */; };
@@ -186,6 +188,8 @@
 		71A84A8B257637B600E0C14D /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		71A84A902576802900E0C14D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		71A84A95257689B000E0C14D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		71C0B7E5258CA66B00DDD82A /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		71C0B7E6258CA66B00DDD82A /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDefinitionViewController.swift; sourceTree = "<group>"; };
 		71C3D5AA257E29DB00636BC4 /* NewDefinitionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDefinitionViewController.xib; sourceTree = "<group>"; };
 		71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
@@ -418,6 +422,7 @@
 				716CD324257522EF00695A91 /* SidePanel Header */,
 				71A84A892576379400E0C14D /* Favorite */,
 				71883B792578D6D200170AC9 /* Rank */,
+				71C0B7E4258CA64E00DDD82A /* User */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -612,6 +617,15 @@
 				71A84A8B257637B600E0C14D /* FavoriteTableViewCell.xib */,
 			);
 			path = Favorite;
+			sourceTree = "<group>";
+		};
+		71C0B7E4258CA64E00DDD82A /* User */ = {
+			isa = PBXGroup;
+			children = (
+				71C0B7E5258CA66B00DDD82A /* UserTableViewCell.swift */,
+				71C0B7E6258CA66B00DDD82A /* UserTableViewCell.xib */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		71C3D5A8257E29A600636BC4 /* New Definition */ = {
@@ -942,6 +956,7 @@
 				71E81EB12584BB5D00BECDCC /* TheNewestWordTableViewCell.xib in Resources */,
 				7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */,
 				7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */,
+				71C0B7E8258CA66B00DDD82A /* UserTableViewCell.xib in Resources */,
 				716CD3292575234100695A91 /* SidePanelHeaderFooterView.xib in Resources */,
 				7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */,
 				71E929612584FB23001FB100 /* LobbyTableHeaderView.xib in Resources */,
@@ -1099,6 +1114,7 @@
 				71A6C20D2586163800FC478D /* NSCharacterSet+Extension.swift in Sources */,
 				71F9442C2578C15E0014808E /* RankViewController.swift in Sources */,
 				71230B6025845C9200B78C9C /* UserDefaults+Extension.swift in Sources */,
+				71C0B7E7258CA66B00DDD82A /* UserTableViewCell.swift in Sources */,
 				71F8DDA8257C73E600507D8F /* SearchTableViewCell.swift in Sources */,
 				716CD30D2574F7A200695A91 /* ContainerViewController.swift in Sources */,
 				717569252570CFD300417B9C /* SceneDelegate.swift in Sources */,

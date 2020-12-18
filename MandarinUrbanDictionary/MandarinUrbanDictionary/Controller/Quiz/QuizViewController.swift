@@ -11,8 +11,6 @@ class QuizViewController: JoeyPanelViewController {
 
     @IBOutlet weak var imageViewTopAnchor: NSLayoutConstraint!
     
-    
-        
     override func viewDidLoad() {
         super.viewDidLoad()
 

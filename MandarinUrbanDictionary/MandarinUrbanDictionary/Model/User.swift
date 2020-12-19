@@ -19,6 +19,12 @@ struct User: Codable {
     
     var discoveredWords: [String]
     
+    var favoriteChallenge: Int
+    
+    var postChallenge: Int
+    
+    var viewChallenge: Int
+    
     enum CodingKeys: String, CodingKey {
         
         case identifier = "id"
@@ -30,6 +36,12 @@ struct User: Codable {
         case favorites = "favorite_words"
         
         case discoveredWords = "discovered_words"
+        
+        case favoriteChallenge = "favorite_challenge"
+        
+        case postChallenge = "post_challenge"
+        
+        case viewChallenge = "view_challenge"
     }
 }
 
@@ -42,7 +54,10 @@ extension User: FirebaseItem {
             "display_Name": name,
             "recent_search": recents,
             "favorite_words": favorites,
-            "discovered_words": discoveredWords
+            "discovered_words": discoveredWords,
+            "favorite_challenge": favoriteChallenge,
+            "post_challenge": postChallenge,
+            "view_challenge": viewChallenge
         ]
     }
 }

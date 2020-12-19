@@ -11,48 +11,37 @@ class UserViewModel {
     
     private let networkManager: FirebaseManager
     
-    var allWords = Box([Word]())
+    let challenges: [Challenge] = [.view, .favorite, .post]
+    
+    var allWords = Box(User.self)
     
     init(networkManager: FirebaseManager = .init()) {
         self.networkManager = networkManager
     }
     
-    var discoveredWords = [String]() {
-        didSet {
-            fetchAllWords()
-        }
-    }
-    
-    func startDownloading() {
-        fetchUserDiscoverWords()
-    }
-    
-    func fetchAllWords() {
-        networkManager.retrieveData(.word(orderBy: .time)) { (result: Result<[Word], Error>) in
-            switch result {
-            case .success(let words):
-                
-                self.allWords.value = words
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    func fetchUserDiscoverWords() {
+    func fetchUser() {
         
-        guard let uid = UserDefaults.standard.value(forKey: "uid") as? String else { return }
+    }
+    
+}
+
+extension UserViewModel {
+    enum Challenge {
+        case favorite, view, post
+    }
+    
+    func getTitle(_ challenge: Challenge) -> String {
+        let title: String
         
-        networkManager.retrieveUser(userID: uid) { (result: Result<User, NetworkError>) in
-            switch result {
-            case .success(let user):
-                self.discoveredWords = user.discoveredWords
-            case .failure(.noData(let error)):
-                print(error.localizedDescription)
-            case .failure(.decodeError):
-                print("Decode Error")
-            }
+        switch challenge {
+        case .favorite:
+            title = "10字收藏挑戰"
+        case .view:
+            title = "10字探索挑戰"
+        case .post:
+            title = "10字發文挑戰"
         }
+        
+        return title
     }
 }

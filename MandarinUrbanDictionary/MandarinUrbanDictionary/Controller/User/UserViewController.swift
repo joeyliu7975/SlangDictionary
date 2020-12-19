@@ -10,9 +10,7 @@ import UIKit
 class UserViewController: JoeyPanelViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    private let shapeLayer = CAShapeLayer()
-    
+        
     private let viewModel: UserViewModel = .init()
     
     override func viewDidLoad() {
@@ -26,6 +24,8 @@ class UserViewController: JoeyPanelViewController {
     func setupTableView() {
         tableView.registerCell(UserTableViewCell.reusableIdentifier)
         
+        tableView.separatorStyle = .none
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -34,7 +34,7 @@ class UserViewController: JoeyPanelViewController {
         
         removeBackButtonItem()
         
-        setBarAppearance(title: "排行榜")
+        setBarAppearance(title: "用戶")
         
         makeSideMenuButton()
         
@@ -60,15 +60,19 @@ extension UserViewController: UITableViewDelegate {
 
 extension UserViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.challenges.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UserTableViewCell = tableView.makeCell(indexPath: indexPath)
         
+        let challenge = viewModel.challenges[indexPath.row]
+        
+        let title = viewModel.getTitle(challenge)
+        
         cell.delegate = self
         
-        cell.renderUI(title: "我的挑戰")
+        cell.renderUI(title: title)
         
         cell.drawDiscoveryTracker()
                 

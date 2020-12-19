@@ -133,9 +133,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                                                       rawNonce: nonce)
             Auth.auth().signIn(with: credential) { (authResult, error) in
                 if (error != nil) {
-                    // Error. If error.code == .MissingOrInvalidNonce, make sure
-                    // you're sending the SHA256-hashed nonce as a hex string with
-                    // your request to Apple.
+                  
                     print(error?.localizedDescription ?? "")
                     return
                 }
@@ -160,7 +158,10 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                     "id": uid,
                     "favorite_words": favoriteWord,
                     "recent_search": recentSearch,
-                    "discovered_words": discoveredWords
+                    "discovered_words": discoveredWords,
+                    "favorite_challenge": -1,
+                    "post_challenge": -1,
+                    "view_challenge": -1
                 ]) { err in
                     if let err = err {
                         print("Error writing document: \(err)")

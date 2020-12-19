@@ -11,7 +11,7 @@ class UserViewModel {
     
     private let networkManager: FirebaseManager
     
-    let challenges: [Challenge] = [.view, .favorite, .post]
+    var challenges: [Challenge] = [.view, .favorite, .post]
     
     var processList: [Challenge: Process] = [:]
     
@@ -78,11 +78,22 @@ extension UserViewModel {
         let color: UIColor
     }
     
-    struct Process {
+    class Process {
         
         let currentStage: Int
         
         let challenge: Challenge
+        
+        var hasDrawed: Bool = false
+        
+        init(currentStage: Int, challenge: Challenge) {
+            self.currentStage = currentStage
+            self.challenge = challenge
+        }
+        
+        func drawed() {
+            hasDrawed = true
+        }
     }
     
     func getProcess(at challenge: Challenge, currentStage: Int) -> Process {

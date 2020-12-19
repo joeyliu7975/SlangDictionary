@@ -20,7 +20,7 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var challengLabel: UILabel!
     
     @IBOutlet weak var progressionBarContainerView: UIView!
-    
+
     let progressMaker: ProgressBarMaker = .init()
     
     private lazy var startLabel: UILabel = {
@@ -37,13 +37,6 @@ class UserTableViewCell: UITableViewCell {
         return label
     }()
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        progressMaker.resetProgressBar()
-
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -55,44 +48,64 @@ class UserTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func renderUI(title: String, color: UIColor) {
+    func setup(title: String, barColor: UIColor) {
         
         challengLabel.text = title
         
-        progressMaker.progressBar(color: color)
+        progressMaker.progressBar(color: barColor)
+        
     }
     
     func renderChallengeLabel(_ stage: UserViewModel.Stage, percentage: Int) {
+        
         switch stage {
+        
         case .begin:
+            
             progressionBarContainerView.isUserInteractionEnabled = true
             
             startLabel.text = "Start"
-        case .process:
-            progressionBarContainerView.isUserInteractionEnabled = false
             
-            startLabel.text = "\(percentage)%"
+        case .process:
+            
+            progressionBarContainerView.isUserInteractionEnabled = false
+                        
+            DispatchQueue.main.async {
+                
+                self.progressMaker.startTimer(to: percentage)
+                
+                self.progressMaker.updateTimer = Timer.scheduledTimer(
+                    timeInterval: 0.04,
+                    target: self,
+                    selector: #selector(self.updateLabel),
+                    userInfo: nil,
+                    repeats: true
+                )
+            }
+            
         case .finish:
+            
             progressionBarContainerView.isUserInteractionEnabled = false
             
             startLabel.text = "Finished"
         }
+        
     }
 
     @objc private func handleTap() {
         
         delegate?.startChallenge(self)
+    }
+    
+    @objc func updateLabel() {
         
-        progressMaker.startDrawing(
-            keyPath: "strokeEnd",
-            value: 0.5,
-            duration: 2,
-            fillMode: .forwards,
-            isRemoveOnCompletion: false,
-            progressBarKey: "urSoBasic"
-        )
+        self.progressMaker.processing(startLabel: &self.startLabel)
         
-        changeLabel()
+        if self.progressMaker.shouldStopTimer {
+            
+            self.progressMaker.resetTimer()
+            
+        }
     }
 }
 
@@ -116,19 +129,11 @@ extension UserTableViewCell {
         self.layer.addSublayer(startLabel.layer)
     }
     
-    func changeLabel() {
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.75, delay: 0.0, options: .curveEaseIn) {
+    func updateChallengeLabel(percentage: String) {
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.1, delay: 0.0, options: .curveEaseIn) {
             
             self.startLabel.alpha = 0
             
-        } completion: { (_) in
-            
-            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 1, delay: 0.8, options: .curveEaseOut) {
-                
-                self.startLabel.text = "50%"
-                
-                self.startLabel.alpha = 1
-            }
         }
     }
 }

@@ -11,7 +11,19 @@ class ProgressBarMaker {
     
     let circularPath: UIBezierPath
     
-    init(circularPath: UIBezierPath = .init(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)) {
+     var updateTimer : Timer?
+    
+     var currentValue: CGFloat?
+    
+     var maxValue: CGFloat?
+    
+    init(circularPath: UIBezierPath = .init(
+            arcCenter: .zero,
+            radius: 100,
+            startAngle: 0,
+            endAngle: 2 * CGFloat.pi,
+            clockwise: true
+    )) {
         self.circularPath = circularPath
     }
     
@@ -30,7 +42,7 @@ class ProgressBarMaker {
         return trackLayer
     }()
     
-    private lazy var shapeLayer: CAShapeLayer = {
+    lazy var shapeLayer: CAShapeLayer = {
        
         let shapeLayer = CAShapeLayer()
         
@@ -70,21 +82,6 @@ class ProgressBarMaker {
         view.layer.addSublayer(shapeLayer)
     }
     
-    func startDrawing(keyPath: String, value: CGFloat, duration: CFTimeInterval, fillMode: CAMediaTimingFillMode, isRemoveOnCompletion: Bool, progressBarKey key: String) {
-
-        let basicAnimation = CABasicAnimation(keyPath: keyPath)
-
-        basicAnimation.toValue = value
-
-        basicAnimation.duration = duration
-
-        basicAnimation.fillMode = fillMode
-
-        basicAnimation.isRemovedOnCompletion = isRemoveOnCompletion
-
-        shapeLayer.add(basicAnimation, forKey: key)
-    }
-    
     func resetProgressBar() {
         trackLayer.removeFromSuperlayer()
         
@@ -92,11 +89,42 @@ class ProgressBarMaker {
     }
 }
 
+// Timer and PercentageLabel
+
 extension ProgressBarMaker {
     
-    enum Progression: String {
+    func resetTimer() {
+        self.updateTimer?.invalidate()
+        self.updateTimer = nil
+        self.maxValue = nil
+        self.currentValue = nil
+    }
+    
+    func startTimer(to percentage: Int) {
+        self.maxValue = CGFloat(percentage)
         
-        case begin, process, finish
+        self.currentValue = 0
         
+        self.shapeLayer.strokeEnd = 0
+    }
+    
+    func processing(startLabel: inout UILabel){
+        guard let currentValue = self.currentValue else { return }
+        
+        let valueForStrokeEnd = currentValue / 100
+        
+        self.shapeLayer.strokeEnd = valueForStrokeEnd
+        
+        startLabel.text = String(describing: Int(currentValue)) + "%"
+        
+        self.currentValue! += 1
+    }
+    
+    var shouldStopTimer: Bool {
+        guard
+            let currentValue = self.currentValue,
+            let maxValue = self.maxValue else { return true }
+        
+        return currentValue > maxValue 
     }
 }

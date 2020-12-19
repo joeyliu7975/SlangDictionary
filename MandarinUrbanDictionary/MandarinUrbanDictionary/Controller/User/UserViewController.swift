@@ -60,11 +60,11 @@ private extension UserViewController {
             
             if let user = users.first {
                 
-                let postProcess = self?.viewModel.getProcess(at: .post, currentStage: user.postChallenge)
+                var postProcess = self?.viewModel.getProcess(at: .post, currentStage: user.postChallenge)
                 
-                let viewProcess = self?.viewModel.getProcess(at: .view, currentStage: user.viewChallenge)
+                var viewProcess = self?.viewModel.getProcess(at: .view, currentStage: user.viewChallenge)
                 
-                let favoriteProcess = self?.viewModel.getProcess(at: .favorite, currentStage: user.favoriteChallenge)
+                var favoriteProcess = self?.viewModel.getProcess(at: .favorite, currentStage: user.favoriteChallenge)
                 
                 self?.viewModel.processList[.post] = postProcess
                 
@@ -123,13 +123,13 @@ extension UserViewController: UITableViewDataSource {
         
         let challenge = viewModel.challenges[indexPath.row]
         
+        cell.delegate = self
+        
         guard let process = viewModel.processList[challenge] else { return cell }
         
         let progressBar = viewModel.getProgressBar(challenge)
         
-        cell.delegate = self
-        
-        cell.renderUI(title: progressBar.title, color: progressBar.color)
+        cell.setup(title: progressBar.title, barColor: progressBar.color)
         
         // Calculate ProgressBar Percentage with Process
         
@@ -137,10 +137,14 @@ extension UserViewController: UITableViewDataSource {
         
         let currentStage = viewModel.getStage(currentStage: userProcess.currentStage)
         
-        cell.renderChallengeLabel(currentStage, percentage: userProcess.currentStage * 10)
+        if !process.hasDrawed {
+            cell.drawDiscoveryTracker()
+            
+            cell.renderChallengeLabel(currentStage, percentage: userProcess.currentStage * 10)
+            
+            process.drawed()
+        }
         
-        cell.drawDiscoveryTracker()
-                
         return cell
     }
 

@@ -17,7 +17,11 @@ class SearchViewModel {
     
     var keyword: String = ""
         
-    private let networkManager: FirebaseManager = .init()
+    private let networkManager: FirebaseManager
+    
+    init(networkManager: FirebaseManager = .init()) {
+        self.networkManager = networkManager
+    }
     
     func search(keyword: String) {
         

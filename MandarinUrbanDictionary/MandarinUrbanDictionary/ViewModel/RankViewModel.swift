@@ -27,7 +27,11 @@ class RankViewModel {
     
     var updateData: (() -> Void)?
     
-    let networkManager: FirebaseManager = .init()
+    private let networkManager: FirebaseManager
+    
+    init(networkManager: FirebaseManager = .init()) {
+        self.networkManager = networkManager
+    }
     
     func fetchData(sortedBy value: FirebaseManager.SortedBy) {
         

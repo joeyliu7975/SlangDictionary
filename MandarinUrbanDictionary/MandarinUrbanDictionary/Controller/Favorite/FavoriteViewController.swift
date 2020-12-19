@@ -52,7 +52,9 @@ class FavoriteViewController: JoeyPanelViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         viewModel?.getUserFavoriteWordsList()
+        
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -95,8 +97,6 @@ private extension FavoriteViewController {
         guard let title = navigationItem.title else { return }
         
         viewModel = FavoriteViewModel(title: title)
-        
-//        viewModel?.getUserFavoriteWordsList()
     }
     
     func setupTableView() {

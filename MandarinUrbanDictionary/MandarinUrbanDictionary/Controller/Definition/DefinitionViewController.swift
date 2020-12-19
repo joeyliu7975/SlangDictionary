@@ -161,6 +161,13 @@ private extension DefinitionViewController {
 
 extension DefinitionViewController: DefinitionHeaderDelegate {
     
+    func clickReadOut() {
+        if let word = viewModel?.word {
+            viewModel?.siriRead(word)
+        }
+    }
+    
+    
     func clickBackButton() {
         
         if let _ = navigationController?.rootViewController as? LobbyViewController {

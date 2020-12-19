@@ -90,7 +90,7 @@ class FavoriteViewModel {
         }
     }
     
-    let networkManager: FirebaseManager = .init()
+    private let networkManager: FirebaseManager
     
     var favoriteViewModels = Box([Word]())
     
@@ -116,8 +116,9 @@ class FavoriteViewModel {
     
     var deleteButtonEnable: ((Bool) -> Void)?
     
-    init(title: String) {
+    init(title: String, networkManager: FirebaseManager = .init()) {
         self.title = title
+        self.networkManager = networkManager
     }
     
     // Firebase 操作

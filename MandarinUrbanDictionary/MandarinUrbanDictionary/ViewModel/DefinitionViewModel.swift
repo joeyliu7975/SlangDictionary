@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import AVFoundation
 
 class DefinitionViewModel {
     
-    let networkManager: FirebaseManager = .init()
+    private let networkManager: FirebaseManager
         
     let wordIdentifier: String
     
@@ -25,13 +26,15 @@ class DefinitionViewModel {
     
     var updateData: (() -> Void)?
     
-    init(id: String, word: String, category: String) {
+    init(id: String, word: String, category: String, networkManager: FirebaseManager = .init()) {
         
         self.wordIdentifier = id
         
         self.word = word
         
         self.category = category
+        
+        self.networkManager = networkManager
     }
         
     var definitionViewModels = Box([Definition]())
@@ -185,5 +188,14 @@ class DefinitionViewModel {
         }
         
         return rankString
+    }
+    
+    func siriRead(_ word: String) {
+        let utterance = AVSpeechUtterance(string: word)
+        utterance.voice = AVSpeechSynthesisVoice(language: "zh-TW")
+        utterance.rate = 0.35
+
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterance)
     }
 }

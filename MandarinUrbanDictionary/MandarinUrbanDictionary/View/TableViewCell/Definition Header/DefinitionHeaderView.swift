@@ -15,6 +15,7 @@ protocol DefinitionHeaderDelegate: class {
     
     func clickBackButton()
     
+    func clickReadOut()
 }
 
 final class DefinitionHeaderView: UITableViewHeaderFooterView {
@@ -34,6 +35,9 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var categoryImageView: UIImageView!
     
     @IBOutlet weak var customBackButton: UIButton!
+    
+    @IBOutlet weak var siriReadButton: UIButton!
+    
     
     weak var delegate: DefinitionHeaderDelegate?
     
@@ -61,6 +65,9 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
             
             delegate?.clickBackButton()
             
+        case siriReadButton:
+            
+            delegate?.clickReadOut()
         default:
             
             break

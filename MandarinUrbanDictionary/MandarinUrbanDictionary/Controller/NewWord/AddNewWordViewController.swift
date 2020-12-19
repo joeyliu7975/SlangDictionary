@@ -11,7 +11,7 @@ class AddNewWordViewController: UIViewController {
     
     @IBOutlet weak var addNewWordView: AddNewWordView!
     
-    private let viewModel: AddNewWordViewModel = .init()
+    private var viewModel: AddNewWordViewModel = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,8 +72,6 @@ extension AddNewWordViewController: UIPickerViewDelegate, UIPickerViewDataSource
         pickerView.resignFirstResponder()
         
         addNewWordView?.updateText(target: addNewWordView?.categoryTF, with: name)
-        
-//        addNewWordView?.categoryTF.text = name
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

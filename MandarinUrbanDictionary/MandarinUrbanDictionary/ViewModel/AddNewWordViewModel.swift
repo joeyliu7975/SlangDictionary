@@ -20,7 +20,11 @@ class AddNewWordViewModel {
         .relationship
     ]
     
-    let networkManager: FirebaseManager = .init()
+    let networkManager: FirebaseManager
+    
+    init(_ networkManager: FirebaseManager = .init()) {
+        self.networkManager = networkManager
+    }
     
     var isEnable: Bool = false {
         didSet {

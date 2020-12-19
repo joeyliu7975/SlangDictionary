@@ -9,14 +9,15 @@ import Foundation
 
 class NewDefinitionViewModel {
     
-    let networkManager: FirebaseManager = .init()
+    private let networkManager: FirebaseManager
     
     let wordID: String
     
     private var content: String?
     
-    init(wordID: String) {
+    init(wordID: String, networkManager: FirebaseManager = .init()) {
         self.wordID = wordID
+        self.networkManager = networkManager
     }
     
     func textViewContent(_ content: String) {

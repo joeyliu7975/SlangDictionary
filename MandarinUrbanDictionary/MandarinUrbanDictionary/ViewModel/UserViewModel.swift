@@ -9,9 +9,13 @@ import Foundation
 
 class UserViewModel {
     
-    let networkManager: FirebaseManager = .init()
+    private let networkManager: FirebaseManager
     
     var allWords = Box([Word]())
+    
+    init(networkManager: FirebaseManager = .init()) {
+        self.networkManager = networkManager
+    }
     
     var discoveredWords = [String]() {
         didSet {

@@ -47,17 +47,17 @@ class ProgressBarMaker {
         return shapeLayer
     }()
     
-    func setupProgressBar(on view: UIView) {
+    func setupProgressBar(position: CGPoint, on view: UIView) {
             
         trackLayer.path = circularPath.cgPath
         
-        trackLayer.position = view.center
+        trackLayer.position = position
         
         view.layer.addSublayer(trackLayer)
         
         shapeLayer.path = circularPath.cgPath
         
-        shapeLayer.position = view.center
+        shapeLayer.position = position
         
         shapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
         

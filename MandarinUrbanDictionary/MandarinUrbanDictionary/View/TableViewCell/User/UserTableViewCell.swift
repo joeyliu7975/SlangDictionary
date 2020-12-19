@@ -15,6 +15,8 @@ class UserTableViewCell: UITableViewCell {
     
     @IBOutlet weak var progressionBarContainerView: UIView!
     
+    let progressMaker: ProgressBarMaker = .init()
+    
     private lazy var startLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 30))
         
@@ -29,27 +31,16 @@ class UserTableViewCell: UITableViewCell {
         return label
     }()
     
-    let shapeLayer: CAShapeLayer = .init()
-    
-    let trackLayer: CAShapeLayer = .init()
-    
     override func prepareForReuse() {
         super.prepareForReuse()
-        
-        trackLayer.removeFromSuperlayer()
-        
-        shapeLayer.removeFromSuperlayer()
+
+        progressMaker.resetProgressBar()
+
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        drawDiscoveryTracker()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -66,17 +57,7 @@ class UserTableViewCell: UITableViewCell {
 
     @objc private func handleTap() {
         
-        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        
-        basicAnimation.toValue = 0.5
-        
-        basicAnimation.duration = 2
-        
-        basicAnimation.fillMode = .forwards
-        
-        basicAnimation.isRemovedOnCompletion = false
-        
-        shapeLayer.add(basicAnimation, forKey: "urSoBasic")
+        progressMaker.startDrawing(keyPath: "strokeEnd", value: 0.5, duration: 2, fillMode: .forwards, isRemoveOnCompletion: false, progressBarKey: "urSoBasic")
         
         changeLabel()
     }
@@ -86,39 +67,9 @@ extension UserTableViewCell {
 
     func drawDiscoveryTracker() {
         
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        self.layoutSubviews()
         
-        trackLayer.path = circularPath.cgPath
-        
-        trackLayer.strokeColor = UIColor.lightGray.cgColor
-        
-        trackLayer.lineWidth = 10
-        
-        trackLayer.fillColor = UIColor.clear.cgColor
-        
-        trackLayer.lineCap = .round
-        
-        trackLayer.position = contentView.center
-                
-        shapeLayer.path = circularPath.cgPath
-        
-        shapeLayer.strokeColor = UIColor.red.cgColor
-        
-        shapeLayer.lineWidth = 10
-        
-        shapeLayer.lineCap = .round
-        
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        
-        shapeLayer.strokeEnd = 0
-        
-        shapeLayer.position = contentView.center
-        
-        shapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
-        
-        self.layer.addSublayer(trackLayer)
-        
-        self.layer.addSublayer(shapeLayer)
+        progressMaker.setupProgressBar(position: contentView.center, on: self)
         
         addLabel()
         
@@ -126,6 +77,7 @@ extension UserTableViewCell {
     }
     
     func addLabel() {
+        
         startLabel.center = contentView.center
         
         self.layer.addSublayer(startLabel.layer)

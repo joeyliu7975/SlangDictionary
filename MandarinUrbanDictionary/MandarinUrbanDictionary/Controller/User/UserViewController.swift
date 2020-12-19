@@ -19,6 +19,8 @@ class UserViewController: JoeyPanelViewController {
         super.viewDidLoad()
 
         setupTableView()
+        
+        setupNavigationController()
     }
     
     func setupTableView() {
@@ -26,6 +28,16 @@ class UserViewController: JoeyPanelViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func setupNavigationController() {
+        
+        removeBackButtonItem()
+        
+        setBarAppearance(title: "排行榜")
+        
+        makeSideMenuButton()
+        
     }
 }
 
@@ -48,6 +60,8 @@ extension UserViewController: UITableViewDataSource {
         let cell: UserTableViewCell = tableView.makeCell(indexPath: indexPath)
         
         cell.renderUI(title: "我的挑戰")
+        
+        cell.drawDiscoveryTracker()
                 
         return cell
     }

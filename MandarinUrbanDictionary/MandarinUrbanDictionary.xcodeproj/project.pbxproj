@@ -97,7 +97,6 @@
 		71E7F34C2570D75B00F15098 /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F34A2570D75B00F15098 /* Definition.swift */; };
 		71E7F34D2570D75B00F15098 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F34B2570D75B00F15098 /* Word.swift */; };
 		71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E7F3512570D76600F15098 /* HomePageViewModel.swift */; };
-		71E81EA0258499F100BECDCC /* RankChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E81E9E258499F100BECDCC /* RankChartViewController.xib */; };
 		71E81EA42584A22500BECDCC /* FirebaseTimestamp+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E81EA32584A22500BECDCC /* FirebaseTimestamp+Extension.swift */; };
 		71E81EAA2584BAD600BECDCC /* LobbyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E81EA82584BAD600BECDCC /* LobbyViewController.xib */; };
 		71E81EAB2584BAD600BECDCC /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E81EA92584BAD600BECDCC /* LobbyViewController.swift */; };
@@ -212,7 +211,6 @@
 		71E7F34A2570D75B00F15098 /* Definition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
 		71E7F34B2570D75B00F15098 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		71E7F3512570D76600F15098 /* HomePageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
-		71E81E9E258499F100BECDCC /* RankChartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankChartViewController.xib; sourceTree = "<group>"; };
 		71E81EA32584A22500BECDCC /* FirebaseTimestamp+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseTimestamp+Extension.swift"; sourceTree = "<group>"; };
 		71E81EA82584BAD600BECDCC /* LobbyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LobbyViewController.xib; sourceTree = "<group>"; };
 		71E81EA92584BAD600BECDCC /* LobbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				71055A902584289500560C5D /* RankViewController.xib */,
-				71E81E9E258499F100BECDCC /* RankChartViewController.xib */,
 			);
 			name = Rank;
 			path = MandarinUrbanDictionary/xibs/Rank;
@@ -971,7 +968,6 @@
 				71E81EBA2584BBB900BECDCC /* Top5TableViewCell.xib in Resources */,
 				71E7F3372570D67900F15098 /* MostViewedWordCollectionViewCell.xib in Resources */,
 				716CD31E2575130400695A91 /* SidePanelTableViewCell.xib in Resources */,
-				71E81EA0258499F100BECDCC /* RankChartViewController.xib in Resources */,
 				71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */,
 				7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */,
 				71A84A8D257637B600E0C14D /* FavoriteTableViewCell.xib in Resources */,

@@ -220,8 +220,23 @@ extension FavoriteViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                
-        viewModel?.select(at: indexPath)
+        
+        switch tableView.isEditing {
+        case true:
+            viewModel?.select(at: indexPath)
+        case false:
+            
+            guard let viewModel = self.viewModel else { return }
+            
+            let word = viewModel.favoriteViewModels.value[indexPath.row]
+            
+            let definitionViewController = DefinitionViewController(identifierNumber: word.identifier, word: word.title, category: word.category)
+            
+            navigationController?.pushViewController(definitionViewController, animated: true)
+        }
+        
+        return
+//        viewModel?.select(at: indexPath)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

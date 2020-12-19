@@ -15,10 +15,10 @@ class RankViewController: JoeyPanelViewController {
     
     var viewModel: RankViewModel?
     
-    init() {
+    init(viewModel: RankViewModel = .init()) {
         super.init(nibName: nil, bundle: nil)
         
-        viewModel = .init()
+        self.viewModel = viewModel
     }
     
     required init?(coder: NSCoder) {
@@ -33,6 +33,8 @@ class RankViewController: JoeyPanelViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupSegmentControl()
                 
         setupTableView()
         
@@ -67,6 +69,19 @@ extension RankViewController: CategoryDelegate {
 }
 
 private extension RankViewController {
+    
+    func setupSegmentControl() {
+        segmentControl.selectedSegmentTintColor = .homepageDarkBlue
+        
+        segmentControl.backgroundColor = .disableBackgroundBlue
+        
+        let titleAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 18)!
+        ]
+        
+        segmentControl.setTitleTextAttributes(titleAttributes, for: .normal)
+    }
     
     func setupTableView() {
         

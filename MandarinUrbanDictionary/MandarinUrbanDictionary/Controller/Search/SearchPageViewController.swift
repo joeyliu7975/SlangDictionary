@@ -69,7 +69,7 @@ class SearchPageViewController: UIViewController {
         
         setupNoResultView()
         
-        binding()
+        viewModelBinding()
     }
 
     @objc func cancelSearch(_ sender: UIButton) {
@@ -149,7 +149,7 @@ private extension SearchPageViewController {
             ])
     }
     
-    func binding() {
+    func viewModelBinding() {
         
         viewModel.updateTitle = { [weak self] (title) in
             

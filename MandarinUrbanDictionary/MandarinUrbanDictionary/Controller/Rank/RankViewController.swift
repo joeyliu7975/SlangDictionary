@@ -40,7 +40,7 @@ class RankViewController: JoeyPanelViewController {
         
         setupNavigationController()
         
-        binding()
+        viewModelBinding()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,7 +105,7 @@ private extension RankViewController {
         
     }
     
-    func binding() {
+    func viewModelBinding() {
         
         viewModel?.updateData = { [weak self] in
             

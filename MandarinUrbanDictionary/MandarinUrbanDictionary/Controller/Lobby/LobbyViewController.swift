@@ -44,7 +44,7 @@ class LobbyViewController: JoeyPanelViewController {
         
         setupNavigationController()
         
-        binding()
+        viewModelBinding()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -129,7 +129,7 @@ private extension LobbyViewController {
         navController.present(self)
     }
     
-    func binding() {
+    func viewModelBinding() {
         
         viewModel.wordViewModels.bind { [weak self] (words) in
             

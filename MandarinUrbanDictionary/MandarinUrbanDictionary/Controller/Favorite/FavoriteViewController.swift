@@ -48,7 +48,7 @@ class FavoriteViewController: JoeyPanelViewController {
         
         setupNavigationController()
         
-        binding()
+        viewModelBinding()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -149,7 +149,7 @@ private extension FavoriteViewController {
         presenter.present(in: self)
     }
     
-    func binding() {
+    func viewModelBinding() {
         
         viewModel?.favoriteViewModels.bind { [weak self] (_) in
             

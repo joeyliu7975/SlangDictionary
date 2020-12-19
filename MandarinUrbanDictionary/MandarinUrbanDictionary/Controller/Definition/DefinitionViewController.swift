@@ -61,7 +61,7 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
         
         setupTableView()
         
-        binding()
+        viewModelBinding()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -115,7 +115,7 @@ private extension DefinitionViewController {
         tableView.tableFooterView = UIView()
     }
     
-    func binding() {
+    func viewModelBinding() {
         
         viewModel?.definitionViewModels.bind { [weak self] (_) in
             

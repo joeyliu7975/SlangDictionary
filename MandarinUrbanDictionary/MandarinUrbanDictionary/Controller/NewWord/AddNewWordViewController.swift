@@ -21,7 +21,7 @@ class AddNewWordViewController: UIViewController {
         
         setupAddNewWordView()
                 
-        binding()
+        viewModelBinding()
         
     }
 }
@@ -132,7 +132,7 @@ private extension AddNewWordViewController {
         checkFormValidation()
     }
     
-    func binding() {
+    func viewModelBinding() {
         
         viewModel.updateStatus = { [weak self] (isValid) in
 

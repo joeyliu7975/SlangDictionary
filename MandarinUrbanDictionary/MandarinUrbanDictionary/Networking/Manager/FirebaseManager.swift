@@ -325,6 +325,19 @@ class FirebaseManager {
     func updateArray(uid: String, wordID: String, arrayName: String) {
         dataBase.collection("User").document(uid).updateData([arrayName: FieldValue.arrayUnion([wordID])])
     }
+    
+    func updateChallenge(uid: String, data: [String: Any], completion: @escaping () -> Void) {
+        dataBase.collection("User").document(uid).updateData(data) { err in
+            
+            if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                    completion()
+                }
+            
+        }
+    }
 }
 
 extension FirebaseManager {

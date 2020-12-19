@@ -47,6 +47,12 @@ class ProgressBarMaker {
         return shapeLayer
     }()
     
+    func progressBar(color: UIColor) {
+        
+        shapeLayer.strokeColor = color.cgColor
+        
+    }
+    
     func setupProgressBar(position: CGPoint, on view: UIView) {
             
         trackLayer.path = circularPath.cgPath

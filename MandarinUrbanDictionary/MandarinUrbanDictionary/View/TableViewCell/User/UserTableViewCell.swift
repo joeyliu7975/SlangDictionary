@@ -55,19 +55,42 @@ class UserTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func renderUI(title: String) {
+    func renderUI(title: String, color: UIColor) {
         
         challengLabel.text = title
         
+        progressMaker.progressBar(color: color)
+    }
+    
+    func renderChallengeLabel(_ stage: UserViewModel.Stage, percentage: Int) {
+        switch stage {
+        case .begin:
+            progressionBarContainerView.isUserInteractionEnabled = true
+            
+            startLabel.text = "Start"
+        case .process:
+            progressionBarContainerView.isUserInteractionEnabled = false
+            
+            startLabel.text = "\(percentage)%"
+        case .finish:
+            progressionBarContainerView.isUserInteractionEnabled = false
+            
+            startLabel.text = "Finished"
+        }
     }
 
     @objc private func handleTap() {
         
         delegate?.startChallenge(self)
         
-        progressMaker.startDrawing(keyPath: "strokeEnd", value: 0.5, duration: 2, fillMode: .forwards, isRemoveOnCompletion: false, progressBarKey: "urSoBasic")
-        
-        
+        progressMaker.startDrawing(
+            keyPath: "strokeEnd",
+            value: 0.5,
+            duration: 2,
+            fillMode: .forwards,
+            isRemoveOnCompletion: false,
+            progressBarKey: "urSoBasic"
+        )
         
         changeLabel()
     }

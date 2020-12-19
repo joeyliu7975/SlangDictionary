@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol UserTableViewCellDelegate: class {
+    func startChallenge(_ cell: UITableViewCell)
+}
+
 class UserTableViewCell: UITableViewCell {
     
     static let reusableIdentifier = String(describing: UserTableViewCell.self)
+    
+    weak var delegate: UserTableViewCellDelegate?
     
     @IBOutlet weak var challengLabel: UILabel!
     
@@ -57,7 +63,11 @@ class UserTableViewCell: UITableViewCell {
 
     @objc private func handleTap() {
         
+        delegate?.startChallenge(self)
+        
         progressMaker.startDrawing(keyPath: "strokeEnd", value: 0.5, duration: 2, fillMode: .forwards, isRemoveOnCompletion: false, progressBarKey: "urSoBasic")
+        
+        
         
         changeLabel()
     }

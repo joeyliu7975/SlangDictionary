@@ -41,7 +41,14 @@ class UserViewController: JoeyPanelViewController {
     }
 }
 
-extension UserViewController {
+extension UserViewController: UserTableViewCellDelegate {
+    
+    func startChallenge(_ cell: UITableViewCell) {
+        
+        guard let index = tableView.indexPath(for: cell) else { return }
+        
+        print(index)
+    }
     
 }
 
@@ -58,6 +65,8 @@ extension UserViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UserTableViewCell = tableView.makeCell(indexPath: indexPath)
+        
+        cell.delegate = self
         
         cell.renderUI(title: "我的挑戰")
         

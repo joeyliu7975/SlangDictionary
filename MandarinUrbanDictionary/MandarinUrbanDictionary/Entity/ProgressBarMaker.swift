@@ -85,3 +85,12 @@ class ProgressBarMaker {
         shapeLayer.removeFromSuperlayer()
     }
 }
+
+extension ProgressBarMaker {
+    
+    enum Progression: String {
+        
+        case begin, process, finish
+        
+    }
+}

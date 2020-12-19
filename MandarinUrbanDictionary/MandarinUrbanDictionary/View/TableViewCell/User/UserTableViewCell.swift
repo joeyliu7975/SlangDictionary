@@ -15,6 +15,20 @@ class UserTableViewCell: UITableViewCell {
     
     @IBOutlet weak var progressionBarContainerView: UIView!
     
+    private lazy var startLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 30))
+        
+        label.text = "Start"
+        
+        label.textColor = .black
+        
+        label.textAlignment = .center
+        
+        label.font = UIFont.boldSystemFont(ofSize: 24)
+        
+        return label
+    }()
+    
     let shapeLayer: CAShapeLayer = .init()
     
     let trackLayer: CAShapeLayer = .init()
@@ -63,6 +77,8 @@ class UserTableViewCell: UITableViewCell {
         basicAnimation.isRemovedOnCompletion = false
         
         shapeLayer.add(basicAnimation, forKey: "urSoBasic")
+        
+        changeLabel()
     }
 }
 
@@ -104,7 +120,30 @@ extension UserTableViewCell {
         
         self.layer.addSublayer(shapeLayer)
         
+        addLabel()
+        
         progressionBarContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
     
+    func addLabel() {
+        startLabel.center = contentView.center
+        
+        self.layer.addSublayer(startLabel.layer)
+    }
+    
+    func changeLabel() {
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.75, delay: 0.0, options: .curveEaseIn) {
+            
+            self.startLabel.alpha = 0
+            
+        } completion: { (_) in
+            
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 1, delay: 0.8, options: .curveEaseOut) {
+                
+                self.startLabel.text = "50%"
+                
+                self.startLabel.alpha = 1
+            }
+        }
+    }
 }

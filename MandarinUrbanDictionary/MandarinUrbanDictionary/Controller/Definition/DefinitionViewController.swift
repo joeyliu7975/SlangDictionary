@@ -167,11 +167,12 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
         }
     }
     
-    
     func clickBackButton() {
         
         if let _ = navigationController?.rootViewController as? LobbyViewController {
+            
             self.navigationController?.popViewController(animated: true)
+            
         }
         
         delegate?.dismissSearchViewController()

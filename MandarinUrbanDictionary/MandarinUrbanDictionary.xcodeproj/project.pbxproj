@@ -26,6 +26,7 @@
 		7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E01D257231CC00A56E7E /* DefinitionViewController.swift */; };
 		7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E01E257231CC00A56E7E /* DefinitionViewController.xib */; };
 		71230B6025845C9200B78C9C /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71230B5F25845C9200B78C9C /* UserDefaults+Extension.swift */; };
+		712F4FC4258DA28000F7AE29 /* ProgressBarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712F4FC3258DA28000F7AE29 /* ProgressBarMaker.swift */; };
 		713361C3258B8E5F00FEEB43 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713361C2258B8E5F00FEEB43 /* Request.swift */; };
 		713361C9258C45B500FEEB43 /* AddNewWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713361C8258C45B500FEEB43 /* AddNewWordView.swift */; };
 		71348880257285F5007ADED3 /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7134887F257285F5007ADED3 /* UINavigationItem+Extension.swift */; };
@@ -138,6 +139,7 @@
 		7120E01E257231CC00A56E7E /* DefinitionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionViewController.xib; sourceTree = "<group>"; };
 		71230B5D25845B3400B78C9C /* MandarinUrbanDictionary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MandarinUrbanDictionary.entitlements; sourceTree = "<group>"; };
 		71230B5F25845C9200B78C9C /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		712F4FC3258DA28000F7AE29 /* ProgressBarMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarMaker.swift; sourceTree = "<group>"; };
 		713361C2258B8E5F00FEEB43 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		713361C8258C45B500FEEB43 /* AddNewWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordView.swift; sourceTree = "<group>"; };
 		7134887F257285F5007ADED3 /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
@@ -642,6 +644,7 @@
 				718D6B892579D92400663CAD /* Box.swift */,
 				71C3D5B125809A2200636BC4 /* FavoritePresenter.swift */,
 				71C3D5B425809C0900636BC4 /* ReportPresenter.swift */,
+				712F4FC3258DA28000F7AE29 /* ProgressBarMaker.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1085,6 +1088,7 @@
 				7119AA2D257B73DE00A7F513 /* AddNewWordViewModel.swift in Sources */,
 				71E81EB92584BBB900BECDCC /* Top5TableViewCell.swift in Sources */,
 				718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */,
+				712F4FC4258DA28000F7AE29 /* ProgressBarMaker.swift in Sources */,
 				716A8D5D25777040005C5782 /* ImageConstant.swift in Sources */,
 				716A8D6425778AA3005C5782 /* ReportViewController.swift in Sources */,
 				7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */,

@@ -237,6 +237,16 @@ class FavoriteViewModel {
 }
 
 extension FavoriteViewModel {
+    func reset() {
+        self.myList.removeAll()
+        
+        self.dic.removeAll()
+        
+        self.user = nil
+    }
+}
+
+extension FavoriteViewModel {
     
     enum ListType: String {
         case favorite = "我的最愛"

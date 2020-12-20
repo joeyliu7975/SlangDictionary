@@ -31,7 +31,7 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
         
         searchBar.text = word
         
-        viewModel?.listen()
+        viewModel?.listenDefinitions()
     }
     
     required init?(coder: NSCoder) {

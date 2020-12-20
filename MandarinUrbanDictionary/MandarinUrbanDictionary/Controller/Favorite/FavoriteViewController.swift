@@ -57,6 +57,12 @@ class FavoriteViewController: JoeyPanelViewController {
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        viewModel?.reset()
+        
+    }
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: true)
         

@@ -38,8 +38,8 @@ class DefinitionViewModel {
     }
         
     var definitionViewModels = Box([Definition]())
-    
-    func listen() {
+        
+    func listenDefinitions() {
         networkManager.listen(.definition(self.wordIdentifier)) { (result: Result<[Definition], Error>) in
             switch result {
             case .success(let definitions):
@@ -81,6 +81,12 @@ class DefinitionViewModel {
                     
                     if user.recents.contains(self.wordIdentifier) {
                         self.removeFromRecentSearch(completion: completion)
+                    }
+                    
+                    if user.viewChallenge > -1 {
+                        let viewChallenge = user.viewChallenge + 1
+                        
+                        self.networkManager.updateChallenge(uid: uid, data: ["view_challenge": viewChallenge])
                     }
                     
                     completion()

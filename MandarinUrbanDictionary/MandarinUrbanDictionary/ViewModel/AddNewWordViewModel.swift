@@ -121,3 +121,30 @@ class AddNewWordViewModel {
         }
     }
 }
+
+extension AddNewWordViewModel {
+    
+    func updateChallenge(completion: (() -> Void)? = nil) {
+        if let uid = UserDefaults.standard.string(forKey: "uid") {
+            networkManager.retrieveUser(userID: uid)  { [weak self] (result: Result<User, NetworkError>) in
+                
+                switch result {
+                case .success(let user):
+                    
+                    if user.postChallenge > -1 && user.postChallenge < 10 {
+                        let postChallenge = user.postChallenge + 1
+                        
+                        self?.networkManager.updateChallenge(uid: uid, data: ["post_challenge": postChallenge], completion: completion)
+                    }
+                    
+                    completion?()
+                    
+                case .failure(.noData(let error)):
+                    print(error.localizedDescription)
+                case .failure(.decodeError):
+                    print("Decode Error!")
+                }
+            }
+        }
+    }
+}

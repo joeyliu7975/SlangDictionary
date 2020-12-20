@@ -32,6 +32,21 @@ extension AddNewWordViewController: UITextFieldDelegate {
         checkFormValidation()
         
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let validString = NSCharacterSet.newWordTextField
+
+        if (textField.textInputMode?.primaryLanguage == "emoji") || textField.textInputMode?.primaryLanguage == nil {
+            return false
+        }
+        
+        if let range = string.rangeOfCharacter(from: validString as CharacterSet) {
+            
+            return false
+        }
+        
+        return true
+    }
 }
 
 extension AddNewWordViewController: UITextViewDelegate {
@@ -54,6 +69,21 @@ extension AddNewWordViewController: UITextViewDelegate {
         
     }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        let validString = NSCharacterSet.textViewValidString
+        
+        if (textView.textInputMode?.primaryLanguage == "emoji") || textView.textInputMode?.primaryLanguage == nil {
+            return false
+        }
+        
+        if let range = text.rangeOfCharacter(from: validString as CharacterSet) {
+            
+            return false
+        }
+        
+        return true
+    }
 }
 
 extension AddNewWordViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -91,11 +121,13 @@ extension AddNewWordViewController: AddNewWordViewDelegate {
     }
     
     func clickSend(_ view: UIView, newWord: String?, definition: String?, category: String?) {
+        
         viewModel.createNewWord(word: newWord, definition: definition, category: category) {
-       
-                   self.dismiss(animated: true)
-       
+            
+            viewModel.updateChallenge {
+                self.dismiss(animated: true)
             }
+        }
     }
     
     func clikckDone(categoryTextField: UITextField) {

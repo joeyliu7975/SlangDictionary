@@ -64,7 +64,7 @@ class UserTableViewCell: UITableViewCell {
             
             progressionBarContainerView.isUserInteractionEnabled = true
             
-            startLabel.text = "Start"
+            startLabel.text = "接受挑戰"
             
         case .process:
             
@@ -89,7 +89,7 @@ class UserTableViewCell: UITableViewCell {
             
             self.progressMaker.updateProgress(to: 1.0)
             
-            startLabel.text = "Finished"
+            startLabel.text = "完成"
         }
         
     }

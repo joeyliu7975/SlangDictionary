@@ -216,7 +216,7 @@ extension DefinitionViewModel {
     }
     
     func updateChallenge(_ challenge: Challenge) {
-        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
+        if let uid = UserDefaults.standard.string(forKey: "uid") {
             networkManager.retrieveUser(userID: uid) { (result:Result<User, NetworkError>) in
                 switch result {
                 case .success(let user):

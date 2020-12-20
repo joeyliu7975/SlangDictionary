@@ -35,7 +35,7 @@ class AddNewWordView: UIView {
             
             toolBar.barStyle = UIBarStyle.default
             toolBar.isTranslucent = true
-            toolBar.tintColor = UIColor.separatorlineBlue
+            toolBar.tintColor = UIColor.homepageDarkBlue
             toolBar.sizeToFit()
             
             let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)

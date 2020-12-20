@@ -16,4 +16,8 @@ extension NSCharacterSet {
     class var searchBarValidString: NSCharacterSet {
         return NSCharacterSet(charactersIn: " @#$%^&*()_+,.。{}[]|\"<>~`/:;-=\\¥'£•¢\n")
     }
+    
+    class var newWordTextField: NSCharacterSet {
+        return NSCharacterSet(charactersIn: "  @#$%^&*()_+,.。{}[]|\"<>~`/:;-=\\¥'£•¢\n")
+    }
 }

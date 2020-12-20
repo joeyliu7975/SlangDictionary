@@ -286,6 +286,7 @@ extension LobbyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch viewModel.wordViewModels.value.count {
+        
         case 0 ... 5:
             
             return 0
@@ -349,7 +350,9 @@ extension LobbyViewController: UITableViewDataSource {
             
             randomWordCell.delegate = self
             
-            let word = viewModel.wordViewModels.value[viewModel.randomNumber]
+            let word = viewModel
+                .wordViewModels
+                .value[viewModel.randomNumber]
             
             randomWordCell.renderUI(
                 title: word.title,

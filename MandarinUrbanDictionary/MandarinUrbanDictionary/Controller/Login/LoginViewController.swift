@@ -159,7 +159,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                     "favorite_words": favoriteWord,
                     "recent_search": recentSearch,
                     "discovered_words": discoveredWords,
-                    "favorite_challenge": -1,
+                    "like_challenge": -1,
                     "post_challenge": -1,
                     "view_challenge": -1
                 ]) { err in

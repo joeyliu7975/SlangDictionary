@@ -242,7 +242,6 @@ extension FavoriteViewController: UITableViewDelegate {
         }
         
         return
-//        viewModel?.select(at: indexPath)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

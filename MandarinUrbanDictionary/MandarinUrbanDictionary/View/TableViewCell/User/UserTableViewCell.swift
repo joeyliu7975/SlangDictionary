@@ -46,6 +46,7 @@ class UserTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        self.selectedBackgroundView = UIView()
     }
     
     func setup(title: String, barColor: UIColor) {

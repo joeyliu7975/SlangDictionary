@@ -60,17 +60,23 @@ private extension UserViewController {
             
             if let user = users.first {
                 
-                var postProcess = self?.viewModel.getProcess(at: .post, currentStage: user.postChallenge)
+                let postProcess = self?.viewModel.getProcess(at: .post, currentStage: user.postChallenge)
                 
-                var viewProcess = self?.viewModel.getProcess(at: .view, currentStage: user.viewChallenge)
+                let viewProcess = self?.viewModel.getProcess(at: .view, currentStage: user.viewChallenge)
                 
-                var favoriteProcess = self?.viewModel.getProcess(at: .favorite, currentStage: user.favoriteChallenge)
+                let favoriteProcess = self?.viewModel.getProcess(at: .like, currentStage: user.likeChallenge)
+                
+                // Save user's favorite list at local side and check whenever user add a new ones
+                
+                if user.likeChallenge == 0 {
+                    UserDefaults.standard.set(user.favorites, forKey: "userFavorites")
+                }
                 
                 self?.viewModel.processList[.post] = postProcess
                 
                 self?.viewModel.processList[.view] = viewProcess
                 
-                self?.viewModel.processList[.favorite] = favoriteProcess
+                self?.viewModel.processList[.like] = favoriteProcess
                 
                 self?.tableView.reloadData()
             }
@@ -93,7 +99,6 @@ extension UserViewController: UserTableViewCellDelegate {
         viewModel.startChallenge(challenge: challenge.challenge) { [weak self] in
             
             self?.viewModel.fetchUserStatus()
-            
         }
         
     }
@@ -134,8 +139,6 @@ extension UserViewController: UITableViewDataSource {
         guard let process = viewModel.processList[challengeType] else { return cell }
         
         // Calculate ProgressBar Percentage with Process
-        
-//        let currentStage = viewModel.getStage(currentStage: process.currentStage)
         
         if !process.hasDrawed {
             cell.drawDiscoveryTracker()

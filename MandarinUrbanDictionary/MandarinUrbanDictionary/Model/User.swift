@@ -19,7 +19,7 @@ struct User: Codable {
     
     var discoveredWords: [String]
     
-    var favoriteChallenge: Int
+    var likeChallenge: Int
     
     var postChallenge: Int
     
@@ -37,7 +37,7 @@ struct User: Codable {
         
         case discoveredWords = "discovered_words"
         
-        case favoriteChallenge = "favorite_challenge"
+        case likeChallenge = "like_challenge"
         
         case postChallenge = "post_challenge"
         
@@ -55,7 +55,7 @@ extension User: FirebaseItem {
             "recent_search": recents,
             "favorite_words": favorites,
             "discovered_words": discoveredWords,
-            "favorite_challenge": favoriteChallenge,
+            "like_challenge": likeChallenge,
             "post_challenge": postChallenge,
             "view_challenge": viewChallenge
         ]

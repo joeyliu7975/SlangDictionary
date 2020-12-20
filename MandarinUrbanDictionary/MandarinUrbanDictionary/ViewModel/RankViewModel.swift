@@ -85,7 +85,7 @@ extension RankViewModel {
         case .engineer:
             category = "工程師"
         case .job:
-            category = "職場"
+            category = "工作"
         case .school:
             category = "校園"
         case .pickUpLine:
@@ -101,10 +101,15 @@ extension RankViewModel {
         }
         
         switch category == "" {
+        
         case true:
+            
             fetchData(sortedBy: .views)
+            
         case false:
+            
             retrieveAndfilterData(by: category)
+            
         }
     }
 }

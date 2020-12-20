@@ -83,11 +83,13 @@ class DefinitionViewModel {
                         self.removeFromRecentSearch(completion: completion)
                     }
                     
-                    if user.viewChallenge > -1 {
-                        let viewChallenge = user.viewChallenge + 1
-                        
-                        self.networkManager.updateChallenge(uid: uid, data: ["view_challenge": viewChallenge])
-                    }
+                    self.updateChallenge(.view)
+//
+//                    if user.viewChallenge > -1 {
+//                        let viewChallenge = user.viewChallenge + 1
+//
+//                        self.networkManager.updateChallenge(uid: uid, data: ["view_challenge": viewChallenge])
+//                    }
                     
                     completion()
                     
@@ -127,6 +129,9 @@ class DefinitionViewModel {
     func updateLikes(isLike: Bool, defID: String) {
         
         networkManager.updateLike(defID: defID, isLike: isLike) {
+            
+            self.updateChallenge(.like)
+            
             print("update Likes")
         }
 
@@ -166,14 +171,13 @@ class DefinitionViewModel {
         }
     }
     
-    func updateFavorites(action: FirebaseManager.FavoriteStauts,completion: @escaping (() -> Void)) {
+    func updateFavorites(action: FirebaseManager.FavoriteStauts, completion: @escaping (() -> Void)) {
         
-        if let userID = UserDefaults.standard.value(forKey: "uid") as? String {
+        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
             
-            networkManager.updateFavorite(userID: userID, wordID: wordIdentifier, action: action) {
+            networkManager.updateFavorite(userID: uid, wordID: wordIdentifier, action: action) {
                 completion()
             }
-            
         }
     }
     
@@ -203,5 +207,45 @@ class DefinitionViewModel {
 
         let synthesizer = AVSpeechSynthesizer()
         synthesizer.speak(utterance)
+    }
+}
+
+extension DefinitionViewModel {
+    enum Challenge {
+        case view, like
+    }
+    
+    func updateChallenge(_ challenge: Challenge) {
+        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
+            networkManager.retrieveUser(userID: uid) { (result:Result<User, NetworkError>) in
+                switch result {
+                case .success(let user):
+                    switch challenge {
+                    
+                    case .like:
+                        if user.likeChallenge > -1 && user.likeChallenge < 10 {
+                            let viewChallenge = user.viewChallenge + 1
+                            
+                            self.networkManager.updateChallenge(uid: uid, data: ["like_challenge": viewChallenge])
+                        }
+                    case .view:
+                        if user.viewChallenge > -1 && user.viewChallenge < 10 {
+                            let viewChallenge = user.viewChallenge + 1
+                            
+                            self.networkManager.updateChallenge(uid: uid, data: ["view_challenge": viewChallenge])
+                        }
+                    }
+                    
+                case .failure(let error):
+                    
+                    print(error.localizedDescription)
+                    
+                case .failure(.decodeError):
+                    
+                    print("Decode Error!")
+                    
+                }
+            }
+        }
     }
 }

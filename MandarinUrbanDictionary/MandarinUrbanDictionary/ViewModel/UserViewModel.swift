@@ -11,7 +11,7 @@ class UserViewModel {
     
     private let networkManager: FirebaseManager
     
-    var challenges: [Challenge] = [.view, .favorite, .post]
+    var challenges: [Challenge] = [.view, .like, .post]
     
     var processList: [Challenge: Process] = [:]
     
@@ -28,7 +28,9 @@ class UserViewModel {
         networkManager.retrieveUser(userID: uid) { (result: Result<User, NetworkError>) in
             switch result {
             case .success(let user):
+                
                 self.currentUser.value = [user]
+                
             case .failure(.decodeError):
                 print("User Model decode Error!")
             case .failure(.noData(let error)):
@@ -36,7 +38,7 @@ class UserViewModel {
             }
         }
     }
-       
+    
     func startChallenge(challenge: Challenge, completion: @escaping () -> Void) {
         
         guard let uid = UserDefaults.standard.string(forKey: "uid") else { return }
@@ -46,8 +48,8 @@ class UserViewModel {
             networkManager.updateChallenge(uid: uid, data: ["view_challenge": 0]) {
                 completion()
             }
-        case .favorite:
-            networkManager.updateChallenge(uid: uid, data: ["favorite_challenge": 0]) {
+        case .like:
+            networkManager.updateChallenge(uid: uid, data: ["like_challenge": 0]) {
                 completion()
             }
         case .post:
@@ -62,7 +64,7 @@ class UserViewModel {
 extension UserViewModel {
     
     enum Challenge {
-        case favorite, view, post
+        case like, view, post
     }
     
     enum Stage: String {
@@ -108,7 +110,9 @@ extension UserViewModel {
     }
     
     func getProcess(at challenge: Challenge, currentStage: Int) -> Process {
+        
         return Process(currentStage: currentStage, challenge: challenge)
+        
     }
     
     func getProgressBar(_ challenge: Challenge) -> ProgressBar {
@@ -117,32 +121,20 @@ extension UserViewModel {
         
         switch challenge {
         
-        case .favorite:
+        case .like:
             
-            progressBar = ProgressBar(title: "10字收藏挑戰", color: .systemGreen)
+            progressBar = ProgressBar(title: "按讚挑戰賽", color: .systemGreen)
             
         case .view:
             
-            progressBar = ProgressBar(title: "10字探索挑戰", color: .systemYellow)
+            progressBar = ProgressBar(title: "幹話探索挑戰賽", color: .systemYellow)
             
         case .post:
             
-            progressBar = ProgressBar(title: "10字發文挑戰", color: .separatorlineBlue)
+            progressBar = ProgressBar(title: "發文挑戰賽", color: .separatorlineBlue)
             
         }
         
         return progressBar
     }
-//    
-//    func getStage(currentStage: Int) -> Stage {
-//        switch currentStage {
-//        case -1:
-//            return .begin
-//        case 0 ... 9:
-//            return .process
-//        default:
-//            return .finish
-//        }
-//    }
-//    
 }

@@ -171,7 +171,11 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                         
                         UserDefaults.standard.setValue(uid, forKey: "uid")
                         
-                        self.dismiss(animated: true, completion: nil)
+                        let homePageVC = ContainerViewController()
+                        
+                        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToHomepage()
+                        
+//                        self.dismiss(animated: true, completion: nil)
                     }
                 }
             }

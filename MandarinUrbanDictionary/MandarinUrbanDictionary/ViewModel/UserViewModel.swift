@@ -94,6 +94,17 @@ extension UserViewModel {
         func drawed() {
             hasDrawed = true
         }
+        
+        var stage: Stage {
+            switch self.currentStage {
+            case -1:
+                return .begin
+            case 0 ... 9:
+                return .process
+            default:
+                return .finish
+            }
+        }
     }
     
     func getProcess(at challenge: Challenge, currentStage: Int) -> Process {
@@ -122,16 +133,16 @@ extension UserViewModel {
         
         return progressBar
     }
-    
-    func getStage(currentStage: Int) -> Stage {
-        switch currentStage {
-        case -1:
-            return .begin
-        case 0 ... 9:
-            return .process
-        default:
-            return .finish
-        }
-    }
-    
+//    
+//    func getStage(currentStage: Int) -> Stage {
+//        switch currentStage {
+//        case -1:
+//            return .begin
+//        case 0 ... 9:
+//            return .process
+//        default:
+//            return .finish
+//        }
+//    }
+//    
 }

@@ -42,7 +42,7 @@ class ProgressBarMaker {
         return trackLayer
     }()
     
-    lazy var shapeLayer: CAShapeLayer = {
+    private lazy var shapeLayer: CAShapeLayer = {
        
         let shapeLayer = CAShapeLayer()
         
@@ -59,19 +59,17 @@ class ProgressBarMaker {
         return shapeLayer
     }()
     
-    func progressBar(color: UIColor) {
+    func setBarColor(_ color: UIColor) {
         
         shapeLayer.strokeColor = color.cgColor
         
     }
     
-    func setupProgressBar(position: CGPoint, on view: UIView) {
+    func setBarPosition(at position: CGPoint, on view: UIView) {
             
         trackLayer.path = circularPath.cgPath
         
         trackLayer.position = position
-        
-        view.layer.addSublayer(trackLayer)
         
         shapeLayer.path = circularPath.cgPath
         
@@ -79,7 +77,13 @@ class ProgressBarMaker {
         
         shapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
         
+        view.layer.addSublayer(trackLayer)
+        
         view.layer.addSublayer(shapeLayer)
+    }
+    
+    func updateProgress(to value: CGFloat) {
+        shapeLayer.strokeEnd = value
     }
     
     func resetProgressBar() {
@@ -108,7 +112,7 @@ extension ProgressBarMaker {
         self.shapeLayer.strokeEnd = 0
     }
     
-    func processing(startLabel: inout UILabel){
+    func processing(startLabel: inout UILabel) {
         guard let currentValue = self.currentValue else { return }
         
         let valueForStrokeEnd = currentValue / 100

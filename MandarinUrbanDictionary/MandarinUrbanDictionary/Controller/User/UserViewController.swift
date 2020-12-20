@@ -121,26 +121,26 @@ extension UserViewController: UITableViewDataSource {
         
         let cell: UserTableViewCell = tableView.makeCell(indexPath: indexPath)
         
-        let challenge = viewModel.challenges[indexPath.row]
+        let challengeType = viewModel.challenges[indexPath.row]
         
         cell.delegate = self
         
-        guard let process = viewModel.processList[challenge] else { return cell }
+        // ProgressBar default settings
         
-        let progressBar = viewModel.getProgressBar(challenge)
+        let progressBar = viewModel.getProgressBar(challengeType)
         
         cell.setup(title: progressBar.title, barColor: progressBar.color)
         
+        guard let process = viewModel.processList[challengeType] else { return cell }
+        
         // Calculate ProgressBar Percentage with Process
         
-        let userProcess = viewModel.getProcess(at: process.challenge, currentStage: process.currentStage)
-        
-        let currentStage = viewModel.getStage(currentStage: userProcess.currentStage)
+//        let currentStage = viewModel.getStage(currentStage: process.currentStage)
         
         if !process.hasDrawed {
             cell.drawDiscoveryTracker()
             
-            cell.renderChallengeLabel(currentStage, percentage: userProcess.currentStage * 10)
+            cell.renderChallengeLabel(process.stage, percentage: process.currentStage * 10)
             
             process.drawed()
         }

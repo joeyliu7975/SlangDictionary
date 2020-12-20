@@ -24,7 +24,7 @@ class UserTableViewCell: UITableViewCell {
     let progressMaker: ProgressBarMaker = .init()
     
     private lazy var startLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: 30))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
         
         label.text = "Start"
         
@@ -52,8 +52,7 @@ class UserTableViewCell: UITableViewCell {
         
         challengLabel.text = title
         
-        progressMaker.progressBar(color: barColor)
-        
+        progressMaker.setBarColor(barColor)
     }
     
     func renderChallengeLabel(_ stage: UserViewModel.Stage, percentage: Int) {
@@ -87,6 +86,8 @@ class UserTableViewCell: UITableViewCell {
             
             progressionBarContainerView.isUserInteractionEnabled = false
             
+            self.progressMaker.updateProgress(to: 1.0)
+            
             startLabel.text = "Finished"
         }
         
@@ -115,7 +116,7 @@ extension UserTableViewCell {
         
         self.layoutSubviews()
         
-        progressMaker.setupProgressBar(position: contentView.center, on: self)
+        progressMaker.setBarPosition(at: contentView.center, on: self)
         
         addLabel()
         
@@ -130,6 +131,7 @@ extension UserTableViewCell {
     }
     
     func updateChallengeLabel(percentage: String) {
+        
         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.1, delay: 0.0, options: .curveEaseIn) {
             
             self.startLabel.alpha = 0

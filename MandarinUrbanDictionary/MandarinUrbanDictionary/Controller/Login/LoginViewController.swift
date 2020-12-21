@@ -20,6 +20,8 @@ class LoginViewController: UIViewController {
             
     fileprivate var currentNonce: String?
     
+    private let notificationManager: NotificationCenterManager = .init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +58,14 @@ class LoginViewController: UIViewController {
         authorizationController.presentationContextProvider = self
         
         authorizationController.performRequests()
+    }
+}
+
+extension LoginViewController: NotificationRegister {
+    func registerLocal() {
+        
+        notificationManager.registerLocal()
+        
     }
 }
 
@@ -139,9 +149,9 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                 }
                 guard let user = authResult?.user else { return }
                 
-                let email = user.email ?? ""
+                _ = user.email ?? ""
                 
-                let displayName = user.displayName ?? ""
+                _ = user.displayName ?? ""
                 
                 guard let uid = Auth.auth().currentUser?.uid else { return }
                 

@@ -31,6 +31,8 @@ class LobbyViewController: JoeyPanelViewController {
     
     let viewModel: HomePageViewModel = .init()
     
+    let notificationManager: NotificationCenterManager = .init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,8 +46,18 @@ class LobbyViewController: JoeyPanelViewController {
         
         setupNavigationController()
         
+        scheduleLocal()
+    
         viewModelBinding()
     }
+}
+
+extension LobbyViewController: NotificationSchedule {
+
+    func scheduleLocal() {
+        notificationManager.scheduleLocal()
+    }
+    
 }
 
 private extension LobbyViewController {

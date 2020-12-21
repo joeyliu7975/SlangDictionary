@@ -69,6 +69,7 @@
 		718D6B8A2579D92400663CAD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B892579D92400663CAD /* Box.swift */; };
 		718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */; };
 		718D6B92257A1FF500663CAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B91257A1FF500663CAD /* User.swift */; };
+		718E69F2259084D60056475F /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E69F1259084D60056475F /* NotificationCenterManager.swift */; };
 		71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */; };
 		71A6C20D2586163800FC478D /* NSCharacterSet+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */; };
 		71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A832576368900E0C14D /* FavoriteViewController.swift */; };
@@ -184,6 +185,7 @@
 		718D6B892579D92400663CAD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		718D6B91257A1FF500663CAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		718E69F1259084D60056475F /* NotificationCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FSPagerView+Extension.swift"; sourceTree = "<group>"; };
 		71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCharacterSet+Extension.swift"; sourceTree = "<group>"; };
 		71A84A832576368900E0C14D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -644,6 +646,7 @@
 				71C3D5B125809A2200636BC4 /* FavoritePresenter.swift */,
 				71C3D5B425809C0900636BC4 /* ReportPresenter.swift */,
 				712F4FC3258DA28000F7AE29 /* ProgressBarMaker.swift */,
+				718E69F1259084D60056475F /* NotificationCenterManager.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1123,6 +1126,7 @@
 				717569252570CFD300417B9C /* SceneDelegate.swift in Sources */,
 				71C3D5B525809C0900636BC4 /* ReportPresenter.swift in Sources */,
 				7120E0182572024A00A56E7E /* SearchButton.swift in Sources */,
+				718E69F2259084D60056475F /* NotificationCenterManager.swift in Sources */,
 				71A84A96257689B000E0C14D /* CardView.swift in Sources */,
 				7170537425904493000521B0 /* UITextField+Extension.swift in Sources */,
 				71D3E6C8258A42640064693C /* UINavigationController+Extension.swift in Sources */,

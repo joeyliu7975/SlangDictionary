@@ -341,6 +341,12 @@ class FirebaseManager {
 }
 
 extension FirebaseManager {
+    private func adapted(_ env: Environment) -> CollectionReference {
+        return dataBase.collection(env.rawValue)
+    }
+}
+
+extension FirebaseManager {
     
     enum Collection {
         
@@ -364,6 +370,17 @@ extension FirebaseManager {
             }
         }
     }
+    
+    // Setup Collection Environment
+    
+    enum Environment: String {
+        case dailyWorld = "DailyWorld"
+        case user = "User"
+        case definition = "Definition"
+        case word = "Word"
+    }
+    
+    //
     
     enum SortedBy: String {
         case views = "check_times"

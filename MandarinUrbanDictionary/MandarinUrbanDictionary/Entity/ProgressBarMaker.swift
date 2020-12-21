@@ -99,8 +99,11 @@ extension ProgressBarMaker {
     
     func resetTimer() {
         self.updateTimer?.invalidate()
+        
         self.updateTimer = nil
+        
         self.maxValue = nil
+        
         self.currentValue = nil
     }
     

@@ -107,6 +107,7 @@ extension UserViewController: UserTableViewCellDelegate {
 
 extension UserViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return UIScreen.main.bounds.height * 0.5
     }
 }

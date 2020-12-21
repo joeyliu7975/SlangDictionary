@@ -216,15 +216,21 @@ extension DefinitionViewModel {
     }
     
     func updateChallenge(_ challenge: Challenge) {
+        
         if let uid = UserDefaults.standard.string(forKey: "uid") {
-            networkManager.retrieveUser(userID: uid) { (result:Result<User, NetworkError>) in
+            
+            networkManager.retrieveUser(userID: uid) {
+                
+                (result:Result<User, NetworkError>) in
+                
                 switch result {
+                
                 case .success(let user):
                     switch challenge {
                     
                     case .like:
                         if user.likeChallenge > -1 && user.likeChallenge < 10 {
-                            let viewChallenge = user.viewChallenge + 1
+                            let viewChallenge = user.likeChallenge + 1
                             
                             self.networkManager.updateChallenge(uid: uid, data: ["like_challenge": viewChallenge])
                         }

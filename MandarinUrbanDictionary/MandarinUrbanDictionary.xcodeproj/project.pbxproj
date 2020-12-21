@@ -55,6 +55,7 @@
 		716CD3212575183D00695A91 /* SidePanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD3202575183D00695A91 /* SidePanelViewModel.swift */; };
 		716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD3252575232700695A91 /* SidePanelHeaderFooterView.swift */; };
 		716CD3292575234100695A91 /* SidePanelHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716CD3282575234100695A91 /* SidePanelHeaderFooterView.xib */; };
+		7170537425904493000521B0 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7170537325904493000521B0 /* UITextField+Extension.swift */; };
 		717569232570CFD300417B9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569222570CFD300417B9C /* AppDelegate.swift */; };
 		717569252570CFD300417B9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569242570CFD300417B9C /* SceneDelegate.swift */; };
 		7175692C2570CFD600417B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7175692B2570CFD600417B9C /* Assets.xcassets */; };
@@ -167,6 +168,7 @@
 		716CD3202575183D00695A91 /* SidePanelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelViewModel.swift; sourceTree = "<group>"; };
 		716CD3252575232700695A91 /* SidePanelHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelHeaderFooterView.swift; sourceTree = "<group>"; };
 		716CD3282575234100695A91 /* SidePanelHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidePanelHeaderFooterView.xib; sourceTree = "<group>"; };
+		7170537325904493000521B0 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		7175691F2570CFD300417B9C /* MandarinUrbanDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MandarinUrbanDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717569222570CFD300417B9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		717569242570CFD300417B9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -755,6 +757,7 @@
 				71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */,
 				710574B82589E771004556DF /* UIButton+Extension.swift */,
 				71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */,
+				7170537325904493000521B0 /* UITextField+Extension.swift */,
 			);
 			name = Extension;
 			path = MandarinUrbanDictionary/Extension;
@@ -1121,6 +1124,7 @@
 				71C3D5B525809C0900636BC4 /* ReportPresenter.swift in Sources */,
 				7120E0182572024A00A56E7E /* SearchButton.swift in Sources */,
 				71A84A96257689B000E0C14D /* CardView.swift in Sources */,
+				7170537425904493000521B0 /* UITextField+Extension.swift in Sources */,
 				71D3E6C8258A42640064693C /* UINavigationController+Extension.swift in Sources */,
 				71E81EA42584A22500BECDCC /* FirebaseTimestamp+Extension.swift in Sources */,
 				71A84A912576802900E0C14D /* Category.swift in Sources */,

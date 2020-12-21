@@ -14,7 +14,7 @@ class LobbyViewController: JoeyPanelViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    lazy var searchBar: UISearchBar = {
+    private lazy var searchBar: UISearchBar = {
         
         let width = UIScreen.main.bounds.width - 70
         
@@ -46,32 +46,9 @@ class LobbyViewController: JoeyPanelViewController {
         
         viewModelBinding()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        userHasSignedIn()
-    }
 }
 
 private extension LobbyViewController {
-    
-    func userHasSignedIn() {
-        guard let hasLogin = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool else { return }
-        
-        if !hasLogin {
-            showLoginViewController()
-        }
-    }
-    
-    func showLoginViewController() {
-        
-        let loginPage = LoginViewController()
-        
-        loginPage.modalTransitionStyle = .coverVertical
-        
-        loginPage.modalPresentationStyle = .fullScreen
-        
-        present(loginPage, animated: true)
-    }
     
     func setup() {
         
@@ -237,9 +214,13 @@ extension LobbyViewController: UITableViewDelegate {
         
         switch reusableCell {
         case .mostViewedWord:
+            
             return height * 0.9
+            
         default:
+            
             return height * 0.5
+            
         }
     
     }
@@ -287,7 +268,7 @@ extension LobbyViewController: UITableViewDataSource {
         
         switch viewModel.wordViewModels.value.count {
         
-        case 0 ... 5:
+        case 0 ... 4:
             
             return 0
             

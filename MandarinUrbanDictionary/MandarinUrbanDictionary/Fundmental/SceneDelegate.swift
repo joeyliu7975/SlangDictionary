@@ -23,9 +23,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if let status = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool,
            status == true {
-            self.changeRootVCToHomepage()
+            self.changeRootViewController(to: .homepage)
         } else {
-            self.changeRootVCToLogin()
+            self.changeRootViewController(to: .login)
         }
     }
 
@@ -60,7 +60,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //
 extension SceneDelegate {
     
-    func changeRootVCToHomepage() {
+    func changeRootViewController(to viewController: UIViewController.RootViewController) {
+        switch viewController {
+        case .homepage:
+            self.changeRootVCToHomepage()
+        case .login:
+            self.changeRootVCToLogin()
+        }
+    }
+    
+    private func changeRootVCToHomepage() {
         
         guard let window = self.window else { return }
 
@@ -69,7 +78,7 @@ extension SceneDelegate {
         window.rootViewController = homePage
     }
 
-    func changeRootVCToLogin() {
+    private func changeRootVCToLogin() {
 
         guard let window = self.window else { return }
         

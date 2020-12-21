@@ -9,6 +9,11 @@ import UIKit
 
 extension UIViewController {
     
+    enum RootViewController {
+        case login
+        case homepage
+    }
+    
     func popAlert(_ style: Alert, completion: @escaping () -> Void) {
         switch style {
         case .favorite:

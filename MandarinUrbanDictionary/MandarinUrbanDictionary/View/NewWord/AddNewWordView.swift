@@ -55,6 +55,8 @@ class AddNewWordView: UIView {
             sendButton.setCorner(radius: 10)
         }
     }
+    
+    @IBOutlet weak var limitOfWord: UILabel!
 
     var pickerView: UIPickerView? {
         didSet {
@@ -100,5 +102,9 @@ extension AddNewWordView {
         } else if let textView = target as? UITextView {
             textView.text = text
         }
+    }
+    
+    func updateLimitOfWord(number: Int) {
+        limitOfWord.text = "可用字數: \(number)"
     }
 }

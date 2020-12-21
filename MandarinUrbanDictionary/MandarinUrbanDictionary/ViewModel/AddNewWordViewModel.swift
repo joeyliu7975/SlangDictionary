@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 class AddNewWordViewModel {
     
@@ -36,36 +38,36 @@ class AddNewWordViewModel {
     
     var updateStatus: ((Bool) -> Void)?
 }
-
+// Network Request
 extension AddNewWordViewModel {
     
     func create(word: String?, definition: String?, category: String?, completion: @escaping () -> Void) {
         
         guard
             let word = word,
-            let userDefinition = definition,
+            let def = definition,
             let category = category else { return }
         
-        let wordID = String.makeID()
+        let wid = String.makeID()
         
-        let defID = String.makeID()
+        let defid = String.makeID()
         
-        let newWord = Word(title: word, category: category, id: wordID)
+        let newWord = Word(title: word, category: category, id: wid)
         
-        let definition = Definition(content: userDefinition, id: defID, wid: wordID)
+        let definition = Definition(content: def, id: defid, wid: wid)
         
         group.enter()
         
         group.enter()
         
         networkManager.sendRequest(.word) { (db) in
-            db.document(wordID).setData(newWord.dictionary)
+            db.document(wid).setData(newWord.dictionary)
             
             group.leave()
         }
         
         networkManager.sendRequest(.definition) { (db) in
-            db.document(defID).setData(definition.dictionary)
+            db.document(defid).setData(definition.dictionary)
             
             group.leave()
         }
@@ -74,44 +76,54 @@ extension AddNewWordViewModel {
             completion()
         }
     }
+}
+
+extension AddNewWordViewModel {
     
-//    func createNewWord(word: String?, definition: String?, category: String?, completion: () -> Void) {
-//
-//        guard
-//            let word = word,
-//            let userDefinition = definition,
-//            let category = category
-//        else {
-//            return
-//        }
-//
-//        let wordID = String.makeID()
-//
-//        let defID = String.makeID()
-//
-//        let newWord = Word(
-//            title: word,
-//            category: category,
-//            views: 0,
-//            identifier: wordID,
-//            time: FirebaseTime()
-//        )
-//
-//        let definition = Definition(
-//            content: userDefinition,
-//            like: [String](),
-//            dislike: [String](),
-//            identifier: defID,
-//            time: FirebaseTime(),
-//            idForWord: wordID
-//        )
-//
-//        networkManager.createNewWord(
-//            word: newWord,
-//            def: definition,
-//            completion: completion
-//        )
-//    }
+    private func getUser<T: Codable>(completion: @escaping Handler<T>) {
+        if let uid = UserDefaults.standard.string(forKey: "uid") {
+            networkManager.sendRequest(.user) { (db) in
+                db.document(uid).getDocument { (querySnapshot, error) in
+                    if let error = error {
+                        completion(.failure(.noData(error)))
+                    } else {
+                        if let data = try? querySnapshot?.data(as: T.self, decoder: Firestore.Decoder()) {
+                            completion(.success(data))
+                        } else {
+                            completion(.failure(.decodeError))
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func updateChallenge(completion: @escaping () -> Void) {
+        self.getUser { (result: Result<User, NetworkError>) in
+            switch result {
+            case .success(let user):
+                if user.postChallenge > -1 && user.postChallenge < 10 {
+                    let postChallenge = user.postChallenge + 1
+                    
+                    self.networkManager.updateChallenge(uid: user.identifier, challenge: .post(postChallenge), completion: completion)
+                }
+                
+                completion()
+                
+            case .failure(.decodeError):
+                
+                print("Decode")
+                
+            case .failure(.noData(let error)):
+                
+                print(error.localizedDescription)
+                
+            }
+        }
+    }
+}
+
+extension AddNewWordViewModel {
     
     func containEmptyString(newWord: String?, definition: String?, category: String?, completion: @escaping (Bool) -> Void) {
         
@@ -126,10 +138,15 @@ extension AddNewWordViewModel {
         let texts = [word, definition, category]
         
         switch texts.contains("") {
+        
         case true:
+            
             completion(false)
+            
         case false:
+            
             completion(true)
+            
         }
     }
     
@@ -159,33 +176,6 @@ extension AddNewWordViewModel {
             category: category
         ) { [weak self] (isEnable) in
             self?.isEnable = isEnable
-        }
-    }
-}
-
-extension AddNewWordViewModel {
-    
-    func updateChallenge(completion: (() -> Void)? = nil) {
-        if let uid = UserDefaults.standard.string(forKey: "uid") {
-            networkManager.retrieveUser(userID: uid)  { [weak self] (result: Result<User, NetworkError>) in
-                
-                switch result {
-                case .success(let user):
-                    
-                    if user.postChallenge > -1 && user.postChallenge < 10 {
-                        let postChallenge = user.postChallenge + 1
-                        
-                        self?.networkManager.updateChallenge(uid: uid, data: ["post_challenge": postChallenge], completion: completion)
-                    }
-                    
-                    completion?()
-                    
-                case .failure(.noData(let error)):
-                    print(error.localizedDescription)
-                case .failure(.decodeError):
-                    print("Decode Error!")
-                }
-            }
         }
     }
 }

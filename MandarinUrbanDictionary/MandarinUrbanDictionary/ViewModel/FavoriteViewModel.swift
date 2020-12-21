@@ -134,9 +134,13 @@ class FavoriteViewModel {
                 self.user = user
                 
             case .failure(.noData(let error)):
+                
                 print(error.localizedDescription)
+                
             case .failure(.decodeError):
+                
                 print("Decode Error!")
+                
             }
         }
     }

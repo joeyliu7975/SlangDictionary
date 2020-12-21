@@ -45,15 +45,15 @@ class UserViewModel {
         
         switch challenge {
         case .view:
-            networkManager.updateChallenge(uid: uid, data: ["view_challenge": 0]) {
+            networkManager.updateChallenge(uid: uid, challenge: .view(0)) {
                 completion()
             }
         case .like:
-            networkManager.updateChallenge(uid: uid, data: ["like_challenge": 0]) {
+            networkManager.updateChallenge(uid: uid, challenge: .like(0)) {
                 completion()
             }
         case .post:
-            networkManager.updateChallenge(uid: uid, data: ["post_challenge": 0]) {
+            networkManager.updateChallenge(uid: uid, challenge: .post(0)) {
                 completion()
             }
         }

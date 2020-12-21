@@ -11,23 +11,17 @@ import FirebaseFirestoreSwift
 
 typealias FirebaseTime = Timestamp
 
+typealias Handler<T: Codable> = (Result<T, NetworkError>) -> Void
+
 class FirebaseManager {
     
-    typealias Handler = (CollectionReference)-> Void
+    typealias Handler = (CollectionReference) -> Void
     
     private let dataBase: Firestore
 
     init(_ dataBase: Firestore = Firestore.firestore()) {
         self.dataBase = dataBase
     }
-    
-    // TEST Firebase Reuqest
-
-//    func listen<T>(request: Request, completion: @escaping (Result<[T], NetworkError>) -> Void) {
-//        print("Test")
-//        dataBase.collection(request.collection)
-        
-//    }
     
     // Original Firebase
     func listen<T: Codable>(_ collection: Collection, completion: @escaping (Result<[T], Error>) -> Void) {
@@ -131,7 +125,9 @@ class FirebaseManager {
 
     func listenDailyWord(completion: @escaping (Result<DailyWord, Error>) -> Void) {
         
-        dataBase.collection("DailyWord").order(by: "today", descending: true).addSnapshotListener { (querySnapshot, error) in
+        let db = adapted(.dailyWorld)
+        
+        db.order(by: "today", descending: true).addSnapshotListener { (querySnapshot, error) in
             
             if let error = error {
                 
@@ -225,7 +221,9 @@ class FirebaseManager {
     
     func updateViews(id doc: String, views: Int, completion: @escaping (() -> Void)) {
         
-        dataBase.collection("Word").document(doc).updateData( ["check_times": views])
+        let db = adapted(.word)
+        
+        db.document(doc).updateData( ["check_times": views])
         
         completion()
     }
@@ -234,11 +232,13 @@ class FirebaseManager {
         
         guard let uid = UserDefaults.standard.value(forKey: "uid") else { return }
         
+        let db = adapted(.definition)
+        
         switch isLike {
         case true:
-            dataBase.collection("Definition").document(defID).updateData(["like": FieldValue.arrayUnion([uid])])
+            db.document(defID).updateData(["like": FieldValue.arrayUnion([uid])])
         case false:
-            dataBase.collection("Definition").document(defID).updateData(["like": FieldValue.arrayRemove([uid])])
+            db.document(defID).updateData(["like": FieldValue.arrayRemove([uid])])
         }
         
         completion()
@@ -248,11 +248,13 @@ class FirebaseManager {
         
         guard let uid = UserDefaults.standard.value(forKey: "uid") else { return }
         
+        let db = adapted(.definition)
+        
         switch isDislike {
         case true:
-            dataBase.collection("Definition").document(defID).updateData(["dislike": FieldValue.arrayUnion([uid])])
+            db.document(defID).updateData(["dislike": FieldValue.arrayUnion([uid])])
         case false:
-            dataBase.collection("Definition").document(defID).updateData(["dislike": FieldValue.arrayRemove([uid])])
+            db.document(defID).updateData(["dislike": FieldValue.arrayRemove([uid])])
         }
         
         completion()
@@ -260,11 +262,13 @@ class FirebaseManager {
     
     func updateFavorite(userID: String, wordID: String, action: FavoriteStauts, completion: @escaping (() -> Void)) {
         
+        let db = adapted(.user)
+        
         switch action {
         case .add:
-            dataBase.collection("User").document(userID).updateData(["favorite_words": FieldValue.arrayUnion([wordID])])
+            db.document(userID).updateData(["favorite_words": FieldValue.arrayUnion([wordID])])
         case .remove:
-            dataBase.collection("User").document(userID).updateData(["favorite_words": FieldValue.arrayRemove([wordID])])
+            db.document(userID).updateData(["favorite_words": FieldValue.arrayRemove([wordID])])
         }
         
         completion()
@@ -272,22 +276,27 @@ class FirebaseManager {
     
     func createNewWord(word: Word, def: Definition, completion: () -> Void) {
         
-        dataBase.collection("Word").document(word.identifier).setData(word.dictionary)
+        let db = adapted(.word)
+        
+        db.document(word.identifier).setData(word.dictionary)
         
         createNewDef(def: def, completion: completion)
     }
     
     func createNewDef(def: Definition, completion: () -> Void) {
         
-        dataBase.collection("Definition").document(def.identifier)
-            .setData(def.dictionary)
+        let db = adapted(.definition)
+        
+        db.document(def.identifier).setData(def.dictionary)
         
         completion()
     }
     
     func retrieveUser<T: Codable>(userID: String, completion: @escaping (Result<T, NetworkError>) -> Void) {
         
-        dataBase.collection("User").document(userID).getDocument { (querySnapshot, error) in
+        let db = adapted(.user)
+        
+        db.document(userID).getDocument { (querySnapshot, error) in
             if let error = error {
                 
                 completion(.failure(.noData(error)))
@@ -303,7 +312,10 @@ class FirebaseManager {
     }
     
     func retrieveWord<T: Codable>(id: String, completion: @escaping (Result<T, NetworkError>) -> Void) {
-        dataBase.collection("Word").document(id).getDocument { (querySnapshot, error) in
+        
+        let db = adapted(.word)
+        
+        db.document(id).getDocument { (querySnapshot, error) in
             
             if let error = error {
                 
@@ -320,15 +332,34 @@ class FirebaseManager {
     }
     
     func deleteArray(uid: String, wordID: String, arrayName: String) {
-        dataBase.collection("User").document(uid).updateData([arrayName: FieldValue.arrayRemove([wordID])])
+        let db = adapted(.user)
+        
+        db.document(uid).updateData([arrayName: FieldValue.arrayRemove([wordID])])
     }
     
     func updateArray(uid: String, wordID: String, arrayName: String) {
-        dataBase.collection("User").document(uid).updateData([arrayName: FieldValue.arrayUnion([wordID])])
+        
+        let db = adapted(.user)
+        
+        db.document(uid).updateData([arrayName: FieldValue.arrayUnion([wordID])])
     }
     
-    func updateChallenge(uid: String, data: [String: Any], completion: (() -> Void)? = nil) {
-        dataBase.collection("User").document(uid).updateData(data) { err in
+    func updateChallenge(uid: String, challenge: Challenge, completion: (() -> Void)? = nil) {
+        
+        let db = adapted(.user)
+        
+        var data = [String: Any]()
+        
+        switch challenge {
+        case .view(let value):
+            data[challenge.name] = value
+        case .post(let value):
+            data[challenge.name] = value
+        case .like(let value):
+            data[challenge.name] = value
+        }
+        
+        db.document(uid).updateData(data) { err in
             
             if let err = err {
                     print("Error updating document: \(err)")
@@ -350,10 +381,6 @@ extension FirebaseManager {
         let request = adapted(env)
         
         handler(request)
-    }
-    
-    func handle<T>(res: @escaping ((Result<T, NetworkError>) -> Void)) {
-        
     }
 }
 
@@ -385,10 +412,27 @@ extension FirebaseManager {
     // Setup Collection Environment
     
     enum Environment: String {
-        case dailyWorld = "DailyWorld"
+        case dailyWorld = "DailyWord"
         case user = "User"
         case definition = "Definition"
         case word = "Word"
+    }
+    
+    enum Challenge {
+        case view(Int)
+        case post(Int)
+        case like(Int)
+
+        var name: String {
+            switch self {
+            case .view(_):
+                return "view_challenge"
+            case .post(_):
+                return "post_challenge"
+            case .like(_):
+                return "like_challenge"
+            }
+        }
     }
     
     enum SortedBy: String {

@@ -7,6 +7,8 @@
 
 import Foundation
 import AVFoundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class DefinitionViewModel {
     
@@ -17,6 +19,10 @@ class DefinitionViewModel {
     let word: String
     
     let category: String
+    
+    private var uid: String {
+        return UserDefaults.standard.string(forKey: "uid") ?? ""
+    }
     
     var isFavorite: Bool = false {
         didSet {
@@ -55,8 +61,6 @@ class DefinitionViewModel {
             }
         }
         
-        guard let uid = UserDefaults.standard.value(forKey: "uid") as? String else { return }
-        
         networkManager.listenSingleDoc(.user(uid)) { (result: Result<User, NetworkError>) in
             switch result {
             case .success(let data):
@@ -74,55 +78,42 @@ class DefinitionViewModel {
     }
     
     func renewRecentSearch(completion: @escaping () -> Void) {
-        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
-            networkManager.retrieveUser(userID: uid) { (result: Result<User, NetworkError>) in
-                switch result {
-                case .success(let user):
-                    
-                    if user.recents.contains(self.wordIdentifier) {
-                        self.removeFromRecentSearch(completion: completion)
-                    }
-                    
-                    self.updateChallenge(.view)
-//
-//                    if user.viewChallenge > -1 {
-//                        let viewChallenge = user.viewChallenge + 1
-//
-//                        self.networkManager.updateChallenge(uid: uid, data: ["view_challenge": viewChallenge])
-//                    }
-                    
-                    completion()
-                    
-                case .failure(.noData(let error)):
-                    print(error.localizedDescription)
-                case .failure(.decodeError):
-                    print("Decode Error!")
+        
+        networkManager.retrieveUser(userID: uid) { (result: Result<User, NetworkError>) in
+            switch result {
+            case .success(let user):
+                
+                if user.recents.contains(self.wordIdentifier) {
+                    self.removeFromRecentSearch(completion: completion)
                 }
+                
+                self.updateChallenge(.view)
+                
+                completion()
+                
+            case .failure(.noData(let error)):
+                print(error.localizedDescription)
+            case .failure(.decodeError):
+                print("Decode Error!")
             }
         }
     }
     
     func discoverWord() {
         
-        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
-            networkManager.updateArray(uid: uid, wordID: wordIdentifier, arrayName: "discovered_words")
-        }
+        networkManager.updateArray(uid: uid, wordID: wordIdentifier, arrayName: "discovered_words")
         
     }
     
     func removeFromRecentSearch(completion: @escaping () -> Void) {
         
-        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
-            networkManager.deleteArray(uid: uid, wordID: wordIdentifier, arrayName: "recent_search")
-        }
+        networkManager.deleteArray(uid: uid, wordID: wordIdentifier, arrayName: "recent_search")
         
     }
     
     func addToRecentSearch() {
         
-        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
-            networkManager.updateArray(uid: uid, wordID: wordIdentifier, arrayName: "recent_search")
-        }
+        networkManager.updateArray(uid: uid, wordID: wordIdentifier, arrayName: "recent_search")
             
     }
     
@@ -130,9 +121,10 @@ class DefinitionViewModel {
         
         networkManager.updateLike(defID: defID, isLike: isLike) {
             
-            self.updateChallenge(.like)
+            self.updateChallenge(.like) {
+                print("update Likes")
+            }
             
-            print("update Likes")
         }
 
     }
@@ -147,38 +139,32 @@ class DefinitionViewModel {
     
     func checkFavorite(completion: @escaping (Bool) -> Void) {
         
-        if let userID = UserDefaults.standard.value(forKey: "uid") as? String {
+        networkManager.retrieveUser(userID: uid) { (result: Result<User, NetworkError>) in
             
-            networkManager.retrieveUser(userID: userID) { (result: Result<User, NetworkError>) in
+            switch result {
+            case .success(let user):
                 
-                switch result {
-                case .success(let user):
-                    
-                    let isFavorite = user.favorites.contains(self.wordIdentifier)
-                    
-                    completion(isFavorite)
-                    
-                case .failure(.noData(let error)):
-                    
-                    print(error.localizedDescription)
-                    
-                case .failure(.decodeError):
-                    
-                    print("Decode Error!")
-                    
-                }
+                let isFavorite = user.favorites.contains(self.wordIdentifier)
+                
+                completion(isFavorite)
+                
+            case .failure(.noData(let error)):
+                
+                print(error.localizedDescription)
+                
+            case .failure(.decodeError):
+                
+                print("Decode Error!")
+                
             }
         }
     }
     
     func updateFavorites(action: FirebaseManager.FavoriteStauts, completion: @escaping (() -> Void)) {
         
-        if let uid = UserDefaults.standard.value(forKey: "uid") as? String {
-            
             networkManager.updateFavorite(userID: uid, wordID: wordIdentifier, action: action) {
                 completion()
             }
-        }
     }
     
     func convertRank(with rank: Int) -> String {
@@ -211,46 +197,67 @@ class DefinitionViewModel {
 }
 
 extension DefinitionViewModel {
+    
     enum Challenge {
         case view, like
     }
     
-    func updateChallenge(_ challenge: Challenge) {
+    private func getUser<T: Codable>(completion: @escaping Handler<T>) {
         
-        if let uid = UserDefaults.standard.string(forKey: "uid") {
-            
-            networkManager.retrieveUser(userID: uid) {
-                
-                (result:Result<User, NetworkError>) in
-                
-                switch result {
-                
-                case .success(let user):
-                    switch challenge {
-                    
-                    case .like:
-                        if user.likeChallenge > -1 && user.likeChallenge < 10 {
-                            let viewChallenge = user.likeChallenge + 1
-                            
-                            self.networkManager.updateChallenge(uid: uid, data: ["like_challenge": viewChallenge])
-                        }
-                    case .view:
-                        if user.viewChallenge > -1 && user.viewChallenge < 10 {
-                            let viewChallenge = user.viewChallenge + 1
-                            
-                            self.networkManager.updateChallenge(uid: uid, data: ["view_challenge": viewChallenge])
-                        }
+        networkManager.sendRequest(.user) { (db) in
+            db.document(uid).getDocument { (querySnapshot, error) in
+                if let error = error {
+                    completion(.failure(.noData(error)))
+                } else {
+                    if let data = try? querySnapshot?.data(as: T.self, decoder: Firestore.Decoder()) {
+                        completion(.success(data))
+                    } else {
+                        completion(.failure(.decodeError))
                     }
-                    
-                case .failure(let error):
-                    
-                    print(error.localizedDescription)
-                    
-                case .failure(.decodeError):
-                    
-                    print("Decode Error!")
-                    
                 }
+            }
+        }
+        
+    }
+    
+    func updateChallenge(_ challenge: Challenge, completion: (() -> Void)? = nil) {
+        
+        self.getUser { (result: Result<User, NetworkError>) in
+            switch result {
+            case .success(let user):
+                
+                self.handle(challenge, user: user, completion: completion)
+                
+            case .failure(.decodeError):
+                
+                print("Decode")
+                
+            case .failure(.noData(let error)):
+                
+                print(error.localizedDescription)
+                
+            }
+        }
+    }
+    
+    func handle(_ challenge: Challenge, user: User, completion: (() -> Void)? = nil) {
+        switch challenge {
+        
+        case .like:
+            if user.likeChallenge > -1 && user.likeChallenge < 10 {
+                let likeChallenge = user.likeChallenge + 1
+                
+                self.networkManager.updateChallenge(uid: uid, challenge: .like(likeChallenge))
+                
+                completion?()
+            }
+        case .view:
+            if user.viewChallenge > -1 && user.viewChallenge < 10 {
+                let viewChallenge = user.viewChallenge + 1
+                
+                self.networkManager.updateChallenge(uid: uid, challenge: .view(viewChallenge))
+                
+                completion?()
             }
         }
     }

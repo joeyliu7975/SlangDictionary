@@ -19,6 +19,14 @@ struct Word: Codable, Equatable {
     
     let time: FirebaseTime
     
+    init (title: String, category: String, views: Int = 0, id: String, time: FirebaseTime = FirebaseTime()) {
+        self.title = title
+        self.category = category
+        self.views = views
+        self.identifier = id
+        self.time = time
+    }
+    
     enum CodingKeys: String, CodingKey {
         
         case title, category

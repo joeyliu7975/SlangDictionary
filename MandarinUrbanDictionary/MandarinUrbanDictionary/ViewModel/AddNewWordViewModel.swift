@@ -22,6 +22,8 @@ class AddNewWordViewModel {
     
     let networkManager: FirebaseManager
     
+    let group = DispatchGroup()
+    
     init(_ networkManager: FirebaseManager = .init()) {
         self.networkManager = networkManager
     }
@@ -33,44 +35,83 @@ class AddNewWordViewModel {
     }
     
     var updateStatus: ((Bool) -> Void)?
+}
+
+extension AddNewWordViewModel {
     
-    func createNewWord(word: String?, definition: String?, category: String?, completion: () -> Void) {
+    func create(word: String?, definition: String?, category: String?, completion: @escaping () -> Void) {
         
         guard
             let word = word,
             let userDefinition = definition,
-            let category = category
-        else {
-            return
-        }
+            let category = category else { return }
         
         let wordID = String.makeID()
         
         let defID = String.makeID()
         
-        let newWord = Word(
-            title: word,
-            category: category,
-            views: 0,
-            identifier: wordID,
-            time: FirebaseTime()
-        )
+        let newWord = Word(title: word, category: category, id: wordID)
         
-        let definition = Definition(
-            content: userDefinition,
-            like: [String](),
-            dislike: [String](),
-            identifier: defID,
-            time: FirebaseTime(),
-            idForWord: wordID
-        )
+        let definition = Definition(content: userDefinition, id: defID, wid: wordID)
         
-        networkManager.createNewWord(
-            word: newWord,
-            def: definition,
-            completion: completion
-        )
+        group.enter()
+        
+        group.enter()
+        
+        networkManager.sendRequest(.word) { (db) in
+            db.document(wordID).setData(newWord.dictionary)
+            
+            group.leave()
+        }
+        
+        networkManager.sendRequest(.definition) { (db) in
+            db.document(defID).setData(definition.dictionary)
+            
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            completion()
+        }
     }
+    
+//    func createNewWord(word: String?, definition: String?, category: String?, completion: () -> Void) {
+//
+//        guard
+//            let word = word,
+//            let userDefinition = definition,
+//            let category = category
+//        else {
+//            return
+//        }
+//
+//        let wordID = String.makeID()
+//
+//        let defID = String.makeID()
+//
+//        let newWord = Word(
+//            title: word,
+//            category: category,
+//            views: 0,
+//            identifier: wordID,
+//            time: FirebaseTime()
+//        )
+//
+//        let definition = Definition(
+//            content: userDefinition,
+//            like: [String](),
+//            dislike: [String](),
+//            identifier: defID,
+//            time: FirebaseTime(),
+//            idForWord: wordID
+//        )
+//
+//        networkManager.createNewWord(
+//            word: newWord,
+//            def: definition,
+//            completion: completion
+//        )
+//    }
     
     func containEmptyString(newWord: String?, definition: String?, category: String?, completion: @escaping (Bool) -> Void) {
         

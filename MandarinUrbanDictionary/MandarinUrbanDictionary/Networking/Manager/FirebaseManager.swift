@@ -13,6 +13,8 @@ typealias FirebaseTime = Timestamp
 
 class FirebaseManager {
     
+    typealias Handler = (CollectionReference)-> Void
+    
     private let dataBase: Firestore
 
     init(_ dataBase: Firestore = Firestore.firestore()) {
@@ -314,7 +316,6 @@ class FirebaseManager {
                         completion(.failure(.decodeError))
                     }
             }
-            
         }
     }
     
@@ -343,6 +344,16 @@ class FirebaseManager {
 extension FirebaseManager {
     private func adapted(_ env: Environment) -> CollectionReference {
         return dataBase.collection(env.rawValue)
+    }
+    
+    func sendRequest(_ env: Environment, handler: Handler) {
+        let request = adapted(env)
+        
+        handler(request)
+    }
+    
+    func handle<T>(res: @escaping ((Result<T, NetworkError>) -> Void)) {
+        
     }
 }
 
@@ -379,8 +390,6 @@ extension FirebaseManager {
         case definition = "Definition"
         case word = "Word"
     }
-    
-    //
     
     enum SortedBy: String {
         case views = "check_times"

@@ -142,12 +142,20 @@ extension AddNewWordViewController: AddNewWordViewDelegate {
     
     func clickSend(_ view: UIView, newWord: String?, definition: String?, category: String?) {
         
-        viewModel.createNewWord(word: newWord, definition: definition, category: category) {
+        viewModel.create(word: newWord, definition: definition, category: category) { [weak self] in
             
-            viewModel.updateChallenge {
-                self.dismiss(animated: true)
+            self?.viewModel.updateChallenge { [weak self] in
+                self?.dismiss(animated: true)
             }
+            
         }
+        
+//        viewModel.createNewWord(word: newWord, definition: definition, category: category) {
+//
+//            viewModel.updateChallenge {
+//                self.dismiss(animated: true)
+//            }
+//        }
     }
     
     func clikckDone(categoryTextField: UITextField) {

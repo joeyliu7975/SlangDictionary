@@ -28,17 +28,8 @@ class NewDefinitionViewModel {
         
         guard let content = content else { return }
         
-        let definition = Definition(
-            content: content,
-            like: [String](),
-            dislike: [String](),
-            identifier: String.makeID(),
-            time: FirebaseTime(),
-            idForWord: wordID
-        )
+        let definition = Definition(content: content, id: String.makeID(), wid: wordID)
         
         networkManager.createNewDef(def: definition, completion: completion)
     }
-   
-    
 }

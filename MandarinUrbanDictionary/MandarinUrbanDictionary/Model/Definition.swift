@@ -21,6 +21,26 @@ struct Definition: Codable {
     
     var idForWord: String
     
+    init(content: String, like: [String] = [], dislike: [String] = [], id: String, time: FirebaseTime = .init(), wid: String) {
+        self.content = content
+        self.like = like
+        self.dislike = dislike
+        self.identifier = id
+        self.time = time
+        self.idForWord = wid
+    }
+    
+    /*
+    let definition = Definition(
+        content: userDefinition,
+        like: [String](),
+        dislike: [String](),
+        identifier: defID,
+        time: FirebaseTime(),
+        idForWord: wordID
+    )
+ */
+    
     enum CodingKeys: String, CodingKey {
         
         case content, like, dislike

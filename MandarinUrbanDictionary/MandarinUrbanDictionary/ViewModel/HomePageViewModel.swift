@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestoreSwift
 
 class HomePageViewModel {
     
@@ -41,50 +43,53 @@ class HomePageViewModel {
     
     var randomNumber = 12
     
-    func listen(in collection: FirebaseManager.Collection) {
-        switch collection {
-        
-        case .word(let order):
-            
-            networkManager.listen(.word(orderBy: order)) { (result: Result<[Word], Error>) in
-                switch result {
-                
-                case .success(let words):
+    func listen<T: Codable>(env: FirebaseManager.Environment, orderBy order: FirebaseManager.Order, completion: @escaping (Result<[T], NetworkError>) -> Void) {
+        networkManager.listen(env) { (db) in
+            db.order(by: order.rawValue, descending: true).addSnapshotListener { (querySnapshot, error) in
+                if let error = error {
                     
-                    self.topFiveWords = Array(words[0 ... 4])
+                    completion(.failure(.noData(error)))
                     
-                    self.listenDailyWord { (id) in
-                        let dailyWords = words.filter { $0.identifier == id }
-                        
-                        self.dailyWord = dailyWords.first
-                        
-                        self.wordViewModels.value = words
+                } else {
+                    
+                    var datas = [T]()
+                    
+                    for document in querySnapshot!.documents {
+                        if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
+                            datas.append(data)
+                        } else {
+                            completion(.failure(.decodeError))
+                        }
                     }
                     
-                case .failure(let error):
-                    
-                    print("fetchData.failure: \(error)")
-                    
+                    completion(.success(datas))
                 }
             }
-        case .user:
+        }
+    }
+    
+    func handle<T: Codable>(_ res: Result<[T],NetworkError>) {
+        switch res {
+        
+        case .success(let data):
             
-            networkManager.listen(collection) { (result: Result<[User], Error>) in
+            if let words = try data as? [Word] {
                 
-                switch result {
+                self.topFiveWords = Array(words[0 ... 4])
                 
-                case .success(let users):
+                self.listenDailyWord { (id) in
+                    let dailyWords = words.filter { $0.identifier == id }
                     
-                    self.userViewModels.value = users
+                    self.dailyWord = dailyWords.first
                     
-                case .failure(let error):
-                    
-                    print("fetchData.failure: \(error)")
-                    
+                    self.wordViewModels.value = words
                 }
             }
-        default :
-            break
+            
+        case .failure(let error):
+            
+            print("fetchData.failure: \(error)")
+            
         }
     }
     
@@ -98,7 +103,6 @@ class HomePageViewModel {
                 print(error.localizedDescription)
             }
         }
-        
     }
     
     func fetchData(in collection: FirebaseManager.Collection) {
@@ -149,7 +153,7 @@ extension HomePageViewModel {
         guard !wordViewModels.value.isEmpty else { return }
         
         randomNumber = Int.random(in: 0 ..< wordViewModels.value.count)
-
+        
     }
 }
 

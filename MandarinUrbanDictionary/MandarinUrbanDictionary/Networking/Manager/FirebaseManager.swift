@@ -23,6 +23,16 @@ class FirebaseManager {
         self.dataBase = dataBase
     }
     
+    // Test Listen
+    
+    func listen<T: CollectionReference>(_ env: Environment, completion: @escaping (T) -> Void) {
+        let db = adapted(env)
+        
+        if let db = try db as? T {
+            completion(db)
+        }
+    }
+    
     // Original Firebase
     func listen<T: Codable>(_ collection: Collection, completion: @escaping (Result<[T], Error>) -> Void) {
         
@@ -407,6 +417,11 @@ extension FirebaseManager {
                 return "report"
             }
         }
+    }
+    
+    enum Order: String {
+        case time = "created_time"
+        case view = "check_times"
     }
     
     // Setup Collection Environment

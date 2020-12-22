@@ -23,6 +23,10 @@ extension UILabel {
         
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: rangeKeyword)
         
+        let attrs = [NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 20)]
+        
+        attributedString.addAttributes( attrs, range: rangeKeyword)
+        
         self.attributedText = attributedString
     }
 }

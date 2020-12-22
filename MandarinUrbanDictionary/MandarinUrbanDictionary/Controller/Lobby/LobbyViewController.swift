@@ -46,13 +46,21 @@ class LobbyViewController: JoeyPanelViewController {
         
         setupNavigationController()
         
+        registerLocal()
+        
         scheduleLocal()
+        
+        listen()
     
         viewModelBinding()
     }
 }
 
 extension LobbyViewController: NotificationSchedule {
+    
+    func registerLocal() {
+        notificationManager.registerLocal()
+    }
 
     func scheduleLocal() {
         notificationManager.scheduleLocal()
@@ -64,7 +72,7 @@ private extension LobbyViewController {
     
     func setup() {
         
-        viewModel.listen(in: .word(orderBy: .time))
+//        viewModel.listen(in: .word(orderBy: .time))
         
         view.backgroundColor = .homepageDarkBlue
         
@@ -116,6 +124,14 @@ private extension LobbyViewController {
         let navController = UINavigationController(rootViewController: searchViewController)
         
         navController.present(self)
+    }
+    
+    func listen() {
+        viewModel.listen(env: .word, orderBy: .time) { [weak self] (result: Result<[Word], NetworkError>) in
+            
+            self?.viewModel.handle(result)
+            
+        }
     }
     
     func viewModelBinding() {

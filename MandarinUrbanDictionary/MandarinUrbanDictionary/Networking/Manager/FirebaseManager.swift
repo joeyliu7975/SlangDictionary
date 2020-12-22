@@ -23,91 +23,11 @@ class FirebaseManager {
         self.dataBase = dataBase
     }
     
-    // Test Listen
-    
     func listen<T: CollectionReference>(_ env: Environment, completion: @escaping (T) -> Void) {
         let db = adapted(env)
         
-        if let db = try db as? T {
+        if let db = db as? T {
             completion(db)
-        }
-    }
-    
-    // Original Firebase
-    func listen<T: Codable>(_ collection: Collection, completion: @escaping (Result<[T], Error>) -> Void) {
-        
-        switch collection {
-        
-        case .word(let field):
-            dataBase.collection(collection.name).order(by: field.rawValue, descending: true).addSnapshotListener { (querySnapshot, error) in
-                
-                if let error = error {
-                    
-                    completion(.failure(error))
-                    
-                } else {
-                    
-                    var datas = [T]()
-                    
-                    for document in querySnapshot!.documents {
-                        if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
-                            datas.append(data)
-                        }
-                    }
-                    
-                    completion(.success(datas))
-                    
-                }
-            }
-        
-        case .definition(let id):
-            
-            dataBase
-                .collection(collection.name)
-                .whereField("word_id", isEqualTo: id)
-                .addSnapshotListener { (querySnapshot, error) in
-                    if let error = error {
-                        
-                        completion(.failure(error))
-                        
-                    } else {
-                        
-                        var datas = [T]()
-                        
-                        for document in querySnapshot!.documents {
-                            if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
-                                datas.append(data)
-                            }
-                        }
-                        
-                        completion(.success(datas))
-                        
-                    }
-                }
-        default:
-            
-            dataBase
-                .collection(collection.name)
-                .addSnapshotListener { (querySnapshot, error) in
-                
-                if let error = error {
-                    
-                    completion(.failure(error))
-                    
-                } else {
-                    
-                    var datas = [T]()
-                    
-                    for document in querySnapshot!.documents {
-                        if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
-                            datas.append(data)
-                        }
-                    }
-                    
-                    completion(.success(datas))
-                    
-                }
-            }
         }
     }
     
@@ -133,32 +53,6 @@ class FirebaseManager {
         }
     }
 
-    func listenDailyWord(completion: @escaping (Result<DailyWord, Error>) -> Void) {
-        
-        let db = adapted(.dailyWorld)
-        
-        db.order(by: "today", descending: true).addSnapshotListener { (querySnapshot, error) in
-            
-            if let error = error {
-                
-                completion(.failure(error))
-                
-            }  else {
-                var datas = [DailyWord]()
-                
-                for document in querySnapshot!.documents {
-                    if let data = try? document.data(as: DailyWord.self, decoder: Firestore.Decoder()) {
-                        datas.append(data)
-                    }
-                }
-                
-                completion(.success(datas.first!))
-            }
-            
-        }
-        
-    }
-    
     func retrieveData <T: Codable>(_ collection: Collection, with category: String? = nil, completion: @escaping (Result<[T], Error>) -> Void) {
         
         guard let category = category else {
@@ -422,6 +316,7 @@ extension FirebaseManager {
     enum Order: String {
         case time = "created_time"
         case view = "check_times"
+        case dailyTime = "today"
     }
     
     // Setup Collection Environment

@@ -31,7 +31,11 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
         
         searchBar.text = word
         
-        viewModel?.listenDefinitions()
+        viewModel?.listenDefinitions(completion: { [weak self] (result: Result<[Definition], NetworkError>) in
+            
+            self?.viewModel?.handle(result)
+
+        })
     }
     
     required init?(coder: NSCoder) {
@@ -165,7 +169,7 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
         
         if let word = viewModel?.word {
             
-            viewModel?.siriRead(word)
+            viewModel?.siriRead(word.title)
             
         }
     }
@@ -212,7 +216,7 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
         
         guard let viewModel = viewModel else { return }
         
-        let newDefVC = NewDefinitionViewController(wordID: viewModel.wordIdentifier)
+        let newDefVC = NewDefinitionViewController(wordID: viewModel.word.id)
         
         let nav = UINavigationController(rootViewController: newDefVC)
         
@@ -351,13 +355,13 @@ extension DefinitionViewController: UITabBarDelegate {
             
             headerView.setFavorite(viewModel.isFavorite)
             
-            headerView.renderUI(category: viewModel.category, word: viewModel.word)
+            headerView.renderUI(category: viewModel.word.category, word: viewModel.word.title)
             
             headerBackgroundView.backgroundColor = .searchBarBlue
             
             headerView.backgroundView = headerBackgroundView
             
-            headerView.wordLabel.text = viewModel.word
+            headerView.wordLabel.text = viewModel.word.title
             
             return headerView
         }

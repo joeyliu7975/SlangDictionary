@@ -12,13 +12,11 @@ import FirebaseFirestoreSwift
 
 class DefinitionViewModel {
     
+    typealias Response<T: Codable> = (Result<[T], NetworkError>)
+    
     private let networkManager: FirebaseManager
         
-    let wordIdentifier: String
-    
-    let word: String
-    
-    let category: String
+    let word: DefinitionViewModel.Word
     
     private var uid: String {
         return UserDefaults.standard.string(forKey: "uid") ?? ""
@@ -34,48 +32,12 @@ class DefinitionViewModel {
     
     init(id: String, word: String, category: String, networkManager: FirebaseManager = .init()) {
         
-        self.wordIdentifier = id
-        
-        self.word = word
-        
-        self.category = category
+        self.word = Word(id: id, title: word, category: category)
         
         self.networkManager = networkManager
     }
         
     var definitionViewModels = Box([Definition]())
-        
-    func listenDefinitions() {
-        networkManager.listen(.definition(self.wordIdentifier)) { (result: Result<[Definition], Error>) in
-            switch result {
-            case .success(let definitions):
-                
-                let sortedDefinition = definitions.sorted { $0.like.count > $1.like.count }
-                
-                self.definitionViewModels.value = sortedDefinition
-                
-            case .failure(let error):
-                
-                print("Fatal Error with: \(error.localizedDescription)")
-                
-            }
-        }
-        
-        networkManager.listenSingleDoc(.user(uid)) { (result: Result<User, NetworkError>) in
-            switch result {
-            case .success(let data):
-                
-                let isFavorite = data.favorites.contains(self.wordIdentifier)
-                    
-                self.isFavorite = isFavorite
-
-            case .failure(.noData(let error)):
-                print(error.localizedDescription)
-            case .failure(.decodeError):
-                print("Decode Error")
-            }
-        }
-    }
     
     func renewRecentSearch(completion: @escaping () -> Void) {
         
@@ -83,7 +45,7 @@ class DefinitionViewModel {
             switch result {
             case .success(let user):
                 
-                if user.recents.contains(self.wordIdentifier) {
+                if user.recents.contains(self.word.id) {
                     self.removeFromRecentSearch(completion: completion)
                 }
                 
@@ -101,19 +63,19 @@ class DefinitionViewModel {
     
     func discoverWord() {
         
-        networkManager.updateArray(uid: uid, wordID: wordIdentifier, arrayName: "discovered_words")
+        networkManager.updateArray(uid: uid, wordID: word.id, arrayName: "discovered_words")
         
     }
     
     func removeFromRecentSearch(completion: @escaping () -> Void) {
         
-        networkManager.deleteArray(uid: uid, wordID: wordIdentifier, arrayName: "recent_search")
+        networkManager.deleteArray(uid: uid, wordID: word.id, arrayName: "recent_search")
         
     }
     
     func addToRecentSearch() {
         
-        networkManager.updateArray(uid: uid, wordID: wordIdentifier, arrayName: "recent_search")
+        networkManager.updateArray(uid: uid, wordID: word.id, arrayName: "recent_search")
             
     }
     
@@ -144,7 +106,7 @@ class DefinitionViewModel {
             switch result {
             case .success(let user):
                 
-                let isFavorite = user.favorites.contains(self.wordIdentifier)
+                let isFavorite = user.favorites.contains(self.word.id)
                 
                 completion(isFavorite)
                 
@@ -162,7 +124,7 @@ class DefinitionViewModel {
     
     func updateFavorites(action: FirebaseManager.FavoriteStauts, completion: @escaping (() -> Void)) {
         
-            networkManager.updateFavorite(userID: uid, wordID: wordIdentifier, action: action) {
+        networkManager.updateFavorite(userID: uid, wordID: word.id, action: action) {
                 completion()
             }
     }
@@ -195,7 +157,48 @@ class DefinitionViewModel {
         synthesizer.speak(utterance)
     }
 }
-
+// Observe Definition Collection
+extension DefinitionViewModel {
+    func listenDefinitions<T: Codable>(completion: @escaping (Result<[T], NetworkError>) -> Void) {
+        
+        networkManager.listen(.definition) { (db) in
+            db.whereField("word_id", isEqualTo: self.word.id).addSnapshotListener { (querySnapshot, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    
+                    var datas = [T]()
+                    
+                    for document in querySnapshot!.documents {
+                        if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
+                            datas.append(data)
+                        } else {
+                            print("Decode Error!")
+                        }
+                    }
+                    
+                    completion(.success(datas))
+                    
+                }
+            }
+        }
+    }
+    
+    func handle<T: Codable>(_ res: Response<T>) {
+        
+        switch res {
+        case .success(let defs):
+            if let defs = defs as? [Definition] {
+                let sortedDefinition = defs.sorted { $0.like.count > $1.like.count }
+                
+                self.definitionViewModels.value = sortedDefinition
+            }
+        case .failure(let error):
+            print(error.localizedDescription)
+        }
+    }
+}
+// Update User's Challenge Field
 extension DefinitionViewModel {
     
     enum Challenge {
@@ -260,5 +263,15 @@ extension DefinitionViewModel {
                 completion?()
             }
         }
+    }
+}
+
+extension DefinitionViewModel {
+    struct Word {
+        let id: String
+        
+        let title: String
+        
+        let category: String
     }
 }

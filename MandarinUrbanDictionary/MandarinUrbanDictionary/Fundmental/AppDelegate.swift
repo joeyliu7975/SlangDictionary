@@ -23,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared.toolbarTintColor = .homepageDarkBlue
         
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(NewDefinitionViewController.self)
+        
+        IQKeyboardManager.shared.disabledToolbarClasses.append(NewDefinitionViewController.self)
+        
         return true
     }
 

@@ -213,6 +213,10 @@ private extension NewDefinitionViewController {
             )
         
         textView.font = UIFont(name: "PingFang SC", size: 20.0)
+        
+        textView.inputAccessoryView?.isHidden = true
+        
+        textView.inputAccessoryView?.isUserInteractionEnabled = false
     }
 }
 

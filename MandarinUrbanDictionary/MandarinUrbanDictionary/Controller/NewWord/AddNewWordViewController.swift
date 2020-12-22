@@ -44,28 +44,8 @@ extension AddNewWordViewController: UITextFieldDelegate {
             
             return false
         }
-        
-//        let currentText = textField.text ?? ""
-
-            // attempt to read the range they are trying to change, or exit if we can't
-//        guard let stringRange = Range(range, in: currentText) else { return false }
 
         return true
-        
-            // add their new text to the existing text
-//        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-//
-//        var remainingNumber = 9 - updatedText.count
-//
-//        if remainingNumber < 0 {
-//
-//            remainingNumber = 0
-//
-//        }
-//
-//        addNewWordView.updateLimitOfWord(number: remainingNumber)
-        
-//        return updatedText.count <= 9
     }
 }
 
@@ -97,7 +77,7 @@ extension AddNewWordViewController: UITextViewDelegate {
             return false
         }
         
-        if let range = text.rangeOfCharacter(from: validString as CharacterSet) {
+        if let _ = text.rangeOfCharacter(from: validString as CharacterSet) {
             
             return false
         }

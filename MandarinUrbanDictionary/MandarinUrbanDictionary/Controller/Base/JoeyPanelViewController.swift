@@ -71,8 +71,6 @@ class JoeyPanelViewController: UIViewController, SidePanelControl {
         
         let sideMenuButton = UIBarButtonItem(customView: button)
         
-//        let sideMenuButton = UIBarButtonItem(image: UIImage(named: ImageConstant.list), style: .plain, target: self, action: #selector(toggleSideMenu))
-        
         navigationItem.leftBarButtonItem = sideMenuButton
         
     }

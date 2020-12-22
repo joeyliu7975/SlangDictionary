@@ -71,9 +71,17 @@ class SearchPageViewController: UIViewController {
         
         viewModelBinding()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        searchBar.resignFirstResponder()
+    }
 
     @objc func cancelSearch(_ sender: UIButton) {
+        
         dismiss(animated: true)
+        
     }
 }
 
@@ -227,7 +235,9 @@ extension SearchPageViewController: UISearchBarDelegate {
 
 extension SearchPageViewController: DefinitionViewControllerDelegate {
     func dismissSearchViewController() {
+        
         self.dismiss(animated: true, completion: nil)
+        
     }
 }
 

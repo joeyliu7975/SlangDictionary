@@ -775,8 +775,8 @@
 				71E7F34B2570D75B00F15098 /* Word.swift */,
 				71A84A902576802900E0C14D /* Category.swift */,
 				71811DEB2576DC66005319DA /* SidePanel.swift */,
-				716A8D5C25777040005C5782 /* ImageConstant.swift */,
 				71D83CA0258B540000BC8D21 /* DailyWord.swift */,
+				716A8D5C25777040005C5782 /* ImageConstant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

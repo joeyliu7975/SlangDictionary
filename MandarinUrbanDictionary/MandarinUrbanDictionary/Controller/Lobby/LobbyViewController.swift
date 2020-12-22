@@ -16,7 +16,7 @@ class LobbyViewController: JoeyPanelViewController {
     
     private lazy var searchBar: UISearchBar = {
         
-        let width = UIScreen.main.bounds.width - 70
+        let width = UIScreen.main.bounds.width
         
         let searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width, height: 20))
         
@@ -71,9 +71,7 @@ extension LobbyViewController: NotificationSchedule {
 private extension LobbyViewController {
     
     func setup() {
-        
-//        viewModel.listen(in: .word(orderBy: .time))
-        
+                
         view.backgroundColor = .homepageDarkBlue
         
         writeNewButtonView.delegate = self
@@ -83,8 +81,20 @@ private extension LobbyViewController {
         let rightNavBarButton = UIBarButtonItem(customView: searchBar)
         
         navigationItem.backButtonTitle = ""
+                
+        let spacerButton = UIButton()
+                
+        spacerButton.translatesAutoresizingMaskIntoConstraints = false
         
-        navigationItem.rightBarButtonItem = rightNavBarButton
+        spacerButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        spacerButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        spacerButton.isUserInteractionEnabled = false
+        
+        let rightSpacer = UIBarButtonItem(customView: spacerButton)
+        
+        navigationItem.rightBarButtonItems = [rightSpacer, rightNavBarButton]
     }
     
     func setupTableView() {

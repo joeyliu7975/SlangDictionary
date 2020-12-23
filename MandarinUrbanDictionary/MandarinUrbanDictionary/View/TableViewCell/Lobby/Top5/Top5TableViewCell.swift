@@ -24,7 +24,11 @@ class Top5TableViewCell: UITableViewCell {
     
     weak var delegate: Top5TableViewDelegate?
     
-    private var topFive = [Word]()
+    private var topFive = [Word]() {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     let rankList: [RankColor] = [
         .top,

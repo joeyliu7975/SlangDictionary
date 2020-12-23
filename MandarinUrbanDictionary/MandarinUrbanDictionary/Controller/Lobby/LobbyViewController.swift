@@ -64,36 +64,36 @@ class LobbyViewController: JoeyPanelViewController {
         
         setupNavigationController()
         
-        registerLocal()
-        
-        scheduleLocal()
+//        registerLocal()
+//        
+//        scheduleLocal()
         
         listen()
     
         viewModelBinding()
     }
 }
-
-extension LobbyViewController: NotificationSchedule {
-    
-    func registerLocal() {
-        notificationManager.registerLocal()
-    }
-
-    func scheduleLocal() {
-        notificationManager.scheduleLocal()
-    }
-    
-}
+//
+//extension LobbyViewController: NotificationSchedule {
+//    
+//    func registerLocal() {
+//        notificationManager.registerLocal()
+//    }
+//
+//    func scheduleLocal() {
+//        notificationManager.scheduleLocal()
+//    }
+//    
+//}
 
 private extension LobbyViewController {
     
     func setup() {
         
-        UserDefaults.standard.setValue(false, forKey: UserDefaults.keyForLoginStatus)
-        
-        UserDefaults.standard.setValue(nil, forKey: "uid")
-                
+//        UserDefaults.standard.setValue(false, forKey: UserDefaults.keyForLoginStatus)
+//        
+//        UserDefaults.standard.setValue(nil, forKey: "uid")
+//                
         view.backgroundColor = .homepageDarkBlue
         
         writeNewButtonView.delegate = self

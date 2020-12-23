@@ -19,6 +19,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var appleLoginView: UIView!
             
+    @IBOutlet weak var termOfServiceButton: UIButton!
+    
     fileprivate var currentNonce: String?
     
     lazy var animationView: UIView = {
@@ -46,19 +48,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
-        
-        setupGestures()
     }
     
-    override func viewDidLayoutSubviews() {
-        
-        addSubLayers()
-        
-    }
-
-    @available(iOS 13, *)
-    @objc func startSignInWithAppleFlow() {
-        
+    @IBAction func tapAppleSignIn(_ sender: UIButton) {
         let nonce = String.makeID()
         
         currentNonce = nonce
@@ -95,40 +87,15 @@ private extension LoginViewController {
         
         appleLoginView.setCorner(radius: 10.0)
         
-    }
-    
-    func setupGestures() {
+        let underlineAttribute: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue,
+            NSAttributedString.Key.foregroundColor: UIColor.gray,
+            NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 18)!,
+        ]
         
-        appleLoginView.isUserInteractionEnabled = true
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(startSignInWithAppleFlow))
-        
-        appleLoginView.addGestureRecognizer(tapGesture)
-        
-    }
-    
-    func addSubLayers() {
-        
-        let appleImageLayer = CALayer()
-        
-        let appleTextLayer = JoeyTextLayer()
-        
-        let appleIconImage = UIImage(named: ImageConstant.appleIcon)?.cgImage
-        
-        appleImageLayer.frame = CGRect(x: 40, y: 12, width: 36, height: 36)
-        
-        appleTextLayer.frame = CGRect(x: 86, y: 12, width: 200, height: 36)
-        
-        appleTextLayer.fontSize = 24.0
-        
-        appleTextLayer.string = "Sign in with Apple"
-        
-        appleImageLayer.contents = appleIconImage
-        
-        appleLoginView.layer.addSublayer(appleImageLayer)
-        
-        appleLoginView.layer.addSublayer(appleTextLayer)
-        
+        let underlineAttributedString = NSAttributedString(string: "使用者條款", attributes: underlineAttribute)
+                
+        termOfServiceButton.setAttributedTitle(underlineAttributedString, for: .normal)
     }
     
     @available(iOS 13, *)

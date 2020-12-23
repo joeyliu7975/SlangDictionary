@@ -31,9 +31,18 @@ class NotificationCenterManager: NotificationRegister, NotificationSchedule {
     }
     
     func scheduleLocal() {
+          
         let center = UNUserNotificationCenter.current()
         
 //        center.removeAllPendingNotificationRequests()
+        
+        center.getNotificationSettings { (settings) in
+            guard settings.authorizationStatus == .authorized else { return }
+            
+            DispatchQueue.main.async {
+              UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
         
         let content = UNMutableNotificationContent()
         

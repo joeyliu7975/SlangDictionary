@@ -193,7 +193,13 @@ extension ContainerViewController: LeftViewControllerDelegate {
         
         case .dailySlang:
             
-            break
+            destinationVC = DailyWordViewController()
+            
+            if let desVC = destinationVC as? DailyWordViewController {
+                desVC.clickSideMenu = {
+                    self.toggleLeftPanel()
+                }
+            }
             
         case .top5:
             

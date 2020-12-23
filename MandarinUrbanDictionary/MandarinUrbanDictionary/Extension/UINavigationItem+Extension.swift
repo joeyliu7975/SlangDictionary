@@ -11,7 +11,7 @@ extension UINavigationItem {
     
     static let titleAttributes = [
         NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 28)!
+        NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 20)!
     ]
     
     func setBarAppearance(with color: UIColor, titleTextAttrs: [NSAttributedString.Key: NSObject]? = nil, title: String? = nil) {

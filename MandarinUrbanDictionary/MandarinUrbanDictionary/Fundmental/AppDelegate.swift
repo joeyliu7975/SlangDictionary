@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    let notificationManager: NotificationCenterManager = .init()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -24,6 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.toolbarTintColor = .homepageDarkBlue
         
         disableIQKeyboardOnParticularVC()
+        
+        registerLocal()
+        
+        scheduleLocal()
+        
+//        getNotificationSettings()
         
         return true
     }
@@ -40,6 +48,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    func application(
+        _ application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+    ) {
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+        print("Device Token: \(token)")
+    }
+}
+
+extension AppDelegate: NotificationSchedule {
+    
+    func registerLocal() {
+        notificationManager.registerLocal()
+    }
+
+    func scheduleLocal() {
+        notificationManager.scheduleLocal()
     }
 }
 

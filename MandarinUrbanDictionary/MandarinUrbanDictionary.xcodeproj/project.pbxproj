@@ -26,6 +26,10 @@
 		7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E01D257231CC00A56E7E /* DefinitionViewController.swift */; };
 		7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E01E257231CC00A56E7E /* DefinitionViewController.xib */; };
 		71230B6025845C9200B78C9C /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71230B5F25845C9200B78C9C /* UserDefaults+Extension.swift */; };
+		71295AD2259375A90077CD0A /* DailyWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71295AD0259375A90077CD0A /* DailyWordViewController.swift */; };
+		71295AD3259375A90077CD0A /* DailyWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71295AD1259375A90077CD0A /* DailyWordViewController.xib */; };
+		71295AD92593785F0077CD0A /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71295AD72593785F0077CD0A /* DailyTableViewCell.swift */; };
+		71295ADA2593785F0077CD0A /* DailyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71295AD82593785F0077CD0A /* DailyTableViewCell.xib */; };
 		712F4FC4258DA28000F7AE29 /* ProgressBarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712F4FC3258DA28000F7AE29 /* ProgressBarMaker.swift */; };
 		713361C3258B8E5F00FEEB43 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713361C2258B8E5F00FEEB43 /* Request.swift */; };
 		713361C9258C45B500FEEB43 /* AddNewWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713361C8258C45B500FEEB43 /* AddNewWordView.swift */; };
@@ -142,6 +146,10 @@
 		7120E01E257231CC00A56E7E /* DefinitionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionViewController.xib; sourceTree = "<group>"; };
 		71230B5D25845B3400B78C9C /* MandarinUrbanDictionary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MandarinUrbanDictionary.entitlements; sourceTree = "<group>"; };
 		71230B5F25845C9200B78C9C /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		71295AD0259375A90077CD0A /* DailyWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWordViewController.swift; sourceTree = "<group>"; };
+		71295AD1259375A90077CD0A /* DailyWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyWordViewController.xib; sourceTree = "<group>"; };
+		71295AD72593785F0077CD0A /* DailyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
+		71295AD82593785F0077CD0A /* DailyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyTableViewCell.xib; sourceTree = "<group>"; };
 		712F4FC3258DA28000F7AE29 /* ProgressBarMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarMaker.swift; sourceTree = "<group>"; };
 		713361C2258B8E5F00FEEB43 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		713361C8258C45B500FEEB43 /* AddNewWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordView.swift; sourceTree = "<group>"; };
@@ -337,6 +345,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		71295AD6259378280077CD0A /* DailyWord */ = {
+			isa = PBXGroup;
+			children = (
+				71295AD72593785F0077CD0A /* DailyTableViewCell.swift */,
+				71295AD82593785F0077CD0A /* DailyTableViewCell.xib */,
+			);
+			path = DailyWord;
+			sourceTree = "<group>";
+		};
 		713361C1258B8E5300FEEB43 /* Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +435,7 @@
 				71F8DDA5257C73C600507D8F /* Search */,
 				7160B71825725558007F7C90 /* Definition Header */,
 				713488832574954F007ADED3 /* Definition */,
+				71295AD6259378280077CD0A /* DailyWord */,
 				716CD319257503A700695A91 /* SidePanel */,
 				716CD324257522EF00695A91 /* SidePanel Header */,
 				71A84A892576379400E0C14D /* Favorite */,
@@ -628,6 +646,22 @@
 			path = Lotties;
 			sourceTree = "<group>";
 		};
+		71B046DC25936B3C001F84DE /* DailyWord */ = {
+			isa = PBXGroup;
+			children = (
+				71295AD1259375A90077CD0A /* DailyWordViewController.xib */,
+			);
+			path = DailyWord;
+			sourceTree = "<group>";
+		};
+		71B046DE25937217001F84DE /* DailyWord */ = {
+			isa = PBXGroup;
+			children = (
+				71295AD0259375A90077CD0A /* DailyWordViewController.swift */,
+			);
+			path = DailyWord;
+			sourceTree = "<group>";
+		};
 		71C0B7E4258CA64E00DDD82A /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,6 +743,7 @@
 				716A8D6725778AAA005C5782 /* Report */,
 				71055A8F2584289500560C5D /* Rank */,
 				710574D8258A1093004556DF /* User */,
+				71B046DC25936B3C001F84DE /* DailyWord */,
 				71055A892584285B00560C5D /* Quiz */,
 			);
 			path = xibs;
@@ -741,6 +776,7 @@
 				71883B7F2578EF9F00170AC9 /* Quiz */,
 				710574BB2589FF1D004556DF /* User */,
 				716A8D6125778A85005C5782 /* Report */,
+				71B046DE25937217001F84DE /* DailyWord */,
 			);
 			name = Controller;
 			path = MandarinUrbanDictionary/Controller;
@@ -961,9 +997,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				716CD3122574F80500695A91 /* SidePanelViewController.xib in Resources */,
+				71295AD3259375A90077CD0A /* DailyWordViewController.xib in Resources */,
 				710574BF2589FF90004556DF /* UserViewController.xib in Resources */,
 				7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */,
 				7152EADD2575E94A00F1C5FB /* AddNewWordViewController.xib in Resources */,
+				71295ADA2593785F0077CD0A /* DailyTableViewCell.xib in Resources */,
 				71883B7D2578D6F300170AC9 /* RankTableViewCell.xib in Resources */,
 				71E81EB12584BB5D00BECDCC /* TheNewestWordTableViewCell.xib in Resources */,
 				7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */,
@@ -1080,6 +1118,7 @@
 				718D6B8A2579D92400663CAD /* Box.swift in Sources */,
 				716CC8C1257B6C1D0059F315 /* UITextView+Extension.swift in Sources */,
 				713361C3258B8E5F00FEEB43 /* Request.swift in Sources */,
+				71295AD92593785F0077CD0A /* DailyTableViewCell.swift in Sources */,
 				7120E01B257225CF00A56E7E /* UISearchBar+Extension.swift in Sources */,
 				7158CE76259306CE008E9727 /* FavoriteManager.swift in Sources */,
 				71E9295D2584F8FF001FB100 /* LobbyTableHeaderView.swift in Sources */,
@@ -1100,6 +1139,7 @@
 				718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */,
 				712F4FC4258DA28000F7AE29 /* ProgressBarMaker.swift in Sources */,
 				716A8D5D25777040005C5782 /* ImageConstant.swift in Sources */,
+				71295AD2259375A90077CD0A /* DailyWordViewController.swift in Sources */,
 				716A8D6425778AA3005C5782 /* ReportViewController.swift in Sources */,
 				7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */,
 				71D3E6F5258B25FA0064693C /* RandomWordTableViewCell.swift in Sources */,

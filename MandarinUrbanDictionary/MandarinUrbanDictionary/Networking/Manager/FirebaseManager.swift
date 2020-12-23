@@ -226,7 +226,7 @@ class FirebaseManager {
                 completion(.failure(.noData(error)))
                 
             } else {
-                    if let data = try? querySnapshot?.data(as: T.self, decoder: Firestore.Decoder()) {
+                if let data = try? querySnapshot?.data(as: T.self, decoder: Firestore.Decoder()) {
                     completion(.success(data))
                     } else {
                         completion(.failure(.decodeError))

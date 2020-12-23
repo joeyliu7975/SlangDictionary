@@ -13,6 +13,8 @@ class FavoriteViewModel {
     
     var myList = [String]()
     
+    var checkList = [String]()
+    
     var dic = [String: Word]()
     
     var user: User? {
@@ -32,16 +34,24 @@ class FavoriteViewModel {
                     guard let id = user.favorites.popLast() else { return }
                     
                     myList.append(id)
+                    // TEST
+                    checkList.append(id)
                     
-                    networkManager.retrieveWord(id: id) { (result: Result<Word, NetworkError>) in
+                    networkManager.retrieveWord(id: id) { (result: Result< Word, NetworkError>) in
                         switch result {
                         case .success(let word):
                            
                             self.dic[id] = word
                             
-                            if user.favorites.isEmpty {
+                            self.checkList.removeLast()
+                            
+                            if self.checkList.isEmpty {
                                 self.orderWords()
                             }
+                            
+//                            if user.favorites.isEmpty {
+//                                self.orderWords()
+//                            }
                             
                         case .failure(.noData(let error)):
                             
@@ -63,6 +73,8 @@ class FavoriteViewModel {
                     
                     guard let id = user.recents.popLast() else { return }
                     
+                    checkList.append(id)
+                    
                     myList.append(id)
                     
                     networkManager.retrieveWord(id: id) { (result: Result<Word, NetworkError>) in
@@ -71,7 +83,9 @@ class FavoriteViewModel {
                             
                             self.dic[id] = word
                             
-                            if user.recents.isEmpty {
+                            self.checkList.removeLast()
+                            
+                            if self.checkList.isEmpty {
                                 self.orderWords()
                             }
                             
@@ -157,9 +171,11 @@ class FavoriteViewModel {
             case .favorite:
                 
                 fieldName = "favorite_words"
+                
             case .recent:
                 
                 fieldName = "recent_search"
+                
             }
         
             words.forEach {
@@ -170,7 +186,6 @@ class FavoriteViewModel {
             
             completion()
         }
-        
     }
     
     // MARK Local 操作
@@ -243,6 +258,8 @@ class FavoriteViewModel {
 extension FavoriteViewModel {
     func reset() {
         self.myList.removeAll()
+        
+        self.checkList.removeAll()
         
         self.dic.removeAll()
         

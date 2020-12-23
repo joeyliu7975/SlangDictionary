@@ -224,7 +224,7 @@ extension SearchPageViewController: UISearchBarDelegate {
             return false
         }
         
-        if let range = text.rangeOfCharacter(from: validString as CharacterSet) {
+        if let _ = text.rangeOfCharacter(from: validString as CharacterSet) {
             
             return false
         }

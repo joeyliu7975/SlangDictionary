@@ -79,6 +79,7 @@
 		71A84A8D257637B600E0C14D /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A84A8B257637B600E0C14D /* FavoriteTableViewCell.xib */; };
 		71A84A912576802900E0C14D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A902576802900E0C14D /* Category.swift */; };
 		71A84A96257689B000E0C14D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A95257689B000E0C14D /* CardView.swift */; };
+		71B046D825934F93001F84DE /* loading_Lotties.json in Resources */ = {isa = PBXBuildFile; fileRef = 71B046D725934F93001F84DE /* loading_Lotties.json */; };
 		71C0B7E7258CA66B00DDD82A /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C0B7E5258CA66B00DDD82A /* UserTableViewCell.swift */; };
 		71C0B7E8258CA66B00DDD82A /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C0B7E6258CA66B00DDD82A /* UserTableViewCell.xib */; };
 		71C3D5AB257E29DB00636BC4 /* NewDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */; };
@@ -196,6 +197,7 @@
 		71A84A8B257637B600E0C14D /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		71A84A902576802900E0C14D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		71A84A95257689B000E0C14D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		71B046D725934F93001F84DE /* loading_Lotties.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_Lotties.json; sourceTree = "<group>"; };
 		71C0B7E5258CA66B00DDD82A /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		71C0B7E6258CA66B00DDD82A /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDefinitionViewController.swift; sourceTree = "<group>"; };
@@ -341,13 +343,6 @@
 				713361C2258B8E5F00FEEB43 /* Request.swift */,
 			);
 			path = Request;
-			sourceTree = "<group>";
-		};
-		713361C6258C44E600FEEB43 /* Lobby */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Lobby;
 			sourceTree = "<group>";
 		};
 		713361C7258C452800FEEB43 /* NewWord */ = {
@@ -541,6 +536,7 @@
 		7175694A2570D0F000417B9C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				71B046C025933DE0001F84DE /* Lotties */,
 				7175692D2570CFD600417B9C /* LaunchScreen.storyboard */,
 				71554E76258D920F00A5B77F /* GoogleService-Info.plist */,
 				717569302570CFD600417B9C /* Info.plist */,
@@ -624,6 +620,14 @@
 			path = Favorite;
 			sourceTree = "<group>";
 		};
+		71B046C025933DE0001F84DE /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				71B046D725934F93001F84DE /* loading_Lotties.json */,
+			);
+			path = Lotties;
+			sourceTree = "<group>";
+		};
 		71C0B7E4258CA64E00DDD82A /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -683,7 +687,6 @@
 			isa = PBXGroup;
 			children = (
 				71CE92152579C1FF0080E0A0 /* Base */,
-				713361C6258C44E600FEEB43 /* Lobby */,
 				713361C7258C452800FEEB43 /* NewWord */,
 				71E7F3312570D67900F15098 /* CollectionViewCell */,
 				7160B713257254D8007F7C90 /* TableViewCell */,
@@ -970,6 +973,7 @@
 				7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */,
 				71E929612584FB23001FB100 /* LobbyTableHeaderView.xib in Resources */,
 				71055A95258428A300560C5D /* LoginViewController.xib in Resources */,
+				71B046D825934F93001F84DE /* loading_Lotties.json in Resources */,
 				71E929582584E0EE001FB100 /* TopFiveCollectionViewCell.xib in Resources */,
 				71D3E6F6258B25FA0064693C /* RandomWordTableViewCell.xib in Resources */,
 				71E81EAA2584BAD600BECDCC /* LobbyViewController.xib in Resources */,

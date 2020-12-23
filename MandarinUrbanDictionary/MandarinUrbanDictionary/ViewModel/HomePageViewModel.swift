@@ -68,7 +68,7 @@ class HomePageViewModel {
         }
     }
     
-    func handle<T: Codable>(_ res: Result<[T], NetworkError>) {
+    func handle<T: Codable>(_ res: Result<[T], NetworkError>, completion: @escaping () -> Void?) {
         switch res {
         
         case .success(let data):
@@ -83,6 +83,8 @@ class HomePageViewModel {
                     self.dailyWord = dailyWords.first
                     
                     self.wordViewModels.value = words
+                    
+                    completion()
                 }
             }
             

@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import AuthenticationServices
 import CryptoKit
+import Lottie
 
 class LoginViewController: UIViewController {
     
@@ -19,6 +20,25 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var appleLoginView: UIView!
             
     fileprivate var currentNonce: String?
+    
+    lazy var animationView: UIView = {
+        
+       var animationView = AnimationView()
+        
+        animationView = .init(name: "loading_Lotties")
+        
+        animationView.frame = self.navigationController?.view.bounds ?? view.bounds
+        
+        animationView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        
+        animationView.contentMode = .scaleAspectFit
+        
+        animationView.loopMode = .loop
+        
+        animationView.play()
+        
+        return animationView
+    }()
     
     private let notificationManager: NotificationCenterManager = .init()
     
@@ -141,6 +161,9 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             let credential = OAuthProvider.credential(withProviderID: "apple.com",
                                                       idToken: idTokenString,
                                                       rawNonce: nonce)
+            
+            view.addSubview(animationView)
+            
             Auth.auth().signIn(with: credential) { (authResult, error) in
                 if (error != nil) {
                   

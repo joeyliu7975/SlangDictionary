@@ -7,12 +7,30 @@
 
 import UIKit
 import Hero
+import Lottie
 
 class LobbyViewController: JoeyPanelViewController {
     
     @IBOutlet weak var writeNewButtonView: NewPostButtonView!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    lazy var animationView: UIView = {
+        
+       var animationView = AnimationView()
+        
+        animationView = .init(name: "loading_Lotties")
+        
+        animationView.frame = self.navigationController?.view.bounds ?? view.bounds
+        
+        animationView.contentMode = .scaleAspectFit
+        
+        animationView.loopMode = .loop
+        
+        animationView.play()
+        
+        return animationView
+    }()
     
     private lazy var searchBar: UISearchBar = {
         
@@ -71,6 +89,10 @@ extension LobbyViewController: NotificationSchedule {
 private extension LobbyViewController {
     
     func setup() {
+        
+        UserDefaults.standard.setValue(false, forKey: UserDefaults.keyForLoginStatus)
+        
+        UserDefaults.standard.setValue(nil, forKey: "uid")
                 
         view.backgroundColor = .homepageDarkBlue
         
@@ -137,9 +159,14 @@ private extension LobbyViewController {
     }
     
     func listen() {
+        
+        view.addSubview(animationView)
+        
         viewModel.listen(env: .word, orderBy: .time) { [weak self] (result: Result<[Word], NetworkError>) in
             
-            self?.viewModel.handle(result)
+            self?.viewModel.handle(result, completion: { [weak self] in
+                self?.animationView.removeFromSuperview()
+            })
             
         }
     }

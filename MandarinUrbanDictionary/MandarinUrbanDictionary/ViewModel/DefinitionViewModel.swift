@@ -18,6 +18,8 @@ class DefinitionViewModel {
         
     let word: DefinitionViewModel.Word
     
+    var reportedDefinition: String?
+    
     private var uid: String {
         return UserDefaults.standard.string(forKey: "uid") ?? ""
     }
@@ -157,6 +159,17 @@ class DefinitionViewModel {
         synthesizer.speak(utterance)
     }
 }
+
+// Report
+extension DefinitionViewModel {
+    func report(id: String, reason: String) {
+        let report = Report(uid: uid, id: id, reason: reason)
+        
+        networkManager.report(report)
+    }
+}
+
+
 // Observe Definition Collection
 extension DefinitionViewModel {
     func listenDefinitions<T: Codable>(completion: @escaping (Result<[T], NetworkError>) -> Void) {

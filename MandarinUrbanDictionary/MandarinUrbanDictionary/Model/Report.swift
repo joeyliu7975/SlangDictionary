@@ -9,15 +9,17 @@ import Foundation
 
 struct Report: Codable {
     
-    let userIdentifierNumber: String
+    let uid: String
     
-    let time: FirebaseTime
+    let id: String
+    
+    let time: FirebaseTime = FirebaseTime()
     
     let reason: String
         
     enum CodingKeys: String, CodingKey {
         
-        case userIdentifierNumber, time, reason
+        case uid, time, reason, id
         
     }
 }
@@ -28,9 +30,10 @@ extension Report: FirebaseItem {
     
     var dictionary: Item {
         return [
-            "userIdentifierNumber": userIdentifierNumber,
+            "uid": uid,
             "time": time,
-            "reason": reason
+            "reason": reason,
+            "id": id
         ]
     }
     

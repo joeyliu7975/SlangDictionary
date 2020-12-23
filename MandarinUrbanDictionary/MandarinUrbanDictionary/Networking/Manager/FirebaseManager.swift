@@ -275,6 +275,15 @@ class FirebaseManager {
         }
     }
 }
+// Report
+extension FirebaseManager {
+    func report(_ report: Report) {
+        
+        let db = adapted(.definition)
+        
+        db.document(report.id).collection("Report").document(report.uid).setData(report.dictionary)
+    }
+}
 
 extension FirebaseManager {
     private func adapted(_ env: Environment) -> CollectionReference {

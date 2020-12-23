@@ -147,6 +147,8 @@ private extension DefinitionViewController {
                 // Call API Here...
                 let reportVC = ReportViewController()
                 
+                reportVC.delegate = self
+                
                 let nav = UINavigationController(rootViewController: reportVC)
                 
                 nav.modalPresentationStyle = .fullScreen
@@ -287,13 +289,15 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
     
     func report(_ cell: DefinitionTableViewCell) {
         
-        if let _ = tableView.indexPath(for: cell) {
+        if let indexPath = tableView.indexPath(for: cell) {
             
-            //            let index = indexPath.row
+            let index = indexPath.row
             
-            //            let reportedDefinition = viewModel.definitions[index]
-            
-            showAlert()
+            if let reportedDefinition = viewModel?.definitionViewModels.value[index] {
+                viewModel?.reportedDefinition = reportedDefinition.identifier
+                
+                showAlert()
+            }
         }
     }
     
@@ -309,13 +313,17 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
 
 extension DefinitionViewController: ReportDelegate {
     
-    func sendReport(_ isReport: Bool) {
+    func sendReport(_ isReport: Bool, reason: String?) {
         
         switch isReport {
         
         case true:
-            // Do something
-            break
+            guard
+                let defid = viewModel?.reportedDefinition,
+                let reason = reason else { return }
+            
+            viewModel?.report(id: defid, reason: reason)
+            
         case false:
             // Do nothing
             break

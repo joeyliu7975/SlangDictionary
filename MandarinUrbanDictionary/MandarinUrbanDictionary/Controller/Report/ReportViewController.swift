@@ -9,7 +9,7 @@ import UIKit
 
 protocol ReportDelegate: class {
     
-    func sendReport(_ isReport: Bool)
+    func sendReport(_ isReport: Bool, reason: String?)
     
 }
 
@@ -30,9 +30,9 @@ class ReportViewController: UIViewController {
     lazy var placeholderLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 10, y: 6, width: 280, height: 28))
         
-        label.text = "請問告訴我們為何檢舉此則解釋..."
+        label.text = "請問讓我們了解為何檢舉此解釋"
         
-        label.font = UIFont(name: "PingFang SC", size: 22)
+        label.font = UIFont(name: "PingFang SC", size: 20)
         
         label.textColor = .gray
         
@@ -62,11 +62,11 @@ class ReportViewController: UIViewController {
         
         case sendButton:
             
-            delegate?.sendReport(true)
+            delegate?.sendReport(true, reason: textView.text)
             
         case cancelButton:
             
-            delegate?.sendReport(false)
+            delegate?.sendReport(false, reason: textView.text)
             
         default:
             
@@ -90,14 +90,6 @@ extension ReportViewController: UITextViewDelegate {
             placeholderLabel.isHidden = true
             sendButton.isEnabled = true
         }
-//
-//        if !textView.text.isEmpty {
-//            placeholderLabel.isHidden = true
-//            sendButton.isEnabled = true
-//        } else {
-//            placeholderLabel.isHidden = false
-//            sendButton.isEnabled = false
-//        }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -108,7 +100,7 @@ extension ReportViewController: UITextViewDelegate {
             return false
         }
         
-        if let range = text.rangeOfCharacter(from: validString as CharacterSet) {
+        if let _ = text.rangeOfCharacter(from: validString as CharacterSet) {
             
             return false
         }
@@ -125,7 +117,7 @@ extension ReportViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
     }
-    //Adding this outside viewDidLoad
+    
     @objc func keyboardWillShow(notification: NSNotification){
         
         textViewHeightAnchor.constant = textFieldFullHeight
@@ -136,7 +128,7 @@ extension ReportViewController {
         
         let keybardFrame = keyboardSize.cgRectValue
         
-        let textFieldHalfHeight = textViewHeightAnchor.constant - (navigationController?.navigationBar.frame.height ?? 0) - keybardFrame.height - 100
+        let textFieldHalfHeight = textViewHeightAnchor.constant - (navigationController?.navigationBar.frame.height ?? 0) - keybardFrame.height
         
         textViewHeightAnchor.constant = textFieldHalfHeight
     }

@@ -65,6 +65,7 @@ class FavoriteManager<T> {
 }
 
 extension FavoriteManager {
+    
     enum ListType: String {
         case favorite = "我的最愛"
         case recent = "歷史紀錄"

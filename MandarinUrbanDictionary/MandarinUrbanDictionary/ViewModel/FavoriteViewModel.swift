@@ -11,20 +11,17 @@ class FavoriteViewModel {
     
     var title: String
     
-    var myList = [String]()
-    
-    var checkList = [String]()
-    
-    var dic = [String: Word]()
+    var favoriteManager = FavoriteManager<Word>()
     
     var user: User? {
         
         didSet {
             guard var user = user else { return }
             
-            let type = ListType.getType(with: title)
-            
+            let type = favoriteManager.getType(with: title)
+                        
             switch type {
+            
             case .favorite:
                 
                 if user.favorites.isEmpty { return }
@@ -33,25 +30,19 @@ class FavoriteViewModel {
                     
                     guard let id = user.favorites.popLast() else { return }
                     
-                    myList.append(id)
-                    // TEST
-                    checkList.append(id)
+                    favoriteManager.append(id: id)
                     
                     networkManager.retrieveWord(id: id) { (result: Result< Word, NetworkError>) in
                         switch result {
                         case .success(let word):
                            
-                            self.dic[id] = word
+                            self.favoriteManager.add(key: id, value: word)
                             
-                            self.checkList.removeLast()
-                            
-                            if self.checkList.isEmpty {
+                            self.favoriteManager.removeLastPending()
+                                                        
+                            if self.favoriteManager.pendingsIsEmpty {
                                 self.orderWords()
                             }
-                            
-//                            if user.favorites.isEmpty {
-//                                self.orderWords()
-//                            }
                             
                         case .failure(.noData(let error)):
                             
@@ -73,19 +64,17 @@ class FavoriteViewModel {
                     
                     guard let id = user.recents.popLast() else { return }
                     
-                    checkList.append(id)
-                    
-                    myList.append(id)
+                    favoriteManager.append(id: id)
                     
                     networkManager.retrieveWord(id: id) { (result: Result<Word, NetworkError>) in
                         switch result {
                         case .success(let word):
                             
-                            self.dic[id] = word
+                            self.favoriteManager.add(key: id, value: word)
                             
-                            self.checkList.removeLast()
+                            self.favoriteManager.removeLastPending()
                             
-                            if self.checkList.isEmpty {
+                            if  self.favoriteManager.pendingsIsEmpty {
                                 self.orderWords()
                             }
                             
@@ -165,18 +154,9 @@ class FavoriteViewModel {
         
         if let user = user {
             
-            let type = ListType.getType(with: title)
+            let type = favoriteManager.getType(with: title)
             
-            switch type {
-            case .favorite:
-                
-                fieldName = "favorite_words"
-                
-            case .recent:
-                
-                fieldName = "recent_search"
-                
-            }
+            fieldName = type.getName()
         
             words.forEach {
                 
@@ -243,13 +223,7 @@ class FavoriteViewModel {
     
     func orderWords() {
         
-        var words = [Word]()
-        
-        for id in myList {
-            guard let word = dic[id] else { return }
-            
-            words.append(word)
-        }
+        let words = favoriteManager.organizeWords()
         
         favoriteViewModels.value = words
     }
@@ -257,25 +231,9 @@ class FavoriteViewModel {
 
 extension FavoriteViewModel {
     func reset() {
-        self.myList.removeAll()
         
-        self.checkList.removeAll()
-        
-        self.dic.removeAll()
+        favoriteManager.reset()
         
         self.user = nil
     }
-}
-
-extension FavoriteViewModel {
-    
-    enum ListType: String {
-        case favorite = "我的最愛"
-        case recent = "歷史紀錄"
-        
-        static func getType(with title: String) -> ListType {
-            return ListType(rawValue: title) ?? .recent
-        }
-    }
-    
 }

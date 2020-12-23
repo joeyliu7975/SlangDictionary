@@ -37,6 +37,7 @@
 		7152EADC2575E94A00F1C5FB /* AddNewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7152EADA2575E94A00F1C5FB /* AddNewWordViewController.swift */; };
 		7152EADD2575E94A00F1C5FB /* AddNewWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7152EADB2575E94A00F1C5FB /* AddNewWordViewController.xib */; };
 		71554E77258D920F00A5B77F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71554E76258D920F00A5B77F /* GoogleService-Info.plist */; };
+		7158CE76259306CE008E9727 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7158CE75259306CE008E9727 /* FavoriteManager.swift */; };
 		7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71025725359007F7C90 /* UITableView+Extension.swift */; };
 		7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71425725532007F7C90 /* DefinitionHeaderView.swift */; };
 		7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7160B71925725572007F7C90 /* DefinitionHeaderView.xib */; };
@@ -151,6 +152,7 @@
 		7152EADA2575E94A00F1C5FB /* AddNewWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordViewController.swift; sourceTree = "<group>"; };
 		7152EADB2575E94A00F1C5FB /* AddNewWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewWordViewController.xib; sourceTree = "<group>"; };
 		71554E76258D920F00A5B77F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7158CE75259306CE008E9727 /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
 		7160B71025725359007F7C90 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		7160B71425725532007F7C90 /* DefinitionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionHeaderView.swift; sourceTree = "<group>"; };
 		7160B71925725572007F7C90 /* DefinitionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionHeaderView.xib; sourceTree = "<group>"; };
@@ -777,6 +779,7 @@
 				71811DEB2576DC66005319DA /* SidePanel.swift */,
 				71D83CA0258B540000BC8D21 /* DailyWord.swift */,
 				716A8D5C25777040005C5782 /* ImageConstant.swift */,
+				7158CE75259306CE008E9727 /* FavoriteManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1074,6 +1077,7 @@
 				716CC8C1257B6C1D0059F315 /* UITextView+Extension.swift in Sources */,
 				713361C3258B8E5F00FEEB43 /* Request.swift in Sources */,
 				7120E01B257225CF00A56E7E /* UISearchBar+Extension.swift in Sources */,
+				7158CE76259306CE008E9727 /* FavoriteManager.swift in Sources */,
 				71E9295D2584F8FF001FB100 /* LobbyTableHeaderView.swift in Sources */,
 				716A8D6A2577A880005C5782 /* Report.swift in Sources */,
 				716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */,

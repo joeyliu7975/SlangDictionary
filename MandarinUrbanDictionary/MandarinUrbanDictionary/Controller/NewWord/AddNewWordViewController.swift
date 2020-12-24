@@ -15,27 +15,35 @@ class AddNewWordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setup()
         
         setupAddNewWordView()
-                
+        
         viewModelBinding()
         
     }
 }
 
 extension AddNewWordViewController: UITextFieldDelegate {
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         checkFormValidation()
         
     }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
         
+        if textField.markedTextRange == nil && (textField.text?.count ?? 0) > 9 {
+            textField.text = String(textField.text?.prefix(9) ?? "")
+        }
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let validString = NSCharacterSet.newWordTextField
-
+        
         if (textField.textInputMode?.primaryLanguage == "emoji") || textField.textInputMode?.primaryLanguage == nil {
             return false
         }
@@ -44,7 +52,11 @@ extension AddNewWordViewController: UITextFieldDelegate {
             
             return false
         }
-
+        
+        if (textField.text?.count ?? 0) >= 9 && range.length == 0 && textField.markedTextRange == nil {
+            return false
+        }
+        
         return true
     }
 }
@@ -107,7 +119,7 @@ extension AddNewWordViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         let name = viewModel.categoryName(at: row)
-
+        
         return name
     }
 }
@@ -142,7 +154,9 @@ private extension AddNewWordViewController {
     func setup() {
         
         navigationItem.setBarAppearance(with: .separatorlineBlue)
-
+        
+        addNewWordView.newWordTF.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        
     }
     
     func setupAddNewWordView() {
@@ -167,13 +181,13 @@ private extension AddNewWordViewController {
     func viewModelBinding() {
         
         viewModel.updateStatus = { [weak self] (isValid) in
-
+            
             guard let addNewWordView = self?.addNewWordView else { return }
             
             addNewWordView.sendButton.backgroundColor = isValid ? .white : .lightGray
-
+            
             addNewWordView.sendButton.isEnabled = isValid
-
+            
         }
         
     }

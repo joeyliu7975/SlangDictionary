@@ -7,9 +7,3 @@
 
 import UIKit
 
-extension UITextFieldDelegate {
-    
-    func textFieldDidChange(_ textField: UITextField) {
-        
-    }
-}

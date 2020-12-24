@@ -37,7 +37,7 @@ struct ImageConstant {
         
     static let personalSlang = "measuring_tape"
     
-    static let nest = "nest"
+    static let goal = "goal"
     
     static let puzzle = "puzzle"
     

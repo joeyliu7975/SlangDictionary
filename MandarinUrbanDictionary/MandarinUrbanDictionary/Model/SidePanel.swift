@@ -29,7 +29,7 @@ enum SidePanel: String, CaseIterable {
     
     case quiz = "挑戰"
     
-    case user = "用戶"
+    case achievement = "成就"
     
 }
 
@@ -91,11 +91,11 @@ extension SidePanel: IconFactory {
                 image: ImageConstant.puzzle
             )
             
-        case .user:
+        case .achievement:
             
             return Instance(
                 name: rawValue,
-                image: ImageConstant.nest
+                image: ImageConstant.goal
             )
             
         }

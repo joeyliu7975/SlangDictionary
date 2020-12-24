@@ -11,8 +11,8 @@
 		71055A912584289500560C5D /* RankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71055A902584289500560C5D /* RankViewController.xib */; };
 		71055A95258428A300560C5D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71055A94258428A300560C5D /* LoginViewController.xib */; };
 		710574B92589E771004556DF /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710574B82589E771004556DF /* UIButton+Extension.swift */; };
-		710574BE2589FF90004556DF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710574BC2589FF90004556DF /* UserViewController.swift */; };
-		710574BF2589FF90004556DF /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710574BD2589FF90004556DF /* UserViewController.xib */; };
+		710574BE2589FF90004556DF /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710574BC2589FF90004556DF /* AchievementViewController.swift */; };
+		710574BF2589FF90004556DF /* AchievementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710574BD2589FF90004556DF /* AchievementViewController.xib */; };
 		710574F1258A16FD004556DF /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710574F0258A16FD004556DF /* UserViewModel.swift */; };
 		7119AA2D257B73DE00A7F513 /* AddNewWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */; };
 		7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E0052570F65D00A56E7E /* SearchPageViewController.swift */; };
@@ -86,8 +86,8 @@
 		71A84A912576802900E0C14D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A902576802900E0C14D /* Category.swift */; };
 		71A84A96257689B000E0C14D /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A95257689B000E0C14D /* CardView.swift */; };
 		71B046D825934F93001F84DE /* loading_Lotties.json in Resources */ = {isa = PBXBuildFile; fileRef = 71B046D725934F93001F84DE /* loading_Lotties.json */; };
-		71C0B7E7258CA66B00DDD82A /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C0B7E5258CA66B00DDD82A /* UserTableViewCell.swift */; };
-		71C0B7E8258CA66B00DDD82A /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C0B7E6258CA66B00DDD82A /* UserTableViewCell.xib */; };
+		71C0B7E7258CA66B00DDD82A /* AchievementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C0B7E5258CA66B00DDD82A /* AchievementTableViewCell.swift */; };
+		71C0B7E8258CA66B00DDD82A /* AchievementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C0B7E6258CA66B00DDD82A /* AchievementTableViewCell.xib */; };
 		71C3D5AB257E29DB00636BC4 /* NewDefinitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */; };
 		71C3D5AC257E29DB00636BC4 /* NewDefinitionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C3D5AA257E29DB00636BC4 /* NewDefinitionViewController.xib */; };
 		71C3D5AF2580666D00636BC4 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */; };
@@ -133,8 +133,8 @@
 		71055A902584289500560C5D /* RankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankViewController.xib; sourceTree = "<group>"; };
 		71055A94258428A300560C5D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		710574B82589E771004556DF /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
-		710574BC2589FF90004556DF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		710574BD2589FF90004556DF /* UserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
+		710574BC2589FF90004556DF /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
+		710574BD2589FF90004556DF /* AchievementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementViewController.xib; sourceTree = "<group>"; };
 		710574F0258A16FD004556DF /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordViewModel.swift; sourceTree = "<group>"; };
 		7120E0052570F65D00A56E7E /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
@@ -211,8 +211,8 @@
 		71A84A902576802900E0C14D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		71A84A95257689B000E0C14D /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		71B046D725934F93001F84DE /* loading_Lotties.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_Lotties.json; sourceTree = "<group>"; };
-		71C0B7E5258CA66B00DDD82A /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
-		71C0B7E6258CA66B00DDD82A /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		71C0B7E5258CA66B00DDD82A /* AchievementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementTableViewCell.swift; sourceTree = "<group>"; };
+		71C0B7E6258CA66B00DDD82A /* AchievementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementTableViewCell.xib; sourceTree = "<group>"; };
 		71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDefinitionViewController.swift; sourceTree = "<group>"; };
 		71C3D5AA257E29DB00636BC4 /* NewDefinitionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDefinitionViewController.xib; sourceTree = "<group>"; };
 		71C3D5AE2580666C00636BC4 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
@@ -301,20 +301,20 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		710574BB2589FF1D004556DF /* User */ = {
+		710574BB2589FF1D004556DF /* Achievement */ = {
 			isa = PBXGroup;
 			children = (
-				710574BC2589FF90004556DF /* UserViewController.swift */,
+				710574BC2589FF90004556DF /* AchievementViewController.swift */,
 			);
-			path = User;
+			path = Achievement;
 			sourceTree = "<group>";
 		};
-		710574D8258A1093004556DF /* User */ = {
+		710574D8258A1093004556DF /* Achievement */ = {
 			isa = PBXGroup;
 			children = (
-				710574BD2589FF90004556DF /* UserViewController.xib */,
+				710574BD2589FF90004556DF /* AchievementViewController.xib */,
 			);
-			path = User;
+			path = Achievement;
 			sourceTree = "<group>";
 		};
 		7105AF872575E9CD000C71B4 /* Definition */ = {
@@ -456,7 +456,7 @@
 				716CD324257522EF00695A91 /* SidePanel Header */,
 				71A84A892576379400E0C14D /* Favorite */,
 				71883B792578D6D200170AC9 /* Rank */,
-				71C0B7E4258CA64E00DDD82A /* User */,
+				71C0B7E4258CA64E00DDD82A /* Achievement */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -678,13 +678,13 @@
 			path = DailyWord;
 			sourceTree = "<group>";
 		};
-		71C0B7E4258CA64E00DDD82A /* User */ = {
+		71C0B7E4258CA64E00DDD82A /* Achievement */ = {
 			isa = PBXGroup;
 			children = (
-				71C0B7E5258CA66B00DDD82A /* UserTableViewCell.swift */,
-				71C0B7E6258CA66B00DDD82A /* UserTableViewCell.xib */,
+				71C0B7E5258CA66B00DDD82A /* AchievementTableViewCell.swift */,
+				71C0B7E6258CA66B00DDD82A /* AchievementTableViewCell.xib */,
 			);
-			path = User;
+			path = Achievement;
 			sourceTree = "<group>";
 		};
 		71C3D5A8257E29A600636BC4 /* New Definition */ = {
@@ -766,7 +766,7 @@
 				71A84A882576369600E0C14D /* Favorite */,
 				716A8D6725778AAA005C5782 /* Report */,
 				71055A8F2584289500560C5D /* Rank */,
-				710574D8258A1093004556DF /* User */,
+				710574D8258A1093004556DF /* Achievement */,
 				71B046DC25936B3C001F84DE /* DailyWord */,
 				71055A892584285B00560C5D /* Quiz */,
 			);
@@ -798,7 +798,7 @@
 				71A84A822576365000E0C14D /* Favorite */,
 				71F944292578C1380014808E /* Rank */,
 				71883B7F2578EF9F00170AC9 /* Quiz */,
-				710574BB2589FF1D004556DF /* User */,
+				710574BB2589FF1D004556DF /* Achievement */,
 				716A8D6125778A85005C5782 /* Report */,
 				71B046DE25937217001F84DE /* DailyWord */,
 			);
@@ -1023,7 +1023,7 @@
 			files = (
 				716CD3122574F80500695A91 /* SidePanelViewController.xib in Resources */,
 				71295AD3259375A90077CD0A /* DailyWordViewController.xib in Resources */,
-				710574BF2589FF90004556DF /* UserViewController.xib in Resources */,
+				710574BF2589FF90004556DF /* AchievementViewController.xib in Resources */,
 				7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */,
 				7152EADD2575E94A00F1C5FB /* AddNewWordViewController.xib in Resources */,
 				71295ADA2593785F0077CD0A /* DailyTableViewCell.xib in Resources */,
@@ -1031,7 +1031,7 @@
 				71E81EB12584BB5D00BECDCC /* TheNewestWordTableViewCell.xib in Resources */,
 				7134888725749582007ADED3 /* DefinitionTableViewCell.xib in Resources */,
 				7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */,
-				71C0B7E8258CA66B00DDD82A /* UserTableViewCell.xib in Resources */,
+				71C0B7E8258CA66B00DDD82A /* AchievementTableViewCell.xib in Resources */,
 				716CD3292575234100695A91 /* SidePanelHeaderFooterView.xib in Resources */,
 				7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */,
 				71E929612584FB23001FB100 /* LobbyTableHeaderView.xib in Resources */,
@@ -1178,7 +1178,7 @@
 				7152EADC2575E94A00F1C5FB /* AddNewWordViewController.swift in Sources */,
 				716A8D7125787A01005C5782 /* LoginViewController.swift in Sources */,
 				71295ADD2593985F0077CD0A /* DailyWordViewModel.swift in Sources */,
-				710574BE2589FF90004556DF /* UserViewController.swift in Sources */,
+				710574BE2589FF90004556DF /* AchievementViewController.swift in Sources */,
 				71883B822578EFBB00170AC9 /* QuizViewController.swift in Sources */,
 				7188ADED258480AE00524D96 /* RankViewModel.swift in Sources */,
 				71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */,
@@ -1196,7 +1196,7 @@
 				71A6C20D2586163800FC478D /* NSCharacterSet+Extension.swift in Sources */,
 				71F9442C2578C15E0014808E /* RankViewController.swift in Sources */,
 				71230B6025845C9200B78C9C /* UserDefaults+Extension.swift in Sources */,
-				71C0B7E7258CA66B00DDD82A /* UserTableViewCell.swift in Sources */,
+				71C0B7E7258CA66B00DDD82A /* AchievementTableViewCell.swift in Sources */,
 				71F8DDA8257C73E600507D8F /* SearchTableViewCell.swift in Sources */,
 				716CD30D2574F7A200695A91 /* ContainerViewController.swift in Sources */,
 				717569252570CFD300417B9C /* SceneDelegate.swift in Sources */,

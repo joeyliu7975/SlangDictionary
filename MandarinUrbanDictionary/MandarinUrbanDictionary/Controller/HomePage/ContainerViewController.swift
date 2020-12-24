@@ -246,11 +246,12 @@ extension ContainerViewController: LeftViewControllerDelegate {
                 }
             }
             
-        case .user:
+        case .achievement:
             
-            destinationVC = UserViewController()
+            destinationVC = AchievementViewController()
             
-            if let desVC = destinationVC as? UserViewController {
+            if let desVC = destinationVC as? AchievementViewController {
+                
                 desVC.clickSideMenu = {
                     self.toggleLeftPanel()
                 }

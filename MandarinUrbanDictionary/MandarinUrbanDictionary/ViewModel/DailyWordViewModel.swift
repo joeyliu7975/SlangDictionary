@@ -52,7 +52,10 @@ class DailyWordViewModel {
     }
     
     func handle<T: Codable>(_ datas: [T]) {
-        self.dailyData = (datas as? [DailyWord] ?? [])
+        
+        if let dailys = datas as? [DailyWord] {
+            self.dailyData  = dailys
+        }
         
         var copied:[T] = datas
         
@@ -65,7 +68,6 @@ class DailyWordViewModel {
             fetchWord(id: id)
             
             copied.removeFirst()
-            
         }
 
     }

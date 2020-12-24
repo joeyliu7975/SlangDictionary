@@ -16,7 +16,7 @@ class UserViewModel {
     var processList: [Challenge: Process] = [:]
     
     var currentUser = Box([User]())
-    
+        
     init(networkManager: FirebaseManager = .init()) {
         self.networkManager = networkManager
     }

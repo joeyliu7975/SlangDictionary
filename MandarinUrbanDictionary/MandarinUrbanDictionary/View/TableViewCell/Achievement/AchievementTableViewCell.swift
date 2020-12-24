@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol UserTableViewCellDelegate: class {
+protocol AchievementTableViewCellDelegate: class {
     func startChallenge(_ cell: UITableViewCell)
 }
 
-class UserTableViewCell: UITableViewCell {
+class AchievementTableViewCell: UITableViewCell {
     
-    static let reusableIdentifier = String(describing: UserTableViewCell.self)
+    static let reusableIdentifier = String(describing: AchievementTableViewCell.self)
     
-    weak var delegate: UserTableViewCellDelegate?
+    weak var delegate: AchievementTableViewCellDelegate?
     
     @IBOutlet weak var challengLabel: UILabel!
     
@@ -111,7 +111,7 @@ class UserTableViewCell: UITableViewCell {
     }
 }
 
-extension UserTableViewCell {
+extension AchievementTableViewCell {
 
     func drawDiscoveryTracker() {
         

@@ -7,11 +7,11 @@
 
 import UIKit
 
-class UserViewController: JoeyPanelViewController {
+class AchievementViewController: JoeyPanelViewController {
 
     @IBOutlet weak var tableView: UITableView!
         
-    private let viewModel: UserViewModel = .init()
+    let viewModel: UserViewModel = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class UserViewController: JoeyPanelViewController {
 
 }
 
-private extension UserViewController {
+private extension AchievementViewController {
     
     func setup() {
         
@@ -36,7 +36,7 @@ private extension UserViewController {
     }
     
     func setupTableView() {
-        tableView.registerCell(UserTableViewCell.reusableIdentifier)
+        tableView.registerCell(AchievementTableViewCell.reusableIdentifier)
         
         tableView.separatorStyle = .none
         
@@ -48,7 +48,7 @@ private extension UserViewController {
         
         removeBackButtonItem()
         
-        setBarAppearance(title: "用戶")
+        setBarAppearance(title: "成就")
         
         makeSideMenuButton()
         
@@ -86,7 +86,7 @@ private extension UserViewController {
     
 }
 
-extension UserViewController: UserTableViewCellDelegate {
+extension AchievementViewController: AchievementTableViewCellDelegate {
     
     func startChallenge(_ cell: UITableViewCell) {
         
@@ -105,14 +105,14 @@ extension UserViewController: UserTableViewCellDelegate {
     
 }
 
-extension UserViewController: UITableViewDelegate {
+extension AchievementViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return UIScreen.main.bounds.height * 0.5
     }
 }
 
-extension UserViewController: UITableViewDataSource {
+extension AchievementViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch viewModel.processList.isEmpty {
@@ -125,7 +125,7 @@ extension UserViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: UserTableViewCell = tableView.makeCell(indexPath: indexPath)
+        let cell: AchievementTableViewCell = tableView.makeCell(indexPath: indexPath)
         
         let challengeType = viewModel.challenges[indexPath.row]
         

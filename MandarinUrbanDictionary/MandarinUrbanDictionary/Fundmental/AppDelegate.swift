@@ -29,10 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         registerLocal()
         
-        scheduleLocal()
-        
-//        getNotificationSettings()
-        
         return true
     }
 
@@ -58,17 +54,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let token = tokenParts.joined()
         print("Device Token: \(token)")
     }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        pushNotification()
+        
+    }
 }
 
-extension AppDelegate: NotificationSchedule {
+extension AppDelegate {
     
     func registerLocal() {
         notificationManager.registerLocal()
     }
-
-    func scheduleLocal() {
+    
+    func pushNotification() {
         notificationManager.scheduleLocal()
     }
+    
 }
 
 extension AppDelegate {

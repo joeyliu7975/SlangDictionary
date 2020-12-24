@@ -64,27 +64,19 @@ class LobbyViewController: JoeyPanelViewController {
         
         setupNavigationController()
         
-//        registerLocal()
-//        
-//        scheduleLocal()
-        
         listen()
     
         viewModelBinding()
     }
 }
-//
-//extension LobbyViewController: NotificationSchedule {
-//    
-//    func registerLocal() {
-//        notificationManager.registerLocal()
-//    }
-//
-//    func scheduleLocal() {
-//        notificationManager.scheduleLocal()
-//    }
-//    
-//}
+
+extension LobbyViewController {
+
+    func scheduleLocal() {
+        notificationManager.scheduleLocal()
+    }
+    
+}
 
 private extension LobbyViewController {
     

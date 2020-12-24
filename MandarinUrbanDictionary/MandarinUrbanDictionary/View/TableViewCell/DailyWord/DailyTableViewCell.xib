@@ -18,11 +18,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMu-cJ-C1o" customClass="CardView" customModule="MandarinUrbanDictionary" customModuleProvider="target">
-                        <rect key="frame" x="30" y="30" width="398" height="60"/>
+                        <rect key="frame" x="30" y="43" width="398" height="62"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sds-fl-OiH">
-                                <rect key="frame" x="15" y="17.5" width="45.5" height="25.5"/>
-                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
+                                <rect key="frame" x="15" y="17" width="50.5" height="28"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -39,23 +39,24 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDH-zZ-Xhy">
-                        <rect key="frame" x="45" y="1" width="43" height="24"/>
-                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                        <rect key="frame" x="45" y="10" width="50.5" height="28"/>
+                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="UMu-cJ-C1o" secondAttribute="trailing" constant="30" id="6bd-Ya-l1g"/>
-                    <constraint firstItem="UMu-cJ-C1o" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="Q1m-Lo-D7g"/>
+                    <constraint firstItem="gDH-zZ-Xhy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="HOp-ex-ukA"/>
                     <constraint firstItem="UMu-cJ-C1o" firstAttribute="top" secondItem="gDH-zZ-Xhy" secondAttribute="bottom" constant="5" id="RCi-Km-jsm"/>
                     <constraint firstItem="gDH-zZ-Xhy" firstAttribute="leading" secondItem="Sds-fl-OiH" secondAttribute="leading" id="gyR-Vi-KXc"/>
                     <constraint firstItem="UMu-cJ-C1o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="n4a-qA-0iH"/>
-                    <constraint firstAttribute="bottom" secondItem="UMu-cJ-C1o" secondAttribute="bottom" constant="30" id="uVb-Bw-Shl"/>
+                    <constraint firstAttribute="bottom" secondItem="UMu-cJ-C1o" secondAttribute="bottom" constant="15" id="uVb-Bw-Shl"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="cardView" destination="UMu-cJ-C1o" id="tHu-Wm-7tG"/>
                 <outlet property="dateLabel" destination="gDH-zZ-Xhy" id="hpv-z6-Aj9"/>
                 <outlet property="wordLabel" destination="Sds-fl-OiH" id="JJo-0J-35A"/>
             </connections>

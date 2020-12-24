@@ -21,11 +21,11 @@
                         <rect key="frame" x="17" y="15" width="438" height="86"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBe-sl-kem">
-                                <rect key="frame" x="23" y="27.5" width="46" height="31"/>
+                                <rect key="frame" x="23" y="27.5" width="41.5" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="iv0-vD-6Mr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>

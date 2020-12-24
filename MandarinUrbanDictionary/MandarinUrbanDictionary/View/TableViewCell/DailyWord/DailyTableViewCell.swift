@@ -11,6 +11,8 @@ class DailyTableViewCell: UITableViewCell {
     
     static let reusableIdentifier = String(describing: DailyTableViewCell.self)
 
+    @IBOutlet weak var cardView: CardView!
+    
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var wordLabel: UILabel!
@@ -27,9 +29,12 @@ class DailyTableViewCell: UITableViewCell {
     }
     
     private func setup() {
-        dateLabel.textColor = .white
         
-        wordLabel.textColor = .cardViewBlue
+        cardView.backgroundColor = .cardViewBlue
+        
+        dateLabel.textColor = .cardViewBlue
+        
+        wordLabel.textColor = .white
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

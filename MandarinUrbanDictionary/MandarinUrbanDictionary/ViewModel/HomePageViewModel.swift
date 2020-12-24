@@ -114,7 +114,9 @@ class HomePageViewModel {
                         }
                     }
                     
-                    completion(datas.first!.id)
+                    if  !datas.isEmpty {
+                        completion(datas.first!.id)
+                    }
                 }
             }
         }

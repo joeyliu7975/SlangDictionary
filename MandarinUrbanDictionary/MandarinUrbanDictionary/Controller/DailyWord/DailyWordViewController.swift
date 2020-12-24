@@ -34,7 +34,7 @@ private extension DailyWordViewController {
         
         tableView.registerCell(DailyTableViewCell.reusableIdentifier)
         
-        tableView.backgroundColor = .cardViewBlue
+        tableView.backgroundColor = .white
         
         tableView.delegate = self
         
@@ -83,6 +83,14 @@ extension DailyWordViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120.0
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      let word = viewModel.dailyViewModels.value[indexPath.row]
+        
+        let definitionViewController = DefinitionViewController(identifierNumber: word.identifier, word: word.title, category: word.category)
+        
+        navigationController?.pushViewController(definitionViewController, animated: true)
+    }
 }
 
 extension DailyWordViewController: UITableViewDataSource {
@@ -95,7 +103,9 @@ extension DailyWordViewController: UITableViewDataSource {
         
         let word = viewModel.dailyViewModels.value[indexPath.row]
         
-        cell.dateLabel.text = word.time.timeStampToStringDetail()
+        let date = viewModel.dailyData[indexPath.row].time
+        
+        cell.dateLabel.text = date.timeStampToStringDetail()
         
         cell.wordLabel.text = word.title
         

@@ -17,6 +17,8 @@ class DailyWordViewModel {
     
     let dailyWordManager = DailyWordManager<Word>()
     
+    var dailyData: [DailyWord] = []
+    
     init(networkManager: FirebaseManager = .init()) {
         self.networkManager = networkManager
     }
@@ -30,6 +32,8 @@ class DailyWordViewModel {
                     completion(.failure(.noData(error)))
                     
                 } else {
+                    
+                    self.reset()
                     
                     var datas = [T]()
                     
@@ -48,19 +52,19 @@ class DailyWordViewModel {
     }
     
     func handle<T: Codable>(_ datas: [T]) {
+        self.dailyData = (datas as? [DailyWord] ?? [])
         
         var copied:[T] = datas
         
         while !copied.isEmpty {
             guard
-                var dailyWord = (copied as? [DailyWord]),
-                let id = dailyWord.popLast()?.id else { return }
-            
-            copied.removeLast()
+                let id = (copied as? [DailyWord])?.first?.id else { return }
             
             dailyWordManager.append(id: id)
             
             fetchWord(id: id)
+            
+            copied.removeFirst()
             
         }
 
@@ -99,5 +103,9 @@ extension DailyWordViewModel {
         let words = dailyWordManager.organizeWords()
         
         self.dailyViewModels.value = words
+    }
+    
+    func reset() {
+        dailyWordManager.reset()
     }
 }

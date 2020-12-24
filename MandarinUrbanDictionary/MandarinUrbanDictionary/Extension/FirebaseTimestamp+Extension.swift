@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-extension Timestamp: Equatable {
+extension Timestamp {
     
     func timeStampToStringDetail() -> String {
         let timeSta = self.dateValue()
@@ -16,8 +16,4 @@ extension Timestamp: Equatable {
         dfmatter.dateFormat="yyyy年MM月dd日"
         return dfmatter.string(from: timeSta)
       }
-    
-    func timeStampToDouble() {
-        
-    }
 }

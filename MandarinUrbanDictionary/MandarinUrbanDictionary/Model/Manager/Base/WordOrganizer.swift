@@ -41,7 +41,7 @@ extension WordOrganizer:Organizer {
         pendingList.removeLast()
     }
     
-    func organizeWords() -> [Value] {
+    func  organizeWords() -> [Value] {
         var words = [Value]()
         
         for id in orderList {

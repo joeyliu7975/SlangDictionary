@@ -12,9 +12,14 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     
-    @IBOutlet weak var buttonContainerView: UIView!
+    @IBOutlet weak var confirmButtonContainerView: UIView!
+    
+    @IBOutlet weak var cancelButtonContainerView: UIView!
+    
     
     @IBOutlet weak var confirmButton: UIButton!
+    
+    @IBOutlet weak var cancelButton: UIButton!
     
     weak var delegate: CategoryDelegate?
     
@@ -60,12 +65,16 @@ class CategoryViewController: UIViewController {
     
     @IBAction func confirmSelection(_ sender: UIButton) {
         
-        guard let selectedCategory = self.selectCategory else { return }
-        
-        delegate?.confirmSelection(selectedCategory)
+        switch sender {
+        case confirmButton:
+            guard let selectedCategory = self.selectCategory else { return }
+            
+            delegate?.confirmSelection(selectedCategory)
+        default:
+            delegate?.cancelSelection()
+        }
         
         self.dismiss(animated: true)
-        
     }
 }
 
@@ -74,7 +83,11 @@ private extension CategoryViewController {
         
         containerView.setCorner(radius: 20.0)
         
-        buttonContainerView.setCorner(radius: 10.0)
+        confirmButtonContainerView.setCorner(radius: 10.0)
+        
+        cancelButtonContainerView.setCorner(radius: 10.0)
+        
+        cancelButton.backgroundColor = .homepageDarkBlue
     }
     
     func setupCollectionView() {
@@ -90,14 +103,14 @@ private extension CategoryViewController {
     
     func disableButton() {
         
-        buttonContainerView.backgroundColor = .lightGray
+        confirmButtonContainerView.backgroundColor = .lightGray
         
         confirmButton.isEnabled = false
     }
     
     func enableButton() {
         
-        buttonContainerView.backgroundColor = .homepageDarkBlue
+        confirmButtonContainerView.backgroundColor = .homepageDarkBlue
         
         confirmButton.isEnabled = true
     }
@@ -151,4 +164,6 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
 
 protocol CategoryDelegate: class {
     func confirmSelection(_ selectedCategory: Category)
+    
+    func cancelSelection()
 }

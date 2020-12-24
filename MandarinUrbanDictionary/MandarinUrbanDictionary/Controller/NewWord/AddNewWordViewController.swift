@@ -142,7 +142,7 @@ private extension AddNewWordViewController {
     func setup() {
         
         navigationItem.setBarAppearance(with: .separatorlineBlue)
-        
+
     }
     
     func setupAddNewWordView() {

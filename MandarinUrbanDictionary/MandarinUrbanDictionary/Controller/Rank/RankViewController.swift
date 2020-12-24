@@ -66,6 +66,10 @@ extension RankViewController: CategoryDelegate {
         viewModel?.getCategory(selectedCategory)
 
     }
+    
+    func cancelSelection() {
+        viewModel?.getCategory(.all)
+    }
 }
 
 private extension RankViewController {

@@ -10,9 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryViewController" customModule="MandarinUrbanDictionary" customModuleProvider="target">
             <connections>
-                <outlet property="buttonContainerView" destination="Gik-Af-2H6" id="coK-rD-KLH"/>
+                <outlet property="cancelButton" destination="Dfp-3B-Db3" id="HNh-j2-z8B"/>
+                <outlet property="cancelButtonContainerView" destination="ieb-1J-9fl" id="JFv-g1-lfG"/>
                 <outlet property="categoryCollectionView" destination="DON-Cv-ZyY" id="OFC-uA-xmt"/>
                 <outlet property="confirmButton" destination="PPW-MR-scQ" id="rUe-yG-Uzt"/>
+                <outlet property="confirmButtonContainerView" destination="Gik-Af-2H6" id="coK-rD-KLH"/>
                 <outlet property="containerView" destination="c5I-tT-3md" id="o4E-3s-4DR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,10 +25,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5I-tT-3md">
-                    <rect key="frame" x="20" y="94" width="374" height="668"/>
+                    <rect key="frame" x="20" y="74" width="374" height="758"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DON-Cv-ZyY">
-                            <rect key="frame" x="15" y="10" width="344" height="598"/>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="DON-Cv-ZyY">
+                            <rect key="frame" x="15" y="10" width="344" height="628"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bst-SH-hic">
                                 <size key="itemSize" width="128" height="128"/>
@@ -36,12 +38,12 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gik-Af-2H6">
-                            <rect key="frame" x="137" y="618" width="100" height="40"/>
+                            <rect key="frame" x="137" y="648" width="100" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPW-MR-scQ">
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
                                     <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="18"/>
-                                    <state key="normal" title="Confirm">
+                                    <state key="normal" title="確認">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <connections>
@@ -59,10 +61,36 @@
                                 <constraint firstAttribute="bottom" secondItem="PPW-MR-scQ" secondAttribute="bottom" id="q4L-MM-YGx"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ieb-1J-9fl">
+                            <rect key="frame" x="137" y="703" width="100" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfp-3B-Db3">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                                    <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="18"/>
+                                    <state key="normal" title="取消">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="confirmSelection:" destination="-1" eventType="touchUpInside" id="jVR-Zp-eJZ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="MqC-5G-ATn"/>
+                                <constraint firstItem="Dfp-3B-Db3" firstAttribute="top" secondItem="ieb-1J-9fl" secondAttribute="top" id="Qh7-pd-1dp"/>
+                                <constraint firstAttribute="trailing" secondItem="Dfp-3B-Db3" secondAttribute="trailing" id="dvB-3m-5xZ"/>
+                                <constraint firstAttribute="bottom" secondItem="Dfp-3B-Db3" secondAttribute="bottom" id="fYE-fU-JV3"/>
+                                <constraint firstItem="Dfp-3B-Db3" firstAttribute="leading" secondItem="ieb-1J-9fl" secondAttribute="leading" id="jAf-Hz-Mbe"/>
+                                <constraint firstAttribute="width" constant="100" id="pcw-l6-PdU"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Gik-Af-2H6" secondAttribute="bottom" constant="10" id="bmv-Kx-2lS"/>
+                        <constraint firstItem="ieb-1J-9fl" firstAttribute="top" secondItem="Gik-Af-2H6" secondAttribute="bottom" constant="15" id="Vxu-RG-Jch"/>
+                        <constraint firstAttribute="bottom" secondItem="ieb-1J-9fl" secondAttribute="bottom" constant="15" id="WNG-0s-Uy3"/>
+                        <constraint firstItem="ieb-1J-9fl" firstAttribute="centerX" secondItem="c5I-tT-3md" secondAttribute="centerX" id="YLa-Mx-kya"/>
                         <constraint firstItem="DON-Cv-ZyY" firstAttribute="top" secondItem="c5I-tT-3md" secondAttribute="top" constant="10" id="dMa-5a-hcw"/>
                         <constraint firstItem="Gik-Af-2H6" firstAttribute="top" secondItem="DON-Cv-ZyY" secondAttribute="bottom" constant="10" id="lGa-nq-bcH"/>
                         <constraint firstItem="DON-Cv-ZyY" firstAttribute="leading" secondItem="c5I-tT-3md" secondAttribute="leading" constant="15" id="lwh-vH-tH1"/>
@@ -75,8 +103,8 @@
             <constraints>
                 <constraint firstItem="c5I-tT-3md" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="IXh-Bf-q1H"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="c5I-tT-3md" secondAttribute="trailing" constant="20" id="ZHM-Se-pC9"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="c5I-tT-3md" secondAttribute="bottom" constant="100" id="vHZ-3m-0Tp"/>
-                <constraint firstItem="c5I-tT-3md" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="vWc-7c-CEN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="c5I-tT-3md" secondAttribute="bottom" constant="30" id="vHZ-3m-0Tp"/>
+                <constraint firstItem="c5I-tT-3md" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="vWc-7c-CEN"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </view>

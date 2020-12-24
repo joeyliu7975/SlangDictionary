@@ -63,6 +63,8 @@ private extension ContainerViewController {
         
         centerNavigationController = UINavigationController(rootViewController: centerViewController)
         
+        centerNavigationController.navigationBar.shadowImage = UIImage()
+        
         view.addSubview(centerNavigationController.view)
         
         addChild(centerNavigationController)

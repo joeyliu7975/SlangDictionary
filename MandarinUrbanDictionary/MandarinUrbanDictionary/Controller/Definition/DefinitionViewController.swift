@@ -205,19 +205,12 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
         
         case true:
             
-            viewModel?.updateFavorites(action: .add) {
-                
-                print("Add to Favorite Successfully!")
-                
-            }
+            viewModel?.updateFavorites(action: .add)
             
         case false:
             
-            viewModel?.updateFavorites(action: .remove) {
-                
-                print("Remove from Favorite Successfully!")
-                
-            }
+            viewModel?.updateFavorites(action: .remove)
+            
         }
         
     }
@@ -240,11 +233,11 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
         
         guard
             let viewModel = viewModel,
-            let index = tableView.indexPath(for: cell),
-            let uid = UserDefaults.standard.value(forKey: "uid") as? String
-              else { return }
+            let index = tableView.indexPath(for: cell) else { return }
         
-        let defID = viewModel.definitionViewModels.value[index.row].identifier
+        let uid = viewModel.uid
+        
+        let definition = viewModel.definitionViewModels.value[index.row]
             
         let isLike = viewModel.definitionViewModels.value[index.row].like.contains(uid)
         
@@ -252,13 +245,13 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
         
         case true:
            //取消Like
-            viewModel.updateLikes(isLike: !isLike, defID: defID)
+            viewModel.updateLikes(isLike: !isLike, defID: definition.identifier)
             
         case false:
             // Like，取消Dislike
-            viewModel.updateLikes(isLike: !isLike, defID: defID)
+            viewModel.updateLikes(isLike: !isLike, defID: definition.identifier)
             
-            viewModel.updateDislikes(isDislike: isLike, defID: defID)
+            viewModel.updateDislikes(isDislike: isLike, defID: definition.identifier)
             
         }
     }
@@ -271,7 +264,7 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
             let uid = UserDefaults.standard.value(forKey: "uid") as? String
               else { return }
         
-        let defID = viewModel.definitionViewModels.value[index.row].identifier
+        let definition = viewModel.definitionViewModels.value[index.row]
         
         let isDislike = viewModel.definitionViewModels.value[index.row].dislike.contains(uid)
         
@@ -279,13 +272,13 @@ extension DefinitionViewController: DefinitionTableViewCellDelegate {
         
         case true:
             //取消Dislike
-            viewModel.updateDislikes(isDislike: !isDislike, defID: defID)
+            viewModel.updateDislikes(isDislike: !isDislike, defID: definition.identifier)
             
         case false:
             //取消Like，Dislike
-            viewModel.updateDislikes(isDislike: !isDislike, defID: defID)
+            viewModel.updateDislikes(isDislike: !isDislike, defID: definition.identifier)
             
-            viewModel.updateLikes(isLike: isDislike, defID: defID)
+            viewModel.updateLikes(isLike: isDislike, defID: definition.identifier)
             
         }
         

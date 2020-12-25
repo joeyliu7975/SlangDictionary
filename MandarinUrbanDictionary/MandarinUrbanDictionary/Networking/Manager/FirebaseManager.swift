@@ -164,7 +164,7 @@ class FirebaseManager {
         completion()
     }
     
-    func updateFavorite(userID: String, wordID: String, action: FavoriteStauts, completion: @escaping (() -> Void)) {
+    func updateFavorite(userID: String, wordID: String, action: FavoriteStauts) {
         
         let db = adapted(.user)
         
@@ -174,8 +174,6 @@ class FirebaseManager {
         case .remove:
             db.document(userID).updateData(["favorite_words": FieldValue.arrayRemove([wordID])])
         }
-        
-        completion()
     }
     
     func createNewWord(word: Word, def: Definition, completion: () -> Void) {

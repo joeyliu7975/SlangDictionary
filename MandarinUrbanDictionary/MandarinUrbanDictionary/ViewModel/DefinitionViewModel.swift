@@ -25,7 +25,7 @@ class DefinitionViewModel {
     
     var reportedDefinition: String?
     
-    private var uid: String {
+    var uid: String {
         return UserDefaults.standard.string(forKey: "uid") ?? ""
     }
     
@@ -131,11 +131,10 @@ class DefinitionViewModel {
         }
     }
     
-    func updateFavorites(action: FirebaseManager.FavoriteStauts, completion: @escaping (() -> Void)) {
+    func updateFavorites(action: FirebaseManager.FavoriteStauts) {
         
-        networkManager.updateFavorite(userID: uid, wordID: word.id, action: action) {
-                completion()
-            }
+        networkManager.updateFavorite(userID: uid, wordID: word.id, action: action)
+        
     }
     
     func getRankString(at rank: Int) -> String {
@@ -151,6 +150,28 @@ extension DefinitionViewModel {
         let report = Report(uid: uid, id: id, reason: reason)
         
         networkManager.report(report)
+    }
+}
+
+extension DefinitionViewModel {
+    func checkUserOpinion(on status: UserOpinion) -> Bool {
+        
+        let uid = self.uid
+        
+        var isLike: Bool
+        
+        switch status {
+        case .like(let index):
+            let definition = self.definitionViewModels.value[index]
+                
+           isLike = definition.like.contains(uid)
+        case .dislike(let index):
+            let definition = self.definitionViewModels.value[index]
+                
+           isLike = definition.dislike.contains(uid)
+        }
+        
+        return isLike
     }
 }
 
@@ -305,5 +326,10 @@ extension DefinitionViewModel {
         let title: String
         
         let category: String
+    }
+    
+    enum UserOpinion {
+        case like(Int)
+        case dislike(Int)
     }
 }

@@ -26,6 +26,10 @@ extension UINavigationController {
             self.hero.modalAnimationType = .selectBy(presenting: .fade, dismissing: .pageOut(direction: .right))
         
             self.modalPresentationStyle = .fullScreen
+        case .newDefinition:
+            self.modalPresentationStyle = .fullScreen
+            
+            self.modalTransitionStyle = .flipHorizontal
         case .unknow:
             break
         }
@@ -34,12 +38,14 @@ extension UINavigationController {
     }
     
     enum RootViewController {
-        case searchVC, unknow
+        case searchVC, newDefinition, unknow
         
         static func checkRootVC(_ viewController: UIViewController) -> RootViewController {
             switch viewController {
             case is SearchPageViewController:
                 return searchVC
+            case is NewDefinitionViewController:
+                return newDefinition
             default:
                 return unknow
             }

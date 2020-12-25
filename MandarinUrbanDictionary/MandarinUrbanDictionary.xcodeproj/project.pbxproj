@@ -44,6 +44,8 @@
 		7152EADD2575E94A00F1C5FB /* AddNewWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7152EADB2575E94A00F1C5FB /* AddNewWordViewController.xib */; };
 		71554E77258D920F00A5B77F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71554E76258D920F00A5B77F /* GoogleService-Info.plist */; };
 		7158CE76259306CE008E9727 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7158CE75259306CE008E9727 /* FavoriteManager.swift */; };
+		7159FBAB2595ACF300825641 /* AVSpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7159FBAA2595ACF300825641 /* AVSpeechManager.swift */; };
+		7159FBB22595BCB400825641 /* Integer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7159FBB12595BCB400825641 /* Integer+Extension.swift */; };
 		7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71025725359007F7C90 /* UITableView+Extension.swift */; };
 		7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71425725532007F7C90 /* DefinitionHeaderView.swift */; };
 		7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7160B71925725572007F7C90 /* DefinitionHeaderView.xib */; };
@@ -167,6 +169,8 @@
 		7152EADB2575E94A00F1C5FB /* AddNewWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewWordViewController.xib; sourceTree = "<group>"; };
 		71554E76258D920F00A5B77F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7158CE75259306CE008E9727 /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
+		7159FBAA2595ACF300825641 /* AVSpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVSpeechManager.swift; sourceTree = "<group>"; };
+		7159FBB12595BCB400825641 /* Integer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Integer+Extension.swift"; sourceTree = "<group>"; };
 		7160B71025725359007F7C90 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		7160B71425725532007F7C90 /* DefinitionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionHeaderView.swift; sourceTree = "<group>"; };
 		7160B71925725572007F7C90 /* DefinitionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionHeaderView.xib; sourceTree = "<group>"; };
@@ -703,6 +707,7 @@
 				71C3D5B425809C0900636BC4 /* ReportPresenter.swift */,
 				712F4FC3258DA28000F7AE29 /* ProgressBarMaker.swift */,
 				718E69F1259084D60056475F /* NotificationCenterManager.swift */,
+				7159FBAA2595ACF300825641 /* AVSpeechManager.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -826,6 +831,7 @@
 				710574B82589E771004556DF /* UIButton+Extension.swift */,
 				71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */,
 				7170537325904493000521B0 /* UITextField+Extension.swift */,
+				7159FBB12595BCB400825641 /* Integer+Extension.swift */,
 			);
 			name = Extension;
 			path = MandarinUrbanDictionary/Extension;
@@ -1138,6 +1144,8 @@
 				71E7F3462570D73700F15098 /* UICollectionView+Extension.swift in Sources */,
 				7120E0132571167700A56E7E /* CategoryCollectionViewCell.swift in Sources */,
 				710574F1258A16FD004556DF /* UserViewModel.swift in Sources */,
+				7159FBAB2595ACF300825641 /* AVSpeechManager.swift in Sources */,
+				7159FBB22595BCB400825641 /* Integer+Extension.swift in Sources */,
 				7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */,
 				71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */,
 				714F1CA225943679005BEDAA /* DailyWordManager.swift in Sources */,

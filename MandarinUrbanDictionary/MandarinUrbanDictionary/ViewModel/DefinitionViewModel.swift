@@ -15,7 +15,9 @@ protocol SpeakerDelegate: class {
 
 class DefinitionViewModel {
     
-    typealias Response<T: Codable> = (Result<[T], NetworkError>)
+    typealias ResponseDatas<T: Codable> = (Result<[T], NetworkError>)
+    
+    typealias ResponseData<T:Codable> = (Result<T, Error>)
     
     private let networkManager: FirebaseManager
             
@@ -44,20 +46,22 @@ class DefinitionViewModel {
         
     var definitionViewModels = Box([Definition]())
     
+    var userViewModels = Box([User]())
+    
     func renewRecentSearch(completion: @escaping () -> Void) {
-        
+    
         networkManager.retrieveUser(userID: uid) { (result: Result<User, NetworkError>) in
             switch result {
             case .success(let user):
-                
+
                 if user.recents.contains(self.word.id) {
                     self.removeFromRecentSearch(completion: completion)
                 }
-                
+
                 self.updateChallenge(.view)
-                
+
                 completion()
-                
+
             case .failure(.noData(let error)):
                 print(error.localizedDescription)
             case .failure(.decodeError):
@@ -134,23 +138,10 @@ class DefinitionViewModel {
             }
     }
     
-    func convertRank(with rank: Int) -> String {
+    func getRankString(at rank: Int) -> String {
         
-        var rankString: String
+        return rank.rankString
         
-        switch rank {
-        
-        case 0:
-            
-            rankString = "最佳解釋"
-            
-        default:
-            
-            rankString = String(describing: rank + 1)
-            
-        }
-        
-        return rankString
     }
 }
 
@@ -162,7 +153,6 @@ extension DefinitionViewModel {
         networkManager.report(report)
     }
 }
-
 
 // Observe Definition Collection
 extension DefinitionViewModel {
@@ -191,17 +181,52 @@ extension DefinitionViewModel {
         }
     }
     
-    func handle<T: Codable>(_ res: Response<T>) {
+    func listenUser<T: Codable>(completion: @escaping (Result<T,Error>) -> Void) {
+        
+        let uid = self.uid
+        
+        networkManager.listen(.user) { (db) in
+            db.document(uid).addSnapshotListener { (querySnapshot, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                        if let data = try? querySnapshot!.data(as: T.self, decoder: Firestore.Decoder()) {
+                            completion(.success(data))
+                        } else {
+                            print("Decode Error!")
+                        }
+                    
+                }
+            }
+        }
+    }
+    
+    func handle<T: Codable>(_ res: ResponseDatas<T>) {
         
         switch res {
-        case .success(let defs):
-            if let defs = defs as? [Definition] {
+        case .success(let data):
+            if let defs = data as? [Definition] {
                 let sortedDefinition = defs.sorted { $0.like.count > $1.like.count }
                 
                 self.definitionViewModels.value = sortedDefinition
             }
         case .failure(let error):
             print(error.localizedDescription)
+        }
+    }
+    
+    func handle<T: Codable>(_ res: ResponseData<T>) {
+        switch res {
+            case .success(let data):
+                if let user = data as? User {
+                    if user.favorites.contains(word.id) {
+                        isFavorite = true
+                    } else {
+                        isFavorite = false
+                    }
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
         }
     }
 }

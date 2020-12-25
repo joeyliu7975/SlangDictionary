@@ -22,9 +22,9 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
     
     private var speakerButton: UIButton?
     
-    let voiceSynth = AVSpeechSynthesizer()
+    private var speechManager: AVSpeechManager?
     
-    init(identifierNumber: String, word: String, category: String) {
+    init(identifierNumber: String, word: String, category: String, speechManager: AVSpeechManager = .init()) {
         super.init(nibName: nil, bundle: nil)
         
         viewModel = DefinitionViewModel(id: identifierNumber, word: word, category: category)
@@ -34,9 +34,13 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
             self?.viewModel?.discoverWord()
         }
         
-        voiceSynth.delegate = self
+        self.speechManager = speechManager
         
         searchBar.text = word
+        
+        viewModel?.listenUser(completion: { [weak self](result: Result<User, Error>) in
+            self?.viewModel?.handle(result)
+        })
         
         viewModel?.listenDefinitions(completion: { [weak self] (result: Result<[Definition], NetworkError>) in
             
@@ -86,6 +90,8 @@ private extension DefinitionViewController {
         
         searchBar.delegate = self
         
+        speechManager?.voiceSynthDelegate(self)
+                
         viewModel?.checkFavorite(completion: { [weak self] (isFavorite) in
             
             self?.viewModel?.isFavorite = isFavorite
@@ -178,14 +184,13 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
             
             self.speakerButton?.isEnabled = false
             
-            self.siriRead(word.title)
-            
+            self.speechManager?.speak(word.title)
         }
     }
     
     func clickBackButton() {
         
-        if let _ = navigationController?.rootViewController as? LobbyViewController {
+        if (navigationController?.rootViewController is LobbyViewController) {
             
             self.navigationController?.popViewController(animated: true)
             
@@ -200,9 +205,7 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
         
         case true:
             
-            guard let viewModel = viewModel else { return }
-            
-            viewModel.updateFavorites(action: .add) {
+            viewModel?.updateFavorites(action: .add) {
                 
                 print("Add to Favorite Successfully!")
                 
@@ -210,9 +213,7 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
             
         case false:
             
-            guard let viewModel = viewModel else { return }
-            
-            viewModel.updateFavorites(action: .remove) {
+            viewModel?.updateFavorites(action: .remove) {
                 
                 print("Remove from Favorite Successfully!")
                 
@@ -229,11 +230,7 @@ extension DefinitionViewController: DefinitionHeaderDelegate {
         
         let nav = UINavigationController(rootViewController: newDefVC)
         
-        nav.modalPresentationStyle = .fullScreen
-        
-        nav.modalTransitionStyle = .flipHorizontal
-        
-        present(nav, animated: true)
+        nav.present(self)
     }
 }
 
@@ -400,7 +397,7 @@ extension DefinitionViewController: UITableViewDataSource {
         
         guard
             let definition = viewModel?.definitionViewModels.value[indexPath.row],
-            let rankString = viewModel?.convertRank(with: indexPath.row),
+            let rankString = viewModel?.getRankString(at: indexPath.row),
             let uid = UserDefaults.standard.value(forKey: "uid") as? String
         else { return cell }
             
@@ -421,24 +418,14 @@ extension DefinitionViewController: UITableViewDataSource {
     }
 }
 
-extension DefinitionViewController {
-    func siriRead(_ word: String) {
-        let utterance = AVSpeechUtterance(string: word)
-        utterance.voice = AVSpeechSynthesisVoice(language: "zh-TW")
-        utterance.rate = 0.35
-
-        voiceSynth.speak(utterance)
-    }
-}
-
 extension DefinitionViewController: AVSpeechSynthesizerDelegate {
-    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        self.speechDidFinish(self.speakerButton)
-    }
     
-    func speechDidFinish(_ speakerButton: UIButton?) {
-        guard let speaker = speakerButton else { return }
-        
-        speaker.isEnabled = true
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+
+        self.speechManager?.speechDidFinish({ (isEnable) in
+            guard let speaker = self.speakerButton else { return }
+            
+            speaker.isEnabled = true
+        })
     }
 }

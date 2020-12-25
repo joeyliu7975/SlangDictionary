@@ -38,7 +38,6 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
     
     @IBOutlet weak var siriReadButton: UIButton!
     
-    
     weak var delegate: DefinitionHeaderDelegate?
     
     var isFavorite: Bool = false {

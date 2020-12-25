@@ -15,7 +15,7 @@ protocol DefinitionHeaderDelegate: class {
     
     func clickBackButton()
     
-    func clickReadOut()
+    func clickReadOut(_ sender: UIButton)
 }
 
 final class DefinitionHeaderView: UITableViewHeaderFooterView {
@@ -67,7 +67,7 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
             
         case siriReadButton:
             
-            delegate?.clickReadOut()
+            delegate?.clickReadOut(sender)
         default:
             
             break
@@ -91,6 +91,9 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
         
         categoryImageView.image = UIImage(named: categoryImage.image)
         
+        siriReadButton.setImage(UIImage(named: ImageConstant.speakerHighlightened), for: .highlighted)
+        
+        siriReadButton.setImage(UIImage(named: ImageConstant.speakerHighlightened), for: .disabled)
     }
     
     func setFavorite(_ isFavorite: Bool) {

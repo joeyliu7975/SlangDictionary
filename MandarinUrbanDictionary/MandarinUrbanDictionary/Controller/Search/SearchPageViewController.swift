@@ -234,6 +234,7 @@ extension SearchPageViewController: UISearchBarDelegate {
 }
 
 extension SearchPageViewController: DefinitionViewControllerDelegate {
+    
     func dismissSearchViewController() {
         
         self.dismiss(animated: true, completion: nil)

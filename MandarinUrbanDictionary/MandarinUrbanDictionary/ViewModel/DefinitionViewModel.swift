@@ -6,16 +6,19 @@
 //
 
 import Foundation
-import AVFoundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+
+protocol SpeakerDelegate: class {
+    func speechDidFinish(_ sender: UIButton)
+}
 
 class DefinitionViewModel {
     
     typealias Response<T: Codable> = (Result<[T], NetworkError>)
     
     private let networkManager: FirebaseManager
-        
+            
     let word: DefinitionViewModel.Word
     
     var reportedDefinition: String?
@@ -35,7 +38,7 @@ class DefinitionViewModel {
     init(id: String, word: String, category: String, networkManager: FirebaseManager = .init()) {
         
         self.word = Word(id: id, title: word, category: category)
-        
+                
         self.networkManager = networkManager
     }
         
@@ -148,15 +151,6 @@ class DefinitionViewModel {
         }
         
         return rankString
-    }
-    
-    func siriRead(_ word: String) {
-        let utterance = AVSpeechUtterance(string: word)
-        utterance.voice = AVSpeechSynthesisVoice(language: "zh-TW")
-        utterance.rate = 0.35
-
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterance)
     }
 }
 

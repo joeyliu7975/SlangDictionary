@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol DefinitionViewControllerDelegate: class {
     func dismissSearchViewController()
@@ -19,6 +20,10 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
     
     weak var delegate: DefinitionViewControllerDelegate?
     
+    private var speakerButton: UIButton?
+    
+    let voiceSynth = AVSpeechSynthesizer()
+    
     init(identifierNumber: String, word: String, category: String) {
         super.init(nibName: nil, bundle: nil)
         
@@ -28,6 +33,8 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
             self?.viewModel?.addToRecentSearch()
             self?.viewModel?.discoverWord()
         }
+        
+        voiceSynth.delegate = self
         
         searchBar.text = word
         
@@ -66,10 +73,6 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
         setupTableView()
         
         viewModelBinding()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -167,11 +170,15 @@ private extension DefinitionViewController {
 
 extension DefinitionViewController: DefinitionHeaderDelegate {
     
-    func clickReadOut() {
+    func clickReadOut(_ sender: UIButton) {
         
         if let word = viewModel?.word {
             
-            viewModel?.siriRead(word.title)
+            self.speakerButton = sender
+            
+            self.speakerButton?.isEnabled = false
+            
+            self.siriRead(word.title)
             
         }
     }
@@ -411,5 +418,27 @@ extension DefinitionViewController: UITableViewDataSource {
             )
         
         return cell
+    }
+}
+
+extension DefinitionViewController {
+    func siriRead(_ word: String) {
+        let utterance = AVSpeechUtterance(string: word)
+        utterance.voice = AVSpeechSynthesisVoice(language: "zh-TW")
+        utterance.rate = 0.35
+
+        voiceSynth.speak(utterance)
+    }
+}
+
+extension DefinitionViewController: AVSpeechSynthesizerDelegate {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        self.speechDidFinish(self.speakerButton)
+    }
+    
+    func speechDidFinish(_ speakerButton: UIButton?) {
+        guard let speaker = speakerButton else { return }
+        
+        speaker.isEnabled = true
     }
 }

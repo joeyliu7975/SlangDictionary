@@ -64,4 +64,6 @@ struct ImageConstant {
     static let randomWord = "shuffle_words_256x256"
     
     static let superImage = "super_challenge_png"
+    
+    static let speakerHighlightened = "volume_filled_highlightened"
 }

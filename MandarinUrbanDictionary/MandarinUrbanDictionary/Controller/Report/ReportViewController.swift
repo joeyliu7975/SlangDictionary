@@ -137,6 +137,9 @@ extension ReportViewController {
 private extension ReportViewController {
     
     func setup() {
+        
+        overrideUserInterfaceStyle = .light
+        
         navigationItem.setBarAppearance(
             with: .barButtonRed,
             titleTextAttrs: UINavigationItem.titleAttributes,

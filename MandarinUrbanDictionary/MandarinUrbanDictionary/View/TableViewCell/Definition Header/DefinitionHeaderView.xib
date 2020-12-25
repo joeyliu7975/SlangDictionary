@@ -47,7 +47,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lud-Ak-m43">
-                            <rect key="frame" x="58" y="0.0" width="32" height="32"/>
+                            <rect key="frame" x="56" y="0.0" width="32" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="6IZ-X8-gKw"/>
                             </constraints>
@@ -57,7 +57,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyG-L5-wy1">
-                            <rect key="frame" x="115.5" y="0.0" width="32" height="32"/>
+                            <rect key="frame" x="111.5" y="0.0" width="32" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="LrK-oj-7LI"/>
                             </constraints>
@@ -67,10 +67,10 @@
                             </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wbs-Ga-zke">
-                            <rect key="frame" x="173.5" y="0.0" width="102.5" height="32"/>
+                            <rect key="frame" x="167.5" y="0.0" width="108.5" height="32"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b19-cH-oW2">
-                                    <rect key="frame" x="0.0" y="0.0" width="102.5" height="32"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="108.5" height="32"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VHg-qh-g1T">
                                             <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
@@ -79,10 +79,10 @@
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-9p-oFr">
-                                            <rect key="frame" x="37" y="0.0" width="65.5" height="32"/>
+                                            <rect key="frame" x="37" y="0.0" width="71.5" height="32"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工程師" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChJ-Wi-3cE">
-                                                    <rect key="frame" x="5" y="5.5" width="55.5" height="21"/>
+                                                    <rect key="frame" x="5" y="5.5" width="61.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="aQC-qz-wWr"/>
                                                     </constraints>

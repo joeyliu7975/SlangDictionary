@@ -11,7 +11,7 @@ class AddNewWordViewController: UIViewController {
     
     @IBOutlet weak var addNewWordView: AddNewWordView!
     
-    private var viewModel: AddNewWordViewModel = .init()
+    var viewModel: AddNewWordViewModel = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +108,7 @@ extension AddNewWordViewController: UITextViewDelegate {
 }
 
 extension AddNewWordViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -143,10 +144,19 @@ extension AddNewWordViewController: AddNewWordViewDelegate {
     
     func clickSend(_ view: UIView, newWord: String?, definition: String?, category: String?) {
         
-        viewModel.create(word: newWord, definition: definition, category: category) { [weak self] in
+        viewModel.create(word: newWord, definition: definition, category: category) { [weak self] (shouldUpdateChallenge) in
             
-            self?.viewModel.updateChallenge {
+            switch shouldUpdateChallenge {
+            case true:
+                self?.viewModel.updateChallenge {
+                    
+                    self?.dismiss(animated: true)
+                    
+                }
+            case false:
+                
                 self?.dismiss(animated: true)
+                
             }
         }
     }
@@ -161,6 +171,8 @@ extension AddNewWordViewController: AddNewWordViewDelegate {
 private extension AddNewWordViewController {
     
     func setup() {
+        
+        overrideUserInterfaceStyle = .light
         
         navigationItem.setBarAppearance(with: .separatorlineBlue)
         

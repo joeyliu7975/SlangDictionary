@@ -28,6 +28,8 @@ class JoeyPanelViewController: UIViewController, SidePanelControl {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        overrideUserInterfaceStyle = .light
     }
     
     @objc func toggleSideMenu() {

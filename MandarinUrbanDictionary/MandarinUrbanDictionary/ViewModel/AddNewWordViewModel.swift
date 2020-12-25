@@ -26,6 +26,8 @@ class AddNewWordViewModel {
     
     let group = DispatchGroup()
     
+    var existedWordTitles = [String]()
+    
     init(_ networkManager: FirebaseManager = .init()) {
         self.networkManager = networkManager
     }
@@ -41,7 +43,7 @@ class AddNewWordViewModel {
 // Network Request
 extension AddNewWordViewModel {
     
-    func create(word: String?, definition: String?, category: String?, completion: @escaping () -> Void) {
+    func create(word: String?, definition: String?, category: String?, completion: @escaping (Bool) -> Void) {
         
         guard
             let word = word,
@@ -56,15 +58,24 @@ extension AddNewWordViewModel {
         
         let definition = Definition(content: def, id: defid, wid: wid)
         
-        group.enter()
-        
-        group.enter()
-        
-        networkManager.sendRequest(.word) { (db) in
-            db.document(wid).setData(newWord.dictionary)
+        switch existedWordTitles.contains(word) {
+        case true:
             
-            group.leave()
+            completion(false)
+            
+            return
+            
+        case false:
+            group.enter()
+            
+            networkManager.sendRequest(.word) { (db) in
+                db.document(wid).setData(newWord.dictionary)
+                
+                group.leave()
+            }
         }
+        
+        group.enter()
         
         networkManager.sendRequest(.definition) { (db) in
             db.document(defid).setData(definition.dictionary)
@@ -73,7 +84,7 @@ extension AddNewWordViewModel {
         }
         
         group.notify(queue: .main) {
-            completion()
+            completion(true)
         }
     }
 }

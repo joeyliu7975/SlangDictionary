@@ -88,6 +88,8 @@ class SearchPageViewController: UIViewController {
 private extension SearchPageViewController {
     
     func setup() {
+        
+        overrideUserInterfaceStyle = .light
             
         cancelButton.setTitleColor(.white, for: .normal)
                 

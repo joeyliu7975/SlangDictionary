@@ -81,11 +81,7 @@ extension LobbyViewController {
 private extension LobbyViewController {
     
     func setup() {
-        
-//        UserDefaults.standard.setValue(false, forKey: UserDefaults.keyForLoginStatus)
-//        
-//        UserDefaults.standard.setValue(nil, forKey: "uid")
-//                
+
         view.backgroundColor = .homepageDarkBlue
         
         writeNewButtonView.delegate = self
@@ -199,7 +195,7 @@ extension LobbyViewController: PostButtonDelegate {
     
     func clickButton(_ sender: UIButton) {
         
-        delegate?.writeNewWord()
+        delegate?.writeNewWord(viewModel.wordViewModels.value)
         
     }
 }
@@ -407,5 +403,5 @@ protocol CenterViewControllerDelegate: class {
     
     func toggleLeftPanel()
     
-    func writeNewWord()
+    func writeNewWord(_ existedWords: [Word])
 }

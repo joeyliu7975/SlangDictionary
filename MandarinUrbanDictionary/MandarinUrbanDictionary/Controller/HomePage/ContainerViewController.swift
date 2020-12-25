@@ -74,6 +74,8 @@ private extension ContainerViewController {
         centerViewController.clickSideMenu = {
             self.toggleLeftPanel()
         }
+        
+        overrideUserInterfaceStyle = .light
     }
     
     func setupNavigationController() {
@@ -85,9 +87,11 @@ private extension ContainerViewController {
 
 extension ContainerViewController: CenterViewControllerDelegate {
     
-    func writeNewWord() {
+    func writeNewWord(_ existedWords: [Word]) {
         
         let addNewWordVC = AddNewWordViewController()
+        
+        addNewWordVC.viewModel.existedWordTitles = existedWords.map { $0.title }
         
         present(addNewWordVC, animated: true)
     }

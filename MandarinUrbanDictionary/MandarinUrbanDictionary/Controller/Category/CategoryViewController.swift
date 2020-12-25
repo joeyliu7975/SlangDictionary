@@ -81,6 +81,8 @@ class CategoryViewController: UIViewController {
 private extension CategoryViewController {
     func setup() {
         
+        overrideUserInterfaceStyle = .light
+        
         containerView.setCorner(radius: 20.0)
         
         confirmButtonContainerView.setCorner(radius: 10.0)

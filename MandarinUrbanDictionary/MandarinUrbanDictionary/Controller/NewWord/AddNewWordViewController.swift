@@ -38,6 +38,15 @@ extension AddNewWordViewController: UITextFieldDelegate {
         
         if textField.markedTextRange == nil && (textField.text?.count ?? 0) > 9 {
             textField.text = String(textField.text?.prefix(9) ?? "")
+            
+            addNewWordView.updateLimitOfWord(number: 0)
+        }
+        
+        if textField.markedTextRange == nil {
+        
+            let remainder = 9 - (textField.text?.count ?? 0)
+            
+            addNewWordView.updateLimitOfWord(number: remainder)
         }
     }
     

@@ -17,7 +17,7 @@ class RankTableViewCell: UITableViewCell {
     
     lazy var crownView: UIImageView = {
        
-        let crownView = UIImageView()
+        let crownView = UIImageView(frame: .zero)
         
         crownView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -52,14 +52,14 @@ class RankTableViewCell: UITableViewCell {
         
         rankBoardView.addSubview(crownView)
         
-        crownView.contentMode = .scaleToFill
+        crownView.contentMode = .scaleAspectFit
         
         crownView.image = UIImage(named: ImageConstant.crown)
         
         NSLayoutConstraint.activate([
-            crownView.heightAnchor.constraint(equalToConstant: 35),
-            crownView.widthAnchor.constraint(equalToConstant: 35),
-            crownView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            crownView.heightAnchor.constraint(equalToConstant: 25),
+            crownView.widthAnchor.constraint(equalToConstant: 25),
+            crownView.centerYAnchor.constraint(equalTo: rankBoardView.centerYAnchor),
             crownView.leadingAnchor.constraint(equalTo: rankBoardView.leadingAnchor, constant: 15)
         ])
     }

@@ -56,10 +56,12 @@ class TopFiveCollectionViewCell: UICollectionViewCell {
         
         crownView.image = UIImage(named: ImageConstant.crown)
         
+        layoutIfNeeded()
+        
         NSLayoutConstraint.activate([
-            crownView.heightAnchor.constraint(equalToConstant: 35),
-            crownView.widthAnchor.constraint(equalToConstant: 35),
-            crownView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            crownView.heightAnchor.constraint(equalToConstant: 20),
+            crownView.widthAnchor.constraint(equalToConstant: 20),
+            crownView.centerYAnchor.constraint(equalTo: rankBoardView.centerYAnchor),
             crownView.leadingAnchor.constraint(equalTo: rankBoardView.leadingAnchor, constant: 15)
         ])
     }

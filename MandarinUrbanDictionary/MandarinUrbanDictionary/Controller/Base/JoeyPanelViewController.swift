@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 @objc private protocol SidePanelControl {
     
@@ -23,6 +24,25 @@ import UIKit
 class JoeyPanelViewController: UIViewController, SidePanelControl {
     
     var clickSideMenu: (() -> Void)?
+    
+    lazy var animationView: UIView = {
+        
+       var animationView = AnimationView()
+        
+        animationView = .init(name: "loading-spinner")
+        
+        animationView.frame = self.navigationController?.view.bounds ?? view.bounds
+        
+        animationView.contentMode = .scaleAspectFit
+        
+        animationView.animationSpeed = 0.75
+        
+        animationView.loopMode = .loop
+        
+        animationView.play()
+        
+        return animationView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()

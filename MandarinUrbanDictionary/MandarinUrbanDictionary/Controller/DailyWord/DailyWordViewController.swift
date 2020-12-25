@@ -57,6 +57,11 @@ private extension DailyWordViewController {
     func listen() {
         
         viewModel.listen(env: .dailyWorld, orderBy: .dailyTime) { [weak self] (result: Result<[DailyWord], NetworkError>) in
+            
+            if let animationView = self?.animationView {
+                self?.view.addSubview(animationView)
+            }
+            
             switch result {
             case .success(let data):
                 
@@ -71,6 +76,8 @@ private extension DailyWordViewController {
     func viewModelBinding() {
         
         viewModel.dailyViewModels.bind { [weak self] (_) in
+            
+            self?.animationView.removeFromSuperview()
             
             self?.tableView.reloadData()
             

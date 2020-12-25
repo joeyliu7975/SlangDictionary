@@ -42,6 +42,7 @@ class FavoriteViewController: JoeyPanelViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         setup()
         
         setupTableView()
@@ -49,6 +50,8 @@ class FavoriteViewController: JoeyPanelViewController {
         setupNavigationController()
         
         viewModelBinding()
+        
+        view.addSubview(animationView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -167,6 +170,8 @@ private extension FavoriteViewController {
                 break
                 
             case false:
+                
+                self?.animationView.removeFromSuperview()
                 
                 self?.tableView.reloadData()
                             

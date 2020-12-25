@@ -34,6 +34,8 @@ class RankViewController: JoeyPanelViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubview(animationView)
+        
         setupSegmentControl()
                 
         setupTableView()
@@ -44,7 +46,7 @@ class RankViewController: JoeyPanelViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+                
         fetchData(at: segmentControl.selectedSegmentIndex)
         
     }
@@ -68,7 +70,9 @@ extension RankViewController: CategoryDelegate {
     }
     
     func cancelSelection() {
+        
         viewModel?.getCategory(.all)
+        
     }
 }
 
@@ -113,6 +117,8 @@ private extension RankViewController {
         
         viewModel?.updateData = { [weak self] in
             
+            self?.animationView.removeFromSuperview()
+            
             self?.tableView.reloadData()
             
         }
@@ -123,7 +129,7 @@ private extension RankViewController {
 extension RankViewController {
     
     func fetchData(at index: Int) {
-        
+                
         switch  index {
         case 0:
             viewModel?.fetchData(sortedBy: .views)

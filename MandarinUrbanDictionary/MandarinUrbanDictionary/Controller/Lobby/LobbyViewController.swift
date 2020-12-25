@@ -7,31 +7,14 @@
 
 import UIKit
 import Hero
-import Lottie
+//import Lottie
 
 class LobbyViewController: JoeyPanelViewController {
     
     @IBOutlet weak var writeNewButtonView: NewPostButtonView!
     
     @IBOutlet weak var tableView: UITableView!
-    
-    lazy var animationView: UIView = {
         
-       var animationView = AnimationView()
-        
-        animationView = .init(name: "loading_Lotties")
-        
-        animationView.frame = self.navigationController?.view.bounds ?? view.bounds
-        
-        animationView.contentMode = .scaleAspectFit
-        
-        animationView.loopMode = .loop
-        
-        animationView.play()
-        
-        return animationView
-    }()
-    
     private lazy var searchBar: UISearchBar = {
         
         let width = UIScreen.main.bounds.width
@@ -73,7 +56,9 @@ class LobbyViewController: JoeyPanelViewController {
 extension LobbyViewController {
 
     func scheduleLocal() {
+        
         notificationManager.scheduleLocal()
+        
     }
     
 }

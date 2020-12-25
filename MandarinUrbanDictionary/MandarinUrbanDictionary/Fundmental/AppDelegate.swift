@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    var restrictRotation:UIInterfaceOrientationMask = .portrait
+    
     let notificationManager: NotificationCenterManager = .init()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -59,6 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         pushNotification()
         
+    }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask
+    {
+        return self.restrictRotation
     }
 }
 

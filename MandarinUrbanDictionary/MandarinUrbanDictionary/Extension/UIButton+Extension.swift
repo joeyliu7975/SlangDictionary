@@ -26,4 +26,38 @@ extension UIButton {
     func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
         self.setBackgroundImage(image(withColor: color), for: state)
     }
+    
+    static func makeButton(_ type: UIButton.CustomButtonType) -> UIButton {
+        let button = UIButton()
+        
+        switch type {
+        case .rightBarButtonItem(let imageName):
+            button.imageView?.contentMode = .scaleToFill
+            
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+            button.setImage(UIImage(named: imageName), for: .normal)
+            
+            button.widthAnchor.constraint(equalToConstant: 24).isActive = true
+            
+            button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        case .spacerButton:
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+            button.widthAnchor.constraint(equalToConstant: 30).isActive = true
+            
+            button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+            
+            button.isUserInteractionEnabled = false
+        }
+        
+        return button
+    }
+}
+
+extension UIButton {
+    enum CustomButtonType {
+        case rightBarButtonItem(image: String)
+        case spacerButton
+    }
 }

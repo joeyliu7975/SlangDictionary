@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AddNewWordViewDelegate: class {
+protocol AddNewWordViewDelegate: class, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDelegate {
     func clickCancel()
     func clickSend(_ view: UIView, newWord: String?, definition: String?, category: String?)
     func clikckDone(categoryTextField: UITextField)
@@ -15,7 +15,15 @@ protocol AddNewWordViewDelegate: class {
 
 class AddNewWordView: UIView {
     
-    weak var delegate: AddNewWordViewDelegate?
+    weak var delegate: AddNewWordViewDelegate? {
+        didSet {
+            guard let delegate = self.delegate else { return }
+            newWordTF.delegate = delegate
+            categoryTF.delegate = delegate
+            definitionTextView.delegate = delegate
+            pickerView?.delegate = delegate
+        }
+    }
         
     @IBOutlet weak var newWordTF: UITextField!
     
@@ -106,5 +114,11 @@ extension AddNewWordView {
     
     func updateLimitOfWord(number: Int) {
         limitOfWord.text = "可用字數: \(number)"
+    }
+    
+    func sendButtonValidation(_ isValid: Bool) {
+        sendButton.backgroundColor = isValid ? .white : .lightGray
+        
+        sendButton.isEnabled = isValid
     }
 }

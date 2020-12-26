@@ -46,7 +46,7 @@ private extension DailyWordViewController {
     
     func setupNavigationController() {
         
-        setBarAppearance(title: "每日一字")
+        setBarAppearance(title: .dailySlang)
         
         removeBackButtonItem()
         

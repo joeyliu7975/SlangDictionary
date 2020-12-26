@@ -41,6 +41,7 @@ private extension AchievementViewController {
         tableView.separatorStyle = .none
         
         tableView.delegate = self
+        
         tableView.dataSource = self
     }
     
@@ -48,7 +49,7 @@ private extension AchievementViewController {
         
         removeBackButtonItem()
         
-        setBarAppearance(title: "成就")
+        setBarAppearance(title: .achievement)
         
         makeSideMenuButton()
         

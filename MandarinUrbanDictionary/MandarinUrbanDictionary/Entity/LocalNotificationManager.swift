@@ -27,7 +27,7 @@ class LocalNotificationManager {
         }
     }
     
-    static func scheduleLocal(title: String, body: String, time: NotificationTime) {
+    static func scheduleLocal(title: LocalNotificationManager.NotificationTitle, body: String, time: NotificationTime) {
           
         let center = UNUserNotificationCenter.current()
                 
@@ -41,7 +41,7 @@ class LocalNotificationManager {
         
         let content = UNMutableNotificationContent()
         
-        content.title = title
+        content.title = title.rawValue
         
         content.body = body
                 
@@ -71,4 +71,12 @@ class LocalNotificationManager {
         center.add(request)
     }
     
+}
+
+extension LocalNotificationManager {
+    enum NotificationTitle: String {
+        case news = "一起學習最新幹話"
+        case favorite = "收藏經典回顧"
+        case explore = "說幹話，長知識"
+    }
 }

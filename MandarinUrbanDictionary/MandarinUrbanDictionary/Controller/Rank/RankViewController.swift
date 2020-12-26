@@ -107,7 +107,7 @@ private extension RankViewController {
         
         removeBackButtonItem()
         
-        setBarAppearance(title: "排行榜")
+        setBarAppearance(title: .top5)
         
         makeSideMenuButton()
         

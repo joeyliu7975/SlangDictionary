@@ -13,8 +13,6 @@ import Lottie
     var clickSideMenu: (() -> Void)? { get set }
     
     func removeBackButtonItem()
-    
-    func setBarAppearance(title: String)
         
     func makeSideMenuButton()
     
@@ -32,6 +30,8 @@ class JoeyPanelViewController: UIViewController, SidePanelControl {
         animationView = .init(name: "loading-spinner")
         
         animationView.frame = self.navigationController?.view.bounds ?? view.bounds
+        
+        animationView.backgroundColor = .white
         
         animationView.contentMode = .scaleAspectFit
         
@@ -65,29 +65,19 @@ class JoeyPanelViewController: UIViewController, SidePanelControl {
         navigationItem.hidesBackButton = true
     }
     
-    func setBarAppearance(title: String) {
+    func setBarAppearance(title: SidePanel) {
         
         navigationItem.setBarAppearance(
             with: .cardViewBlue,
             titleTextAttrs: UINavigationItem.titleAttributes,
-            title: title
+            title: title.rawValue
         )
         
     }
     
     func makeSideMenuButton() {
         
-        let button = UIButton()
-        
-        button.imageView?.contentMode = .scaleToFill
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        button.setImage(UIImage(named: ImageConstant.list), for: .normal)
-        
-        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
-        
-        button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        let button = UIButton.makeButton(.rightBarButtonItem(image: ImageConstant.list))
         
         button.addTarget(self, action: #selector(toggleSideMenu), for: .touchDown)
         

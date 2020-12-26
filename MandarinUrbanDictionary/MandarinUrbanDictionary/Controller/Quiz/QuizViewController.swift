@@ -39,7 +39,7 @@ private extension QuizViewController {
         
         removeBackButtonItem()
         
-        setBarAppearance(title: "挑戰")
+        setBarAppearance(title: .quiz)
         
         makeSideMenuButton()
     }

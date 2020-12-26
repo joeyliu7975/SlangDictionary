@@ -54,6 +54,8 @@ class LobbyViewController: JoeyPanelViewController {
 private extension LobbyViewController {
     
     func setup() {
+        
+        navigationItem.backButtonTitle = ""
 
         view.backgroundColor = .homepageDarkBlue
         
@@ -62,19 +64,9 @@ private extension LobbyViewController {
         searchBar.delegate = self
         
         let rightNavBarButton = UIBarButtonItem(customView: searchBar)
-        
-        navigationItem.backButtonTitle = ""
-                
-        let spacerButton = UIButton()
-                
-        spacerButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        spacerButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        spacerButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        
-        spacerButton.isUserInteractionEnabled = false
-        
+                        
+        let spacerButton = UIButton.makeButton(.spacerButton)
+ 
         let rightSpacer = UIBarButtonItem(customView: spacerButton)
         
         navigationItem.rightBarButtonItems = [rightSpacer, rightNavBarButton]
@@ -99,16 +91,13 @@ private extension LobbyViewController {
     
     func setupNavigationController() {
         
-        guard let navigationController = self.navigationController else { return }
-        
         navigationItem.setBarAppearance(with: .homepageDarkBlue)
         
-        navigationController.navigationBar.tintColor = UIColor.homepageLightBlue
+        navigationController?.navigationBar.tintColor = UIColor.homepageLightBlue
         
-        navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         
-        navigationController.navigationBar.shadowImage = UIImage()
-
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func tapSearchBar() {
@@ -145,7 +134,7 @@ private extension LobbyViewController {
                 
                 self?.viewModel.newestWord = Array(arrayLiteral: words[0])
                 
-                LocalNotificationManager.scheduleLocal(title: "一起學習最新幹話", body: words[0].title, time: .morning)
+                LocalNotificationManager.scheduleLocal(title: .news, body: words[0].title, time: .morning)
                 
                 let wordOrderByViews = words.sorted { $0.views > $1.views }
                 

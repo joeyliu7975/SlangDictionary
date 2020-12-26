@@ -186,14 +186,6 @@ private extension AddNewWordViewController {
         
         addNewWordView.delegate = self
         
-        addNewWordView.newWordTF.delegate = self
-        
-        addNewWordView.categoryTF.delegate = self
-        
-        addNewWordView.definitionTextView.delegate = self
-        
-        addNewWordView.pickerView?.delegate = self
-        
         addNewWordView.backgroundColor = .separatorlineBlue
         
         checkFormValidation()
@@ -203,11 +195,7 @@ private extension AddNewWordViewController {
         
         viewModel.updateStatus = { [weak self] (isValid) in
             
-            guard let addNewWordView = self?.addNewWordView else { return }
-            
-            addNewWordView.sendButton.backgroundColor = isValid ? .white : .lightGray
-            
-            addNewWordView.sendButton.isEnabled = isValid
+            self?.addNewWordView.sendButtonValidation(isValid)
             
         }
         

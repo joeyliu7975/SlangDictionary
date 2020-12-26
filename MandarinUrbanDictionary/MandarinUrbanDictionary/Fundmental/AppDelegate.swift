@@ -97,7 +97,7 @@ extension AppDelegate {
     }
 
     func pushNotification() {
-        LocalNotificationManager.scheduleLocal(title: "說幹話，長知識", body: "探索最新幹話，增加尬聊趣味", time: .morning)
+        LocalNotificationManager.scheduleLocal(title: .explore, body: "探索最新幹話，增加尬聊趣味", time: .morning)
     }
 }
 

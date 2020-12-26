@@ -8,7 +8,7 @@
 import UIKit
 
 class FavoriteViewController: JoeyPanelViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var deleteButton: UIButton!
@@ -19,10 +19,26 @@ class FavoriteViewController: JoeyPanelViewController {
     
     @IBOutlet weak var deleteViewHeighConstraint: NSLayoutConstraint!
     
+    lazy var emptyLabel: UILabel = {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 45))
+        
+        label.textColor = .homepageDarkBlue
+        
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+        
+        label.textAlignment = .center
+        
+        label.text = "目前尚無資料"
+        
+        label.isHidden = true
+        
+        return label
+    }()
+    
     var viewModel: FavoriteViewModel?
     
     private lazy var editButton: UIBarButtonItem = {
-       
+        
         let editButton = UIBarButtonItem(title: "編輯", style: .done, target: self, action: #selector(toggleEditMode))
         
         return editButton
@@ -33,14 +49,14 @@ class FavoriteViewController: JoeyPanelViewController {
             
             guard let title = navigationTitle else { return }
             
-            setBarAppearance(title: title)
+            setBarAppearance(title: SidePanel(rawValue: title) ?? .favorite)
             
         }
     }
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         setup()
@@ -51,7 +67,7 @@ class FavoriteViewController: JoeyPanelViewController {
         
         viewModelBinding()
         
-        view.addSubview(animationView)
+        setupLoadingView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,12 +109,12 @@ class FavoriteViewController: JoeyPanelViewController {
     @objc func toggleEditMode() {
         
         viewModel?.isEditing.toggle()
-    
+        
     }
 }
 
 private extension FavoriteViewController {
-   
+    
     func setup() {
         
         view.backgroundColor = .cardViewBlue
@@ -106,6 +122,14 @@ private extension FavoriteViewController {
         guard let title = navigationItem.title else { return }
         
         viewModel = FavoriteViewModel(title: title)
+    }
+    
+    func setupLoadingView() {
+        view.addSubview(animationView)
+        
+        emptyLabel.center = animationView.center
+        
+        view.insertSubview(emptyLabel, belowSubview: animationView)
     }
     
     func setupTableView() {
@@ -130,7 +154,6 @@ private extension FavoriteViewController {
         makeSideMenuButton()
         
         makeRightButton()
-        
     }
     
     func makeRightButton() {
@@ -140,7 +163,7 @@ private extension FavoriteViewController {
     }
     
     func showAlert() {
-
+        
         let presenter = FavoritePresenter(
             title: "移除全部",
             message: "請問要移除所有內容？",
@@ -154,15 +177,17 @@ private extension FavoriteViewController {
                 break
             }
         }
-
+        
         presenter.present(in: self)
     }
     
     func viewModelBinding() {
         
-        viewModel?.favoriteViewModels.bind { [weak self] (_) in
+        viewModel?.favoriteViewModels.bind { [weak self] (words) in
             
             self?.animationView.removeFromSuperview()
+            
+            self?.showEmptyData(words.isEmpty)
             
             guard let viewModel = self?.viewModel else { return }
             
@@ -174,7 +199,7 @@ private extension FavoriteViewController {
             case false:
                 
                 self?.tableView.reloadData()
-                            
+                
             }
         }
         
@@ -267,11 +292,19 @@ extension FavoriteViewController: UITableViewDataSource {
         let cell: FavoriteTableViewCell = tableView.makeCell(indexPath: indexPath)
         
         guard let viewModel = viewModel else { return cell }
-
+        
         let word = viewModel.favoriteViewModels.value[indexPath.row]
-            
+        
         cell.renderUI(word: word.title, tag: word.category)
         
         return cell
+    }
+}
+
+extension FavoriteViewController {
+    func showEmptyData(_ isHidden: Bool) {
+        
+        emptyLabel.isHidden = !isHidden
+        
     }
 }

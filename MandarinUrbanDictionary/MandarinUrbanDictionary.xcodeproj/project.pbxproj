@@ -16,7 +16,6 @@
 		710574F1258A16FD004556DF /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710574F0258A16FD004556DF /* UserViewModel.swift */; };
 		7119AA2D257B73DE00A7F513 /* AddNewWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */; };
 		7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E0052570F65D00A56E7E /* SearchPageViewController.swift */; };
-		7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E0062570F65D00A56E7E /* SearchPageViewController.xib */; };
 		7120E00D2571116400A56E7E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E00B2571116400A56E7E /* CategoryViewController.swift */; };
 		7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7120E00C2571116400A56E7E /* CategoryViewController.xib */; };
 		7120E0132571167700A56E7E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E0112571167700A56E7E /* CategoryCollectionViewCell.swift */; };
@@ -141,7 +140,6 @@
 		710574F0258A16FD004556DF /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordViewModel.swift; sourceTree = "<group>"; };
 		7120E0052570F65D00A56E7E /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
-		7120E0062570F65D00A56E7E /* SearchPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchPageViewController.xib; sourceTree = "<group>"; };
 		7120E00B2571116400A56E7E /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		7120E00C2571116400A56E7E /* CategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
 		7120E0112571167700A56E7E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -273,72 +271,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		71007E092585EEBE00E6ADEA /* Lobby */ = {
-			isa = PBXGroup;
-			children = (
-				71E81EA82584BAD600BECDCC /* LobbyViewController.xib */,
-			);
-			path = Lobby;
-			sourceTree = "<group>";
-		};
-		71055A892584285B00560C5D /* Quiz */ = {
-			isa = PBXGroup;
-			children = (
-				71055A8A2584285B00560C5D /* QuizViewController.xib */,
-			);
-			name = Quiz;
-			path = MandarinUrbanDictionary/xibs/Quiz;
-			sourceTree = SOURCE_ROOT;
-		};
-		71055A8F2584289500560C5D /* Rank */ = {
-			isa = PBXGroup;
-			children = (
-				71055A902584289500560C5D /* RankViewController.xib */,
-			);
-			name = Rank;
-			path = MandarinUrbanDictionary/xibs/Rank;
-			sourceTree = SOURCE_ROOT;
-		};
-		71055A93258428A300560C5D /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				71055A94258428A300560C5D /* LoginViewController.xib */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		710574BB2589FF1D004556DF /* Achievement */ = {
-			isa = PBXGroup;
-			children = (
-				710574BC2589FF90004556DF /* AchievementViewController.swift */,
-			);
-			path = Achievement;
-			sourceTree = "<group>";
-		};
-		710574D8258A1093004556DF /* Achievement */ = {
-			isa = PBXGroup;
-			children = (
-				710574BD2589FF90004556DF /* AchievementViewController.xib */,
-			);
-			path = Achievement;
-			sourceTree = "<group>";
-		};
-		7105AF872575E9CD000C71B4 /* Definition */ = {
-			isa = PBXGroup;
-			children = (
-				7120E01E257231CC00A56E7E /* DefinitionViewController.xib */,
-			);
-			path = Definition;
-			sourceTree = "<group>";
-		};
-		7105AF892575E9E3000C71B4 /* New Word */ = {
-			isa = PBXGroup;
-			children = (
-				7152EADB2575E94A00F1C5FB /* AddNewWordViewController.xib */,
-			);
-			path = "New Word";
-			sourceTree = "<group>";
-		};
 		7120E0232572333B00A56E7E /* MostViewedWord */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,54 +333,6 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		7152EACD2575E8BE00F1C5FB /* NewWord */ = {
-			isa = PBXGroup;
-			children = (
-				7152EADA2575E94A00F1C5FB /* AddNewWordViewController.swift */,
-			);
-			path = NewWord;
-			sourceTree = "<group>";
-		};
-		7152EACE2575E8C800F1C5FB /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				7120E0052570F65D00A56E7E /* SearchPageViewController.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		7152EAD02575E8D900F1C5FB /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				7120E00B2571116400A56E7E /* CategoryViewController.swift */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		7152EAD32575E8E000F1C5FB /* Definition */ = {
-			isa = PBXGroup;
-			children = (
-				7120E01D257231CC00A56E7E /* DefinitionViewController.swift */,
-			);
-			path = Definition;
-			sourceTree = "<group>";
-		};
-		7152EADF2575E96400F1C5FB /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				7120E0062570F65D00A56E7E /* SearchPageViewController.xib */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		7152EAE02575E96900F1C5FB /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				7120E00C2571116400A56E7E /* CategoryViewController.xib */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
 		7160B713257254D8007F7C90 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,45 +360,15 @@
 			path = "Definition Header";
 			sourceTree = "<group>";
 		};
-		716A8D6125778A85005C5782 /* Report */ = {
-			isa = PBXGroup;
-			children = (
-				716A8D6225778AA3005C5782 /* ReportViewController.swift */,
-			);
-			path = Report;
-			sourceTree = "<group>";
-		};
-		716A8D6725778AAA005C5782 /* Report */ = {
-			isa = PBXGroup;
-			children = (
-				716A8D6325778AA3005C5782 /* ReportViewController.xib */,
-			);
-			path = Report;
-			sourceTree = "<group>";
-		};
-		716A8D6D2578771D005C5782 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				716A8D6F25787A01005C5782 /* LoginViewController.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		716CD30A2574F79100695A91 /* HomePage */ = {
+		716CD30A2574F79100695A91 /* Lobby */ = {
 			isa = PBXGroup;
 			children = (
 				716CD30C2574F7A200695A91 /* ContainerViewController.swift */,
 				716CD30F2574F80500695A91 /* SidePanelViewController.swift */,
+				71E81EA92584BAD600BECDCC /* LobbyViewController.swift */,
+				7152EADA2575E94A00F1C5FB /* AddNewWordViewController.swift */,
 			);
-			path = HomePage;
-			sourceTree = "<group>";
-		};
-		716CD3152574F81000695A91 /* HomePage */ = {
-			isa = PBXGroup;
-			children = (
-				716CD3102574F80500695A91 /* SidePanelViewController.xib */,
-			);
-			path = HomePage;
+			path = Lobby;
 			sourceTree = "<group>";
 		};
 		716CD319257503A700695A91 /* SidePanel */ = {
@@ -602,14 +456,6 @@
 			path = Rank;
 			sourceTree = "<group>";
 		};
-		71883B7F2578EF9F00170AC9 /* Quiz */ = {
-			isa = PBXGroup;
-			children = (
-				71883B802578EFBB00170AC9 /* QuizViewController.swift */,
-			);
-			path = Quiz;
-			sourceTree = "<group>";
-		};
 		718D6B8C2579DA8C00663CAD /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,30 +471,6 @@
 				718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */,
 			);
 			path = Manager;
-			sourceTree = "<group>";
-		};
-		71A6C20A2586131100FC478D /* NewDefinition */ = {
-			isa = PBXGroup;
-			children = (
-				71C3D5AA257E29DB00636BC4 /* NewDefinitionViewController.xib */,
-			);
-			path = NewDefinition;
-			sourceTree = "<group>";
-		};
-		71A84A822576365000E0C14D /* Favorite */ = {
-			isa = PBXGroup;
-			children = (
-				71A84A832576368900E0C14D /* FavoriteViewController.swift */,
-			);
-			path = Favorite;
-			sourceTree = "<group>";
-		};
-		71A84A882576369600E0C14D /* Favorite */ = {
-			isa = PBXGroup;
-			children = (
-				71A84A842576368900E0C14D /* FavoriteViewController.xib */,
-			);
-			path = Favorite;
 			sourceTree = "<group>";
 		};
 		71A84A892576379400E0C14D /* Favorite */ = {
@@ -669,22 +491,6 @@
 			path = Lotties;
 			sourceTree = "<group>";
 		};
-		71B046DC25936B3C001F84DE /* DailyWord */ = {
-			isa = PBXGroup;
-			children = (
-				71295AD1259375A90077CD0A /* DailyWordViewController.xib */,
-			);
-			path = DailyWord;
-			sourceTree = "<group>";
-		};
-		71B046DE25937217001F84DE /* DailyWord */ = {
-			isa = PBXGroup;
-			children = (
-				71295AD0259375A90077CD0A /* DailyWordViewController.swift */,
-			);
-			path = DailyWord;
-			sourceTree = "<group>";
-		};
 		71C0B7E4258CA64E00DDD82A /* Achievement */ = {
 			isa = PBXGroup;
 			children = (
@@ -692,14 +498,6 @@
 				71C0B7E6258CA66B00DDD82A /* AchievementTableViewCell.xib */,
 			);
 			path = Achievement;
-			sourceTree = "<group>";
-		};
-		71C3D5A8257E29A600636BC4 /* New Definition */ = {
-			isa = PBXGroup;
-			children = (
-				71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */,
-			);
-			path = "New Definition";
 			sourceTree = "<group>";
 		};
 		71C5C7D725792E4200EAE24B /* Entity */ = {
@@ -721,6 +519,52 @@
 				71C7D722259439DE008477D2 /* WordOrganizer.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		71C889FD2597254300FC5069 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				716A8D6F25787A01005C5782 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		71C889FE2597256400FC5069 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				71295AD0259375A90077CD0A /* DailyWordViewController.swift */,
+				71A84A832576368900E0C14D /* FavoriteViewController.swift */,
+				71F9442A2578C15E0014808E /* RankViewController.swift */,
+				71883B802578EFBB00170AC9 /* QuizViewController.swift */,
+				710574BC2589FF90004556DF /* AchievementViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		71C889FF2597257100FC5069 /* Definition */ = {
+			isa = PBXGroup;
+			children = (
+				7120E01D257231CC00A56E7E /* DefinitionViewController.swift */,
+				71C3D5A9257E29DB00636BC4 /* NewDefinitionViewController.swift */,
+				716A8D6225778AA3005C5782 /* ReportViewController.swift */,
+			);
+			path = Definition;
+			sourceTree = "<group>";
+		};
+		71C88A012597259400FC5069 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7120E0052570F65D00A56E7E /* SearchPageViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		71C88A03259725BA00FC5069 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7120E00B2571116400A56E7E /* CategoryViewController.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		71CE92102579C03B0080E0A0 /* Base */ = {
@@ -763,20 +607,19 @@
 		71E7F32F2570D67900F15098 /* xibs */ = {
 			isa = PBXGroup;
 			children = (
-				71055A93258428A300560C5D /* Login */,
-				71007E092585EEBE00E6ADEA /* Lobby */,
-				716CD3152574F81000695A91 /* HomePage */,
-				7105AF892575E9E3000C71B4 /* New Word */,
-				7152EADF2575E96400F1C5FB /* Search */,
-				7152EAE02575E96900F1C5FB /* Category */,
-				7105AF872575E9CD000C71B4 /* Definition */,
-				71A6C20A2586131100FC478D /* NewDefinition */,
-				71A84A882576369600E0C14D /* Favorite */,
-				716A8D6725778AAA005C5782 /* Report */,
-				71055A8F2584289500560C5D /* Rank */,
-				710574D8258A1093004556DF /* Achievement */,
-				71B046DC25936B3C001F84DE /* DailyWord */,
-				71055A892584285B00560C5D /* Quiz */,
+				71055A94258428A300560C5D /* LoginViewController.xib */,
+				71E81EA82584BAD600BECDCC /* LobbyViewController.xib */,
+				716CD3102574F80500695A91 /* SidePanelViewController.xib */,
+				7152EADB2575E94A00F1C5FB /* AddNewWordViewController.xib */,
+				7120E00C2571116400A56E7E /* CategoryViewController.xib */,
+				7120E01E257231CC00A56E7E /* DefinitionViewController.xib */,
+				71C3D5AA257E29DB00636BC4 /* NewDefinitionViewController.xib */,
+				71A84A842576368900E0C14D /* FavoriteViewController.xib */,
+				716A8D6325778AA3005C5782 /* ReportViewController.xib */,
+				71055A902584289500560C5D /* RankViewController.xib */,
+				710574BD2589FF90004556DF /* AchievementViewController.xib */,
+				71295AD1259375A90077CD0A /* DailyWordViewController.xib */,
+				71055A8A2584285B00560C5D /* QuizViewController.xib */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -795,20 +638,12 @@
 			isa = PBXGroup;
 			children = (
 				71CE92102579C03B0080E0A0 /* Base */,
-				716A8D6D2578771D005C5782 /* Login */,
-				71E81EA72584BAD600BECDCC /* Lobby */,
-				716CD30A2574F79100695A91 /* HomePage */,
-				7152EACD2575E8BE00F1C5FB /* NewWord */,
-				7152EACE2575E8C800F1C5FB /* Search */,
-				7152EAD02575E8D900F1C5FB /* Category */,
-				7152EAD32575E8E000F1C5FB /* Definition */,
-				71C3D5A8257E29A600636BC4 /* New Definition */,
-				71B046DE25937217001F84DE /* DailyWord */,
-				71A84A822576365000E0C14D /* Favorite */,
-				71F944292578C1380014808E /* Rank */,
-				71883B7F2578EF9F00170AC9 /* Quiz */,
-				710574BB2589FF1D004556DF /* Achievement */,
-				716A8D6125778A85005C5782 /* Report */,
+				71C889FD2597254300FC5069 /* Login */,
+				716CD30A2574F79100695A91 /* Lobby */,
+				71C88A012597259400FC5069 /* Search */,
+				71C889FF2597257100FC5069 /* Definition */,
+				71C889FE2597256400FC5069 /* SideMenu */,
+				71C88A03259725BA00FC5069 /* Other */,
 			);
 			name = Controller;
 			path = MandarinUrbanDictionary/Controller;
@@ -882,14 +717,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		71E81EA72584BAD600BECDCC /* Lobby */ = {
-			isa = PBXGroup;
-			children = (
-				71E81EA92584BAD600BECDCC /* LobbyViewController.swift */,
-			);
-			path = Lobby;
-			sourceTree = "<group>";
-		};
 		71E81EAD2584BAF100BECDCC /* Lobby */ = {
 			isa = PBXGroup;
 			children = (
@@ -943,14 +770,6 @@
 				71F8DDA7257C73E600507D8F /* SearchTableViewCell.xib */,
 			);
 			path = Search;
-			sourceTree = "<group>";
-		};
-		71F944292578C1380014808E /* Rank */ = {
-			isa = PBXGroup;
-			children = (
-				71F9442A2578C15E0014808E /* RankViewController.swift */,
-			);
-			path = Rank;
 			sourceTree = "<group>";
 		};
 		BD46FC664045AE34D3F9C256 /* Pods */ = {
@@ -1061,7 +880,6 @@
 				7120E0142571167700A56E7E /* CategoryCollectionViewCell.xib in Resources */,
 				71F8DDA9257C73E600507D8F /* SearchTableViewCell.xib in Resources */,
 				7175692C2570CFD600417B9C /* Assets.xcassets in Resources */,
-				7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */,
 				71C889F82596CF5200FC5069 /* loading-spinner.json in Resources */,
 				71055A912584289500560C5D /* RankViewController.xib in Resources */,
 				71055A8B2584285B00560C5D /* QuizViewController.xib in Resources */,

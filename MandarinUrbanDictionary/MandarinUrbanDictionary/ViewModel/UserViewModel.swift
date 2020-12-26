@@ -9,6 +9,8 @@ import UIKit
 
 class UserViewModel {
     
+    typealias JoeyResult<T:Codable> = Result<T, NetworkError>
+    
     private let networkManager: FirebaseManager
     
     var challenges: [Challenge] = [.view, .like, .post]
@@ -16,16 +18,18 @@ class UserViewModel {
     var processList: [Challenge: Process] = [:]
     
     var currentUser = Box([User]())
-        
+    
+    var uid: String {
+        return UserDefaults.standard.string(forKey: "uid") ?? ""
+    }
+    
     init(networkManager: FirebaseManager = .init()) {
         self.networkManager = networkManager
     }
     
     func fetchUserStatus() {
-        
-        guard let uid = UserDefaults.standard.string(forKey: "uid") else { return }
-        
-        networkManager.retrieveUser(userID: uid) { (result: Result<User, NetworkError>) in
+ 
+        networkManager.retrieveUser(userID: uid) { (result: JoeyResult<User>) in
             switch result {
             case .success(let user):
                 
@@ -40,8 +44,6 @@ class UserViewModel {
     }
     
     func startChallenge(challenge: Challenge, completion: @escaping () -> Void) {
-        
-        guard let uid = UserDefaults.standard.string(forKey: "uid") else { return }
         
         switch challenge {
         case .view:
@@ -58,7 +60,51 @@ class UserViewModel {
             }
         }
     }
+}
+
+extension UserViewModel: ProgressBarSupportingFeatures {
     
+    typealias Status = Challenge
+    
+    typealias Bar = ProgressBar
+    
+    func renewProcess(with user: User) {
+        
+        let postProcess = getProcess(at: .post, currentStage: user.postChallenge)
+        
+        let viewProcess = getProcess(at: .view, currentStage: user.viewChallenge)
+        
+        let favoriteProcess = getProcess(at: .like, currentStage: user.likeChallenge)
+        
+        processList[.post] = postProcess
+        
+        processList[.view] = viewProcess
+        
+        processList[.like] = favoriteProcess
+    }
+    
+    func getProgressBar(_ challenge: Status) -> Bar {
+        
+        let progressBar: ProgressBar
+        
+        switch challenge {
+        
+        case .like:
+            
+            progressBar = ProgressBar(title: "按讚挑戰賽", color: .systemGreen)
+            
+        case .view:
+            
+            progressBar = ProgressBar(title: "幹話探索挑戰賽", color: .systemYellow)
+            
+        case .post:
+            
+            progressBar = ProgressBar(title: "發文挑戰賽", color: .separatorlineBlue)
+            
+        }
+        
+        return progressBar
+    }
 }
 
 extension UserViewModel {
@@ -109,32 +155,21 @@ extension UserViewModel {
         }
     }
     
-    func getProcess(at challenge: Challenge, currentStage: Int) -> Process {
+    private func getProcess(at challenge: Challenge, currentStage: Int) -> Process {
         
         return Process(currentStage: currentStage, challenge: challenge)
         
     }
-    
-    func getProgressBar(_ challenge: Challenge) -> ProgressBar {
-        
-        let progressBar: ProgressBar
-        
-        switch challenge {
-        
-        case .like:
-            
-            progressBar = ProgressBar(title: "按讚挑戰賽", color: .systemGreen)
-            
-        case .view:
-            
-            progressBar = ProgressBar(title: "幹話探索挑戰賽", color: .systemYellow)
-            
-        case .post:
-            
-            progressBar = ProgressBar(title: "發文挑戰賽", color: .separatorlineBlue)
-            
-        }
-        
-        return progressBar
-    }
 }
+
+protocol ProgressBarSupportingFeatures {
+    
+    associatedtype Status
+    
+    associatedtype Bar
+    
+    func renewProcess(with user: User)
+    
+    func getProgressBar(_ challenge: Status) -> Bar
+}
+

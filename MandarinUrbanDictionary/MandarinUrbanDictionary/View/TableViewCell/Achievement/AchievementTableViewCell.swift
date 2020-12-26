@@ -24,7 +24,7 @@ class AchievementTableViewCell: UITableViewCell {
     let progressMaker: ProgressBarMaker = .init()
     
     private lazy var startLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 60))
         
         label.text = "Start"
         

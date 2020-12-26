@@ -71,6 +71,14 @@ class LoginViewController: UIViewController {
         
         authorizationController.performRequests()
     }
+    
+    @IBAction func clickTermOfService(_ sender: UIButton) {
+        
+        let serviceVC = TermOfServiceViewController()
+        
+        self.present(serviceVC, animated: true)
+    }
+    
 }
 
 extension LoginViewController {

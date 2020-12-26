@@ -14,6 +14,8 @@
 		710574BE2589FF90004556DF /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710574BC2589FF90004556DF /* AchievementViewController.swift */; };
 		710574BF2589FF90004556DF /* AchievementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 710574BD2589FF90004556DF /* AchievementViewController.xib */; };
 		710574F1258A16FD004556DF /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710574F0258A16FD004556DF /* UserViewModel.swift */; };
+		711123812597851B002F5C13 /* TermOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7111237F2597851B002F5C13 /* TermOfServiceViewController.swift */; };
+		711123822597851B002F5C13 /* TermOfServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 711123802597851B002F5C13 /* TermOfServiceViewController.xib */; };
 		7119AA2D257B73DE00A7F513 /* AddNewWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */; };
 		7120E0072570F65D00A56E7E /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E0052570F65D00A56E7E /* SearchPageViewController.swift */; };
 		7120E00D2571116400A56E7E /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120E00B2571116400A56E7E /* CategoryViewController.swift */; };
@@ -143,6 +145,8 @@
 		710574BC2589FF90004556DF /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		710574BD2589FF90004556DF /* AchievementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementViewController.xib; sourceTree = "<group>"; };
 		710574F0258A16FD004556DF /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		7111237F2597851B002F5C13 /* TermOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermOfServiceViewController.swift; sourceTree = "<group>"; };
+		711123802597851B002F5C13 /* TermOfServiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermOfServiceViewController.xib; sourceTree = "<group>"; };
 		7119AA2C257B73DD00A7F513 /* AddNewWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordViewModel.swift; sourceTree = "<group>"; };
 		7120E0052570F65D00A56E7E /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
 		7120E00B2571116400A56E7E /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -538,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				716A8D6F25787A01005C5782 /* LoginViewController.swift */,
+				7111237F2597851B002F5C13 /* TermOfServiceViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -630,6 +635,7 @@
 			isa = PBXGroup;
 			children = (
 				71055A94258428A300560C5D /* LoginViewController.xib */,
+				711123802597851B002F5C13 /* TermOfServiceViewController.xib */,
 				71E81EA82584BAD600BECDCC /* LobbyViewController.xib */,
 				71C88A1C2597288F00FC5069 /* SearchPageViewController.xib */,
 				716CD3102574F80500695A91 /* SidePanelViewController.xib */,
@@ -885,6 +891,7 @@
 				7120E00E2571116400A56E7E /* CategoryViewController.xib in Resources */,
 				71C0B7E8258CA66B00DDD82A /* AchievementTableViewCell.xib in Resources */,
 				716CD3292575234100695A91 /* SidePanelHeaderFooterView.xib in Resources */,
+				711123822597851B002F5C13 /* TermOfServiceViewController.xib in Resources */,
 				7120E020257231CC00A56E7E /* DefinitionViewController.xib in Resources */,
 				71E929612584FB23001FB100 /* LobbyTableHeaderView.xib in Resources */,
 				71055A95258428A300560C5D /* LoginViewController.xib in Resources */,
@@ -1039,6 +1046,7 @@
 				71C88A4B25975FC300FC5069 /* WrapperAnimationView.swift in Sources */,
 				71883B822578EFBB00170AC9 /* QuizViewController.swift in Sources */,
 				7188ADED258480AE00524D96 /* RankViewModel.swift in Sources */,
+				711123812597851B002F5C13 /* TermOfServiceViewController.swift in Sources */,
 				71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */,
 				71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */,
 				7134888A25749D05007ADED3 /* DefinitionViewModel.swift in Sources */,

@@ -69,6 +69,9 @@
                             <state key="normal" title="使用者條款">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="clickTermOfService:" destination="-1" eventType="touchUpInside" id="2Za-g4-Ext"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

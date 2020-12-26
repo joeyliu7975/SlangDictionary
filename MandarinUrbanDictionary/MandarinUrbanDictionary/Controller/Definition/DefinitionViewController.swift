@@ -319,7 +319,11 @@ extension DefinitionViewController: ReportDelegate {
                 let defid = viewModel?.reportedDefinition,
                 let reason = reason else { return }
             
-            viewModel?.report(id: defid, reason: reason)
+            viewModel?.report(id: defid, reason: reason) {
+                HUDAnimation.showSuccess(at: .report) {
+                    self.dismiss(animated: true)
+                }
+            }
             
         case false:
             // Do nothing

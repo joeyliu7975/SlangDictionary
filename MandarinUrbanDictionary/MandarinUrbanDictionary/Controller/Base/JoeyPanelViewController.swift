@@ -35,7 +35,7 @@ class JoeyPanelViewController: UIViewController, SidePanelControl {
         
         animationView.contentMode = .scaleAspectFit
         
-        animationView.animationSpeed = 0.75
+        animationView.animationSpeed = 2.5
         
         animationView.loopMode = .loop
         

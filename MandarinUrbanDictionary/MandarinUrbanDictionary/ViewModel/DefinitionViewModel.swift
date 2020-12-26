@@ -147,10 +147,10 @@ class DefinitionViewModel {
 
 // Report
 extension DefinitionViewModel {
-    func report(id: String, reason: String) {
+    func report(id: String, reason: String, completion: @escaping () -> Void) {
         let report = Report(uid: uid, id: id, reason: reason)
         
-        networkManager.report(report)
+        networkManager.report(report, completion: completion)
     }
 }
 

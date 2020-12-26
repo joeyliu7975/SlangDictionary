@@ -99,6 +99,8 @@
 		71C88A1D2597288F00FC5069 /* SearchPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C88A1C2597288F00FC5069 /* SearchPageViewController.xib */; };
 		71C88A2425972D1200FC5069 /* success_Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 71C88A2325972D1200FC5069 /* success_Animation.json */; };
 		71C88A4425973A4700FC5069 /* HUDAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C88A4325973A4700FC5069 /* HUDAnimation.swift */; };
+		71C88A4725975C4200FC5069 /* lottie_Failure.json in Resources */ = {isa = PBXBuildFile; fileRef = 71C88A4625975C4200FC5069 /* lottie_Failure.json */; };
+		71C88A4B25975FC300FC5069 /* WrapperAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C88A4A25975FC300FC5069 /* WrapperAnimationView.swift */; };
 		71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */; };
 		71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */; };
 		71D3E6C8258A42640064693C /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */; };
@@ -229,6 +231,8 @@
 		71C88A1C2597288F00FC5069 /* SearchPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPageViewController.xib; sourceTree = "<group>"; };
 		71C88A2325972D1200FC5069 /* success_Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success_Animation.json; sourceTree = "<group>"; };
 		71C88A4325973A4700FC5069 /* HUDAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDAnimation.swift; sourceTree = "<group>"; };
+		71C88A4625975C4200FC5069 /* lottie_Failure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottie_Failure.json; sourceTree = "<group>"; };
+		71C88A4A25975FC300FC5069 /* WrapperAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperAnimationView.swift; sourceTree = "<group>"; };
 		71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoeyPanelViewController.swift; sourceTree = "<group>"; };
 		71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostButtonView.swift; sourceTree = "<group>"; };
 		71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
@@ -493,6 +497,7 @@
 			children = (
 				71B046D725934F93001F84DE /* loading_Lotties.json */,
 				71C889F72596CF5200FC5069 /* loading-spinner.json */,
+				71C88A4625975C4200FC5069 /* lottie_Failure.json */,
 				71C88A2325972D1200FC5069 /* success_Animation.json */,
 			);
 			path = Lotties;
@@ -575,6 +580,14 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		71C88A4925975FA400FC5069 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				71C88A4A25975FC300FC5069 /* WrapperAnimationView.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		71CE92102579C03B0080E0A0 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,6 +617,7 @@
 		71E7F32E2570D67900F15098 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				71C88A4925975FA400FC5069 /* Animation */,
 				71CE92152579C1FF0080E0A0 /* Base */,
 				713361C7258C452800FEEB43 /* NewWord */,
 				71E7F3312570D67900F15098 /* CollectionViewCell */,
@@ -887,6 +901,7 @@
 				71A84A8D257637B600E0C14D /* FavoriteTableViewCell.xib in Resources */,
 				71C3D5AC257E29DB00636BC4 /* NewDefinitionViewController.xib in Resources */,
 				71554E77258D920F00A5B77F /* GoogleService-Info.plist in Resources */,
+				71C88A4725975C4200FC5069 /* lottie_Failure.json in Resources */,
 				7120E0142571167700A56E7E /* CategoryCollectionViewCell.xib in Resources */,
 				71F8DDA9257C73E600507D8F /* SearchTableViewCell.xib in Resources */,
 				7175692C2570CFD600417B9C /* Assets.xcassets in Resources */,
@@ -1021,6 +1036,7 @@
 				716A8D7125787A01005C5782 /* LoginViewController.swift in Sources */,
 				71295ADD2593985F0077CD0A /* DailyWordViewModel.swift in Sources */,
 				710574BE2589FF90004556DF /* AchievementViewController.swift in Sources */,
+				71C88A4B25975FC300FC5069 /* WrapperAnimationView.swift in Sources */,
 				71883B822578EFBB00170AC9 /* QuizViewController.swift in Sources */,
 				7188ADED258480AE00524D96 /* RankViewModel.swift in Sources */,
 				71E7F3522570D76600F15098 /* HomePageViewModel.swift in Sources */,

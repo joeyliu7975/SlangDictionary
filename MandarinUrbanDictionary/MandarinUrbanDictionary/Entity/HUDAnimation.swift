@@ -6,23 +6,76 @@
 //
 
 import PKHUD
+import Lottie
 
 class HUDAnimation {
-    static func showSuccess(completion:@escaping () -> Void) {
-        HUD.flash(.labeledSuccess(title: "新增成功", subtitle: ""), delay: 0.25)
+    
+    static func makeLottieAnimation(_ animation: LottieAnimation) -> UIView {
+        var animationView = AnimationView()
         
-        HUD.hide(afterDelay: 0.75) { (success) in
+        switch animation {
+        case .success:
+
+            animationView = .init(name: "success_Animation")
+
+        case .failure:
+
+            animationView = .init(name: "lottie_Failure")
+            
+        }
+        
+        animationView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        
+        animationView.contentMode = .scaleAspectFit
+        
+        animationView.loopMode = .playOnce
+        
+        animationView.animationSpeed = 2.0
+        
+        animationView.play()
+        
+        return animationView
+    }
+    
+    static func showSuccess(at viewController: HUDAnimation.ViewController,completion:@escaping () -> Void) {
+        
+        switch viewController {
+        case .newWord:
+            HUD.flash(.labeledSuccess(title: "新增成功", subtitle: ""), delay: 0.0)
+        case .report:
+            HUD.flash(.labeledSuccess(title: "檢舉成功", subtitle: ""), delay: 0.0)
+        }
+        
+        HUD.hide(afterDelay: 1.5) { (success) in
             completion()
         }
     }
     
-    static func showError(completion:@escaping () -> Void) {
-        HUD.flash(.labeledError(title: "該字已經存在", subtitle: ""), delay: 0.0)
+    static func showError(at viewController: HUDAnimation.ViewController, completion:@escaping () -> Void) {
         
-        HUD.hide(afterDelay: 0.75) { (success) in
+        switch viewController {
+        case .newWord:
+            HUD.flash(.labeledError(title: "該詞已經存在", subtitle: ""), delay: 0.0)
+        case .report:
+            HUD.flash(.labeledError(title: "檢舉失敗", subtitle: ""), delay: 0.0)
+        }
+        
+        HUD.hide(afterDelay: 1.5) { (success) in
             
             completion()
             
         }
+    }
+}
+
+extension HUDAnimation {
+    enum LottieAnimation {
+        case success
+        case failure
+    }
+    
+    enum ViewController {
+        case newWord
+        case report
     }
 }

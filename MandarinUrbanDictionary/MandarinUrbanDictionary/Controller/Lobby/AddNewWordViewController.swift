@@ -150,9 +150,9 @@ extension AddNewWordViewController: AddNewWordViewDelegate {
             switch shouldUpdateChallenge {
             case true:
                 self?.viewModel.updateChallenge {
-                    
+                   
                     DispatchQueue.main.async {
-                        HUDAnimation.showSuccess {
+                        HUDAnimation.showSuccess(at: .newWord) {
                             self?.dismiss(animated: true)
                         }
                     }
@@ -162,7 +162,7 @@ extension AddNewWordViewController: AddNewWordViewDelegate {
                 
                 self?.viewModel.updateChallenge {
                     DispatchQueue.main.async {
-                        HUDAnimation.showError {
+                        HUDAnimation.showError(at: .newWord) {
                             self?.dismiss(animated: true)
                         }
                     }

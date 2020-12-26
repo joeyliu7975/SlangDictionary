@@ -274,11 +274,13 @@ class FirebaseManager {
 }
 // Report
 extension FirebaseManager {
-    func report(_ report: Report) {
+    func report(_ report: Report, completion: @escaping () -> Void) {
         
         let db = adapted(.definition)
         
         db.document(report.id).collection("Report").document(report.uid).setData(report.dictionary)
+        
+        completion()
     }
 }
 

@@ -96,6 +96,9 @@
 		71C3D5B525809C0900636BC4 /* ReportPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5B425809C0900636BC4 /* ReportPresenter.swift */; };
 		71C7D723259439DE008477D2 /* WordOrganizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C7D722259439DE008477D2 /* WordOrganizer.swift */; };
 		71C889F82596CF5200FC5069 /* loading-spinner.json in Resources */ = {isa = PBXBuildFile; fileRef = 71C889F72596CF5200FC5069 /* loading-spinner.json */; };
+		71C88A1D2597288F00FC5069 /* SearchPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C88A1C2597288F00FC5069 /* SearchPageViewController.xib */; };
+		71C88A2425972D1200FC5069 /* success_Animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 71C88A2325972D1200FC5069 /* success_Animation.json */; };
+		71C88A4425973A4700FC5069 /* HUDAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C88A4325973A4700FC5069 /* HUDAnimation.swift */; };
 		71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */; };
 		71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */; };
 		71D3E6C8258A42640064693C /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */; };
@@ -223,6 +226,9 @@
 		71C3D5B425809C0900636BC4 /* ReportPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPresenter.swift; sourceTree = "<group>"; };
 		71C7D722259439DE008477D2 /* WordOrganizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOrganizer.swift; sourceTree = "<group>"; };
 		71C889F72596CF5200FC5069 /* loading-spinner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-spinner.json"; sourceTree = "<group>"; };
+		71C88A1C2597288F00FC5069 /* SearchPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPageViewController.xib; sourceTree = "<group>"; };
+		71C88A2325972D1200FC5069 /* success_Animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success_Animation.json; sourceTree = "<group>"; };
+		71C88A4325973A4700FC5069 /* HUDAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDAnimation.swift; sourceTree = "<group>"; };
 		71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoeyPanelViewController.swift; sourceTree = "<group>"; };
 		71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostButtonView.swift; sourceTree = "<group>"; };
 		71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
@@ -487,6 +493,7 @@
 			children = (
 				71B046D725934F93001F84DE /* loading_Lotties.json */,
 				71C889F72596CF5200FC5069 /* loading-spinner.json */,
+				71C88A2325972D1200FC5069 /* success_Animation.json */,
 			);
 			path = Lotties;
 			sourceTree = "<group>";
@@ -509,6 +516,7 @@
 				712F4FC3258DA28000F7AE29 /* ProgressBarMaker.swift */,
 				718E69F1259084D60056475F /* LocalNotificationManager.swift */,
 				7159FBAA2595ACF300825641 /* AVSpeechManager.swift */,
+				71C88A4325973A4700FC5069 /* HUDAnimation.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -609,6 +617,7 @@
 			children = (
 				71055A94258428A300560C5D /* LoginViewController.xib */,
 				71E81EA82584BAD600BECDCC /* LobbyViewController.xib */,
+				71C88A1C2597288F00FC5069 /* SearchPageViewController.xib */,
 				716CD3102574F80500695A91 /* SidePanelViewController.xib */,
 				7152EADB2575E94A00F1C5FB /* AddNewWordViewController.xib */,
 				7120E00C2571116400A56E7E /* CategoryViewController.xib */,
@@ -850,6 +859,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				716CD3122574F80500695A91 /* SidePanelViewController.xib in Resources */,
+				71C88A2425972D1200FC5069 /* success_Animation.json in Resources */,
 				71295AD3259375A90077CD0A /* DailyWordViewController.xib in Resources */,
 				710574BF2589FF90004556DF /* AchievementViewController.xib in Resources */,
 				7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */,
@@ -881,6 +891,7 @@
 				71F8DDA9257C73E600507D8F /* SearchTableViewCell.xib in Resources */,
 				7175692C2570CFD600417B9C /* Assets.xcassets in Resources */,
 				71C889F82596CF5200FC5069 /* loading-spinner.json in Resources */,
+				71C88A1D2597288F00FC5069 /* SearchPageViewController.xib in Resources */,
 				71055A912584289500560C5D /* RankViewController.xib in Resources */,
 				71055A8B2584285B00560C5D /* QuizViewController.xib in Resources */,
 			);
@@ -1006,6 +1017,7 @@
 				71F9442025789B140014808E /* JoeyTextLayer.swift in Sources */,
 				71E81EB02584BB5D00BECDCC /* TheNewestWordTableViewCell.swift in Sources */,
 				7152EADC2575E94A00F1C5FB /* AddNewWordViewController.swift in Sources */,
+				71C88A4425973A4700FC5069 /* HUDAnimation.swift in Sources */,
 				716A8D7125787A01005C5782 /* LoginViewController.swift in Sources */,
 				71295ADD2593985F0077CD0A /* DailyWordViewModel.swift in Sources */,
 				710574BE2589FF90004556DF /* AchievementViewController.swift in Sources */,

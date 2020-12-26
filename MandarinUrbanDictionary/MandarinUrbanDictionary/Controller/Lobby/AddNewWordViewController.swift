@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import Lottie
 
 class AddNewWordViewController: UIViewController {
     
     @IBOutlet weak var addNewWordView: AddNewWordView!
     
     var viewModel: AddNewWordViewModel = .init()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -150,12 +151,22 @@ extension AddNewWordViewController: AddNewWordViewDelegate {
             case true:
                 self?.viewModel.updateChallenge {
                     
-                    self?.dismiss(animated: true)
+                    DispatchQueue.main.async {
+                        HUDAnimation.showSuccess {
+                            self?.dismiss(animated: true)
+                        }
+                    }
                     
                 }
             case false:
                 
-                self?.dismiss(animated: true)
+                self?.viewModel.updateChallenge {
+                    DispatchQueue.main.async {
+                        HUDAnimation.showError {
+                            self?.dismiss(animated: true)
+                        }
+                    }
+                }
                 
             }
         }
@@ -177,7 +188,6 @@ private extension AddNewWordViewController {
         navigationItem.setBarAppearance(with: .separatorlineBlue)
         
         addNewWordView.newWordTF.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        
     }
     
     func setupAddNewWordView() {

@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var restrictRotation:UIInterfaceOrientationMask = .portrait
     
-    let notificationManager: NotificationCenterManager = .init()
+    let notificationManager: LocalNotificationManager = .init()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -28,8 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.toolbarTintColor = .homepageDarkBlue
         
         disableIQKeyboardOnParticularVC()
+                
+        setupNotification(on: application)
         
-        registerLocal()
+        if launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification] != nil {
+            pushNotification()
+        }
         
         return true
     }
@@ -63,22 +67,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask
-    {
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return self.restrictRotation
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 }
 
 extension AppDelegate {
     
-    func registerLocal() {
-        notificationManager.registerLocal()
+    func setupNotification(on application: UIApplication) {
+        let center = UNUserNotificationCenter.current()
+
+        center.delegate = self
+        
+        center.requestAuthorization(options: [.alert, .badge]) { (granted, error) in
+            switch granted {
+            case true:
+                DispatchQueue.main.async {
+                    application.registerForRemoteNotifications()
+                }
+            case false:
+                print("Oh no!")
+            }
+        }
     }
-    
+
     func pushNotification() {
-        notificationManager.scheduleLocal()
+        LocalNotificationManager.scheduleLocal(title: "說幹話，長知識", body: "探索最新幹話，增加尬聊趣味", time: .morning)
     }
-    
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
 }
 
 extension AppDelegate {

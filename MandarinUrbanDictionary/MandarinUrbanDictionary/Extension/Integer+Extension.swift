@@ -13,7 +13,7 @@ extension Int {
         case 0:
             return String(describing: "最佳解釋")
         default:
-            return String(describing: self)
+            return String(describing: self + 1)
         }
     }
 }

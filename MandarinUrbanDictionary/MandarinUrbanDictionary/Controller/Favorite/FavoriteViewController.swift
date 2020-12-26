@@ -162,6 +162,8 @@ private extension FavoriteViewController {
         
         viewModel?.favoriteViewModels.bind { [weak self] (_) in
             
+            self?.animationView.removeFromSuperview()
+            
             guard let viewModel = self?.viewModel else { return }
             
             switch viewModel.isEditing {
@@ -170,8 +172,6 @@ private extension FavoriteViewController {
                 break
                 
             case false:
-                
-                self?.animationView.removeFromSuperview()
                 
                 self?.tableView.reloadData()
                             

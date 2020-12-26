@@ -7,19 +7,16 @@
 
 import UIKit
 
-protocol NotificationRegister {
-    func registerLocal()
+enum NotificationTime {
+    case morning
+    case evening
 }
 
-protocol NotificationSchedule {
-    func scheduleLocal()
-}
-
-class NotificationCenterManager: NotificationRegister, NotificationSchedule {
+class LocalNotificationManager {
     
-    func registerLocal() {
+    static func registerLocal() {
         let center = UNUserNotificationCenter.current()
-        
+
         center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             switch granted {
             case true:
@@ -30,12 +27,10 @@ class NotificationCenterManager: NotificationRegister, NotificationSchedule {
         }
     }
     
-    func scheduleLocal() {
+    static func scheduleLocal(title: String, body: String, time: NotificationTime) {
           
         let center = UNUserNotificationCenter.current()
-        
-//        center.removeAllPendingNotificationRequests()
-        
+                
         center.getNotificationSettings { (settings) in
             guard settings.authorizationStatus == .authorized else { return }
             
@@ -46,25 +41,30 @@ class NotificationCenterManager: NotificationRegister, NotificationSchedule {
         
         let content = UNMutableNotificationContent()
         
-        content.title = "每日幹話挑戰"
+        content.title = title
         
-        content.body = "你今天說幹話了嗎?"
-        
-        content.sound = .default
-        
+        content.body = body
+                
         content.categoryIdentifier = "alarm"
         
         content.userInfo = ["customData": "fizzbuzz"]
         
-//        var dateComponents = DateComponents()
-//
-//        dateComponents.hour = 14
-//
-//        dateComponents.minute = 49
+        content.badge =  UIApplication.shared.applicationIconBadgeNumber as NSNumber
         
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        var dateComponents = DateComponents()
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        switch time {
+        case .morning:
+            dateComponents.hour = 11
+
+            dateComponents.minute = 52
+        case .evening:
+            dateComponents.hour = 11
+
+            dateComponents.minute = 47
+        }
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         

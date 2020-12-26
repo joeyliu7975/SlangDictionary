@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
         return animationView
     }()
     
-    private let notificationManager: NotificationCenterManager = .init()
+    private let notificationManager: LocalNotificationManager = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,10 +73,10 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: NotificationRegister {
+extension LoginViewController {
     func registerLocal() {
         
-        notificationManager.registerLocal()
+        LocalNotificationManager.registerLocal()
         
     }
 }
@@ -86,6 +86,8 @@ private extension LoginViewController {
     func setup() {
         
         appleLoginView.setCorner(radius: 10.0)
+        
+        UserDefaults.standard.setValue(0, forKey: "badgetCount")
         
         let underlineAttribute: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue,

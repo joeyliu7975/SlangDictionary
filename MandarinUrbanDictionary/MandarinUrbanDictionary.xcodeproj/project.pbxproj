@@ -46,7 +46,6 @@
 		7158CE76259306CE008E9727 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7158CE75259306CE008E9727 /* FavoriteManager.swift */; };
 		7159FBAB2595ACF300825641 /* AVSpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7159FBAA2595ACF300825641 /* AVSpeechManager.swift */; };
 		7159FBB22595BCB400825641 /* Integer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7159FBB12595BCB400825641 /* Integer+Extension.swift */; };
-		7159FBB62596280F00825641 /* loading-spinner.json in Resources */ = {isa = PBXBuildFile; fileRef = 7159FBB52596280F00825641 /* loading-spinner.json */; };
 		7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71025725359007F7C90 /* UITableView+Extension.swift */; };
 		7160B71525725532007F7C90 /* DefinitionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7160B71425725532007F7C90 /* DefinitionHeaderView.swift */; };
 		7160B71A25725572007F7C90 /* DefinitionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7160B71925725572007F7C90 /* DefinitionHeaderView.xib */; };
@@ -79,7 +78,7 @@
 		718D6B8A2579D92400663CAD /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B892579D92400663CAD /* Box.swift */; };
 		718D6B8F2579DBAF00663CAD /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */; };
 		718D6B92257A1FF500663CAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B91257A1FF500663CAD /* User.swift */; };
-		718E69F2259084D60056475F /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E69F1259084D60056475F /* NotificationCenterManager.swift */; };
+		718E69F2259084D60056475F /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E69F1259084D60056475F /* LocalNotificationManager.swift */; };
 		71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */; };
 		71A6C20D2586163800FC478D /* NSCharacterSet+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */; };
 		71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A832576368900E0C14D /* FavoriteViewController.swift */; };
@@ -97,6 +96,7 @@
 		71C3D5B225809A2200636BC4 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5B125809A2200636BC4 /* FavoritePresenter.swift */; };
 		71C3D5B525809C0900636BC4 /* ReportPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3D5B425809C0900636BC4 /* ReportPresenter.swift */; };
 		71C7D723259439DE008477D2 /* WordOrganizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C7D722259439DE008477D2 /* WordOrganizer.swift */; };
+		71C889F82596CF5200FC5069 /* loading-spinner.json in Resources */ = {isa = PBXBuildFile; fileRef = 71C889F72596CF5200FC5069 /* loading-spinner.json */; };
 		71CE92122579C0AE0080E0A0 /* JoeyPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */; };
 		71CE92172579C21F0080E0A0 /* NewPostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */; };
 		71D3E6C8258A42640064693C /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */; };
@@ -172,7 +172,6 @@
 		7158CE75259306CE008E9727 /* FavoriteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
 		7159FBAA2595ACF300825641 /* AVSpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVSpeechManager.swift; sourceTree = "<group>"; };
 		7159FBB12595BCB400825641 /* Integer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Integer+Extension.swift"; sourceTree = "<group>"; };
-		7159FBB52596280F00825641 /* loading-spinner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-spinner.json"; sourceTree = "<group>"; };
 		7160B71025725359007F7C90 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		7160B71425725532007F7C90 /* DefinitionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinitionHeaderView.swift; sourceTree = "<group>"; };
 		7160B71925725572007F7C90 /* DefinitionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefinitionHeaderView.xib; sourceTree = "<group>"; };
@@ -207,7 +206,7 @@
 		718D6B892579D92400663CAD /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		718D6B91257A1FF500663CAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		718E69F1259084D60056475F /* NotificationCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
+		718E69F1259084D60056475F /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FSPagerView+Extension.swift"; sourceTree = "<group>"; };
 		71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCharacterSet+Extension.swift"; sourceTree = "<group>"; };
 		71A84A832576368900E0C14D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +224,7 @@
 		71C3D5B125809A2200636BC4 /* FavoritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePresenter.swift; sourceTree = "<group>"; };
 		71C3D5B425809C0900636BC4 /* ReportPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPresenter.swift; sourceTree = "<group>"; };
 		71C7D722259439DE008477D2 /* WordOrganizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOrganizer.swift; sourceTree = "<group>"; };
+		71C889F72596CF5200FC5069 /* loading-spinner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-spinner.json"; sourceTree = "<group>"; };
 		71CE92112579C0AE0080E0A0 /* JoeyPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoeyPanelViewController.swift; sourceTree = "<group>"; };
 		71CE92162579C21F0080E0A0 /* NewPostButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostButtonView.swift; sourceTree = "<group>"; };
 		71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
@@ -664,7 +664,7 @@
 			isa = PBXGroup;
 			children = (
 				71B046D725934F93001F84DE /* loading_Lotties.json */,
-				7159FBB52596280F00825641 /* loading-spinner.json */,
+				71C889F72596CF5200FC5069 /* loading-spinner.json */,
 			);
 			path = Lotties;
 			sourceTree = "<group>";
@@ -709,7 +709,7 @@
 				71C3D5B125809A2200636BC4 /* FavoritePresenter.swift */,
 				71C3D5B425809C0900636BC4 /* ReportPresenter.swift */,
 				712F4FC3258DA28000F7AE29 /* ProgressBarMaker.swift */,
-				718E69F1259084D60056475F /* NotificationCenterManager.swift */,
+				718E69F1259084D60056475F /* LocalNotificationManager.swift */,
 				7159FBAA2595ACF300825641 /* AVSpeechManager.swift */,
 			);
 			path = Entity;
@@ -1055,7 +1055,6 @@
 				716CD31E2575130400695A91 /* SidePanelTableViewCell.xib in Resources */,
 				71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */,
 				7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */,
-				7159FBB62596280F00825641 /* loading-spinner.json in Resources */,
 				71A84A8D257637B600E0C14D /* FavoriteTableViewCell.xib in Resources */,
 				71C3D5AC257E29DB00636BC4 /* NewDefinitionViewController.xib in Resources */,
 				71554E77258D920F00A5B77F /* GoogleService-Info.plist in Resources */,
@@ -1063,6 +1062,7 @@
 				71F8DDA9257C73E600507D8F /* SearchTableViewCell.xib in Resources */,
 				7175692C2570CFD600417B9C /* Assets.xcassets in Resources */,
 				7120E0082570F65D00A56E7E /* SearchPageViewController.xib in Resources */,
+				71C889F82596CF5200FC5069 /* loading-spinner.json in Resources */,
 				71055A912584289500560C5D /* RankViewController.xib in Resources */,
 				71055A8B2584285B00560C5D /* QuizViewController.xib in Resources */,
 			);
@@ -1214,7 +1214,7 @@
 				717569252570CFD300417B9C /* SceneDelegate.swift in Sources */,
 				71C3D5B525809C0900636BC4 /* ReportPresenter.swift in Sources */,
 				7120E0182572024A00A56E7E /* SearchButton.swift in Sources */,
-				718E69F2259084D60056475F /* NotificationCenterManager.swift in Sources */,
+				718E69F2259084D60056475F /* LocalNotificationManager.swift in Sources */,
 				71A84A96257689B000E0C14D /* CardView.swift in Sources */,
 				7170537425904493000521B0 /* UITextField+Extension.swift in Sources */,
 				71D3E6C8258A42640064693C /* UINavigationController+Extension.swift in Sources */,

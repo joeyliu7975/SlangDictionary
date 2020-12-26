@@ -269,7 +269,6 @@ class FirebaseManager {
                     print("Document successfully updated")
                     completion?()
                 }
-            
         }
     }
 }

@@ -31,9 +31,7 @@ class LobbyViewController: JoeyPanelViewController {
     weak var delegate: CenterViewControllerDelegate?
     
     let viewModel: HomePageViewModel = .init()
-    
-    let notificationManager: NotificationCenterManager = .init()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,16 +49,6 @@ class LobbyViewController: JoeyPanelViewController {
     
         viewModelBinding()
     }
-}
-
-extension LobbyViewController {
-
-    func scheduleLocal() {
-        
-        notificationManager.scheduleLocal()
-        
-    }
-    
 }
 
 private extension LobbyViewController {
@@ -156,6 +144,8 @@ private extension LobbyViewController {
             case false:
                 
                 self?.viewModel.newestWord = Array(arrayLiteral: words[0])
+                
+                LocalNotificationManager.scheduleLocal(title: "一起學習最新幹話", body: words[0].title, time: .morning)
                 
                 let wordOrderByViews = words.sorted { $0.views > $1.views }
                 

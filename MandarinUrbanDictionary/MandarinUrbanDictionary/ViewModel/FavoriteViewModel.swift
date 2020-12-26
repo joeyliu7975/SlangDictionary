@@ -24,7 +24,10 @@ class FavoriteViewModel {
             
             case .favorite:
                 
-                if user.favorites.isEmpty { return }
+                if user.favorites.isEmpty {
+                    favoriteViewModels.value = []
+                    return
+                }
                                                 
                 while !user.favorites.isEmpty {
                     
@@ -58,7 +61,10 @@ class FavoriteViewModel {
                 
             case .recent:
                 
-                if user.recents.isEmpty { return }
+                if user.recents.isEmpty {
+                    favoriteViewModels.value = []
+                    return
+                }
                                                 
                 while !user.recents.isEmpty {
                     

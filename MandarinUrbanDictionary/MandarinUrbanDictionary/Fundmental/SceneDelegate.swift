@@ -21,12 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.makeKeyAndVisible()
                
-        if let status = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool,
-           status == true {
-            self.changeRootViewController(to: .homepage)
-        } else {
-            self.changeRootViewController(to: .login)
-        }
+        self.changeRootViewController(to: .login)
+//        
+//        if let status = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool,
+//           status == true {
+//            self.changeRootViewController(to: .homepage)
+//        } else {
+//            self.changeRootViewController(to: .login)
+//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

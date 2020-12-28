@@ -24,8 +24,8 @@ class TermOfServiceViewController: UIViewController {
         
         titleLabel.text = "用戶使用協議"
         textView.text = "因為我們相信在自由知識運動中，您不需要提供個人資料，你可以：\n\n"
-            + "A. 閱讀、編輯或使用 Slang Dictionary 而無需註冊賬戶。\n\n"
-            + "註冊帳號時，僅需通過 Apple ID 即可登入，無需提供電子郵件位址或真實姓名，從 Apple ID" + "所獲取的信箱也將不會儲存於終端的 Cloud Firestore 資料庫，僅會隨機生成亂數ID。\n\n"
+            + "A. 欲閱讀、編輯或使用 Slang Dictionary，只需通過 Apple ID 一鍵登入。\n\n"
+            + "註冊帳號時，僅需通過 Apple ID 即可登入，另外提供電子郵件位址或真實姓名等資料，從 Apple ID" + "所獲取的信箱也將不會儲存於終端的 Cloud Firestore 資料庫，僅會隨機生成亂數ID。\n\n"
         + "因為我們想要了解 Slang Dictionary"
         + "如何被使用，以便讓我們可以為你讓它變得更好，我們會收集一些信息，當你：\n\n"
         + "做出公開貢獻時的貢獻內容。\n"

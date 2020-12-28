@@ -134,7 +134,7 @@ private extension LobbyViewController {
                 
                 self?.viewModel.newestWord = Array(arrayLiteral: words[0])
                 
-                LocalNotificationManager.scheduleLocal(title: .news, body: words[0].title, time: .morning)
+                LocalNotificationManager.scheduleLocal(title: .news, body: words[0].title, time: .morning, identifier: .news)
                 
                 let wordOrderByViews = words.sorted { $0.views > $1.views }
                 

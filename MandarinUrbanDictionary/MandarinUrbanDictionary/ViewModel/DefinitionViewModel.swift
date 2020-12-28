@@ -135,7 +135,7 @@ class DefinitionViewModel {
         
         networkManager.updateFavorite(userID: uid, wordID: word.id, action: action)
         
-        LocalNotificationManager.scheduleLocal(title: .favorite, body: "「\(word.title)」字義解釋:\n \(definitionViewModels.value.first!.content)", time: .evening)
+        LocalNotificationManager.scheduleLocal(title: .favorite, body: "「\(word.title)」字義解釋:\n \(definitionViewModels.value.first!.content)", time: .evening, identifier: .favorite)
     }
     
     func getRankString(at rank: Int) -> String {

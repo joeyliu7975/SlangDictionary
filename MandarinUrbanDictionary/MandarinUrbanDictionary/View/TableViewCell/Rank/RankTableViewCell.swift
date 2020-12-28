@@ -52,14 +52,16 @@ class RankTableViewCell: UITableViewCell {
         
         rankBoardView.addSubview(crownView)
         
-        crownView.contentMode = .scaleAspectFit
+        crownView.contentMode = .scaleAspectFill
         
         crownView.image = UIImage(named: ImageConstant.crown)
         
+        self.layoutIfNeeded()
+        
         NSLayoutConstraint.activate([
-            crownView.heightAnchor.constraint(equalToConstant: 25),
-            crownView.widthAnchor.constraint(equalToConstant: 25),
-            crownView.centerYAnchor.constraint(equalTo: rankBoardView.centerYAnchor),
+            crownView.heightAnchor.constraint(equalToConstant: 28),
+            crownView.widthAnchor.constraint(equalToConstant: 28),
+            crownView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             crownView.leadingAnchor.constraint(equalTo: rankBoardView.leadingAnchor, constant: 15)
         ])
     }

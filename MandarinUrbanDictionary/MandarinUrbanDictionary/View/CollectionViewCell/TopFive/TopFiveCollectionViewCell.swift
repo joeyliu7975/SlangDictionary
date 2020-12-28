@@ -48,22 +48,22 @@ class TopFiveCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    func makeCrown() {
-        
-        rankBoardView.addSubview(crownView)
-        
-        crownView.contentMode = .scaleToFill
-        
-        crownView.image = UIImage(named: ImageConstant.crown)
-        
-        layoutIfNeeded()
-        
-        NSLayoutConstraint.activate([
-            crownView.heightAnchor.constraint(equalToConstant: 20),
-            crownView.widthAnchor.constraint(equalToConstant: 20),
-            crownView.centerYAnchor.constraint(equalTo: rankBoardView.centerYAnchor),
-            crownView.leadingAnchor.constraint(equalTo: rankBoardView.leadingAnchor, constant: 15)
-        ])
-    }
+//    func makeCrown() {
+//        
+//        rankBoardView.addSubview(crownView)
+//        
+//        crownView.contentMode = .scaleToFill
+//        
+//        crownView.image = UIImage(named: ImageConstant.crown)
+//        
+//        layoutIfNeeded()
+//        
+//        NSLayoutConstraint.activate([
+//            crownView.heightAnchor.constraint(equalToConstant: 20),
+//            crownView.widthAnchor.constraint(equalToConstant: 20),
+//            crownView.centerYAnchor.constraint(equalTo: rankBoardView.centerYAnchor),
+//            crownView.leadingAnchor.constraint(equalTo: rankBoardView.leadingAnchor, constant: 15)
+//        ])
+//    }
 
 }

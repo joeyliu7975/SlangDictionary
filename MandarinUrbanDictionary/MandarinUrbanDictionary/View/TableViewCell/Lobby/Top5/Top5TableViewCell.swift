@@ -115,16 +115,16 @@ extension Top5TableViewCell: UICollectionViewDataSource {
             
         cell.rankBoardView.backgroundColor = rank.makeColor()
             
-            switch rank {
-            case .top:
-                
-                cell.makeCrown()
-                
-            default:
-                
-                break
-                
-            }
+//            switch rank {
+//            case .top:
+//                
+////                cell.makeCrown()
+//                
+//            default:
+//                
+//                break
+//                
+//            }
         
         return cell
     }

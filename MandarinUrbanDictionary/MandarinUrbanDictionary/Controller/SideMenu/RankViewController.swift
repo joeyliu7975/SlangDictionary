@@ -194,7 +194,7 @@ extension RankViewController: UITableViewDataSource {
             case .top:
                 cell.layoutSubviews()
                 
-                cell.makeCrown()
+//                cell.makeCrown()
             default:
                 break
         }

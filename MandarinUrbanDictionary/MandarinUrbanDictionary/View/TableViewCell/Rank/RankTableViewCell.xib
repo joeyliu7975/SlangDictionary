@@ -17,12 +17,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQn-sX-8h9">
-                        <rect key="frame" x="45" y="10" width="563" height="80"/>
+                        <rect key="frame" x="45" y="15" width="563" height="70"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0td-dP-ypE">
-                                <rect key="frame" x="255.5" y="22.5" width="52" height="35"/>
+                                <rect key="frame" x="255.5" y="21" width="52" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="rAe-Jg-ZdA"/>
+                                    <constraint firstAttribute="height" constant="28" id="rAe-Jg-ZdA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,10 +39,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="mQn-sX-8h9" secondAttribute="bottom" constant="10" id="YOm-1l-PgU"/>
                     <constraint firstItem="mQn-sX-8h9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="45" id="ecy-pE-vUf"/>
-                    <constraint firstItem="mQn-sX-8h9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="jM0-Ph-Wbr"/>
+                    <constraint firstItem="mQn-sX-8h9" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.7" id="miV-wJ-vr5"/>
                     <constraint firstAttribute="trailing" secondItem="mQn-sX-8h9" secondAttribute="trailing" constant="45" id="q8C-rb-jUe"/>
+                    <constraint firstItem="mQn-sX-8h9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qPv-Zf-mv3"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

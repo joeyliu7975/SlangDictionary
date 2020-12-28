@@ -60,7 +60,8 @@ class TermOfServiceViewController: UIViewController {
         + "自其他會員基於任何目的而徵求密碼、基於商業或不法目的而請求個人識別資訊或未經當事人同意而散布他人的個人資訊。\n"
         + "使用其他會員的帳號，與其他會員共享帳號，或持有多個帳號。\n"
         + "在我方已終止您帳號的情況下，新增另外的帳號，除非您已獲得我方允許。\n"
-        + "如您違反本合約、濫用「服務」或從事 Slang Dictionary 認為不當或非法的行為。\n"
+        + "如您違反本合約、濫用「服務」或從事 Slang Dictionary 認為不當或非法的行為。\n\n"
+        + "如有疑問歡迎聯繫我們: joeyliu7975@outlook.com"
     }
 
 }

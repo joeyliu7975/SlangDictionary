@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         window?.makeKeyAndVisible()
-        
+               
         if let status = UserDefaults.standard.value(forKey: UserDefaults.keyForLoginStatus) as? Bool,
            status == true {
             self.changeRootViewController(to: .homepage)

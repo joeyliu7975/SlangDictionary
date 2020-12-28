@@ -26,9 +26,7 @@ enum SidePanel: String, CaseIterable {
     case favorite = "我的最愛"
     
     case recents = "歷史紀錄"
-    
-    case quiz = "挑戰"
-    
+        
     case achievement = "成就"
     
 }
@@ -82,13 +80,6 @@ extension SidePanel: IconFactory {
             return Instance(
                 name: rawValue,
                 image: ImageConstant.clock
-            )
-            
-        case .quiz:
-            
-            return Instance(
-                name: rawValue,
-                image: ImageConstant.puzzle
             )
             
         case .achievement:

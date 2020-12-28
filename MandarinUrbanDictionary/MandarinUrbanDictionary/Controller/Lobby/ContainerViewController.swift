@@ -242,16 +242,6 @@ extension ContainerViewController: LeftViewControllerDelegate {
                 
                 desVC.setNavigationBarTitle(title: "歷史紀錄")
             }
-        case .quiz:
-            
-            destinationVC = QuizViewController()
-            
-            if let desVC = destinationVC as? QuizViewController {
-                desVC.clickSideMenu = {
-                    self.toggleLeftPanel()
-                }
-            }
-            
         case .achievement:
             
             destinationVC = AchievementViewController()

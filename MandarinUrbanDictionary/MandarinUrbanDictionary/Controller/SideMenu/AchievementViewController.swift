@@ -16,6 +16,8 @@ class AchievementViewController: JoeyPanelViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup()
+        
         retrieveData()
 
         setupTableView()
@@ -28,6 +30,10 @@ class AchievementViewController: JoeyPanelViewController {
 }
 
 private extension AchievementViewController {
+    
+    func setup() {
+        view.backgroundColor = .homepageDarkBlue
+    }
     
     func retrieveData() {
         

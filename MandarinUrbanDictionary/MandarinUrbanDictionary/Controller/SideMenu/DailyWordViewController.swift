@@ -46,9 +46,9 @@ private extension DailyWordViewController {
     
     func setupNavigationController() {
         
-        setBarAppearance(title: .dailySlang)
+        setNavigationBarAppearance(forViewController: .dailySlang)
         
-        removeBackButtonItem()
+        removeBackButton()
         
         makeSideMenuButton()
         

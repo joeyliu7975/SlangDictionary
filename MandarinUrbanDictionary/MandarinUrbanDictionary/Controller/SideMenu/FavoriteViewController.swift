@@ -49,7 +49,7 @@ class FavoriteViewController: JoeyPanelViewController {
             
             guard let title = navigationTitle else { return }
             
-            setBarAppearance(title: SidePanel(rawValue: title) ?? .favorite)
+            setNavigationBarAppearance(forViewController: SidePanel(rawValue: title) ?? .favorite)
             
         }
     }
@@ -149,7 +149,7 @@ private extension FavoriteViewController {
     
     func setupNavigationController() {
         
-        removeBackButtonItem()
+        removeBackButton()
         
         makeSideMenuButton()
         

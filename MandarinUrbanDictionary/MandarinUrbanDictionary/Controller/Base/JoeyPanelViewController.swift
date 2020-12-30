@@ -8,20 +8,20 @@
 import UIKit
 import Lottie
 
-@objc private protocol SidePanelControl {
+@objc private protocol SideMenuControling {
     
-    var clickSideMenu: (() -> Void)? { get set }
+    var triggerSideMenu: (() -> Void)? { get set }
     
-    func removeBackButtonItem()
+    func removeBackButton()
         
     func makeSideMenuButton()
     
-    @objc func toggleSideMenu()
+    @objc func toggleLeftPanel()
 }
 
-class JoeyPanelViewController: UIViewController, SidePanelControl {
+class JoeyPanelViewController: UIViewController, SideMenuControling {
     
-    var clickSideMenu: (() -> Void)?
+    var triggerSideMenu: (() -> Void)?
     
     lazy var animationView: UIView = {
         
@@ -52,34 +52,36 @@ class JoeyPanelViewController: UIViewController, SidePanelControl {
         overrideUserInterfaceStyle = .light
     }
     
-    @objc func toggleSideMenu() {
+    @objc func toggleLeftPanel() {
         
-        clickSideMenu?()
+        triggerSideMenu?()
         
     }
     
-    func removeBackButtonItem() {
+    func removeBackButton() {
         
         navigationItem.leftBarButtonItem = nil
         
         navigationItem.hidesBackButton = true
     }
     
-    func setBarAppearance(title: SidePanel) {
+    func setNavigationBarAppearance(forViewController viewController: SidePanel) {
+        
+        let title = viewController.instance().name
         
         navigationItem.setBarAppearance(
-            with: .cardViewBlue,
+            color: .cardViewBlue,
             titleTextAttrs: UINavigationItem.titleAttributes,
-            title: title.rawValue
+            title: title
         )
         
     }
     
     func makeSideMenuButton() {
         
-        let button = UIButton.makeButton(.rightBarButtonItem(image: ImageConstant.list))
+        let button = UIButton.makeButton(buttonType: .rightBarButtonItem(image: ImageConstant.list))
         
-        button.addTarget(self, action: #selector(toggleSideMenu), for: .touchDown)
+        button.addTarget(self, action: #selector(toggleLeftPanel), for: .touchDown)
         
         let sideMenuButton = UIBarButtonItem(customView: button)
         

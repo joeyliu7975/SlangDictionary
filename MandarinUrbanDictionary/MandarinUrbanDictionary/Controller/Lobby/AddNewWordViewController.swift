@@ -185,7 +185,7 @@ private extension AddNewWordViewController {
         
         overrideUserInterfaceStyle = .light
         
-        navigationItem.setBarAppearance(with: .separatorlineBlue)
+        navigationItem.setBarAppearance(color: .separatorlineBlue)
         
         addNewWordView.newWordTF.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }

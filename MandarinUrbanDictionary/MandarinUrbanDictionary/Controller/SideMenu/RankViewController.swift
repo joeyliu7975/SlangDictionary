@@ -105,9 +105,9 @@ private extension RankViewController {
     
     func setupNavigationController() {
         
-        removeBackButtonItem()
+        removeBackButton()
         
-        setBarAppearance(title: .top5)
+        setNavigationBarAppearance(forViewController: .top5)
         
         makeSideMenuButton()
         

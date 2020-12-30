@@ -161,7 +161,7 @@ private extension NewDefinitionViewController {
     
     func setup() {
         
-        navigationItem.setBarAppearance(with: .newDefBlue)
+        navigationItem.setBarAppearance(color: .newDefBlue)
         
         view.backgroundColor = .newDefBlue
         

@@ -141,7 +141,7 @@ private extension ReportViewController {
         overrideUserInterfaceStyle = .light
         
         navigationItem.setBarAppearance(
-            with: .barButtonRed,
+            color: .barButtonRed,
             titleTextAttrs: UINavigationItem.titleAttributes,
             title: "檢舉"
         )

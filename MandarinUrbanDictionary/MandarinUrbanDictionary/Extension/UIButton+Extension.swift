@@ -27,31 +27,35 @@ extension UIButton {
         self.setBackgroundImage(image(withColor: color), for: state)
     }
     
-    static func makeButton(_ type: UIButton.CustomButtonType) -> UIButton {
-        let button = UIButton()
+    static func makeButton(buttonType button: UIButton.CustomButtonType) -> UIButton {
+        let customButton = UIButton()
         
-        switch type {
+        switch button {
+        
         case .rightBarButtonItem(let imageName):
-            button.imageView?.contentMode = .scaleToFill
             
-            button.translatesAutoresizingMaskIntoConstraints = false
+            customButton.imageView?.contentMode = .scaleToFill
             
-            button.setImage(UIImage(named: imageName), for: .normal)
+            customButton.translatesAutoresizingMaskIntoConstraints = false
             
-            button.widthAnchor.constraint(equalToConstant: 24).isActive = true
+            customButton.setImage(UIImage(named: imageName), for: .normal)
             
-            button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+            customButton.widthAnchor.constraint(equalToConstant: 24).isActive = true
+            
+            customButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
+            
         case .spacerButton:
-            button.translatesAutoresizingMaskIntoConstraints = false
             
-            button.widthAnchor.constraint(equalToConstant: 30).isActive = true
+            customButton.translatesAutoresizingMaskIntoConstraints = false
             
-            button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+            customButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
             
-            button.isUserInteractionEnabled = false
+            customButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
+            
+            customButton.isUserInteractionEnabled = false
         }
         
-        return button
+        return customButton
     }
 }
 

@@ -135,7 +135,7 @@ private extension SearchPageViewController {
             
         navigationItem.backBarButtonItem = UIBarButtonItem()
         
-        navigationItem.setBarAppearance(with: .homepageDarkBlue)
+        navigationItem.setBarAppearance(color: .homepageDarkBlue)
     }
     
     func setupNoResultView() {
@@ -194,7 +194,7 @@ private extension SearchPageViewController {
     
     func updateBarTitle(_ title: String) {
         
-        navigationItem.setBarAppearance(with: .homepageDarkBlue, titleTextAttrs: UINavigationItem.titleAttributes, title: title)
+        navigationItem.setBarAppearance(color: .homepageDarkBlue, titleTextAttrs: UINavigationItem.titleAttributes, title: title)
         
     }
         

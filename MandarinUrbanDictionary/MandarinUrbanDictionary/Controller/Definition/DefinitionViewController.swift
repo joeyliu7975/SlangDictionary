@@ -104,7 +104,7 @@ private extension DefinitionViewController {
     
     func setupNav() {
         
-        navigationItem.setBarAppearance(with: .homepageDarkBlue)
+        navigationItem.setBarAppearance(color: .homepageDarkBlue)
                 
         navigationItem.backButtonTitle = ""
         

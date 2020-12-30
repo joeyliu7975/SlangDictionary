@@ -37,7 +37,7 @@ private extension QuizViewController {
     
     func setNavigationController() {
         
-        removeBackButtonItem()
+        removeBackButton()
         
 //        setBarAppearance(title: .quiz)
         

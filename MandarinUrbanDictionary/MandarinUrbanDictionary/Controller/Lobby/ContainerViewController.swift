@@ -71,7 +71,7 @@ private extension ContainerViewController {
         
         centerNavigationController.didMove(toParent: self)
     
-        centerViewController.clickSideMenu = {
+        centerViewController.triggerSideMenu = {
             self.toggleLeftPanel()
         }
         
@@ -80,7 +80,7 @@ private extension ContainerViewController {
     
     func setupNavigationController() {
         
-        self.navigationItem.setBarAppearance(with: .clear)
+        self.navigationItem.setBarAppearance(color: .clear)
         
     }
 }
@@ -202,7 +202,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
             destinationVC = DailyWordViewController()
             
             if let desVC = destinationVC as? DailyWordViewController {
-                desVC.clickSideMenu = {
+                desVC.triggerSideMenu = {
                     self.toggleLeftPanel()
                 }
             }
@@ -212,7 +212,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
             destinationVC = RankViewController()
             
             if let desVC = destinationVC as? RankViewController {
-                desVC.clickSideMenu = {
+                desVC.triggerSideMenu = {
                     self.toggleLeftPanel()
                 }
             }
@@ -223,7 +223,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
             
             if let desVC = destinationVC as? FavoriteViewController {
                 
-                desVC.clickSideMenu = {
+                desVC.triggerSideMenu = {
                     self.toggleLeftPanel()
                 }
                 
@@ -236,7 +236,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
             
             if let desVC = destinationVC as? FavoriteViewController {
                 
-                desVC.clickSideMenu = {
+                desVC.triggerSideMenu = {
                     self.toggleLeftPanel()
                 }
                 
@@ -248,7 +248,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
             
             if let desVC = destinationVC as? AchievementViewController {
                 
-                desVC.clickSideMenu = {
+                desVC.triggerSideMenu = {
                     self.toggleLeftPanel()
                 }
             }

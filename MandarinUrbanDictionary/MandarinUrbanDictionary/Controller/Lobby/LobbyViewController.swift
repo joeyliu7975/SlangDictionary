@@ -65,7 +65,7 @@ private extension LobbyViewController {
         
         let rightNavBarButton = UIBarButtonItem(customView: searchBar)
                         
-        let spacerButton = UIButton.makeButton(.spacerButton)
+        let spacerButton = UIButton.makeButton(buttonType: .spacerButton)
  
         let rightSpacer = UIBarButtonItem(customView: spacerButton)
         
@@ -91,7 +91,7 @@ private extension LobbyViewController {
     
     func setupNavigationController() {
         
-        navigationItem.setBarAppearance(with: .homepageDarkBlue)
+        navigationItem.setBarAppearance(color: .homepageDarkBlue)
         
         navigationController?.navigationBar.tintColor = UIColor.homepageLightBlue
         

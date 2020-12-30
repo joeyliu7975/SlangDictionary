@@ -53,9 +53,9 @@ private extension AchievementViewController {
     
     func setupNavigationController() {
         
-        removeBackButtonItem()
+        removeBackButton()
         
-        setBarAppearance(title: .achievement)
+        setNavigationBarAppearance(forViewController: .achievement)
         
         makeSideMenuButton()
         

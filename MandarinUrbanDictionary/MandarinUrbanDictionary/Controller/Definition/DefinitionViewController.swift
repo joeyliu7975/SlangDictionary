@@ -88,6 +88,8 @@ private extension DefinitionViewController {
     
     func setup() {
         
+        overrideUserInterfaceStyle = .light
+        
         searchBar.delegate = self
         
         speechManager?.voiceSynthDelegate(self)

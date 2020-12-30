@@ -91,7 +91,7 @@ extension RankViewModel {
         case .pickUpLine:
             category = "撩妹"
         case .restaurant:
-            category = "餐飲"
+            category = "餐廳"
         case .game:
             category = "遊戲"
         case .gym:

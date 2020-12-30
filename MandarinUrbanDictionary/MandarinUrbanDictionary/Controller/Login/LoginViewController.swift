@@ -157,22 +157,9 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
                 
                 let database = Firestore.firestore()
                 
-                let favoriteWord: [String] = []
+                let newUser = User(identifier: uid, name: uid, favorites: [], recents: [], discoveredWords: [], likeChallenge: -1, postChallenge: -1, viewChallenge: -1)
                 
-                let recentSearch: [String] = []
-                
-                let discoveredWords: [String] = []
-                
-                database.collection("User").document(uid).setData([
-                    "display_Name": uid,
-                    "id": uid,
-                    "favorite_words": favoriteWord,
-                    "recent_search": recentSearch,
-                    "discovered_words": discoveredWords,
-                    "like_challenge": -1,
-                    "post_challenge": -1,
-                    "view_challenge": -1
-                ]) { err in
+                database.collection("User").document(uid).setData(newUser.dictionary) { err in
                     if let err = err {
                         print("Error writing document: \(err)")
                     } else {

@@ -15,6 +15,8 @@ import Lottie
 
 class LoginViewController: UIViewController {
     
+    typealias StringKey = NSAttributedString.Key
+    
     @IBOutlet weak var logoImageView: UIImageView!
     
     @IBOutlet weak var appleLoginView: UIView!
@@ -74,15 +76,15 @@ class LoginViewController: UIViewController {
     
     @IBAction func clickTermOfService(_ sender: UIButton) {
         
-        let serviceVC = TermOfServiceViewController()
+        let termOfServiceVC = TermOfServiceViewController()
         
-        self.present(serviceVC, animated: true)
+        self.present(termOfServiceVC, animated: true)
     }
     
 }
 
 extension LoginViewController {
-    func registerLocal() {
+    func registerLocalNotification() {
         
         LocalNotificationManager.registerLocal()
         
@@ -97,10 +99,10 @@ private extension LoginViewController {
         
         UserDefaults.standard.setValue(0, forKey: "badgetCount")
         
-        let underlineAttribute: [NSAttributedString.Key : Any] = [
-            NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue,
-            NSAttributedString.Key.foregroundColor: UIColor.gray,
-            NSAttributedString.Key.font: UIFont(name: "PingFang SC", size: 18)!,
+        let underlineAttribute: [StringKey: Any] = [
+            StringKey.underlineStyle: NSUnderlineStyle.thick.rawValue,
+            StringKey.foregroundColor: UIColor.gray,
+            StringKey.font: UIFont(name: "PingFang SC", size: 18)!
         ]
         
         let underlineAttributedString = NSAttributedString(string: "使用者條款", attributes: underlineAttribute)
@@ -142,28 +144,35 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             view.addSubview(animationView)
             
             Auth.auth().signIn(with: credential) { (authResult, error) in
-                if (error != nil) {
-                  
-                    print(error?.localizedDescription ?? "")
+                if let err = error {
+                    
+                    print(err.localizedDescription)
+                    
                     return
                 }
-                guard let user = authResult?.user else { return }
                 
-                _ = user.email ?? ""
-                
-                _ = user.displayName ?? ""
+                guard let _ = authResult?.user else { return }
                 
                 guard let uid = Auth.auth().currentUser?.uid else { return }
                 
                 let database = Firestore.firestore()
                 
-                let newUser = User(identifier: uid, name: uid, favorites: [], recents: [], discoveredWords: [], likeChallenge: -1, postChallenge: -1, viewChallenge: -1)
+                let newUser = User(
+                    identifier: uid,
+                    name: uid,
+                    favorites: [],
+                    recents: [],
+                    discoveredWords: [],
+                    likeChallenge: -1,
+                    postChallenge: -1,
+                    viewChallenge: -1
+                )
                 
                 database.collection("User").document(uid).setData(newUser.dictionary) { err in
                     if let err = err {
                         print("Error writing document: \(err)")
                     } else {
-                        
+            
                         UserDefaults.standard.setValue(true, forKey: UserDefaults.keyForLoginStatus)
                         
                         UserDefaults.standard.setValue(uid, forKey: "uid")
@@ -183,7 +192,10 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
 }
 
 extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
+    
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        
         return self.view.window!
+        
     }
 }

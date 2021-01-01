@@ -16,7 +16,9 @@ class HomePageViewModel {
     private let networkManager: FirebaseManager
     
     init(networkManager: FirebaseManager = .init()) {
+        
         self.networkManager = networkManager
+        
     }
     
     var userViewModels = Box([User]())
@@ -43,7 +45,7 @@ class HomePageViewModel {
     
     var randomNumber = 12
     
-    func listen<T: Codable>(env: FirebaseManager.Environment, orderBy order: FirebaseManager.Order, completion: @escaping (Result<[T], NetworkError>) -> Void) {
+    func listen<T: Codable>(env: Environment, orderBy order: FirebaseManager.Order, completion: @escaping (Result<[T], NetworkError>) -> Void) {
         networkManager.listen(env) { (db) in
             db.order(by: order.rawValue, descending: true).addSnapshotListener { (querySnapshot, error) in
                 if let error = error {

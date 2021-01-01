@@ -83,6 +83,10 @@
 		718D6B92257A1FF500663CAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718D6B91257A1FF500663CAD /* User.swift */; };
 		718E69F2259084D60056475F /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718E69F1259084D60056475F /* LocalNotificationManager.swift */; };
 		71978A2A2574CB3B00591B77 /* FSPagerView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */; };
+		71990F3E259F5EB50096D734 /* UserFIRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71990F3D259F5EB50096D734 /* UserFIRManager.swift */; };
+		71990F42259F5EBF0096D734 /* DailyFIRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71990F41259F5EBF0096D734 /* DailyFIRManager.swift */; };
+		71990F46259F5ED90096D734 /* WordFIRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71990F45259F5ED90096D734 /* WordFIRManager.swift */; };
+		71990F4A259F5EEF0096D734 /* DefFIRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71990F49259F5EEF0096D734 /* DefFIRManager.swift */; };
 		71A6C20D2586163800FC478D /* NSCharacterSet+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */; };
 		71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A84A832576368900E0C14D /* FavoriteViewController.swift */; };
 		71A84A862576368900E0C14D /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A84A842576368900E0C14D /* FavoriteViewController.xib */; };
@@ -231,6 +235,10 @@
 		718D6B91257A1FF500663CAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		718E69F1259084D60056475F /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		71978A292574CB3B00591B77 /* FSPagerView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FSPagerView+Extension.swift"; sourceTree = "<group>"; };
+		71990F3D259F5EB50096D734 /* UserFIRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFIRManager.swift; sourceTree = "<group>"; };
+		71990F41259F5EBF0096D734 /* DailyFIRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFIRManager.swift; sourceTree = "<group>"; };
+		71990F45259F5ED90096D734 /* WordFIRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFIRManager.swift; sourceTree = "<group>"; };
+		71990F49259F5EEF0096D734 /* DefFIRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefFIRManager.swift; sourceTree = "<group>"; };
 		71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCharacterSet+Extension.swift"; sourceTree = "<group>"; };
 		71A84A832576368900E0C14D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		71A84A842576368900E0C14D /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
@@ -524,6 +532,10 @@
 			isa = PBXGroup;
 			children = (
 				718D6B8E2579DBAF00663CAD /* FirebaseManager.swift */,
+				71990F3D259F5EB50096D734 /* UserFIRManager.swift */,
+				71990F41259F5EBF0096D734 /* DailyFIRManager.swift */,
+				71990F45259F5ED90096D734 /* WordFIRManager.swift */,
+				71990F49259F5EEF0096D734 /* DefFIRManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1074,6 +1086,7 @@
 				710574F1258A16FD004556DF /* UserViewModel.swift in Sources */,
 				7159FBAB2595ACF300825641 /* AVSpeechManager.swift in Sources */,
 				7159FBB22595BCB400825641 /* Integer+Extension.swift in Sources */,
+				71990F46259F5ED90096D734 /* WordFIRManager.swift in Sources */,
 				7160B71125725359007F7C90 /* UITableView+Extension.swift in Sources */,
 				71E7F3442570D73700F15098 /* UIColor+Extension.swift in Sources */,
 				714F1CA225943679005BEDAA /* DailyWordManager.swift in Sources */,
@@ -1112,6 +1125,7 @@
 				71F9442025789B140014808E /* JoeyTextLayer.swift in Sources */,
 				71E81EB02584BB5D00BECDCC /* TheNewestWordTableViewCell.swift in Sources */,
 				7152EADC2575E94A00F1C5FB /* AddNewWordViewController.swift in Sources */,
+				71990F3E259F5EB50096D734 /* UserFIRManager.swift in Sources */,
 				71C88A4425973A4700FC5069 /* HUDAnimation.swift in Sources */,
 				716A8D7125787A01005C5782 /* LoginViewController.swift in Sources */,
 				71295ADD2593985F0077CD0A /* DailyWordViewModel.swift in Sources */,
@@ -1127,6 +1141,7 @@
 				71A84A852576368900E0C14D /* FavoriteViewController.swift in Sources */,
 				716CD31D2575130400695A91 /* SidePanelTableViewCell.swift in Sources */,
 				71C3D5B225809A2200636BC4 /* FavoritePresenter.swift in Sources */,
+				71990F4A259F5EEF0096D734 /* DefFIRManager.swift in Sources */,
 				71883B7C2578D6F300170AC9 /* RankTableViewCell.swift in Sources */,
 				71A84A8C257637B600E0C14D /* FavoriteTableViewCell.swift in Sources */,
 				7120E01F257231CC00A56E7E /* DefinitionViewController.swift in Sources */,
@@ -1142,6 +1157,7 @@
 				71C3D5B525809C0900636BC4 /* ReportPresenter.swift in Sources */,
 				7120E0182572024A00A56E7E /* SearchButton.swift in Sources */,
 				718E69F2259084D60056475F /* LocalNotificationManager.swift in Sources */,
+				71990F42259F5EBF0096D734 /* DailyFIRManager.swift in Sources */,
 				71A84A96257689B000E0C14D /* CardView.swift in Sources */,
 				7170537425904493000521B0 /* UITextField+Extension.swift in Sources */,
 				71D3E6C8258A42640064693C /* UINavigationController+Extension.swift in Sources */,

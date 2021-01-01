@@ -23,7 +23,7 @@ class DailyWordViewModel {
         self.networkManager = networkManager
     }
     
-    func listen<T: Codable>(env: FirebaseManager.Environment, orderBy order: FirebaseManager.Order, completion: @escaping (Result<[T], NetworkError>) -> Void) {
+    func listen<T: Codable>(env: Environment, orderBy order: FirebaseManager.Order, completion: @escaping (Result<[T], NetworkError>) -> Void) {
         
         networkManager.listen(env) { (db) in
             db.order(by: order.rawValue, descending: true).addSnapshotListener { (querySnapshot, error) in

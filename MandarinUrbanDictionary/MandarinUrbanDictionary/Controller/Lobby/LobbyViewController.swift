@@ -126,7 +126,6 @@ private extension LobbyViewController {
         viewModel.wordViewModels.bind { [weak self] (words) in
             
             if !words.isEmpty {
-                
                 self?.viewModel.newestWord = Array(arrayLiteral: words[0])
                 
                 LocalNotificationManager.scheduleLocal(title: .news, body: words[0].title, time: .morning, identifier: .news)
@@ -136,7 +135,6 @@ private extension LobbyViewController {
                 self?.viewModel.topFiveWords = Array(sortedWords[0 ... 4])
                 
                 self?.tableView.reloadData()
-                
             }
         }
     }
@@ -296,7 +294,7 @@ extension LobbyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 
         let reusableCell = viewModel.carouselList[indexPath.row]
-        
+                
         let image = reusableCell.getImageName()
         
         switch reusableCell {

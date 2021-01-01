@@ -11,13 +11,13 @@ class SidePanelViewModel {
     
     typealias Item = SidePanel.Instance
     
-    let sidePanelItems = SidePanel.allCases
+    let sideMenuItems = SidePanel.allCases
     
-    func selectItem(index: Int) -> SidePanel {
-        return sidePanelItems[index]
+    func item(selectIndexAt index: Int) -> SidePanel {
+        return sideMenuItems[index]
     }
     
-    func getItem(index: Int) -> Item {
-        return sidePanelItems[index].instance()
+    func item(getIndexAt index: Int) -> Item {
+        return sideMenuItems[index].instance()
     }
 }

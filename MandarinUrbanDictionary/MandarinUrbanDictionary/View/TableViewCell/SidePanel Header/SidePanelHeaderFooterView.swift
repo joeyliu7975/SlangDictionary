@@ -9,10 +9,12 @@ import UIKit
 
 class SidePanelHeaderFooterView: UITableViewHeaderFooterView {
     
-    static let identifierName = String(describing: SidePanelHeaderFooterView.self)
+    static let reusableIdentifier = String(describing: SidePanelHeaderFooterView.self)
     
     @IBOutlet weak var logoImageViewLeadingAnchor: NSLayoutConstraint!
+    
     @IBOutlet weak var logoImageView: UIImageView!
+    
     @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
     
     var logoImageWidth: CGFloat {
@@ -23,7 +25,7 @@ class SidePanelHeaderFooterView: UITableViewHeaderFooterView {
         imageViewWidthConstraint.constant = logoImageWidth
     }
     
-    func makeRounded() {
+    func rounded() {
        logoImageView.setCorner(radius: logoImageWidth / 2)
     }
 }

@@ -15,7 +15,7 @@ protocol DefinitionHeaderDelegate: class {
     
     func clickBackButton()
     
-    func clickReadOut(_ sender: UIButton)
+    func clickReadButton(_ sender: UIButton)
 }
 
 final class DefinitionHeaderView: UITableViewHeaderFooterView {
@@ -66,7 +66,7 @@ final class DefinitionHeaderView: UITableViewHeaderFooterView {
             
         case siriReadButton:
             
-            delegate?.clickReadOut(sender)
+            delegate?.clickReadButton(sender)
         default:
             
             break

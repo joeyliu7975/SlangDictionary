@@ -35,7 +35,7 @@ class SidePanelViewController: UIViewController {
     private func setupTableView() {
         tableView.registerCell(SidePanelTableViewCell.identifierName)
         
-        tableView.registerHeaderFooterCell(SidePanelHeaderFooterView.identifierName)
+        tableView.registerHeaderFooterCell(SidePanelHeaderFooterView.reusableIdentifier)
         
         tableView.delegate = self
         
@@ -50,7 +50,7 @@ class SidePanelViewController: UIViewController {
 extension SidePanelViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectedIcon = viewModel.selectItem(index: indexPath.row)
+        let selectedIcon = viewModel.item(selectIndexAt: indexPath.row)
         
         delegate?.navigate(to: selectedIcon)
     }
@@ -68,7 +68,7 @@ extension SidePanelViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SidePanelHeaderFooterView.identifierName)
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SidePanelHeaderFooterView.reusableIdentifier)
         
         if let sidePanelView = headerView as? SidePanelHeaderFooterView {
             
@@ -82,7 +82,7 @@ extension SidePanelViewController: UITableViewDelegate {
     
             sidePanelView.backgroundView = headerBackgroundView
             
-            sidePanelView.makeRounded()
+            sidePanelView.rounded()
             
             sidePanelView.adjustLogoImageWidth()
             
@@ -97,14 +97,14 @@ extension SidePanelViewController: UITableViewDelegate {
 
 extension SidePanelViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.sidePanelItems.count
+        viewModel.sideMenuItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: SidePanelTableViewCell = tableView.makeCell(indexPath: indexPath)
         
-        let item = viewModel.getItem(index: indexPath.row)
+        let item = viewModel.item(getIndexAt: indexPath.row)
         
         cell.renderUI(title: item.name, imageName: item.image)
         

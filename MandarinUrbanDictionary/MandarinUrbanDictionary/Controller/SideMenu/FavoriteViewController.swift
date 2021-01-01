@@ -225,10 +225,7 @@ private extension FavoriteViewController {
             
             self?.editButton.title = isEditing ? "完成" : "編輯"
             
-            switch isEditing {
-            case true:
-                break
-            case false:
+            if !isEditing {
                 self?.viewModel?.removeSelections()
             }
         }

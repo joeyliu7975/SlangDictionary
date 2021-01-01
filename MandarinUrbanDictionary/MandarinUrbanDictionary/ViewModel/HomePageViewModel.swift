@@ -138,7 +138,7 @@ extension HomePageViewModel {
         
         case newestWord, mostViewedWord, dailyWord, randomWord
         
-        func getImage() -> String {
+        func getImageName() -> String {
             
             switch self {
             

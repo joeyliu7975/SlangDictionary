@@ -15,7 +15,7 @@ class SearchViewModel {
     
     var showSearchResult: (() -> Void)?
     
-    var keyword: String = ""
+    var keyword: String = String.emptyString
         
     private let networkManager: FirebaseManager
     

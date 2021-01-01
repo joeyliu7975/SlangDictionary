@@ -161,7 +161,7 @@ extension RankViewController: UITableViewDelegate {
             
             let definitionVC = DefinitionViewController(identifierNumber: word.identifier, word: word.title, category: word.category)
             
-            self.navigationItem.backButtonTitle = ""
+            self.navigationItem.backButtonTitle = String.emptyString
             
             self.navigationController?.pushViewController(definitionVC, animated: true)
             

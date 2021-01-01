@@ -71,6 +71,8 @@
 		7175692C2570CFD600417B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7175692B2570CFD600417B9C /* Assets.xcassets */; };
 		7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7175692D2570CFD600417B9C /* LaunchScreen.storyboard */; };
 		71811DEC2576DC66005319DA /* SidePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71811DEB2576DC66005319DA /* SidePanel.swift */; };
+		71846460259C61D300DBFD99 /* UINavigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184645F259C61D300DBFD99 /* UINavigation+Extension.swift */; };
+		71846469259D991B00DBFD99 /* MandarinUrbanDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71846468259D991B00DBFD99 /* MandarinUrbanDictionaryTests.swift */; };
 		71883B7C2578D6F300170AC9 /* RankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71883B7A2578D6F300170AC9 /* RankTableViewCell.swift */; };
 		71883B7D2578D6F300170AC9 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */; };
 		71883B822578EFBB00170AC9 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71883B802578EFBB00170AC9 /* QuizViewController.swift */; };
@@ -136,6 +138,16 @@
 		71F9442C2578C15E0014808E /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F9442A2578C15E0014808E /* RankViewController.swift */; };
 		E19594E26AB12FCE94225D78 /* Pods_MandarinUrbanDictionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD79464FBEA10AB0680FA634 /* Pods_MandarinUrbanDictionary.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7184646B259D991B00DBFD99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 717569172570CFD300417B9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7175691E2570CFD300417B9C;
+			remoteInfo = MandarinUrbanDictionary;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		71055A8A2584285B00560C5D /* QuizViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuizViewController.xib; sourceTree = "<group>"; };
@@ -205,6 +217,10 @@
 		7175692E2570CFD600417B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		717569302570CFD600417B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71811DEB2576DC66005319DA /* SidePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanel.swift; sourceTree = "<group>"; };
+		7184645F259C61D300DBFD99 /* UINavigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigation+Extension.swift"; sourceTree = "<group>"; };
+		71846466259D991B00DBFD99 /* MandarinUrbanDictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MandarinUrbanDictionaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71846468259D991B00DBFD99 /* MandarinUrbanDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MandarinUrbanDictionaryTests.swift; sourceTree = "<group>"; };
+		7184646A259D991B00DBFD99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71883B7A2578D6F300170AC9 /* RankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewCell.swift; sourceTree = "<group>"; };
 		71883B7B2578D6F300170AC9 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
 		71883B802578EFBB00170AC9 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +295,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E19594E26AB12FCE94225D78 /* Pods_MandarinUrbanDictionary.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71846463259D991B00DBFD99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				717569212570CFD300417B9C /* MandarinUrbanDictionary */,
+				71846467259D991B00DBFD99 /* MandarinUrbanDictionaryTests */,
 				717569202570CFD300417B9C /* Products */,
 				BD46FC664045AE34D3F9C256 /* Pods */,
 				E6EC90ACA63C2F6AD7C57BF9 /* Frameworks */,
@@ -417,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				7175691F2570CFD300417B9C /* MandarinUrbanDictionary.app */,
+				71846466259D991B00DBFD99 /* MandarinUrbanDictionaryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -466,6 +491,15 @@
 			children = (
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		71846467259D991B00DBFD99 /* MandarinUrbanDictionaryTests */ = {
+			isa = PBXGroup;
+			children = (
+				71846468259D991B00DBFD99 /* MandarinUrbanDictionaryTests.swift */,
+				7184646A259D991B00DBFD99 /* Info.plist */,
+			);
+			path = MandarinUrbanDictionaryTests;
 			sourceTree = "<group>";
 		};
 		71883B792578D6D200170AC9 /* Rank */ = {
@@ -707,6 +741,7 @@
 				71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */,
 				7170537325904493000521B0 /* UITextField+Extension.swift */,
 				7159FBB12595BCB400825641 /* Integer+Extension.swift */,
+				7184645F259C61D300DBFD99 /* UINavigation+Extension.swift */,
 			);
 			name = Extension;
 			path = MandarinUrbanDictionary/Extension;
@@ -849,6 +884,24 @@
 			productReference = 7175691F2570CFD300417B9C /* MandarinUrbanDictionary.app */;
 			productType = "com.apple.product-type.application";
 		};
+		71846465259D991B00DBFD99 /* MandarinUrbanDictionaryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7184646D259D991B00DBFD99 /* Build configuration list for PBXNativeTarget "MandarinUrbanDictionaryTests" */;
+			buildPhases = (
+				71846462259D991B00DBFD99 /* Sources */,
+				71846463259D991B00DBFD99 /* Frameworks */,
+				71846464259D991B00DBFD99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7184646C259D991B00DBFD99 /* PBXTargetDependency */,
+			);
+			name = MandarinUrbanDictionaryTests;
+			productName = MandarinUrbanDictionaryTests;
+			productReference = 71846466259D991B00DBFD99 /* MandarinUrbanDictionaryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -860,6 +913,10 @@
 				TargetAttributes = {
 					7175691E2570CFD300417B9C = {
 						CreatedOnToolsVersion = 12.2;
+					};
+					71846465259D991B00DBFD99 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 7175691E2570CFD300417B9C;
 					};
 				};
 			};
@@ -877,6 +934,7 @@
 			projectRoot = "";
 			targets = (
 				7175691E2570CFD300417B9C /* MandarinUrbanDictionary */,
+				71846465259D991B00DBFD99 /* MandarinUrbanDictionaryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -924,6 +982,13 @@
 				71C88A1D2597288F00FC5069 /* SearchPageViewController.xib in Resources */,
 				71055A912584289500560C5D /* RankViewController.xib in Resources */,
 				71055A8B2584285B00560C5D /* QuizViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71846464259D991B00DBFD99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1083,10 +1148,27 @@
 				71E81EA42584A22500BECDCC /* FirebaseTimestamp+Extension.swift in Sources */,
 				71A84A912576802900E0C14D /* Category.swift in Sources */,
 				713361C9258C45B500FEEB43 /* AddNewWordView.swift in Sources */,
+				71846460259C61D300DBFD99 /* UINavigation+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71846462259D991B00DBFD99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71846469259D991B00DBFD99 /* MandarinUrbanDictionaryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7184646C259D991B00DBFD99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7175691E2570CFD300417B9C /* MandarinUrbanDictionary */;
+			targetProxy = 7184646B259D991B00DBFD99 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7175692D2570CFD600417B9C /* LaunchScreen.storyboard */ = {
@@ -1224,12 +1306,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MandarinUrbanDictionary/MandarinUrbanDictionary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = XTR83A4K57;
 				INFOPLIST_FILE = "MandarinUrbanDictionary/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Joey.SlangDict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1245,16 +1329,60 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MandarinUrbanDictionary/MandarinUrbanDictionary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = XTR83A4K57;
 				INFOPLIST_FILE = "MandarinUrbanDictionary/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Joey.SlangDict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		7184646E259D991B00DBFD99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XTR83A4K57;
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/Pods/Firebase/CoreOnly/Sources\"";
+				INFOPLIST_FILE = MandarinUrbanDictionaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Joey-MUDictionary.MandarinUrbanDictionaryTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MandarinUrbanDictionary.app/MandarinUrbanDictionary";
+			};
+			name = Debug;
+		};
+		7184646F259D991B00DBFD99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XTR83A4K57;
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/Pods/Firebase/CoreOnly/Sources\"";
+				INFOPLIST_FILE = MandarinUrbanDictionaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Joey-MUDictionary.MandarinUrbanDictionaryTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MandarinUrbanDictionary.app/MandarinUrbanDictionary";
 			};
 			name = Release;
 		};
@@ -1275,6 +1403,15 @@
 			buildConfigurations = (
 				717569342570CFD600417B9C /* Debug */,
 				717569352570CFD600417B9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7184646D259D991B00DBFD99 /* Build configuration list for PBXNativeTarget "MandarinUrbanDictionaryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7184646E259D991B00DBFD99 /* Debug */,
+				7184646F259D991B00DBFD99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

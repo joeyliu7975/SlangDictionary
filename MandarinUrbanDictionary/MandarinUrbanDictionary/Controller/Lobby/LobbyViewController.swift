@@ -55,7 +55,7 @@ private extension LobbyViewController {
     
     func setup() {
         
-        navigationItem.backButtonTitle = ""
+        navigationItem.removeBackButtonTitle()
 
         view.backgroundColor = .homepageDarkBlue
         
@@ -93,11 +93,11 @@ private extension LobbyViewController {
         
         navigationItem.setBarAppearance(color: .homepageDarkBlue)
         
-        navigationController?.navigationBar.tintColor = UIColor.homepageLightBlue
+        navigationController?.removeNavigationBarShadow()
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.removeNavigationBarBackground()
         
-        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.tintColor = .homepageLightBlue
     }
     
     func tapSearchBar() {
@@ -125,22 +125,18 @@ private extension LobbyViewController {
         
         viewModel.wordViewModels.bind { [weak self] (words) in
             
-            switch words.isEmpty {
-            case true:
-                
-                break
-                
-            case false:
+            if !words.isEmpty {
                 
                 self?.viewModel.newestWord = Array(arrayLiteral: words[0])
                 
                 LocalNotificationManager.scheduleLocal(title: .news, body: words[0].title, time: .morning, identifier: .news)
                 
-                let wordOrderByViews = words.sorted { $0.views > $1.views }
+                let sortedWords = words.sorted { $0.views > $1.views }
                 
-                self?.viewModel.topFiveWords = Array(wordOrderByViews[0 ... 4])
+                self?.viewModel.topFiveWords = Array(sortedWords[0 ... 4])
                 
                 self?.tableView.reloadData()
+                
             }
         }
     }
@@ -230,6 +226,7 @@ extension LobbyViewController: UITableViewDelegate {
         let reusableCell = viewModel.carouselList[indexPath.row]
         
         switch reusableCell {
+        
         case .mostViewedWord:
             
             return height * 0.9
@@ -300,7 +297,7 @@ extension LobbyViewController: UITableViewDataSource {
                 
         let reusableCell = viewModel.carouselList[indexPath.row]
         
-        let image = reusableCell.getImage()
+        let image = reusableCell.getImageName()
         
         switch reusableCell {
         

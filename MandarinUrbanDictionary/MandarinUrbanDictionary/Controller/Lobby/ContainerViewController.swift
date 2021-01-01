@@ -21,18 +21,18 @@ class ContainerViewController: UIViewController {
         return UIScreen.main.bounds.width * 0.217
     }
     
-    lazy var blackView: UIView = {
-        let blackView = UIView(frame: self.centerNavigationController.view.frame)
+    lazy var maskView: UIView = {
+        let maskView = UIView(frame: self.centerNavigationController.view.frame)
         
-        blackView.backgroundColor = UIColor.transparentBlack
+        maskView.backgroundColor = UIColor.transparentBlack
         
-        blackView.isUserInteractionEnabled = true
+        maskView.isUserInteractionEnabled = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapCoverView))
         
-        blackView.addGestureRecognizer(tapGesture)
+        maskView.addGestureRecognizer(tapGesture)
         
-        return blackView
+        return maskView
     }()
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class ContainerViewController: UIViewController {
         
         currentState = .center
         
-        blackView.removeFromSuperview()
+        maskView.removeFromSuperview()
     }
 }
 
@@ -104,7 +104,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
             
             currentState = .leftPanelExpanded
             
-            self.centerNavigationController?.view.addSubview(blackView)
+            self.centerNavigationController?.view.addSubview(maskView)
             
             addLeftPanelViewController()
             
@@ -138,6 +138,7 @@ extension ContainerViewController: CenterViewControllerDelegate {
     func animateLeftPanel(shouldExpand: Bool) {
         
         switch shouldExpand {
+        
         case true:
             
             currentState = .leftPanelExpanded
@@ -189,7 +190,7 @@ extension ContainerViewController: LeftViewControllerDelegate {
         
         currentState = .center
         
-        blackView.removeFromSuperview()
+        maskView.removeFromSuperview()
         
         switch page {
         

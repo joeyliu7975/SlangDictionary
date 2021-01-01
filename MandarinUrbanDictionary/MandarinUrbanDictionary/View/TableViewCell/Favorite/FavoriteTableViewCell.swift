@@ -27,9 +27,9 @@ class FavoriteTableViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        self.wordLabel.text = ""
+        self.wordLabel.text = String.emptyString
         
-        self.categoryTagLabel.text = ""
+        self.categoryTagLabel.text = String.emptyString
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

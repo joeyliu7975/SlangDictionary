@@ -179,7 +179,7 @@ private extension SearchPageViewController {
             
             switch result {
             case .noKeyword:
-                self?.noResultLabel.text = ""
+                self?.noResultLabel.text = String.emptyString
             case .noMatchFound:
                 self?.noResultLabel.text = "No Match Found"
             case .hasResult:
@@ -205,6 +205,7 @@ extension SearchPageViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
         searchBar.resignFirstResponder()
+        
     }
     
     func searchBar(_ searchBar: UISearchBar,
@@ -220,6 +221,7 @@ extension SearchPageViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
         let validString = NSCharacterSet.searchBarValidString
 
         if (searchBar.textInputMode?.primaryLanguage == "emoji") || searchBar.textInputMode?.primaryLanguage == nil {
@@ -247,7 +249,9 @@ extension SearchPageViewController: DefinitionViewControllerDelegate {
 extension SearchPageViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return 55
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

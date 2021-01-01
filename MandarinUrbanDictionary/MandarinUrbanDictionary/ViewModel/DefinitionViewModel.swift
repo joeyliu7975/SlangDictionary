@@ -26,7 +26,7 @@ class DefinitionViewModel {
     var reportedDefinition: String?
     
     var uid: String {
-        return UserDefaults.standard.string(forKey: "uid") ?? ""
+        return UserDefaults.standard.string(forKey: "uid") ?? String.emptyString
     }
     
     var isFavorite: Bool = false {

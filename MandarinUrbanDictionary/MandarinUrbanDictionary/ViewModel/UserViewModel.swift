@@ -20,7 +20,7 @@ class UserViewModel {
     var currentUser = Box([User]())
     
     var uid: String {
-        return UserDefaults.standard.string(forKey: "uid") ?? ""
+        return UserDefaults.standard.string(forKey: "uid") ?? String.emptyString
     }
     
     init(networkManager: FirebaseManager = .init()) {

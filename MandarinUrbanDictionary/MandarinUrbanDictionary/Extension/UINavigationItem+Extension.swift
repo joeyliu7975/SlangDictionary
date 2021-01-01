@@ -33,4 +33,10 @@ extension UINavigationItem {
         
         standardAppearance = barAppearance
     }
+    
+    func removeBackButtonTitle() {
+        
+        self.backButtonTitle = String.emptyString
+        
+    }
 }

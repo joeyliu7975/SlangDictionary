@@ -36,7 +36,7 @@ extension AddNewWordViewController: UITextFieldDelegate {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        
+                
         if textField.markedTextRange == nil && (textField.text?.count ?? 0) > 9 {
             textField.text = String(textField.text?.prefix(9) ?? "")
             
@@ -64,7 +64,9 @@ extension AddNewWordViewController: UITextFieldDelegate {
         }
         
         if (textField.text?.count ?? 0) >= 9 && range.length == 0 && textField.markedTextRange == nil {
+            
             return false
+            
         }
         
         return true
@@ -102,6 +104,7 @@ extension AddNewWordViewController: UITextViewDelegate {
         if let _ = text.rangeOfCharacter(from: validString as CharacterSet) {
             
             return false
+            
         }
         
         return true
@@ -114,8 +117,8 @@ extension AddNewWordViewController: UIPickerViewDelegate, UIPickerViewDataSource
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.categoryList.count
+func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {            
+        return viewModel.categories.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

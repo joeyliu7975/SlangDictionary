@@ -21,6 +21,7 @@ class AddNewWordViewModel {
         .gym,
         .relationship
     ]
+    let categories: [Category]
     
     let networkManager: FirebaseManager
     
@@ -28,8 +29,20 @@ class AddNewWordViewModel {
     
     var existedWordTitles = [String]()
     
-    init(_ networkManager: FirebaseManager = .init()) {
+    init(
+        _ networkManager: FirebaseManager = .init(),
+        categories: [Category] = [
+        .engineer,
+        .job,
+        .school,
+        .pickUpLine,
+        .restaurant,
+        .game,
+        .gym,
+        .relationship
+    ]) {
         self.networkManager = networkManager
+        self.categories = categories
     }
     
     var isEnable: Bool = false {
@@ -148,7 +161,7 @@ extension AddNewWordViewModel {
         
         let texts = [word, definition, category]
         
-        switch texts.contains("") {
+        switch texts.contains(String.emptyString) {
         
         case true:
             
@@ -165,14 +178,14 @@ extension AddNewWordViewModel {
         guard let text = text,
               !text.isEmpty
               else {
-            return categoryList[0].instance().name
+            return categories[0].instance().name
         }
         
         return text
     }
     
     func categoryName(at row: Int) -> String {
-        let category = categoryList[row].instance()
+        let category = categories[row].instance()
         
         return category.name
     }

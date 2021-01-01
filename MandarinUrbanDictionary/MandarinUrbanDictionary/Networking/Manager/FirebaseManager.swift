@@ -328,7 +328,6 @@ extension FirebaseManager {
     }
     
     // Setup Collection Environment
-    
     enum Environment: String {
         case dailyWorld = "DailyWord"
         case user = "User"

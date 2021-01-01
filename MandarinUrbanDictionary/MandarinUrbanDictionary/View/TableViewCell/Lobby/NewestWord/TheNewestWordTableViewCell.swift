@@ -26,9 +26,9 @@ class TheNewestWordTableViewCell: UITableViewCell {
         
         logoImageView.image = nil
         
-        titleLabel.text = ""
+        titleLabel.text = String.emptyString
         
-        categoryLabel.text = ""
+        categoryLabel.text = String.emptyString
     }
     
     override func awakeFromNib() {

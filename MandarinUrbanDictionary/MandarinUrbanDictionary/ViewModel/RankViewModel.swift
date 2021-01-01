@@ -77,11 +77,11 @@ class RankViewModel {
 
 extension RankViewModel {
     func getCategory(_ selectedCategory: Category) {
-        var category: String = ""
+        var category: String = String.emptyString
         
         switch selectedCategory {
         case .all:
-            category = ""
+            category = String.emptyString
         case .engineer:
             category = "工程師"
         case .job:
@@ -100,7 +100,7 @@ extension RankViewModel {
             category = "感情"
         }
         
-        switch category == "" {
+        switch category == String.emptyString {
         
         case true:
             

@@ -41,9 +41,9 @@ class HUDAnimation {
         
         switch viewController {
         case .newWord:
-            HUD.flash(.labeledSuccess(title: "新增成功", subtitle: ""), delay: 0.0)
+            HUD.flash(.labeledSuccess(title: "新增成功", subtitle: String.emptyString), delay: 0.0)
         case .report:
-            HUD.flash(.labeledSuccess(title: "檢舉成功", subtitle: ""), delay: 0.0)
+            HUD.flash(.labeledSuccess(title: "檢舉成功", subtitle: String.emptyString), delay: 0.0)
         }
         
         HUD.hide(afterDelay: 1.5) { (success) in
@@ -55,9 +55,9 @@ class HUDAnimation {
         
         switch viewController {
         case .newWord:
-            HUD.flash(.labeledError(title: "該詞已經存在", subtitle: ""), delay: 0.0)
+            HUD.flash(.labeledError(title: "該詞已經存在", subtitle: String.emptyString), delay: 0.0)
         case .report:
-            HUD.flash(.labeledError(title: "檢舉失敗", subtitle: ""), delay: 0.0)
+            HUD.flash(.labeledError(title: "檢舉失敗", subtitle: String.emptyString), delay: 0.0)
         }
         
         HUD.hide(afterDelay: 1.5) { (success) in

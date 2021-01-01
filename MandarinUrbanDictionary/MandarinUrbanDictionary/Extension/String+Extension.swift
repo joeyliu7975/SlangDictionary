@@ -9,6 +9,10 @@ import Foundation
 
 extension String {
     
+    static var emptyString: String {
+        return ""
+    }
+    
     func fuzzyMatch(_ needle: String) -> Bool {
         
         if needle.isEmpty { return true }

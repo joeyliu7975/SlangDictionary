@@ -25,12 +25,15 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
     private var speechManager: AVSpeechManager?
     
     init(identifierNumber: String, word: String, category: String, speechManager: AVSpeechManager = .init()) {
+        
         super.init(nibName: nil, bundle: nil)
         
         viewModel = DefinitionViewModel(id: identifierNumber, word: word, category: category)
         
         viewModel?.renewRecentSearch { [weak self] in
+            
             self?.viewModel?.addToRecentSearch()
+            
             self?.viewModel?.discoverWord()
         }
         
@@ -39,7 +42,9 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
         searchBar.text = word
         
         viewModel?.listenUser(completion: { [weak self](result: Result<User, Error>) in
+            
             self?.viewModel?.handle(result)
+            
         })
         
         viewModel?.listenDefinitions(completion: { [weak self] (result: Result<[Definition], NetworkError>) in
@@ -64,7 +69,6 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
         searchBar.setTextColor(.black, cursorColor: .homepageDarkBlue)
 
         return searchBar
-
     }()
     
     override func viewDidLoad() {
@@ -80,7 +84,9 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        
         searchBar.resignFirstResponder()
+        
     }
 }
 
@@ -106,7 +112,7 @@ private extension DefinitionViewController {
         
         navigationItem.setBarAppearance(color: .homepageDarkBlue)
                 
-        navigationItem.backButtonTitle = ""
+        navigationItem.removeBackButtonTitle()
         
         navigationItem.backBarButtonItem = UIBarButtonItem()
         
@@ -153,7 +159,6 @@ private extension DefinitionViewController {
             cancelTitle: "取消",
             reportTitle: "檢舉") { (outcome) in
             switch outcome {
-            
             case .report:
                 // Call API Here...
                 let reportVC = ReportViewController()
@@ -178,7 +183,7 @@ private extension DefinitionViewController {
 
 extension DefinitionViewController: DefinitionHeaderDelegate {
     
-    func clickReadOut(_ sender: UIButton) {
+    func clickReadButton(_ sender: UIButton) {
         
         if let word = viewModel?.word {
             

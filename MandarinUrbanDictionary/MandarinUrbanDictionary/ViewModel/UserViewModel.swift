@@ -12,7 +12,8 @@ class UserViewModel {
     typealias JoeyResult<T:Codable> = Result<T, NetworkError>
     
     private let networkManager: FirebaseManager
-    
+    private let storeManager: UserDefaults
+
     var challenges: [Challenge] = [.view, .like, .post]
     
     var processList: [Challenge: Process] = [:]
@@ -20,11 +21,12 @@ class UserViewModel {
     var currentUser = Box([User]())
     
     var uid: String {
-        return UserDefaults.standard.string(forKey: "uid") ?? String.emptyString
+        return storeManager.string(forKey: "uid") ?? String.emptyString
     }
     
-    init(networkManager: FirebaseManager = .init()) {
+    init(networkManager: FirebaseManager = .init(), storeManger: UserDefaults = .standard) {
         self.networkManager = networkManager
+        self.storeManager = storeManger
     }
     
     func fetchUserStatus() {
@@ -85,23 +87,7 @@ extension UserViewModel: ProgressBarSupportingFeatures {
     
     func getProgressBar(_ challenge: Status) -> Bar {
         
-        let progressBar: ProgressBar
-        
-        switch challenge {
-        
-        case .like:
-            
-            progressBar = ProgressBar(title: "按讚挑戰賽", color: .systemGreen)
-            
-        case .view:
-            
-            progressBar = ProgressBar(title: "幹話探索挑戰賽", color: .systemYellow)
-            
-        case .post:
-            
-            progressBar = ProgressBar(title: "發文挑戰賽", color: .separatorlineBlue)
-            
-        }
+        let progressBar = ProgressBar(title: challenge.title, color: challenge.color)
         
         return progressBar
     }
@@ -111,6 +97,28 @@ extension UserViewModel {
     
     enum Challenge {
         case like, view, post
+        
+        var title: String {
+            switch self {
+            case .like:
+                return "按讚挑戰賽"
+            case .view:
+                return "幹話探索挑戰賽"
+            case .post:
+                return "發文挑戰賽"
+            }
+        }
+        
+        var color: UIColor {
+            switch self {
+            case .like:
+                return .systemGreen
+            case .view:
+                return .systemYellow
+            case .post:
+                return .separatorlineBlue
+            }
+        }
     }
     
     enum Stage: String {

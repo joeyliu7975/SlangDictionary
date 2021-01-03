@@ -166,7 +166,9 @@ extension DefinitionViewModel {
             let definition = self.definitionViewModels.value[index]
                 
            isLike = definition.like.contains(uid)
+            
         case .dislike(let index):
+            
             let definition = self.definitionViewModels.value[index]
                 
            isLike = definition.dislike.contains(uid)

@@ -63,13 +63,7 @@ private extension LobbyViewController {
         
         searchBar.delegate = self
         
-        let rightNavBarButton = UIBarButtonItem(customView: searchBar)
-                        
-        let spacerButton = UIButton.makeButton(buttonType: .spacerButton)
- 
-        let rightSpacer = UIBarButtonItem(customView: spacerButton)
-        
-        navigationItem.rightBarButtonItems = [rightSpacer, rightNavBarButton]
+        setupBarButtons()
     }
     
     func setupTableView() {
@@ -100,11 +94,21 @@ private extension LobbyViewController {
         navigationController?.navigationBar.tintColor = .homepageLightBlue
     }
     
+    func setupBarButtons() {
+        let rightNavBarButton = UIBarButtonItem(customView: searchBar)
+        
+        let spacerButton = UIButton.makeButton(buttonType: .spacerButton)
+        
+        let rightSpacer = UIBarButtonItem(customView: spacerButton)
+        
+        navigationItem.rightBarButtonItems = [rightSpacer, rightNavBarButton]
+    }
+    
     func tapSearchBar() {
         let searchViewController = SearchPageViewController()
-        
+
         let navController = UINavigationController(rootViewController: searchViewController)
-        
+
         navController.present(self)
     }
     

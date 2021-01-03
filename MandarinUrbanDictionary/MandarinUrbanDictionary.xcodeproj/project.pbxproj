@@ -65,11 +65,11 @@
 		716CD3212575183D00695A91 /* SidePanelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD3202575183D00695A91 /* SidePanelViewModel.swift */; };
 		716CD3262575232700695A91 /* SidePanelHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CD3252575232700695A91 /* SidePanelHeaderFooterView.swift */; };
 		716CD3292575234100695A91 /* SidePanelHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716CD3282575234100695A91 /* SidePanelHeaderFooterView.xib */; };
-		7170537425904493000521B0 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7170537325904493000521B0 /* UITextField+Extension.swift */; };
 		717569232570CFD300417B9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569222570CFD300417B9C /* AppDelegate.swift */; };
 		717569252570CFD300417B9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717569242570CFD300417B9C /* SceneDelegate.swift */; };
 		7175692C2570CFD600417B9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7175692B2570CFD600417B9C /* Assets.xcassets */; };
 		7175692F2570CFD600417B9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7175692D2570CFD600417B9C /* LaunchScreen.storyboard */; };
+		717E3BB725A1D8C100A7A32A /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717E3BB625A1D8C100A7A32A /* UserViewModelTests.swift */; };
 		71811DEC2576DC66005319DA /* SidePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71811DEB2576DC66005319DA /* SidePanel.swift */; };
 		71846460259C61D300DBFD99 /* UINavigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184645F259C61D300DBFD99 /* UINavigation+Extension.swift */; };
 		71846469259D991B00DBFD99 /* MandarinUrbanDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71846468259D991B00DBFD99 /* MandarinUrbanDictionaryTests.swift */; };
@@ -213,13 +213,13 @@
 		716CD3202575183D00695A91 /* SidePanelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelViewModel.swift; sourceTree = "<group>"; };
 		716CD3252575232700695A91 /* SidePanelHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelHeaderFooterView.swift; sourceTree = "<group>"; };
 		716CD3282575234100695A91 /* SidePanelHeaderFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidePanelHeaderFooterView.xib; sourceTree = "<group>"; };
-		7170537325904493000521B0 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		7175691F2570CFD300417B9C /* MandarinUrbanDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MandarinUrbanDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		717569222570CFD300417B9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		717569242570CFD300417B9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7175692B2570CFD600417B9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7175692E2570CFD600417B9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		717569302570CFD600417B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		717E3BB625A1D8C100A7A32A /* UserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
 		71811DEB2576DC66005319DA /* SidePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanel.swift; sourceTree = "<group>"; };
 		7184645F259C61D300DBFD99 /* UINavigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigation+Extension.swift"; sourceTree = "<group>"; };
 		71846466259D991B00DBFD99 /* MandarinUrbanDictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MandarinUrbanDictionaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -505,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				71846468259D991B00DBFD99 /* MandarinUrbanDictionaryTests.swift */,
+				717E3BB625A1D8C100A7A32A /* UserViewModelTests.swift */,
 				7184646A259D991B00DBFD99 /* Info.plist */,
 			);
 			path = MandarinUrbanDictionaryTests;
@@ -751,7 +752,6 @@
 				71A6C20C2586163800FC478D /* NSCharacterSet+Extension.swift */,
 				710574B82589E771004556DF /* UIButton+Extension.swift */,
 				71D3E6C7258A42640064693C /* UINavigationController+Extension.swift */,
-				7170537325904493000521B0 /* UITextField+Extension.swift */,
 				7159FBB12595BCB400825641 /* Integer+Extension.swift */,
 				7184645F259C61D300DBFD99 /* UINavigation+Extension.swift */,
 			);
@@ -1159,7 +1159,6 @@
 				718E69F2259084D60056475F /* LocalNotificationManager.swift in Sources */,
 				71990F42259F5EBF0096D734 /* DailyFIRManager.swift in Sources */,
 				71A84A96257689B000E0C14D /* CardView.swift in Sources */,
-				7170537425904493000521B0 /* UITextField+Extension.swift in Sources */,
 				71D3E6C8258A42640064693C /* UINavigationController+Extension.swift in Sources */,
 				71E81EA42584A22500BECDCC /* FirebaseTimestamp+Extension.swift in Sources */,
 				71A84A912576802900E0C14D /* Category.swift in Sources */,
@@ -1173,6 +1172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71846469259D991B00DBFD99 /* MandarinUrbanDictionaryTests.swift in Sources */,
+				717E3BB725A1D8C100A7A32A /* UserViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1249,7 +1249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1304,7 +1304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1322,14 +1322,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MandarinUrbanDictionary/MandarinUrbanDictionary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XTR83A4K57;
 				INFOPLIST_FILE = "MandarinUrbanDictionary/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Joey.SlangDict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1345,14 +1345,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MandarinUrbanDictionary/MandarinUrbanDictionary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XTR83A4K57;
 				INFOPLIST_FILE = "MandarinUrbanDictionary/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Joey.SlangDict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

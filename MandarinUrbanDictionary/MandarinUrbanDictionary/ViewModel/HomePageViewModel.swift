@@ -45,7 +45,7 @@ class HomePageViewModel {
     
     var randomNumber = 12
     
-    func listen<T: Codable>(env: Environment, orderBy order: FirebaseManager.Order, completion: @escaping (Result<[T], NetworkError>) -> Void) {
+    func listen<Element: Codable>(env: Environment, orderBy order: FirebaseManager.Order, completion: @escaping (Result<[Element], NetworkError>) -> Void) {
         networkManager.listen(env) { (db) in
             db.order(by: order.rawValue, descending: true).addSnapshotListener { (querySnapshot, error) in
                 if let error = error {
@@ -54,10 +54,10 @@ class HomePageViewModel {
                     
                 } else {
                     
-                    var datas = [T]()
+                    var datas = [Element]()
                     
                     for document in querySnapshot!.documents {
-                        if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
+                        if let data = try? document.data(as: Element.self, decoder: Firestore.Decoder()) {
                             datas.append(data)
                         } else {
                             completion(.failure(.decodeError))
@@ -70,7 +70,7 @@ class HomePageViewModel {
         }
     }
     
-    func handle<T: Codable>(_ res: Result<[T], NetworkError>, completion: @escaping () -> Void?) {
+    func handle<Element: Codable>(_ res: Result<[Element], NetworkError>, completion: @escaping () -> Void?) {
         switch res {
         
         case .success(let data):

@@ -17,7 +17,7 @@ protocol FirebaseRequesting {
     
     func listen(completion: @escaping (Result<[Element], NetworkError>) -> Void)
     
-    func retrieveData(completion: @escaping (Result<[Element], NetworkError>) -> Void)
+    func retrieveData(completion: @escaping (Result<Element, NetworkError>) -> Void)
 }
 
 enum Environment: String {
@@ -28,7 +28,6 @@ enum Environment: String {
 }
 
 class UserFIRManager: FirebaseRequesting {
-
     typealias Element = User
     
     var database = Firestore.firestore()
@@ -68,23 +67,17 @@ class UserFIRManager: FirebaseRequesting {
             }
     }
     
-    func retrieveData(completion: @escaping (Result<[User], NetworkError>) -> Void) {
-        database.collection(collection.rawValue).order(by: field.rawValue, descending: true).getDocuments { (querySnapshot, error) in
+    func retrieveData(completion: @escaping (Result<Element, NetworkError>) -> Void) {
+        database.collection(collection.rawValue).document(uid).getDocument { (querySnapshot, error) in
             if let error = error {
                 
-                completion(.failure(error))
+                completion(.failure(.noData(error)))
                 
             } else {
                 
-                var datas = [T]()
-                
-                for document in querySnapshot!.documents {
-                    if let data = try? document.data(as: T.self, decoder: Firestore.Decoder()) {
-                        datas.append(data)
-                    }
+                if let data = try? querySnapshot?.data(as: Element.self, decoder: Firestore.Decoder()) {
+                    completion(.success(data))
                 }
-                
-                completion(.success(datas))
             }
         }
     }

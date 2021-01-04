@@ -31,11 +31,10 @@ class UserViewModel {
     
     func fetchUserStatus() {
  
-        networkManager.retrieveUser(userID: uid) { (result: JoeyResult<User>) in
+        networkManager.retrieveUser(userID: uid) { [weak self] (result: JoeyResult<User>) in
             switch result {
             case .success(let user):
-                
-                self.currentUser.value = [user]
+                self?.currentUser.value = [user]
                 
             case .failure(.decodeError):
                 print("User Model decode Error!")
@@ -127,7 +126,7 @@ extension UserViewModel {
         
     }
     
-    struct ProgressBar {
+    struct ProgressBar: Equatable {
         
         let title: String
         

@@ -16,7 +16,6 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet weak var cancelButtonContainerView: UIView!
     
-    
     @IBOutlet weak var confirmButton: UIButton!
     
     @IBOutlet weak var cancelButton: UIButton!

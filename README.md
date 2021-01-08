@@ -19,7 +19,7 @@ Slang Dictionary 是一個匿名社群，致力於打造一個華語流行語的
 - SwiftLint
 - Firebase
 - Lottie
-- Hero#
+- Hero
 - IQKeyboard
 - Crashlytics
 - PKHUD

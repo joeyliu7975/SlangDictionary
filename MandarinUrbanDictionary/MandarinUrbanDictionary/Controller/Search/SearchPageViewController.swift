@@ -15,13 +15,12 @@ class SearchPageViewController: UIViewController {
     lazy var searchBar: UISearchBar = {
 
         let width = UIScreen.main.bounds.width - 90
+        
+        let frame = CGRect(x: 0, y: 0, width: width, height: 20)
 
-        let searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width, height: 20))
-
-        searchBar.setTextColor(.homepageDarkBlue, cursorColor: .homepageDarkBlue)
+        let searchBar: UISearchBar = UISearchBar.makeSearchBar(.navigationSearchBar, frame: frame)
 
         return searchBar
-
     }()
     
     lazy var cancelButton: UIButton = {
@@ -92,16 +91,8 @@ private extension SearchPageViewController {
         overrideUserInterfaceStyle = .light
             
         cancelButton.setTitleColor(.white, for: .normal)
-                
-        searchBar.setTextColor(.black, cursorColor: .separatorlineBlue)
-        
-        searchBar.setClearButton(color: .lightGray)
-        
-        searchBar.setSearchIcon(color: .lightGray)
         
         searchBar.becomeFirstResponder()
-        
-        searchBar.returnKeyType = .default
         
         searchBar.delegate = self
         

@@ -19,11 +19,11 @@ class LobbyViewController: JoeyPanelViewController {
         
         let width = UIScreen.main.bounds.width
         
-        let searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: width, height: 20))
+        let frame = CGRect(x: 0, y: 0, width: width, height: 20)
+        
+        let searchBar: UISearchBar = UISearchBar.makeSearchBar(.navigationSearchBar, frame: frame)
         
         searchBar.placeholder = "搜尋"
-        
-        searchBar.setTextColor(.homepageDarkBlue, cursorColor: .homepageDarkBlue)
         
         return searchBar
     }()

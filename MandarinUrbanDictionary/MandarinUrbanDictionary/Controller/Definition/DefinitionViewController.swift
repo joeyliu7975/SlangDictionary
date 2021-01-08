@@ -63,10 +63,10 @@ class DefinitionViewController: UIViewController, UITableViewDelegate {
     lazy var searchBar: UISearchBar = {
 
         let width = UIScreen.main.bounds.width - 20
+        
+        let frame = CGRect(x: 5, y: 0, width: width, height: 20)
 
-        let searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 5, y: 0, width: width, height: 20))
-
-        searchBar.setTextColor(.black, cursorColor: .homepageDarkBlue)
+        let searchBar: UISearchBar = UISearchBar.makeSearchBar(.navigationSearchBar, frame: frame)
 
         return searchBar
     }()

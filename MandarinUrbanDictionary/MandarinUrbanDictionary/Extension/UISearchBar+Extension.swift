@@ -13,6 +13,26 @@ extension UISearchBar {
         return self.searchTextField
     }
     
+    static func makeSearchBar(_ type: CustomSearchBar, frame: CGRect = .zero) -> UISearchBar {
+        
+        let searchBar = UISearchBar(frame: frame)
+        
+        switch type {
+        case .navigationSearchBar:
+                
+            searchBar.setTextColor(.black, cursorColor: .separatorlineBlue)
+            
+            searchBar.setClearButton(color: .lightGray)
+            
+            searchBar.setSearchIcon(color: .lightGray)
+            
+            searchBar.returnKeyType = .default
+        }
+        
+        return searchBar
+    }
+
+    
     func setTextColor(_ color: UIColor, cursorColor: UIColor? = .lightGray) {
                                       
         if let textfield = self.value(forKey: "searchField") as? UITextField,
@@ -47,5 +67,9 @@ extension UISearchBar {
             searchImage.tintColor = color
             
         }
+    }
+    
+    enum CustomSearchBar {
+        case navigationSearchBar
     }
 }

@@ -67,4 +67,66 @@ Slang Dictionary 是一個匿名社群，致力於打造一個華語流行語的
 
 ### 分類系統
 
+- 透過分類系統，可以讓使用者把幹話進行分類，方便未來查找
+- 拖過分類系統查找，可以讓使用者了解 Slang 歸屬、流行的領域，在未來使用時可以更加道地
+
+<div class="row">
+  <div class="column">
+<img src="https://i.postimg.cc/BbVTKstN/Screen-Shot-2021-01-09-at-3-55-35-PM.png" alt="" width="150" height = "320" align="left" />
+  </div>
+  <div class="column">
+<img src="https://i.postimg.cc/j2rgc2n8/Screen-Shot-2021-01-09-at-8-24-20-PM.png" alt="" width="150" height = "320" align="center" />
+  </div>
+  </div>
+
 ### 排名系統
+
+- 藉由點閱率排名，讓使用者學習到當下最熱門的流行用語
+- 藉由時間順序排名，讓使用者學習到當下最新的流行用語
+
+<div class="row">
+  <div class="column">
+<img src="https://i.postimg.cc/mD0NRgYQ/Screen-Shot-2021-01-09-at-8-34-17-PM.png" alt="" width="150" height = "320" align="left" />
+  </div>
+  <div class="column">
+<img src="https://i.postimg.cc/tCgCyNgN/Screen-Shot-2021-01-09-at-8-33-14-PM.png" alt="" width="150" height = "320" align="center" />
+  </div>
+  </div>
+  
+  ### 收藏系統
+  
+  - 藉由收藏，系統會定時提醒、協助使用者複習收藏的字
+  - 可以自由移除收藏的字
+  
+  <div class="row">
+  <div class="column">
+<img src="https://i.postimg.cc/tRx861MG/Screen-Shot-2021-01-09-at-8-49-27-PM.png" alt="" width="150" height = "320" align="left" />
+  </div>
+  <div class="column">
+<img src="https://i.postimg.cc/BnMz32XH/Screen-Shot-2021-01-09-at-8-49-22-PM.png" alt="" width="150" height = "320" align="center" />
+  </div>
+  </div>
+  
+   ### 歷史紀錄系統
+   
+   - 依據使用者的搜尋紀錄，幫使用者紀錄每次看過的字
+   - 可以自由移除歷史紀錄的訊息
+   
+<div class="row">
+  <div class="column">
+<img src="https://i.postimg.cc/bN9jWD8f/Screen-Shot-2021-01-09-at-8-57-10-PM.png" alt="" width="150" height = "320" align="left" />
+  </div>
+  <div class="column">
+<img src="https://i.postimg.cc/g0f5nmdK/Screen-Shot-2021-01-09-at-9-05-54-PM.png" alt="" width="150" height = "320" align="left" />
+  </div>
+   <div class="column">
+<img src="https://i.postimg.cc/BZFHGsXC/Screen-Shot-2021-01-09-at-9-06-21-PM.png" alt="" width="150" height = "320" align="center" />  
+  </div>
+  </div>
+
+   ### 任務系統
+   
+   - 提供不同的挑戰，鼓勵使用者學習更多的流行語、為字典注入更多的詞彙
+   - 視覺化的進度條，讓使用者一看便知任務進度
+   
+   <img src="https://i.postimg.cc/9FGk0vNd/Screen-Shot-2021-01-09-at-9-01-59-PM.png" alt="" width="150" height = "320" align="center" />

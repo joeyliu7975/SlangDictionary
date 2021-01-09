@@ -1,4 +1,4 @@
-# <img src="https://i.postimg.cc/cC2dDSjG/slang-dictionary-logo.png" alt="" width="100" align="center" /> Slang Dictionary
+# <img src="https://i.postimg.cc/4N0VVd7V/slang-dictionary-logo.png" alt="" width="90" height="90" align="center" /> Slang Dictionary
 
 <a href="https://apps.apple.com/app/id1546684143?fbclid=IwAR1r_NP2GlEqGw05D90h7Q3ApFw5jkB5zKkk2mBeQazqppZh5QwD1nTX2Vo">
          <img alt="" src="https://i.postimg.cc/pVFHRcQv/download-on-the-App-Store.png" width=150" height="50">

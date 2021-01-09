@@ -26,6 +26,21 @@ Slang Dictionary 是一個匿名社群，致力於打造一個華語流行語的
 
 ## Features
 
+### 首頁
+
+- 整理投放最新及每日訊息給使用者，最大化使用者接觸生字的機會
+- 把頁面選取收納在側邊欄，擴大使用者螢幕操作空間
+
+<div class="row">
+  <div class="column">
+<img src="https://i.postimg.cc/v89zQ5ck/Screen-Shot-2021-01-09-at-9-35-45-PM.png" alt="" width="150" height = "320" align="left" />
+    </div>
+   <div class="column">
+<img src="https://i.postimg.cc/zDnCm5Q1/Screen-Shot-2021-01-09-at-9-35-53-PM.png" alt="" width="150" height = "320" align="center" />
+     </div>
+  </div>
+
+
 ### 搜尋系統
 
 - 透過使用者搜尋關鍵字，顯示出符合的結果

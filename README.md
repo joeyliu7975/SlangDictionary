@@ -51,9 +51,19 @@ Slang Dictionary 是一個匿名社群，致力於打造一個華語流行語的
 
 ### 字詞解釋
 
--
+- 一鍵收藏系統
+- 單詞發音系統
+- 解釋評價系統
+- 檢舉系統
+- 新增解釋系統
+
+<img src="https://i.postimg.cc/Vk4Bn3vx/definition.png" alt="" width="150" height = "300" align="center" />
 
 ### 新增解釋
+
+- 新增新的解釋，並同步顯示在平台上
+
+<img src="https://i.postimg.cc/D0bBc5Hq/Screen-Shot-2021-01-09-at-5-19-19-PM.png" alt="" width="150" height = "300" align="center" />
 
 ### 分類系統
 

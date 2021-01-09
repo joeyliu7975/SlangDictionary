@@ -1,5 +1,9 @@
 # <img src="https://i.postimg.cc/cC2dDSjG/slang-dictionary-logo.png" alt="" width="100" align="center" /> Slang Dictionary
 
+<a href="https://apps.apple.com/app/id1546684143?fbclid=IwAR1r_NP2GlEqGw05D90h7Q3ApFw5jkB5zKkk2mBeQazqppZh5QwD1nTX2Vo">
+         <img alt="" src="https://i.postimg.cc/pVFHRcQv/download-on-the-App-Store.png" width=150" height="50">
+</a>
+
 Slang Dictionary 是一個匿名社群，致力於打造一個華語流行語的知識庫。透過 Slang Dictionary 的用戶評價系統，將會使詞語與時俱進，用戶的參與將會加速詞彙的迭代，流行語和字典與用戶共同成長
 
 - 使用 Sign in with Apple 做為登入系統

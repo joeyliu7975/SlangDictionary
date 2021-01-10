@@ -28,7 +28,7 @@ Slang Dictionary 是一個匿名社群，致力於打造一個華語流行語的
 - Crashlytics
 - PKHUD
 
-## Features
+## Features and Screenshots
 
 ### 首頁
 
@@ -149,3 +149,12 @@ Slang Dictionary 是一個匿名社群，致力於打造一個華語流行語的
    - 視覺化的進度條，讓使用者一看便知任務進度
    
    <img src="https://i.postimg.cc/9FGk0vNd/Screen-Shot-2021-01-09-at-9-01-59-PM.png" alt="" width="150" height = "320" align="center" />
+
+   ## Requirement
+   
+   - iOS 13.0+
+   - Xcode 12.2
+   
+   ## Contacts
+   
+   Joey Liu  <a href="joeyliu7975@outlook.com">joeyliu7975@outlook.com</a>

@@ -159,6 +159,9 @@ Slang Dictionary 是一個匿名社群，致力於打造一個華語流行語的
    
    <img src="https://github.com/joeyliu7975/SlangDictionary/blob/Refactor/gif/search.gif" alt="" width="150" height = "320" align="left" />
    <img src="https://github.com/joeyliu7975/SlangDictionary/blob/Refactor/gif/newDef.gif" alt="" width="150" height = "320" align="center" />
+   <br>
+   <img src="https://github.com/joeyliu7975/SlangDictionary/blob/Refactor/gif/newWord.gif" alt="" width="150" height = "320" align="left" />
+   <img src="https://github.com/joeyliu7975/SlangDictionary/blob/Refactor/gif/favDelete.gif" alt="" width="150" height = "320" align="center" />
    
    ## Contacts
    

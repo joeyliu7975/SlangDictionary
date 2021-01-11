@@ -11,13 +11,6 @@ Slang Dictionary 是一個匿名社群，致力於打造一個華語流行語的
 - 使用 Swiftlint 管理 Code 的撰寫
 - 使用 Firebase Crashlytics 
 
-## Note	
-```
-
-  如果要下載專案請自行下載 Firebase 的 GoogleService-Info.plist 
-  
-```
-
 ## Library
 
 - SwiftLint

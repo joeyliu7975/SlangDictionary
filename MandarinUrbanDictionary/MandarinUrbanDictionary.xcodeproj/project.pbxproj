@@ -494,13 +494,6 @@
 			path = Fundmental;
 			sourceTree = "<group>";
 		};
-		7184645D259C2F3800DBFD99 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
 		71846467259D991B00DBFD99 /* MandarinUrbanDictionaryTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,7 +671,6 @@
 			children = (
 				71C88A4925975FA400FC5069 /* Animation */,
 				71CE92152579C1FF0080E0A0 /* Base */,
-				7184645D259C2F3800DBFD99 /* Login */,
 				713361C7258C452800FEEB43 /* NewWord */,
 				71E7F3312570D67900F15098 /* CollectionViewCell */,
 				7160B713257254D8007F7C90 /* TableViewCell */,

@@ -17,5 +17,8 @@ target 'MandarinUrbanDictionary' do
 	pod 'FSPagerView'
 	pod 'Charts'
 	pod 'Hero'
+	pod 'lottie-ios'
+	pod 'PKHUD', '~> 5.0'
+
 
 end
